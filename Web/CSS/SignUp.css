@@ -1,0 +1,490 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  box-sizing: border-box;
+}
+.border-class-1 {
+  border: 3px solid var(--picton-blue);
+}
+.border-class-2 {
+  border: 3px solid var(--medium-purple);
+}
+body
+{
+  background-color: #21212E;
+}
+.poppins-medium-white-20px {
+  color: white;
+  font-family: "Poppins-Medium", Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+.poppins-regular-normal-picton-blue-22px {
+  color: var(--picton-blue);
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-regular-normal-white-14px {
+  color: white;
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-regular-normal-white-15px {
+  color: white;
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-semi-bold-picton-blue-75px {
+  color: var(--picton-blue);
+  font-family: "Poppins", Helvetica, Arial, serif;
+  font-size: 75px;
+}
+.poppins-semi-bold-white-53px {
+  color: white;
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 53px;
+  font-style: normal;
+  font-weight: 600;
+}
+.segoeui-regular-normal-dove-gray-20px {
+  color: var(--dove-gray);
+  font-family: "SegoeUI-Regular", Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.signup {
+  align-items: flex-start;
+  background-color: var(--bastille);
+  display: inline-flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: flex-start;
+  min-width: 100%;
+  width: auto;
+  min-height: 100%;
+}
+.signup .age {
+  background-color: transparent;
+  border: 0;
+  height: 29px;
+  left: 46px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 16px;
+  white-space: nowrap;
+  width: 82px;
+}
+.signup .age::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signup .already-ha-an-account {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  letter-spacing: 2.1px;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  text-decoration: underline;
+  top: 4px;
+  width: 280px;
+}
+.signup .auto-flex-C61RwL {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: auto;
+  justify-content: flex-start;
+  margin-left: 124px;
+  margin-top: 67px;
+  min-height: 670px;
+  width: 383px;
+}
+.signup .ellipse-10 {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.signup .ellipse-8 {
+  background-color: transparent;
+  height: 687px;
+  left: calc(49.94% - 268px);
+  position: absolute;
+  top: calc(49.93% - 343px);
+  width: 536px;
+}
+.signup .ellipse-9 {
+  background-color: transparent;
+  height: calc(100% - 434px);
+  left: 217px;
+  position: absolute;
+  top: 217px;
+  width: calc(100% - 434px);
+}
+.signup .enter-a-va-d-username {
+  background-color: transparent;
+  border: 0;
+  bottom: calc(33.93% - 10px);
+  height: 29px;
+  left: 20px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  white-space: nowrap;
+  width: 268px;
+  top:11px;
+}
+.signup .enter-a-va-d-username::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signup .enter-email-address {
+  background-color: transparent;
+  border: 0;
+  height: 29px;
+  left: 62px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 15px;
+  white-space: nowrap;
+  width: 277px;
+}
+.signup .enter-email-address::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signup .find-the-l-your-taste {
+  background-color: transparent;
+  height: auto;
+  left: 696px;
+  letter-spacing: 2.25px;
+  line-height: 15px;
+  position: absolute;
+  text-align: left;
+  top: 1074px;
+  white-space: nowrap;
+  width: auto;
+}
+.signup .group-2495 {
+  align-self: center;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 54px;
+  margin-right: 2.63px;
+  margin-top: 59px;
+  position: relative;
+  width: 170px;
+}
+.signup .group-2499 {
+  background-color: transparent;
+  border: 3px solid var(--medium-purple);
+  border-radius: 34px;
+  height: 57px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 179px;
+}
+.signup .group-2500 {
+  background-color: var(--bastille);
+  border: 3px solid var(--picton-blue);
+  border-radius: 34px;
+  height: 57px;
+  left: 0px;
+  position: absolute;
+  top: 234px;
+  width: 381px;
+
+}
+.signup .group-38 {
+  background-color: transparent;
+  height: 1434px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1307px;
+}
+.signup .icon-feather-key {
+  background-color: transparent;
+  height: 35px;
+  left: 13px;
+  position: absolute;
+  top: 10px;
+  width: 35px;
+}
+.signup .icon-ionic-ios-mail {
+  background-color: transparent;
+  height: 20px;
+  left: 16px;
+  position: absolute;
+  top: 18px;
+  width: 29px;
+}
+.signup .overlap-group-C61RwL {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 1434px;
+  margin-left: -612px;
+  margin-top: -736px;
+  position: relative;
+  width: 1437px;
+}
+.signup .overlap-group1-fhuxN3 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 57px;
+  margin-top: 17px;
+  position: relative;
+  width: 381px;
+}
+.signup .overlap-group2-fhuxN3 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 291px;
+  position: relative;
+  width: 381px;
+}
+.signup .overlap-group3-fhuxN3 {
+  align-self: flex-end;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 33px;
+  margin-top: 18px;
+  position: relative;
+  width: 353px;
+}
+.signup .overlap-group4-fhuxN3 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 57px;
+  margin-top: 11px;
+  position: relative;
+  width: 381px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 17px;
+
+   color: rgba(70, 194, 255, 1);
+  font-family: "Comic Sans MS", Helvetica, Arial, serif;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  left: 190px;
+  top: -5px;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.gender {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .gender {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .gender {
+  background-color: var(--medium-purple);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.gender:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .gender:after {
+  display: block;
+}
+
+
+.signup .overlap-group5-fhuxN3 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 57px;
+  margin-top: 14px;
+  position: relative;
+  width: 179px;
+}
+.signup .password {
+  background-color: transparent;
+  border: 0;
+  height: 29px;
+  left: 72px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 15px;
+  white-space: nowrap;
+  width: 185px;
+}
+.signup .password::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signup .path-1552 {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.signup .path-1553 {
+  background-color: transparent;
+  height: calc(100% - 2px);
+  left: 0px;
+  position: absolute;
+  top: 2px;
+  width: 100%;
+}
+.signup .path-1554 {
+  background-color: transparent;
+  height: 13px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  width: calc(100% - 2px);
+}
+.signup .picture {
+  background-color: transparent;
+  height: 214px;
+  left: 105px;
+  position: absolute;
+  top: 0px;
+  width: 214px;
+}
+.signup .rectangle- {
+  background-color: var(--bastille);
+  border-radius: 34px;
+  height: 57px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 381px;
+}
+.signup .sign-in {
+  background-color: transparent;
+  height: auto;
+  left: 278px;
+  letter-spacing: 0px;
+  line-height: 22px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: auto;
+}
+.signup .sign-up-P19v9h {
+  background-color: transparent;
+  bottom: calc(28.87% - 9px);
+  height: 30px;
+  letter-spacing: 2px;
+  line-height: 20px;
+  position: absolute;
+  right: calc(48.98% - 44px);
+  text-align: left;
+  white-space: nowrap;
+  width: 90px;
+}
+.signup .sign-up-SJVP2h {
+  background-color: transparent;
+  height: auto;
+  left: 89px;
+  letter-spacing: 0px;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  top: 194px;
+  white-space: nowrap;
+  width: auto;
+}
+.signup .span0-XXsvOm {
+  color: rgba(70, 194, 255, 1);
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 600;
+}
+.signup .span1-XXsvOm {
+  color: rgba(140, 89, 252, 1);
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 600;
+}
+.signup .span2-XXsvOm {
+  color: rgba(70, 194, 255, 1);
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 600;
+}
+.signup .welcome-to-n-otflix {
+  background-color: transparent;
+  height: auto;
+  left: 680px;
+  letter-spacing: 0px;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  top: 1013px;
+  white-space: nowrap;
+  width: auto;
+}
+:root {
+  --bastille: rgba(33, 33, 46, 1);
+  --dove-gray: rgba(112, 112, 112, 1);
+  --medium-purple: rgba(139, 90, 252, 1);
+  --picton-blue: rgba(70, 194, 255, 1);
+}
+.align-self-flex-center {
+  align-self: center;
+}
+a {
+  text-decoration: none;
+  display: contents;
+}
