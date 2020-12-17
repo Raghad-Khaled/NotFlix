@@ -1,0 +1,367 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  box-sizing: border-box;
+}
+body{
+  background-color: #21212E;
+}
+.border-class-1 {
+  border: 3px solid var(--picton-blue);
+}
+.border-class-2 {
+  border: 3px solid var(--medium-purple);
+}
+.poppins-medium-white-20px {
+  color: white;
+  font-family: "Poppins-Medium", Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+.poppins-regular-normal-picton-blue-20px {
+  color: var(--picton-blue);
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-regular-normal-white-14px {
+  color: white;
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-regular-normal-white-15px {
+  color: white;
+  font-family: "Poppins-Regular", Helvetica, Arial, serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+}
+.poppins-semi-bold-picton-blue-75px {
+  color: var(--picton-blue);
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 600;
+}
+.poppins-semi-bold-white-53px {
+  color: white;
+  font-family: "Poppins-SemiBold", Helvetica, Arial, serif;
+  font-size: 53px;
+  font-style: normal;
+  font-weight: 600;
+}
+.segoeui-regular-normal-dove-gray-20px {
+  color: var(--dove-gray);
+  font-family: "SegoeUI-Regular", Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.signin {
+  align-items: flex-start;
+  background-color: var(--bastille);
+  display: inline-flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: flex-start;
+  min-width: 100%;
+  width: auto;
+  min-height: 100%;
+}
+.signin .auto-flex-uxzUmT {
+  align-items: center;
+  align-self: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 54px;
+  justify-content: flex-start;
+  margin-top: 26px;
+  min-width: 282px;
+  width: auto;
+
+}
+.signin .auto-flex1-C61RwL {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: auto;
+  justify-content: flex-start;
+  margin-left: 254px;
+  margin-top: -10.44px;
+  min-height: 660px;
+  width: 381px;
+}
+.signin .ellipse-10 {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.signin .ellipse-8 {
+  background-color: transparent;
+  height: 687px;
+  left: calc(49.94% - 268px);
+  position: absolute;
+  top: calc(49.93% - 343px);
+  width: 536px;
+}
+.signin .ellipse-9 {
+  background-color: transparent;
+  height: calc(100% - 434px);
+  left: 217px;
+  position: absolute;
+  top: 217px;
+  width: calc(100% - 434px);
+}
+.signin .enter-email-address {
+  background-color: transparent;
+  border: 0;
+  height: 29px;
+  left: 62px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 15px;
+  white-space: nowrap;
+  width: 277px;
+}
+.signin .enter-email-address::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signin .find-the-l-your-taste {
+  background-color: transparent;
+  height: auto;
+  left: 696px;
+  letter-spacing: 2.25px;
+  line-height: 15px;
+  position: absolute;
+  text-align: left;
+  top: 1074px;
+  white-space: nowrap;
+  width: auto;
+}
+.signin .group-2495 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 54px;
+  margin-left: 15.37px;
+  margin-top: 51px;
+  position: relative;
+  width: 170px;
+}
+.signin .group-2496 {
+  background-color: transparent;
+  height: 54px;
+  left: -8px;
+  position: absolute;
+  top: 0px;
+  width: 170px;
+}
+.signin .group-38 {
+  background-color: transparent;
+  height: 1434px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1307px;
+}
+.signin .icon-feather-key {
+  background-color: transparent;
+  height: 35px;
+  left: 14px;
+  position: absolute;
+  top: 10px;
+  width: 35px;
+}
+.signin .icon-ionic-ios-mail {
+  background-color: transparent;
+  height: 20px;
+  left: 16px;
+  position: absolute;
+  top: 17px;
+  width: 29px;
+}
+.signin .new-user {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 2.1px;
+  line-height: 14px;
+  margin-top: 7.53px;
+  min-height: 22px;
+  min-width: 104px;
+  text-align: left;
+  text-decoration: underline;
+  white-space: nowrap;
+  width: auto;
+}
+.signin .overlap-group-C61RwL {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 1434px;
+  margin-left: -612px;
+  margin-top: -736px;
+  position: relative;
+  width: 1307px;
+}
+.signin .overlap-group1-uxzUmT {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 57px;
+  margin-top: 5px;
+  position: relative;
+  width: 381px;
+}
+.signin .overlap-group2-uxzUmT {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 343px;
+  margin-right: 0px;
+  position: relative;
+  width: 318px;
+}
+.signin .overlap-group3-c24oYb {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 54px;
+  margin-left: 18px;
+  position: relative;
+  width: 170px;
+}
+.signin .overlap-group4-uxzUmT {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 57px;
+  margin-top: 11px;
+  position: relative;
+  width: 381px;
+}
+.signin .password {
+  background-color: transparent;
+  border: 0;
+  height: 29px;
+  left: 72px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 15px;
+  white-space: nowrap;
+  width: 185px;
+}
+.signin .password::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+.signin .path-1552 {
+  background-color: transparent;
+  height: calc(100% + 120px);
+  left: -60px;
+  position: absolute;
+  top: -60px;
+  width: calc(100% + 120px);
+}
+.signin .path-1553 {
+  background-color: transparent;
+  height: calc(100% - 2px);
+  left: 0px;
+  position: absolute;
+  top: 2px;
+  width: 100%;
+}
+.signin .path-1554 {
+  background-color: transparent;
+  height: 13px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  width: calc(100% - 2px);
+}
+.signin .rectangle- {
+  background-color: var(--bastille);
+  border-radius: 34px;
+  height: 57px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 381px;
+}
+.signin .sign-in-KCI6xu {
+  background-color: transparent;
+  height: auto;
+  left: 68px;
+  letter-spacing: 0px;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  top: 264px;
+  white-space: nowrap;
+  width: auto;
+}
+.signin .sign-in-oIvaUT {
+  background-color: transparent;
+  bottom: calc(28.87% - 9px);
+  height: 30px;
+  left: calc(45.85% - 37px);
+  letter-spacing: 2px;
+  line-height: 20px;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  width: 81px;
+}
+.signin .sign-up {
+  background-color: transparent;
+  height: auto;
+  left: 38px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  position: absolute;
+  text-align: left;
+  top: 17px;
+  white-space: nowrap;
+  width: auto;
+}
+.signin .untitled-design2 {
+  background-color: transparent;
+  height: 318px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 318px;
+}
+.signin .welcome-back {
+  background-color: transparent;
+  height: auto;
+  left: 680px;
+  letter-spacing: 0px;
+  line-height: 1px;
+  position: absolute;
+  text-align: left;
+  top: 1013px;
+  white-space: nowrap;
+  width: auto;
+}
+:root {
+  --bastille: rgba(33, 33, 46, 1);
+  --dove-gray: rgba(112, 112, 112, 1);
+  --medium-purple: rgba(139, 90, 252, 1);
+  --picton-blue: rgba(70, 194, 255, 1);
+}
+a {
+  text-decoration: none;
+  display: contents;
+}
