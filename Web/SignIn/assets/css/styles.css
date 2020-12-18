@@ -1,0 +1,117 @@
+p {
+  color: white;
+  font-size: 10px;
+}
+
+p {
+  font-size: 12px;
+  margin-top: 17px;
+}
+
+@media (min-width: 576px) {
+  img {
+    vertical-align: middle;
+    border-style: none;
+    /*display: initial;*/
+    visibility: visible;
+  }
+}
+
+@media (min-width: 300px) {
+  img {
+    vertical-align: middle;
+    border-style: none;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 992px) {
+  img {
+    vertical-align: middle;
+    border-style: none;
+    visibility: visible;
+  }
+}
+
+#first_Col {
+  margin-top: 20px;
+}
+
+@media (min-width: 576px) {
+  #first_Col {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  #first_Col {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 300px) {
+  #first_Col {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  #first_Col {
+    visibility: visible;
+    margin-top: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  #first_Col {
+    visibility: visible;
+    margin-top: 100px;
+    margin-left: -50px;
+  }
+}
+
+@media (min-width:768px) {
+  .col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin-top: 40px;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 300px) {
+  .col-sm-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: -90px;
+  }
+}
+
+@media (min-width:992px) {
+  .container, .container-lg, .container-md, .container-sm {
+    max-width: 960px;
+    margin-top: 140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    margin-top: 50px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 160px;
+  }
+}
+
