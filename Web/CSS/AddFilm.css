@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/outer-space-background.jpg");
+  background-image: url("../images/95606.jpg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -32,6 +32,7 @@ body {
 }
 #Duration{
     padding: 5px 20px 5px 2px;
+    background-color: rgba(255, 255, 255, 0.658);
 }
 
 .container{
@@ -41,8 +42,11 @@ body {
     margin-top: 2%;
 }
 .btn{
-    background-color:rgb(41 14 60) ;
+    background-color:#172435 ;
     color: white;
+}
+.form-control{
+    background-color: rgba(255, 255, 255, 0.658);
 }
 @media (max-width: 470px) { 
     .head{
