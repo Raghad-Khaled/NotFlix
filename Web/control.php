@@ -2,7 +2,7 @@
 require('Database.php');
 
 class user{
-    private $_conn;
+    private $_conn; 
 
     public function __construct (){
       $DB_opt = Database::getInstance();
