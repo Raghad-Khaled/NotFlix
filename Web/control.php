@@ -31,8 +31,6 @@ class user{
      echo $qury;
      $result= mysqli_query($this->_conn,$qury);
     }
-
-
     }
 
 
