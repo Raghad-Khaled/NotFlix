@@ -18,13 +18,16 @@ class user{
     $record =$this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE EMAIL='$email'");
     $record2 =$this->_conn->query("SELECT USER_NAME FROM user_of_notflix WHERE USER_NAME='$name'");
 
+
+    //var_dump( $record);
+    //var_dump( $record2);
     if($record->num_rows !=0)
-    echo "<script> alert('Oops!, This Email is already Exist!');  window.location.href='SignUp.php';</script>";
-    else if($record2->nun_rows !=0)
-    echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.php';</script>";
+    echo "<script> alert('Oops!, This Email is already Exist!');  window.location.href='SignUp.html';</script>";
+    else if($record2->num_rows !=0)
+    echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.html';</script>";
     else{
      $qury="INSERT INTO user_of_notflix  VALUES ('$name','$password','$email','$age','$gender')";
-     //echo $qury;
+     echo $qury;
      $result= mysqli_query($this->_conn,$qury);
      //echo $result;
     }
