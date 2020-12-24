@@ -5,3 +5,12 @@
   border-color: #007bff;
 }
 
+.navbar1-1-brand {
+  position:relative;
+  left:-100em;
+  transition:all 1000ms ease 250ms;
+}
+
+.scrolled .navbar1-1-brand {
+  left:0;
+}
