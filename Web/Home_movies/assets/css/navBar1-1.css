@@ -3096,7 +3096,7 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 
 a:focus, a:hover {
   color: rgb(255,255,255);
-  text-decoration: underline;
+  text-decoration: initial;
 }
 
 a, area, button, [role="button"], input, label, select, summary, textarea {
@@ -3388,8 +3388,7 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 }
 
 a:focus, a:hover {
-  color: #4885ed;
-  text-decoration: underline;
+  color: #21212e;
 }
 
 a, area, button, [role="button"], input, label, select, summary, textarea {
