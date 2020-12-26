@@ -63,10 +63,10 @@ class Movie{
 
   public function InsertNewMovie($Name,$year,$duration,$description,$language,$revenue,$budget,$link,$poster,$admin,$rate,$count,$Director,$prize,$story)
   {
-  $record =$this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE EMAIL='$Name'");
+  $record =$this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
   
   if($record->num_rows !=0)
-      echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm/AddFilm.html';</script>";
+      echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
   
   else
   {
@@ -151,7 +151,12 @@ class Movie{
    return $result= mysqli_query($this->_conn,$qury);
   }
 
+  public function getid($title){
+    $qury="SELECT ID From movie WHERE NAME_MOVIE='$title'";
+    //echo $qury;
+   return $result= mysqli_query($this->_conn,$qury);
 
+  }
   
 }
 ?>
