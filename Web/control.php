@@ -52,7 +52,8 @@ class user{
 
 
 /////////////////////////////Raghad///////////////////////////////
-class Movie{
+class Movie
+{
   private $_conn; 
 
   public function __construct (){
@@ -158,5 +159,29 @@ class Movie{
 
   }
   
+}
+
+
+
+class genre 
+{
+  private $_conn; 
+
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function get_genres()
+  {
+    $qury="SELECT DISTINCT ID,GENRE_TYPE From genre";
+    
+
+
+    
+   return $result= mysqli_query($this->_conn,$qury);
+  }
+
 }
 ?>
