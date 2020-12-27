@@ -1,0 +1,12 @@
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('1','comedy');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('2','romance');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('3','drama');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('4','thriller');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('5','action');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('6','documentary');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('7','fantasy');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('8','fiction');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('9','horror');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('10','mystery');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('11','adventure');
+INSERT INTO genre (ID,GENRE_TYPE) VALUES('12','historical');
