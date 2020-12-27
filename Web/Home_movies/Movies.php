@@ -290,15 +290,14 @@
     <section id="cards">
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1><div class="filter">
     <form> 
-        
+
+   
     <!---  Combo boxes of filters ---->    
     <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Language</option>
-             <?php
              
-             ?>
         </select>
-    <select style="margin-bottom:20px; margin-left:10px">
+        <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Genre</option>
              <?php
              $records =  $movie->getgenre();
