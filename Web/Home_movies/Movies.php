@@ -414,14 +414,24 @@
 
 
                     	<!-- Movie Card-->
-
+                        <?php
+                        
+                        $records=$movie->get_all();
+                        while($data = mysqli_fetch_array($records)){
+                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                            {
+                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                            }
+                        ?>
 
                         <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                             <figure class="figure tc-cardhover-14"><figcaption>
-    <a rel="stylesheet" type="text/css" href=""><h3>Movie</h3>
-    <p>Movie overview</p></a>
-  </figcaption><img class="figure-img" src="assets/img/91SCNVEssVL._AC_SY741_.jpg"></figure>
+    <a rel="stylesheet" type="text/css" href=""><h3><?php echo $data['NAME_MOVIE'];?></h3>
+    <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p></a>
+  </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>></figure>
                         </div>
+
+                        <?php } ?>
                         
                         <!------------->
 									
