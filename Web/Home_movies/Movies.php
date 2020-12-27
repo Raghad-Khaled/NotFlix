@@ -327,6 +327,19 @@
         </select>
     <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Era</option>
+             <?php
+             
+             $year=1910;
+              $counter=0;
+             while($counter<=10)
+     {
+        echo "<option value='". $counter ."'>" .$year."</option>";  // displaying data in option menu
+        $counter++;
+        $year+=10;
+     }
+             
+             
+             ?>
         </select>
     <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Prize</option>
