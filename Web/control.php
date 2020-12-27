@@ -181,13 +181,27 @@ class genre
 
   public function get_genres()
   {
-    $qury="SELECT DISTINCT ID,GENRE_TYPE From genre";
-    
-
-
-    
+    $qury="SELECT DISTINCT ID,GENRE_TYPE From genre";    
    return $result= mysqli_query($this->_conn,$qury);
   }
+
+}
+
+class prize
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function get_prize_names()
+  {
+    $qury="SELECT DISTINCT ID,TITLE From prize";    
+    return $result= mysqli_query($this->_conn,$qury);
+  }
+  
 
 }
 ?>
