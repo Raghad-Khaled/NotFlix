@@ -295,20 +295,33 @@
     <!---  Combo boxes of filters ---->    
     <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Language</option>
-             
+
+
+    <?php
+     
+    $records =  $movie->get_movie_languages();
+    $counter=0;
+    while($data = mysqli_fetch_array($records))
+    {
+    echo "<option value='". $temp ."'>" .$data['LANGUAGE_MOBIE']."</option>";  // displaying data in option menu
+    $counter++;
+    }	
+    ?> 
+
         </select>
         <select style="margin-bottom:20px; margin-left:10px">
              <option value="">Genre</option>
+  
              <?php
-             $records =  $movie->getgenre();
-
-             while($data = mysqli_fetch_array($records))
-             {
-                 echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
-             }
-              
-             ?>
-            
+     
+     $records =  $movie->getgenre();
+    $temp=0;
+     while($data = mysqli_fetch_array($records))
+     {
+        echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE']."</option>";  // displaying data in option menu
+        $temp++;
+     }	
+ ?> 
              
 
         </select>

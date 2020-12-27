@@ -158,6 +158,12 @@ class Movie
    return $result= mysqli_query($this->_conn,$qury);
 
   }
+
+  public function get_movie_languages()
+  {
+    $qury="SELECT DISTINCT LANGUAGE_MOBIE FROM movie ";
+    return $result= mysqli_query($this->_conn,$qury);
+  }
   
 }
 
