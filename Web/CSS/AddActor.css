@@ -6,6 +6,8 @@ body {
     background-size: cover; /* Resize the background image to cover the entire container */
     min-height: 500px;
     font-family: 'Langar', cursive;
+    color: white;
+    
   }
   .navbar{
       background-color: #ffffffb9;
@@ -25,3 +27,13 @@ body {
   .actorimg{
       width: 100%;
   }
+form{
+    margin-top: 28%;
+}
+
+@media (max-width: 470px) { 
+    .head{
+        margin-right:0% ;
+     
+     }
+}

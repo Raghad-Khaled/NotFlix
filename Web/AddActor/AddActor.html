@@ -20,8 +20,34 @@
         Add New Actor
         </div>
       </nav>
-      <!-- <img class="actorimg" src="actor.PNG"></img> -->
+      
+      <form method="POST" action="Add.php" enctype="multipart/form-data">
+      <div class="container">
 
+        <div class="row">
+            <div class="col-sm form-group">
+                <label class="form-label" for="title">Actor Frist Name</label>
+                 <input type="text" class="form-control" required name="Fname" >
+            </div>
+            <div class="col-sm form-group">
+                <label class="form-label" for="title">Actor Last Name</label>
+                <input type="text" class="form-control" required name="Lname" >
+            </div>
+            <div class="col-sm form-group">
+                <label class="form-label" for="title">Link Actor image</label>
+                 <input type="text" class="form-control" required name="postar" id="postar">
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-sm form-group">
+                <label class="form-label" for="title">Actor Birth date</label>
+                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+        </div>
+        
+      </div>
+    </form>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
