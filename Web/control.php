@@ -269,6 +269,11 @@ class actor
     $qury = "SELECT * From actor where ID=" . "'$ID'";
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function insertactor($Fname,$Lname,$gender,$birth,$image){
+
+    $qury="INSERT INTO actor (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
+    return $result = mysqli_query($this->_conn, $qury);
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 class director
@@ -284,6 +289,11 @@ class director
   {
     $qury = "SELECT * from director  where ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
+  }
+  public function insertdirector($Fname,$Lname,$gender,$birth,$image){
+
+    $qury="INSERT INTO director (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
+    return $result = mysqli_query($this->_conn, $qury);
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////

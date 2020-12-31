@@ -1,6 +1,6 @@
 body {
     
-    background-image:url('../images/actorbackground.png');
+    background-image:url('../images/director.png');
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
@@ -28,7 +28,7 @@ body {
       width: 100%;
   }
 form{
-    margin-top: 25%;
+    margin-top: 26%;
 }
 .gendr{
     margin-left:43%;
