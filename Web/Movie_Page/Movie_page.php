@@ -92,10 +92,50 @@ $data=mysqli_fetch_assoc($reselt);
                                 <div style="margin-top: 22px;">
                                     <h3 style="font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Movie Rate</h3>
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">IMDB:&nbsp;</span>
-                                        <div class="rating" style="width: 402px;margin-left: 27px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;"></div>
+                                    <div class="rating" style="width: 402px;margin-left: 27px;">
+                                        <!-------------Rate Stars------------------------------------------------------------------------------->
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
                                     </div>
-                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">NOTflix:&nbsp;</span>
-                                        <div class="rating" style="width: 402px;margin-left: 14px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;"></div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB Rate Count:&nbsp;</span>
+                                        <div >
+                                        <!-------------Rate COUNT------------------------------------------------------------------------------->
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
+                                    </div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">NOTflix:&nbsp;</span>
+                                        <div class="rating" style="width: 402px;margin-left: 14px;">
+                                        <!-------------Rate Stars------------------------------------------------------------------------------->
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">Notflix Rate Count:&nbsp;</span>
+                                        <div >
+                                        <!-------------Rate COUNT------------------------------------------------------------------------------->
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
                                     </div>
                                 </div>
                                 <div>
