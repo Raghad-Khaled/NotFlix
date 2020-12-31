@@ -311,6 +311,13 @@ class story
     $qury = "SELECT * from story  where STORY_ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
+
+  public function InsertStory($title,$author,$poster,$overview)
+  {
+    $qury = "INSERT INTO story (`STORY_NAME`,`AUTHOR_NAME`,`POSTER`,`Overview`) VALUES('$title','$author','$poster','$overview')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
 }
 
 class character
