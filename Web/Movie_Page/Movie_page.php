@@ -223,8 +223,7 @@ $data=mysqli_fetch_assoc($reselt);
     </div>
     <!--------------End Repeat------------------------------------>
     <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;
-  margin-top: 25px;
-">
+  margin-top: 25px;">
 <!--------------Repeat this---->
     <div class="col">
         <div class="justify-content-center spacer-slider">
