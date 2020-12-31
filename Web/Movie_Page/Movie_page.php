@@ -222,8 +222,21 @@ $data=mysqli_fetch_assoc($reselt);
         
     </div>
     <!--------------End Repeat------------------------------------>
-    
-    
+    <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;
+  margin-top: 25px;
+">
+<!--------------Repeat this---->
+    <div class="col">
+        <div class="justify-content-center spacer-slider">
+            <figure class="figure" style="  width: 100%;
+"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="  width: 100%;
+" />
+                <figcaption class="figure-caption" style="  font-size: 12px;
+">Elizabeth Olsen</figcaption>
+            </figure>
+        </div>
+    </div>
+    <!--------------End Repeat------------------------------------>
 </div>
                                 </div>
                             </div>
