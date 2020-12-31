@@ -250,6 +250,7 @@ $data=mysqli_fetch_assoc($reselt);
   margin-top: 25px;
 ">
 <!--------------Repeat this---->
+<<<<<<< HEAD
     <div class="col">
         <div class="justify-content-center spacer-slider">
             <figure class="figure" style="  width: 100%;
@@ -273,6 +274,29 @@ $data=mysqli_fetch_assoc($reselt);
             </figure>
         </div>
     </div>
+=======
+                                         <?php
+                                            $records=$movie->get_actor_with_movieId($data['ID']);
+                                            $actor=new actor;
+                                            while($data2 = mysqli_fetch_array($records)){
+                                               $actordata= $actor->getactorwithId($data2['ACTOR_ID']);
+                                               $dataactor=mysqli_fetch_assoc($actordata);
+                                            ?>
+    <div class="col">
+        <div class="justify-content-center spacer-slider">
+            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" />
+                <figcaption class="figure-caption" style="  font-size: 12px;"><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?></figcaption>
+            </figure>
+           
+        </div>
+        
+    </div>
+    <?php } ?>
+    <!--------------End Repeat------------------------------------>
+    
+<!--------------Repeat this---->
+    
+>>>>>>> 2765753b31f9e61b5e3c40abc397667dd9d3c525
     <!--------------End Repeat------------------------------------>
 </div>
                                 </div>
