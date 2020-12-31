@@ -426,7 +426,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                             <figure class="figure tc-cardhover-14"><figcaption>
-    <a rel="stylesheet" type="text/css" href=""><h3><?php echo $data['NAME_MOVIE'];?></h3>
+    <a href="../Movie_Page/Movie_page.php?id=<?=$data['ID']?>"  rel="stylesheet" type="text/css"><h3><?php echo $data['NAME_MOVIE'];?></h3>
     <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p></a>
   </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>></figure>
                         </div>
@@ -498,3 +498,5 @@
 </body>
 
 </html>
+
+

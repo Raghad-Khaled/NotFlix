@@ -1,3 +1,12 @@
+<?php
+include '../control.php';  // Using database connection file here
+$id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$movie=new movie;
+$reselt=$movie->getMoviewithId($id);
+$data=mysqli_fetch_assoc($reselt);
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -96,45 +105,62 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;">Avengers: End Game<a href="#"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
+                                  <!----------------- title -->
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="#"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
                                     <div class="rating" style="margin-left: 18px;padding-bottom: 10px;"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+<!---------------------- Genre -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Genre</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">Adventure , Superhero</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                    <!------------------- Year of release -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Year of release</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">2019</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['YEAR'] ?></p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+<!---------------------- Production Company -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Production Company</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">Marvel studio</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                    <!------------------------- Duration -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Duration</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">2h 45min</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> min</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                    <!--------------------------- Language -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Language</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">En</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['LANGUAGE_MOBIE'] ?></p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                    <!----------------------- Prizes -->
+                                    <?php
+                                    $prize=new prize;
+                                    $prizedata=$prize->getprizewithId($data['PRIZE_WON_ID']);
+                                    $dataPrize=mysqli_fetch_assoc($prizedata);
+                                    
+                                    ?>
+
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Prizes</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">Oscar best graphics</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?> in <?= $dataPrize['YEAR']?> </p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                    <!--------------------------- Budget -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Budget</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">2,000,000,000$</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['BUDGET'] ?> $</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+                                   <!----------------------------- Revenue -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Revenue</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">10,000,000,000$</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['REVENUE'] ?> $</p>
                                     </div>
                                     <div>
                                         <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Story Line</h4>
                                     </div>
+                                   <!------------------------- discription -->
                                     <div class="summary">
-                                        <p style="margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec augue nunc, pretium at augue at, convallis pellentesque ipsum. Vestibulum diam risus, sagittis at fringilla at, pulvinar vel risus. Vestibulum dignissim eu nulla eu imperdiet. Morbi mollis tellus a nunc vestibulum consequat. Quisque tristique elit et nibh dapibus sodales. Nam sollicitudin a urna sed iaculis.</p>
+                                        <p style="margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;"><?=$data['DESCRIPTION_OF_MOVIE'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -145,10 +171,17 @@
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin-bottom: 20px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Director</h2>
                             <div class="row d-xl-flex">
                                 <div class="col-md-5" style="width: 239px;">
-                                    <figure class="figure" style="width: 241px;"><img class="figure-img" src="assets/img/Director.jpg" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
+                                <!--------------------------- Director -->
+                                  <?php
+                                   $director=new director;
+                                    $directordata=$director->getdirectotwithId($data['DIRECTOR_ID']);
+                                    $datadirector=mysqli_fetch_assoc($directordata);
+                                    
+                                  ?>
+                                    <figure class="figure" style="width: 241px;"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
                                 </div>
                                 <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start"><a href="#">
-                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;">Joe Russo</h4>
+                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;"><?=$datadirector['FNAME'] ?> <?=$datadirector['LNAME'] ?> </h4>
                                     </a></div>
                             </div>
                         </div>
@@ -158,6 +191,7 @@
                                     <h2 style="font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Cast</h2>
                                     <section style="margin-top: 20px;">
                                         <div class="d-flex flex-row multiple-item-slider">
+<!---------------------------------- actors  -->
                                             <div class="justify-content-center spacer-slider">
                                                 <figure class="figure"><a href="#"><img src="assets/img/Chris_Hemsworth.jpg" style="width: 100%;height: 100%;"></a>
                                                     <figcaption class="figure-caption" style="font-size: 9px;">Chres Hemsworth</figcaption>
@@ -168,31 +202,10 @@
                                                     <figcaption class="figure-caption">Chres Evans</figcaption>
                                                 </figure>
                                             </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><a href="#"><img src="assets/img/Karen_Gillan.jpg" style="width: 100%;height: 100%;"></a>
-                                                    <figcaption class="figure-caption" style="font-size: 14px;">Karen Gillan</figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><img class="figure-img" src="assets/img/Paul_Rudd.jpg" style="width: 100%;">
-                                                    <figcaption class="figure-caption">Paul Rudd</figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><img class="figure-img" src="assets/img/Robert%20Downey_Jr.jpg" style="width: 100%;height: 100%;">
-                                                    <figcaption class="figure-caption" style="font-size: 10px;">Robert Downey jr</figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><img class="figure-img" src="assets/img/Mark_Ruffalo.jpg" style="width: 100%;height: 100%;">
-                                                    <figcaption class="figure-caption" style="font-size: 14px;">Mark Ruffalo</figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><img class="figure-img" src="assets/img/Jeremy_Renner.jpg" style="width: 100%;height: 100%;">
-                                                    <figcaption class="figure-caption" style="font-size: 13px;">Jeremy Renner</figcaption>
-                                                </figure>
-                                            </div>
+                                            
+                                           
+                                           
+                                            
                                             <div class="justify-content-center spacer-slider">
                                                 <figure class="figure"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="width: 100%;">
                                                     <figcaption class="figure-caption" style="font-size: 12px;">Elizabeth Olsen</figcaption>
@@ -203,14 +216,21 @@
                                 </div>
                             </div>
                         </div>
+                        <?php
+                                   $story=new story;
+                                    $storydata=$story->getstorywithId($data['STORY_ID']);
+                                    $datastory=mysqli_fetch_assoc($storydata);
+                                  ?>
                         <div class="m-auto" style="margin-left: 40px;padding-right: 50px;padding-left: 50px;">
                             <h2 style="margin-top: 18px;font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Story Book</h2>
                             <div class="row" style="margin-top: 41px;">
                                 <div class="col-md-5">
-                                    <figure class="figure" style="box-shadow: 0px 0px 17px 2px rgba(70,194,255,0.48), 0px 0px 14px #bd11fa;"><img class="figure-img" src="assets/img/story.jpg" style="width: 100%;height: 100%;"></figure>
+                                    <figure class="figure" style="box-shadow: 0px 0px 17px 2px rgba(70,194,255,0.48), 0px 0px 14px #bd11fa;"><img class="figure-img" src="<?= $datastory['POSTER'] ?>" style="width: 100%;height: 100%;"></figure>
                                 </div>
+<!------------------------------------ story -->
+                                
                                 <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="#">
-                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-left: 19px;">Avengers Story Book</h4>
+                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-left: 19px;"><?= $datastory['STORY_NAME'] ?></h4>
                                     </a></div>
                             </div>
                         </div>
@@ -218,21 +238,21 @@
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin: 26px;margin-left: 11px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Main Characters&nbsp;</h2>
                             <div class="m-auto blog-slider" style="margin-top: 40px;margin-left: 0px;">
                                 <div class="blog-slider__wrp swiper-wrapper">
+                                <?php
+                                            $charactor=new character;
+                                            $records2=$charactor->getcharcter_storyId($data['STORY_ID']);
+                                            
+                                            while($data3 = mysqli_fetch_array($records2)){
+                                               
+                                            ?>
                                     <div class="blog-slider__item swiper-slide">
                                         <div></div>
-                                        <div class="blog-slider__img"><img src="assets/img/2135651-robert-1578822748.jpg" style="width: 100%;height: 100%;"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
+<!----------- character -->
+                                        <div class="blog-slider__img"><img src="<?= $data3['IMAGE'] ?>" style="width: 100%;height: 100%;"></div>
+                                        <div class="blog-slider__content"><div class="blog-slider__title"><?= $data3['FNAME'] ?> <?= $data3['LNAME'] ?></div><div class="blog-slider__text"><?= $data3['STORY'] ?> </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
                                     </div>
-                                    <div class="blog-slider__item swiper-slide">
-                                        <div></div>
-                                        <div class="d-lg-flex blog-slider__img"><img src="assets/img/https___hypebeast.com_wp-content_blogs.dir_6_files_2019_07_black-widow-marvel-movie-scarlett-johansson-taskmaster-stranger-things-david-harbour-1.jpg"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
-                                    </div>
-                                    <div class="blog-slider__item swiper-slide">
-                                        <div></div>
-                                        <div class="blog-slider__img"><img src="assets/img/thor-movie-storybook.jpg" style="width: 100%;height: 100%;"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
-                                    </div>
+                                    
+                                    <?php } ?>
                                     <div class="blog-slider__pagination"></div>
                                 </div>
                             </div>

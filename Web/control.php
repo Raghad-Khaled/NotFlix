@@ -171,10 +171,24 @@ class Movie
     $qury="SELECT  * FROM movie ";
     return $result= mysqli_query($this->_conn,$qury);
   } 
+
+  public function getMoviewithId($ID){
+    $qury="SELECT * from movie where ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  
+  public function get_actor_with_movieId($ID){
+    $qury="SELECT * from acted_movie where MOVIE_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  
   
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////
 
 class genre 
 {
@@ -193,7 +207,7 @@ class genre
   }
 
 }
-
+//////////////////////////////////////////////////////////////////////////////////
 class prize
 {
   private $_conn; 
@@ -208,7 +222,80 @@ class prize
     $qury="SELECT DISTINCT ID,TITLE From prize";    
     return $result= mysqli_query($this->_conn,$qury);
   }
+
+  public function getprizewithId($ID){
+    $qury="SELECT *from prize where ID="."'$ID'";
+    return $reselt=mysqli_query($this->_conn,$qury);
+   }
   
+  
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+class actor
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function getactorwithId($ID)
+  {
+    $qury="SELECT * From actor where ID="."'$ID'";    
+    return $result= mysqli_query($this->_conn,$qury);
+  }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+class director
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function getdirectotwithId($ID){
+    $qury="SELECT * from director  where ID="."'$ID'";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+class story
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function getstorywithId($ID){
+    $qury="SELECT * from story  where STORY_ID="."'$ID'";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+
+}
+
+class character
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function getcharcter_storyId($ID){
+    $qury="SELECT * from  fantasy_character where STORY_ID="."'$ID'";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
 
 }
 ?>
