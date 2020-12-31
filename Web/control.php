@@ -184,8 +184,18 @@ class Movie
 
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+
+  public function get_genre_with_movieId($ID){
+    $qury="SELECT * from genre_relation_movie where MOVIE_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
   
-  
+  public function get_company_with_movieId($ID){
+    $qury="SELECT * from funded_movie where MOVIE_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -205,6 +215,13 @@ class genre
     $qury="SELECT DISTINCT ID,GENRE_TYPE From genre";    
    return $result= mysqli_query($this->_conn,$qury);
   }
+
+  public function getgenrewithId($ID){
+    $qury="SELECT * From genre where ID="."'$ID'";    
+    return $result= mysqli_query($this->_conn,$qury);    
+
+  }
+  
 
 }
 //////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +310,21 @@ class character
 
   public function getcharcter_storyId($ID){
     $qury="SELECT * from  fantasy_character where STORY_ID="."'$ID'";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+}
+
+class company
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function get_company_withID($ID){
+    $qury="SELECT * from production_company where ID="."'$ID'";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 

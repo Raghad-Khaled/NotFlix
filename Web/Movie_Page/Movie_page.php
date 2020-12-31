@@ -88,7 +88,7 @@ $data=mysqli_fetch_assoc($reselt);
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href="https://www.marvel.com/movies/avengers-endgame"><img src="assets/img/71niXI3lxlL._AC_SY679_.jpg" style="width: 100%;height: 100%;"></a></div>
+                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href="<?= $data['HOME_PAGE_LINK'] ?>"><img src="<?=$data['POSTER'] ?>" style="width: 100%;height: 100%;"></a></div>
                                 <div style="margin-top: 22px;">
                                     <h3 style="font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Movie Rate</h3>
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">IMDB:&nbsp;</span>
@@ -111,7 +111,15 @@ $data=mysqli_fetch_assoc($reselt);
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
 <!---------------------- Genre -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Genre</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">Adventure , Superhero</p>
+                                        <?php
+                                            $records=$movie->get_genre_with_movieId($data['ID']);
+                                            $genre=new genre;
+                                            while($data2 = mysqli_fetch_array($records)){
+                                               $genredata= $genre->getgenrewithId($data2['GENRE_ID']);
+                                               $datagenre=mysqli_fetch_assoc($genredata);
+                                        ?>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 10px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$datagenre['GENRE_TYPE'] ?></p>
+                                       <?php } ?>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!------------------- Year of release -->
@@ -121,12 +129,20 @@ $data=mysqli_fetch_assoc($reselt);
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
 <!---------------------- Production Company -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Production Company</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">Marvel studio</p>
+                                        <?php
+                                            $records=$movie->get_company_with_movieId($data['ID']);
+                                            $company=new company;
+                                            while($data2 = mysqli_fetch_array($records)){
+                                               $companydata= $company->get_company_withID($data2['PRODUCTION_COMPANY_ID']);
+                                               $datacompany=mysqli_fetch_assoc($companydata);
+                                        ?>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$datacompany['COMPANY_NAME'] ?> founded at <?=$datacompany['YEAR_FOUNDED'] ?></p>
+                                        <?php } ?>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!------------------------- Duration -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Duration</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> min</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> hr</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Language -->
@@ -227,7 +243,7 @@ $data=mysqli_fetch_assoc($reselt);
                                 <div class="col-md-5">
                                     <figure class="figure" style="box-shadow: 0px 0px 17px 2px rgba(70,194,255,0.48), 0px 0px 14px #bd11fa;"><img class="figure-img" src="<?= $datastory['POSTER'] ?>" style="width: 100%;height: 100%;"></figure>
                                 </div>
-<!------------------------------------ story -->
+                              <!------------------------------------ story -->
                                 
                                 <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="#">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-left: 19px;"><?= $datastory['STORY_NAME'] ?></h4>
