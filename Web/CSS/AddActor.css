@@ -30,6 +30,10 @@ body {
 form{
     margin-top: 28%;
 }
+.gendre{
+    margin-left:40%;
+    margin-top: 10px;
+}
 
 @media (max-width: 470px) { 
     .head{
