@@ -1,0 +1,27 @@
+body {
+    
+    background-image:url('../AddActor/actor.PNG');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    min-height: 500px;
+    font-family: 'Langar', cursive;
+  }
+  .navbar{
+      background-color: #ffffffb9;
+      font-family: 'Langar', cursive;
+      font-size: xx-large;
+      font-weight: bold;
+     color:rgb(41 14 60);
+  }  
+  .navbar-brand{
+      margin-left:3%;
+  }
+  
+  .head{
+     margin-right:40% ;
+  
+  }
+  .actorimg{
+      width: 100%;
+  }
