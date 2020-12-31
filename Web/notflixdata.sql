@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 11:13 PM
+-- Generation Time: Dec 31, 2020 at 11:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -210,10 +210,17 @@ CREATE TABLE `fantasy_character` (
   `LNAME` varchar(100) DEFAULT NULL,
   `GENDER` char(1) DEFAULT NULL,
   `BIRTH_DATE` date DEFAULT NULL,
-  `DEATH_DATE` date DEFAULT NULL,
   `STORY` varchar(1000) DEFAULT NULL,
-  `STORY_ID` int(11) DEFAULT NULL
+  `STORY_ID` int(11) DEFAULT NULL,
+  `IMAGE` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fantasy_character`
+--
+
+INSERT INTO `fantasy_character` (`ID`, `FNAME`, `LNAME`, `GENDER`, `BIRTH_DATE`, `STORY`, `STORY_ID`, `IMAGE`) VALUES
+(1, 'Taha', 'hussin', 'F', '0000-00-00', 'plaplapla', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4QA7_VnwyZ4mtKus_tLjwqEZzLPtQ4dedQ&usqp=CAU');
 
 -- --------------------------------------------------------
 
@@ -483,6 +490,17 @@ INSERT INTO `story` (`STORY_ID`, `STORY_NAME`, `AUTHOR_NAME`, `POSTER`, `Overvie
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `story_character`
+--
+
+CREATE TABLE `story_character` (
+  `Story_ID` int(11) NOT NULL,
+  `Character_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_of_notflix`
 --
 
@@ -650,6 +668,19 @@ ALTER TABLE `production_company`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `story`
+--
+ALTER TABLE `story`
+  ADD PRIMARY KEY (`STORY_ID`);
+
+--
+-- Indexes for table `story_character`
+--
+ALTER TABLE `story_character`
+  ADD PRIMARY KEY (`Story_ID`,`Character_ID`),
+  ADD KEY `Character_ID` (`Character_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -658,6 +689,17 @@ ALTER TABLE `production_company`
 --
 ALTER TABLE `movie`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `story_character`
+--
+ALTER TABLE `story_character`
+  ADD CONSTRAINT `Character_ID` FOREIGN KEY (`Character_ID`) REFERENCES `fantasy_character` (`ID`),
+  ADD CONSTRAINT `Story_ID` FOREIGN KEY (`Story_ID`) REFERENCES `story` (`STORY_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
