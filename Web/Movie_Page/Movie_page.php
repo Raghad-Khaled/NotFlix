@@ -91,8 +91,8 @@ $data=mysqli_fetch_assoc($reselt);
                                 <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href="<?= $data['HOME_PAGE_LINK'] ?>"><img src="<?=$data['POSTER'] ?>" style="width: 100%;height: 100%;"></a></div>
                                 <div style="margin-top: 22px;">
                                     <h3 style="font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Movie Rate</h3>
-                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">IMDB:&nbsp;</span>
-                                    <div class="rating" style="width: 402px;margin-left: 27px;">
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB:&nbsp;</span>
+                                        <div class="rating" style="width: 402px;margin-left: 27px;">
                                         <!-------------Rate Stars------------------------------------------------------------------------------->
                                                     <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
                                                     <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
@@ -250,29 +250,27 @@ $data=mysqli_fetch_assoc($reselt);
   margin-top: 25px;
 ">
 <!--------------Repeat this---->
+                                         <?php
+                                            $records=$movie->get_actor_with_movieId($data['ID']);
+                                            $actor=new actor;
+                                            while($data2 = mysqli_fetch_array($records)){
+                                               $actordata= $actor->getactorwithId($data2['ACTOR_ID']);
+                                               $dataactor=mysqli_fetch_assoc($actordata);
+                                            ?>
     <div class="col">
         <div class="justify-content-center spacer-slider">
-            <figure class="figure" style="  width: 100%;
-"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="  width: 100%;
-" />
-                <figcaption class="figure-caption" style="  font-size: 12px;
-">Elizabeth Olsen</figcaption>
+            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" />
+                <figcaption class="figure-caption" style="  font-size: 12px;"><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?></figcaption>
             </figure>
+           
         </div>
+        
     </div>
+    <?php } ?>
     <!--------------End Repeat------------------------------------>
     
 <!--------------Repeat this---->
-    <div class="col">
-        <div class="justify-content-center spacer-slider">
-            <figure class="figure" style="  width: 100%;
-"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="  width: 100%;
-" />
-                <figcaption class="figure-caption" style="  font-size: 12px;
-">Elizabeth Olsen</figcaption>
-            </figure>
-        </div>
-    </div>
+    
     <!--------------End Repeat------------------------------------>
 </div>
                                 </div>
