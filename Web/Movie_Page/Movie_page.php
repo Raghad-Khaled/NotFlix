@@ -91,11 +91,51 @@ $data=mysqli_fetch_assoc($reselt);
                                 <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href="<?= $data['HOME_PAGE_LINK'] ?>"><img src="<?=$data['POSTER'] ?>" style="width: 100%;height: 100%;"></a></div>
                                 <div style="margin-top: 22px;">
                                     <h3 style="font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Movie Rate</h3>
-                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">IMDB:&nbsp;</span>
-                                        <div class="rating" style="width: 402px;margin-left: 27px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;"></div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB:&nbsp;</span>
+                                        <div class="rating" style="width: 402px;margin-left: 27px;">
+                                        <!-------------Rate Stars------------------------------------------------------------------------------->
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
                                     </div>
-                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 28px;">NOTflix:&nbsp;</span>
-                                        <div class="rating" style="width: 402px;margin-left: 14px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;"><img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;"></div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB Rate Count:&nbsp;</span>
+                                        <div >
+                                        <!-------------Rate COUNT------------------------------------------------------------------------------->
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
+                                    </div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">NOTflix:&nbsp;</span>
+                                        <div class="rating" style="width: 402px;margin-left: 14px;">
+                                        <!-------------Rate Stars------------------------------------------------------------------------------->
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">Notflix Rate Count:&nbsp;</span>
+                                        <div >
+                                        <!-------------Rate COUNT------------------------------------------------------------------------------->
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <!------------------------------------------------------------------------------------------------------>
+                                        
+                                        </div>
+                                        
+
                                     </div>
                                 </div>
                                 <div>
@@ -205,30 +245,36 @@ $data=mysqli_fetch_assoc($reselt);
                             <div class="col">
                                 <div style="margin-top: 22px;">
                                     <h2 style="font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Cast</h2>
-                                    <section style="margin-top: 20px;">
-                                        <div class="d-flex flex-row multiple-item-slider">
-<!---------------------------------- actors  -->
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><a href="#"><img src="assets/img/Chris_Hemsworth.jpg" style="width: 100%;height: 100%;"></a>
-                                                    <figcaption class="figure-caption" style="font-size: 9px;">Chres Hemsworth</figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><a href="#"><img src="assets/img/Chris_Evans.jpg" style="width: 100%;"></a>
-                                                    <figcaption class="figure-caption">Chres Evans</figcaption>
-                                                </figure>
-                                            </div>
-                                            
-                                           
-                                           
-                                            
-                                            <div class="justify-content-center spacer-slider">
-                                                <figure class="figure"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="width: 100%;">
-                                                    <figcaption class="figure-caption" style="font-size: 12px;">Elizabeth Olsen</figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </section>
+ <!---------------------------------- actors  -->                                 
+ <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;
+  margin-top: 25px;
+">
+<!--------------Repeat this---->
+    <div class="col">
+        <div class="justify-content-center spacer-slider">
+            <figure class="figure" style="  width: 100%;
+"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="  width: 100%;
+" />
+                <figcaption class="figure-caption" style="  font-size: 12px;
+">Elizabeth Olsen</figcaption>
+            </figure>
+        </div>
+    </div>
+    <!--------------End Repeat------------------------------------>
+    
+<!--------------Repeat this---->
+    <div class="col">
+        <div class="justify-content-center spacer-slider">
+            <figure class="figure" style="  width: 100%;
+"><img class="figure-img" src="assets/img/Elizabeth_olsen.jpg" style="  width: 100%;
+" />
+                <figcaption class="figure-caption" style="  font-size: 12px;
+">Elizabeth Olsen</figcaption>
+            </figure>
+        </div>
+    </div>
+    <!--------------End Repeat------------------------------------>
+</div>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +327,7 @@ $data=mysqli_fetch_assoc($reselt);
     <footer id="footer" style="background: rgb(33,33,46);margin-top: 0px;box-shadow: 0px -2px 20px 4px #21212e;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
+                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
