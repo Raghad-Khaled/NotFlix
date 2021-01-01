@@ -53,7 +53,10 @@
     ?>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px;">
         <div class="container"><a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;"></a><button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"><input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;"><a href="#"><img src="assets/img/icons8-search-64.png" style="width: 42px;margin-left: 6px;margin-right: 0px;"></a>
+            <div class="collapse navbar-collapse" id="navcol-1"><input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string">
+            <a href="Movies_Search.php?wanted_movie=<?php $_GET['search_string']?>">
+                <img src="assets/img/icons8-search-64.png" style="width: 42px;margin-left: 6px;margin-right: 0px;">
+            </a>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Profile</strong><br></a></li>
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
