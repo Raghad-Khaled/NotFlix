@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../CSS/Addprize.css">
 </head>
 <body>
+    <?php
+  include '../control.php';  // Using database connection file here
+  $movie=new movie;
+  ?>
     <nav class="navbar navbar-light "  >
         <div class="navbar-brand"  >
           
@@ -40,6 +44,40 @@
                 <input class="form-control" type="month" required value="1988-08" name="year" id="year">
             </div>
         </div>
+
+         <div class="row">
+        <div class="col-lg-6 form-group">
+            <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor" >
+                <option disabled selected>Actor</option> 
+                <?php
+     
+                $records =  $movie->getactor();
+           
+                while($data = mysqli_fetch_array($records))
+                {
+                    echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME']  ."</option>";  // displaying data in option menu
+                }	
+            ?> 
+            </select>
+        </div>
+
+        <div class="col-lg-6 form-group">
+            <select class="form-select form-control" aria-label="Default select example" id="A1" required name="movie" >
+                <option disabled selected>Movie</option> 
+                <?php
+     
+                $records =  $movie->get_all();
+           
+                while($data = mysqli_fetch_array($records))
+                {
+                    echo "<option value='". $data['ID'] ."'>" .$data['NAME_MOVIE']   ."</option>";  // displaying data in option menu
+                }	
+            ?> 
+            </select>
+        </div>
+
+         </div>
+
         
 
         <div class="text-center button ">

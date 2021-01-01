@@ -252,11 +252,20 @@ class prize
     $qury = "SELECT *from prize where ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
-  public function InsertPrize($title,$type,$year){
+  public function InsertPrize($title,$type){
 
-    $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`,`YEAR`) VALUES('$title','$type','$year')";
+    $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`) VALUES('$title','$type')";
     return $reselt = mysqli_query($this->_conn, $qury);
 
+  }
+  public function exist($title,$type){
+    $qury = "SELECT *from prize where TITLE=" . "'$title' and TYPE_OF_PRTIZE=" . "'$type'";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertActorMovie($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO actor_prize_movie  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
   }
 }
 
