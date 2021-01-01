@@ -234,7 +234,7 @@
 					<h3 data-animation="animated flipInX">NOTflix</h3>
 					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
 					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">read more</a>
+					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -249,7 +249,7 @@
 					<h3 data-animation="animated flipInX">NOTflix</h3>
 					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
 					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">read more</a>
+					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -264,7 +264,7 @@
 					<h3 data-animation="animated flipInX">NOTflix</h3>
 					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
 					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">read more</a>
+					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -370,7 +370,9 @@
     </form>
 </div>
 
-
+<div class="d-xl-flex justify-content-xl-center align-items-xl-center block-heading">
+	<button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="button" style="height: 40px;border-radius: 584px;background: #6f38ff;box-shadow: 0px 0px 20px rgba(70,194,255,0.63);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0); margin-top: 20px; margin-bottom: 5px;
+	font-color: rgba(70,194,255,0.63);font-size:20px;text-align: center;font-family: 'Architects Daughter', cursive;">Show</button></div>
 
 
 
