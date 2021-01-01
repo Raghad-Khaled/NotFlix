@@ -1,9 +1,8 @@
 <?php
-
-require_once( '../control.php');
+include '../control.php';  // Using database connection file here
+$movie1=new movie;
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
 $movie=new movie;
-$movie1=new movie;
 $reselt=$movie->getMoviewithId($id);
 $data=mysqli_fetch_assoc($reselt);
 $actors = $movie->Retrieveactortofilm($id);
@@ -26,10 +25,6 @@ $story = $movie->getStoryforMovie($id);
     <link rel="stylesheet" href="../CSS/AddFilm.css">
 </head>
 <body>
-  <?php
-  include '../control.php';  // Using database connection file here
-  $movie1=new movie;
-  ?>
 
     <nav class="navbar navbar-light "  >
         <div class="navbar-brand"  >
@@ -46,16 +41,16 @@ $story = $movie->getStoryforMovie($id);
       <div class="container">
         <div class="row ">
           <div class="col-sm form-group">
-            <label class="form-label" for="title" value = <?=$movie['POSTER'] ?>>Link for postar</label>
+            <label class="form-label" for="title" value = <?=$data['POSTER'] ?>>Link for postar</label>
              <input type="text" class="form-control" required name="postar" id="postar">
             
           </div>
           <div class="col-sm form-group">
-            <label class="form-label" for="title" value = <?=$movie['NAME_MOVIE'] ?>>Film Title </label>
+            <label class="form-label" for="title" value = <?=$data['NAME_MOVIE'] ?>>Film Title </label>
              <input type="text" class="form-control" required name="title" id="title">
           </div>
           <div class="col-sm form-group">
-            <label for="example-month-input" class="form-label" value = <?=$movie['YEAR'] ?>>Year</label>
+            <label for="example-month-input" class="form-label" value = <?=$data['YEAR'] ?>>Year</label>
             <input class="form-control" type="month" value="2020-08" required name="year" id="example-month-input">
           </div>
         </div>
@@ -63,31 +58,31 @@ $story = $movie->getStoryforMovie($id);
 
         <div class="row ">
             <div class="col-12 col-lg-4 form-group" >
-              <label class="form-label" for="Duration" value = <?=$movie['DURATION_MIN'] ?>>Duration of the Film </label>
+              <label class="form-label" for="Duration" value = <?=$data['DURATION_MIN'] ?>>Duration of the Film </label>
               <input type="text" class="form-control html-duration-picker" name="duration" required id="Duration" data-hide-seconds>
             </div>
             <div class="col-12 col-lg-4 form-group">
-              <label class="form-label" for="Buget" value = <?=$movie['BUDGET'] ?>>Budget </label>
+              <label class="form-label" for="Buget" value = <?=$data['BUDGET'] ?>>Budget </label>
                <input type="number" class="form-control" id="Buget" required name="buget">
             </div>
             <div class="col-12 col-lg-4 form-group">
-              <label for="Revenue" class="form-label" value = <?=$movie['REVENUE'] ?>>Revenue</label>
+              <label for="Revenue" class="form-label" value = <?=$data['REVENUE'] ?>>Revenue</label>
               <input class="form-control" type="number"  id="Revenue" required name="revenue" >
             </div>
           </div>
 
           <div class="row ">
             <div class="col-12 col-lg-4 form-group">
-              <label class="form-label" for="rate" value = <?=$movie['IMDB_RATE'] ?>>IMDB Rate </label>
+              <label class="form-label" for="rate" value = <?=$data['IMDB_RATE'] ?>>IMDB Rate </label>
                <input type="number" class="form-control" id="rate" required name="rate">
             </div>
             <div class="col-12 col-lg-4 form-group ">
-              <label for="Count" class="form-label" value = <?=$movie['IMDB_RATE_COUNT'] ?>>IMDB Count</label>
+              <label for="Count" class="form-label" value = <?=$data['IMDB_RATE_COUNT'] ?>>IMDB Count</label>
               <input class="form-control" type="number"  id="Count" required name="count">
             </div>
 
             <div class="col-12 col-lg-4 form-group ">
-              <label for="Count" class="form-label" value = <?=$movie['HOME_PAGE_LINK'] ?>>Home page Link</label>
+              <label for="Count" class="form-label" value = <?=$data['HOME_PAGE_LINK'] ?>>Home page Link</label>
               <input class="form-control" type="text"  id="Count" required name="link">
             </div>
           </div>
@@ -107,9 +102,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getactor();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME']  ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['FNAME'] .$data1['LNAME']  ."</option>";  // displaying data in option menu
      }	
  ?> 
  </select>
@@ -119,9 +114,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getactor();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['FNAME'] .$data1['LNAME'] ."</option>";  // displaying data in option menu
      }	
  ?> 
                 </select>
@@ -153,9 +148,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getgenre();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['GENRE_TYPE'] ."</option>";  // displaying data in option menu
      }	
  ?> 
                 </select>
@@ -165,9 +160,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getgenre();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['GENRE_TYPE'] ."</option>";  // displaying data in option menu
      }	
  ?> 
                 </select>
@@ -177,9 +172,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getgenre();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['GENRE_TYPE'] ."</option>";  // displaying data in option menu
      }	
  ?> 
                 </select>
@@ -200,9 +195,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getcompany();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['COMPANY_NAME'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['COMPANY_NAME'] ."</option>";  // displaying data1 in option menu
      }	
  ?> 
                 </select>
@@ -212,9 +207,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getcompany();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['COMPANY_NAME'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['COMPANY_NAME'] ."</option>";  // displaying data1 in option menu
      }	
  ?> 
                 </select>
@@ -224,9 +219,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getcompany();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['COMPANY_NAME'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['COMPANY_NAME'] ."</option>";  // displaying data1 in option menu
      }	
  ?> 
                 </select>
@@ -249,9 +244,9 @@ $story = $movie->getStoryforMovie($id);
         
         $records =  $movie1->getlanguage();
 
-        while($data = mysqli_fetch_array($records))
+        while($data1 = mysqli_fetch_array($records))
         {
-            echo "<option value='". $data['LANGUAGE_MOBIE'] ."'>" .$data['LANGUAGE_MOBIE'] ."</option>";  // displaying data in option menu
+            echo "<option value='". $data1['LANGUAGE_MOBIE'] ."'>" .$data1['LANGUAGE_MOBIE'] ."</option>";  // displaying data1 in option menu
         }	
     ?> 
                   </select>
@@ -263,9 +258,9 @@ $story = $movie->getStoryforMovie($id);
                     <?php
         $records =  $movie1->getDirector();
 
-        while($data = mysqli_fetch_array($records))
+        while($data1 = mysqli_fetch_array($records))
         {
-            echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME']."</option>";  // displaying data in option menu
+            echo "<option value='". $data1['ID'] ."'>" .$data1['FNAME'] .$data1['LNAME']."</option>";  // displaying data1 in option menu
         }	
     ?> 
                   </select>
@@ -279,9 +274,9 @@ $story = $movie->getStoryforMovie($id);
      
         $records =  $movie1->getstory();
 
-        while($data = mysqli_fetch_array($records))
+        while($data1 = mysqli_fetch_array($records))
         {
-            echo "<option value='". $data['STORY_ID'] ."'>" .$data['STORY_NAME'] ."</option>";  // displaying data in option menu
+            echo "<option value='". $data1['STORY_ID'] ."'>" .$data1['STORY_NAME'] ."</option>";  // displaying data1 in option menu
         }	
     ?> 
                   </select>
@@ -294,9 +289,9 @@ $story = $movie->getStoryforMovie($id);
      
      $records =  $movie1->getprize();
 
-     while($data = mysqli_fetch_array($records))
+     while($data1 = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['TITLE'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data1['ID'] ."'>" .$data1['TITLE'] ."</option>";  // displaying data1 in option menu
      }	
  ?> 
                 </select>
