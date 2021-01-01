@@ -17,7 +17,7 @@
     <nav class="navbar navbar-light "  >
         <div class="navbar-brand"  >
           
-            <img src="https://img.icons8.com/nolan/50/school-director.png"/>  
+        <img src="https://img.icons8.com/nolan/60/fantasy.png"/>
         
         </div>
         <div class="head">

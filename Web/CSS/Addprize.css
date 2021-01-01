@@ -1,0 +1,44 @@
+body {
+    
+    background-image:url('../images/prize2.jpg');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    min-height: 550px;
+    font-family: 'Langar', cursive;
+    color: white;
+    font-size: x-large;
+    
+  }
+  .navbar{
+      background-color: #ffffffb9;
+      font-family: 'Langar', cursive;
+      font-size: xx-large;
+      font-weight: bold;
+     color:rgb(41 14 60);
+  }  
+  .navbar-brand{
+      margin-left:3%;
+  }
+  
+  .head{
+     margin-right:40% ;
+  
+  }
+  .actorimg{
+      width: 100%;
+  }
+form{
+    margin-top: 20%;
+}
+.button{
+margin-top: 30px;
+}
+
+@media (max-width: 470px) { 
+    .head{
+        margin-right:0% ;
+     
+     }
+     
+}

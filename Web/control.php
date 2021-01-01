@@ -252,6 +252,12 @@ class prize
     $qury = "SELECT *from prize where ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
+  public function InsertPrize($title,$type,$year){
+
+    $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`,`YEAR`) VALUES('$title','$type','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////////
