@@ -206,7 +206,7 @@ class Movie
 
   public function search_by_movie_name($Movie_Name)
   {
-    $qury="SELECT * FROM `movie` WHERE Name_Movie LIKE '% $Movie_Name %' "; 
+    $qury="SELECT * FROM `movie` WHERE Name_Movie LIKE '%".$Movie_Name."%' "; 
 
     return $reselt=mysqli_query($this->_conn,$qury);
   }

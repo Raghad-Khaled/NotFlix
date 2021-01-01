@@ -52,11 +52,18 @@
     $prize_obj=new prize;
     ?>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px;">
+    <form action="Movies.php" method="Post">
         <div class="container"><a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;"></a><button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;"></button>
             <div class="collapse navbar-collapse" id="navcol-1"><input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string">
-            <a href="Movies_Search.php?wanted_movie=<?php $_GET['search_string']?>">
+            <!-- <button class="btn btn-primary d-table-row" type="submit" name="search" style="width: 135px;border-radius: 45px;background: linear-gradient(28deg, #BD11FA, #46C2FF);border-width: 0px;box-shadow: -1px 1px 20px 8px var(--purple);margin-top: 18px;">Search</button> -->
+            <button class="btn btn-primary" type="submit" name="search" style="background: rgba(147,3,3,0);">
+            <!-- <a href="#"><img src="assets/img/icons8-search-64.png" style="width: 42px;margin-left: 6px;margin-right: 0px;" />
+            </a> -->
+            </button>
+            <a href=# role="b   utton"  type="submit" name="search" >
                 <img src="assets/img/icons8-search-64.png" style="width: 42px;margin-left: 6px;margin-right: 0px;">
             </a>
+    </form>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Profile</strong><br></a></li>
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
@@ -420,6 +427,17 @@
                         <?php
                         
                         $records=$movie->get_all();
+                        if(isset($_POST['search']))
+                        {
+
+
+                        $search_string=$_POST['search_string'];
+
+                        $records=$movie->search_by_movie_name($search_string);
+                       
+
+                        }
+
                         while($data = mysqli_fetch_array($records)){
                             if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                             {
