@@ -334,6 +334,13 @@ class character
     $qury = "SELECT * from  fantasy_character where STORY_ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
+
+  public function insertcharacter($Fname,$Lname,$gender,$birth,$image,$storyid,$overview){
+
+    $qury="INSERT INTO fantasy_character (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE` ,`STORY`,`STORY_ID`) VALUES('$Fname','$Lname','$gender','$birth','$image','$overview','$storyid')";
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
 }
 
 class company
