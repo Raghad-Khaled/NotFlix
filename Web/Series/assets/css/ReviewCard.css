@@ -1,0 +1,81 @@
+@media (min-width: 1200px) {
+  #wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 500px !important;
+    background-color: rgb(27,27,27);
+  }
+}
+
+@media (min-width: 300px) {
+  #wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 324px;
+    background-color: rgb(27,27,27);
+  }
+}
+
+@media (min-width: 1200px) {
+  #star {
+    /*color: yellow;*/
+    /*margin-left: 10%;*/
+    font-size: 43px !important;
+  }
+}
+
+@media (min-width: 300px) {
+  #star {
+    /*color: yellow;*/
+    /*margin-left: 10%;*/
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #two {
+    margin-left: 5%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #theWholeWrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+}
+
+@media (min-width: 300px) {
+  #theWholeWrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  #one {
+    margin-left: 6.9%;
+  }
+}
+
+@media (min-width: 300px) {
+  #one {
+    margin-left: 6.9%;
+  }
+}
+
+#reviewBtn {
+  background-color: initial;
+  border: none;
+}
+
