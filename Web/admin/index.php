@@ -1,3 +1,12 @@
+<?php
+include '../control.php';  // Using database connection file here
+$name=filter_input(INPUT_GET,'Admin_Name',FILTER_SANITIZE_NUMBER_INT);
+$movie=new movie;
+$reselt=$movie->getMovieforAdmin($name);
+$data=mysqli_fetch_assoc($reselt);
+
+?>
+
 <!DOCTYPE html>
 <html style="height: 622px;background: url(&quot;assets/img/outer-space-background.jpg&quot;);">
 
@@ -35,47 +44,40 @@
         <section class="d-inline-flex">
             <div class="container-fluid" style="margin-top: 98px;">
                 <div class="text-center d-sm-flex justify-content-between justify-content-lg-start mb-4"><span style="color: rgb(240,240,245);font-size: 26px;margin-top: 20px;"><em>Film &amp; series added</em><br></span></div>
-                <div class="row">
-                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
+                <div class="row no-gutters"> 
+
+                <?php
+                        
+                    $records=$movie->get_all();
+                    while($data = mysqli_fetch_array($records)){
+                        if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                        {
+                            $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                        }
+                    ?>
+                      
+                        <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
                         <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0)), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;">
                             <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;">
                                 <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src="assets/img/avatars/فيلم-Harry-Potter-1-2001-مترجم.jpg" style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
                                     <div class="col-auto">
                                         <div class = "row">
                                         <div class="col mr-2">
-                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);">Harry Potter</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);"><?=$data['NAME_MOVIE'] ?></span></div>
                                         </div>
                                     </div>
                                         <div class = "row">
-                                        <div class="col-auto"><div class="icons8-trash" data-bs-hover-animate="pulse" ></div></div>
-                                        <div class="col-auto"><div class="icons8-edit" data-bs-hover-animate="pulse" ></div></div>
+                                        <div class="col-auto"><a class="icons8-edit" data-bs-hover-animate="pulse" href="../EditFilm/EditFilm.php?id=<?=$data['ID']?>"rel="stylesheet" type="text/css"></a></div>
+                                        <div class="col-auto"><a class="icons8-trash" data-bs-hover-animate="pulse" href="delete.php?id=<?= $data['ID'] ?>"rel="stylesheet" type="text/css"></a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
-                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0)), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
-                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src="assets/img/avatars/فيلم-Harry-Potter-1-2001-مترجم.jpg" style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
-                                    <div class="col-auto">
-                                        <div class = "row">
-                                        <div class="col mr-2">
-                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);">Harry Potter</span></div>
-                                        </div>
-                                    </div>
-                                        <div class = "row">
-                                        <div class="col-auto"><div class="icons8-trash" data-bs-hover-animate="pulse" ></div></div>
-                                        <div class="col-auto"><div class="icons8-edit" data-bs-hover-animate="pulse" ></div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
+                    
+                <?php } ?>
                 </div>
                 <div class="row">
                     <div class="col">
