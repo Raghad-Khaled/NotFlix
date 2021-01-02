@@ -41,6 +41,9 @@
     </div>
 
       </div>
+      
+      
+
 
       <div class="row " >    
       <div class="col-3">  
@@ -54,6 +57,13 @@
             <button type="button" class="btn btn-lg btn-light" id="btn4">Director for Series</button>
        </div>
     </div>
+      </div>
+
+
+      <div class="row " > <div class="col-5"></div> <div class="col-2 text-center button ">
+            <button type="button" class="btn btn-lg btn-light" id="btn5">Add Prize </button>
+       </div> 
+       <div class="col-5">
       </div>
 
     </div>
@@ -88,7 +98,7 @@
            
                 while($data = mysqli_fetch_array($records))
                 {
-                    echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME']  ."</option>";  // displaying data in option menu
+                    echo "<option value='". $data['ID'] ."'>" .$data['FNAME']  .$data['LNAME']  ."</option>";  // displaying data in option menu
                 }	
             ?> 
             </select>
@@ -220,7 +230,7 @@
            
                 while($data = mysqli_fetch_array($records))
                 {
-                    echo "<option value='". $data['ID'] ."'>" .$data['FNAME'] .$data['LNAME']  ."</option>";  // displaying data in option menu
+                    echo "<option value='". $data['ID'] ."'>" .$data['FNAME']  .$data['LNAME']  ."</option>";  // displaying data in option menu
                 }	
             ?> 
             </select>
@@ -319,12 +329,35 @@
 
 
 
+    <form method="POST" action="Add.php" id="form5" enctype="multipart/form-data">
+      <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 col-12 form-group">
+                <label class="form-label" for="title">Prize Title</label>
+                 <input type="text" class="form-control"  name="title5" >
+            </div>
+            <div class="col-lg-6 col-12 form-group">
+                <label class="form-label" for="title">Prize Type</label>
+                <input type="text" class="form-control"  name="Type5" >
+            </div>
+            
+            </div>
+
+         </div>
+
+        <div class="text-center button ">
+            <button type="submit" class="btn btn-lg btn-light" name="submit5">Add</button>
+        </div>
+        
+      </div>
+    </form>
 
    
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="../JS/html-duration-picker.min.js"></script>
-
+<script src="../JS/AddPrize.js"></script>
 </body>
 </html>      

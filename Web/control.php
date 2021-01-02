@@ -333,7 +333,7 @@ class prize
     return $reselt = mysqli_query($this->_conn, $qury);
   }
 
-  public function InsertDirectorMovies($actor,$movie,$prize,$year){
+  public function InsertDirectorMovie($actor,$movie,$prize,$year){
     $qury = "INSERT INTO director_prize_movie  VALUES('$actor','$movie','$prize','$year')";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
