@@ -75,6 +75,21 @@ class Movie
     }
   }
 
+  public function InsertNewMovie2($Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count, $Director, $prize)
+  {
+    $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
+
+    if ($record->num_rows != 0)
+      echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
+
+    else {
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
+   ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize)";
+      //echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }
+  }
+
 
   public function addgenretofilm($FilmID, $genreID)
   {
@@ -179,7 +194,7 @@ class Movie
   public function getprize()
   {
 
-    $qury = "SELECT DISTINCT ID,TITLE From prize WHERE TYPE_OF_PRTIZE='Best movie'";
+    $qury = "SELECT DISTINCT ID,TITLE,TYPE_OF_PRTIZE From prize";
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
@@ -292,6 +307,14 @@ class genre
     $qury="SELECT * From genre where ID="."'$ID'";    
     return $result= mysqli_query($this->_conn,$qury);    
 
+  }
+  public function exist($type){
+    $qury="SELECT * FROM genre where GENRE_TYPE="."'$type'";
+    return $result= mysqli_query($this->_conn,$qury);  
+  }
+  public function insert($type){
+    $qury="INSERT INTO genre (`GENRE_TYPE`) VALUES ('$type')";
+    return $result= mysqli_query($this->_conn,$qury); 
   }
   
 
@@ -421,7 +444,7 @@ class story
   }
 
 }
-
+//////////////////////////////
 class character
 {
   private $_conn;

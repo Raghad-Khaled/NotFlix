@@ -15,24 +15,15 @@ $revenue=$_POST['revenue'];
 $rate=$_POST['rate'];
 $count=$_POST['count'];
 $link=$_POST['link'];
-$actor1=$_POST['actor1'];
 
 
-echo $postar ;
-echo $title ;
-echo $year ;
-echo $duration ;
-echo $budget ;
-echo $revenue; 
-echo $rate ;
-echo $count ;
-echo $link ;
-echo $actor1 ;
+
 
 
 
 $genre1=$_POST['genre1'];
 
+echo $genre1;
 
 $company1=$_POST['company1'];
 
@@ -44,31 +35,60 @@ $story=$_POST['story'];
 $prize=$_POST['prize'];
 $description=$_POST['description'];
 
-echo $genre1; 
 
-echo $company1;
-
-echo $language; 
-echo $Director; 
-echo $story; 
-echo $prize;
-echo $description;
 
 $movie=new Movie;
+if($_POST['actor1']!=''){
+$actor1=$_POST['actor1'];
 $movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
+}
+else{
+    $movie->InsertNewMovie2($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize);    
+}
 $IDrow=$movie->getid($title);
 $data = mysqli_fetch_array($IDrow);
 $ID = $data['ID'];
-$movie->addgenretofilm($ID,$genre1);
 
+$genre=new genre;
+$check=$genre->exist($genre1);
+if($check->num_rows!=0){
+$data = mysqli_fetch_array($check);
+$movie->addgenretofilm($ID,$data['ID']);
+}
+else{
+$genre->insert($genre1);
+$check=$genre->exist($genre1);
+$data = mysqli_fetch_array($check);
+$movie->addgenretofilm($ID,$data['ID']);
+}
 if(isset($_POST['genre2'])){
 
     $genre2=$_POST['genre2'];
-    $movie->addgenretofilm($ID,$genre2);
+    $check=$genre->exist($genre2);
+    if($check->num_rows!=0){
+    $data = mysqli_fetch_array($check);
+    $movie->addgenretofilm($ID,$data['ID']);
+    }
+    else{
+    $genre->insert($genre2);
+    $check=$genre->exist($genre2);
+    $data = mysqli_fetch_array($check);
+    $movie->addgenretofilm($ID,$data['ID']);
 }
-if(isset($_POST['genre3'])){
+}
+if($_POST['genre3']!=''){
     $genre2=$_POST['genre3'];
-    $movie->addgenretofilm($ID,$genre3);
+    $check=$genre->exist($genre3);
+    if($check->num_rows!=0){
+    $data = mysqli_fetch_array($check);
+    $movie->addgenretofilm($ID,$data['ID']);
+    }
+    else{
+    $genre->insert($genre3);
+    $check=$genre->exist($genre3);
+    $data = mysqli_fetch_array($check);
+    $movie->addgenretofilm($ID,$data['ID']);
+    }
 }
 
 $movie->addactortofilm($ID,$actor1);
