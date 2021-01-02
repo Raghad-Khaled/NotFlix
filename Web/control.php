@@ -274,6 +274,21 @@ class prize
     $qury = "INSERT INTO actor_prize_movie  VALUES('$actor','$movie','$prize','$year')";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
+
+  public function InsertDirectorMovies($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO director_prize_movie  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertActorSeries($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO actor_prize_series  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertDirectorSeries($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO director_prize_series  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -316,6 +331,13 @@ class director
 
     $qury="INSERT INTO director (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
     return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function get_all(){
+    $qury = "SELECT ID,FNAME,LNAME From director";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -378,7 +400,24 @@ class company
     $qury="SELECT * from production_company where ID="."'$ID'";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
+}
+/////////////////////////////////////////////////////////
 
+class series
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
 
+  public function get_all(){
+    $qury="SELECT * from  series";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  
+
+  
 }
 ?>

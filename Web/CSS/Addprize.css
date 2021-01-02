@@ -29,12 +29,12 @@ body {
       width: 100%;
   }
 form{
-    margin-top: 20%;
+    margin-top: 10%;
 }
 .row{
     margin-bottom: 25px;
+    margin-top:25px;
 }
-
 @media (max-width: 470px) { 
     .head{
         margin-right:0% ;
