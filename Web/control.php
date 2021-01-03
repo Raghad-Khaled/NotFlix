@@ -75,6 +75,21 @@ class Movie
     }
   }
 
+  public function InsertNewMovie2($Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count, $Director, $prize)
+  {
+    $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
+
+    if ($record->num_rows != 0)
+      echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
+
+    else {
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
+   ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize)";
+      //echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }
+  }
+
 
   public function addgenretofilm($FilmID, $genreID)
   {
@@ -209,7 +224,7 @@ class Movie
   public function getprize()
   {
 
-    $qury = "SELECT DISTINCT ID,TITLE From prize WHERE TYPE_OF_PRTIZE='Best movie'";
+    $qury = "SELECT DISTINCT ID,TITLE,TYPE_OF_PRTIZE From prize";
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
@@ -323,6 +338,14 @@ class genre
     return $result= mysqli_query($this->_conn,$qury);    
 
   }
+  public function exist($type){
+    $qury="SELECT * FROM genre where GENRE_TYPE="."'$type'";
+    return $result= mysqli_query($this->_conn,$qury);  
+  }
+  public function insert($type){
+    $qury="INSERT INTO genre (`GENRE_TYPE`) VALUES ('$type')";
+    return $result= mysqli_query($this->_conn,$qury); 
+  }
   
 
 }
@@ -347,11 +370,35 @@ class prize
     $qury = "SELECT *from prize where ID=" . "'$ID'";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
-  public function InsertPrize($title,$type,$year){
+  public function InsertPrize($title,$type){
 
-    $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`,`YEAR`) VALUES('$title','$type','$year')";
+    $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`) VALUES('$title','$type')";
     return $reselt = mysqli_query($this->_conn, $qury);
 
+  }
+  public function exist($title,$type){
+    $qury = "SELECT *from prize where TITLE=" . "'$title' and TYPE_OF_PRTIZE=" . "'$type'";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertActorMovie($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO actor_prize_movie  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertDirectorMovie($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO director_prize_movie  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertActorSeries($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO actor_prize_series  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertDirectorSeries($actor,$movie,$prize,$year){
+    $qury = "INSERT INTO director_prize_series  VALUES('$actor','$movie','$prize','$year')";
+    return $reselt = mysqli_query($this->_conn, $qury);
   }
 }
 
@@ -396,6 +443,13 @@ class director
     $qury="INSERT INTO director (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
     return $result = mysqli_query($this->_conn, $qury);
   }
+
+  public function get_all(){
+    $qury = "SELECT ID,FNAME,LNAME From director";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+
+  }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 class story
@@ -420,7 +474,7 @@ class story
   }
 
 }
-
+//////////////////////////////
 class character
 {
   private $_conn;
@@ -457,7 +511,24 @@ class company
     $qury="SELECT * from production_company where ID="."'$ID'";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
+}
+/////////////////////////////////////////////////////////
 
+class series
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
 
+  public function get_all(){
+    $qury="SELECT * from  series";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  
+
+  
 }
 ?>

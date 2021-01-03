@@ -130,42 +130,10 @@
             <div class="col-12 col-lg-4 form-group">
                 <div class="row">
                     <div class="col-9">
-                <select class="form-select form-control" aria-label="Default select example" id="G1" required name="genre1" >
-                    <option disabled selected>Genre</option> 
-                    <?php
-     
-     $records =  $movie->getgenre();
-
-     while($data = mysqli_fetch_array($records))
-     {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
-     }	
- ?> 
-                </select>
-                <select class="form-select form-control" aria-label="Default select example" id="G2" style="display: none;" name="genre2">
-                <option disabled selected>Genre</option> 
-                    <?php
-     
-     $records =  $movie->getgenre();
-
-     while($data = mysqli_fetch_array($records))
-     {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
-     }	
- ?> 
-                </select>
-                <select class="form-select form-control" aria-label="Default select example" id="G3" style="display: none;" name="genre3">
-                <option disabled selected>Genre</option> 
-                    <?php
-     
-     $records =  $movie->getgenre();
-
-     while($data = mysqli_fetch_array($records))
-     {
-         echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE'] ."</option>";  // displaying data in option menu
-     }	
- ?> 
-                </select>
+                    <input type="text"  class="form-control" required  name="genre1" id="G1" style="margin-top:10px;" placeholder="Genre">
+                    <input type="text"  class="form-control"   name="genre2" id="G2" style="margin-top:10px; display: none;" placeholder="Genre">
+                    <input type="text"  class="form-control"   name="genre3" id="G3" style="margin-top:10px; display: none;" placeholder="Genre">
+                
                     </div>
                 <div class="col-3" id="addgenre">
                   <img src="https://img.icons8.com/nolan/64/plus.png"/>
@@ -225,19 +193,9 @@
 
 
           <div class="row ">
-            <div class="col-12 col-lg-3 form-group">
-                <select class="form-select form-control" aria-label="Default select example" required name="language" >
-                    <option disabled selected>Language</option>
-                    <?php
-        
-        $records =  $movie->getlanguage();
-
-        while($data = mysqli_fetch_array($records))
-        {
-            echo "<option value='". $data['LANGUAGE_MOBIE'] ."'>" .$data['LANGUAGE_MOBIE'] ."</option>";  // displaying data in option menu
-        }	
-    ?> 
-                  </select>
+            <div class="col-12 col-lg-3 form-group" >
+            <input type="text"  class="form-control" required name="language" style="margin-top:10px" placeholder="language">
+               
             </div>
             <div class="col-12 col-lg-3 form-group">
                 <select class="form-select form-control" aria-label="Default select example" required name="Director">
@@ -279,7 +237,7 @@
 
      while($data = mysqli_fetch_array($records))
      {
-         echo "<option value='". $data['ID'] ."'>" .$data['TITLE'] ."</option>";  // displaying data in option menu
+         echo "<option value='". $data['ID'] ."'>" .$data['TITLE'] .$data['TYPE_OF_PRTIZE']."</option>";  // displaying data in option menu
      }	
  ?> 
                 </select>
