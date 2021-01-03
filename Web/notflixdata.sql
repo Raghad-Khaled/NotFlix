@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2020 at 11:59 AM
+-- Generation Time: Jan 03, 2021 at 12:31 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -38,7 +38,13 @@ CREATE TABLE `acted_movie` (
 --
 
 INSERT INTO `acted_movie` (`MOVIE_ID`, `ACTOR_ID`, `CHARACTER_PLAYED_ID`) VALUES
-(33, 1, 0);
+(33, 1, 0),
+(34, 1, 0),
+(35, 1, 0),
+(36, 1, 0),
+(37, 1, 0),
+(38, 1, 0),
+(39, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -72,7 +78,8 @@ CREATE TABLE `actor` (
 --
 
 INSERT INTO `actor` (`ID`, `FNAME`, `LNAME`, `GENDER`, `BIRTH_DATE`, `IMAGE`) VALUES
-(1, 'emma', ' stone', 'F', '1988-11-06', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Emma_Stone_at_the_39th_Mill_Valley_Film_Festival_%28cropped%29.jpg');
+(1, 'emma', ' stone', 'F', '1988-11-06', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Emma_Stone_at_the_39th_Mill_Valley_Film_Festival_%28cropped%29.jpg'),
+(3, 'Raghad', 'Khaled', 'F', '1988-08-29', 'Link');
 
 -- --------------------------------------------------------
 
@@ -83,8 +90,20 @@ INSERT INTO `actor` (`ID`, `FNAME`, `LNAME`, `GENDER`, `BIRTH_DATE`, `IMAGE`) VA
 CREATE TABLE `actor_prize_movie` (
   `ACTOR_ID` int(11) NOT NULL,
   `MOVIE_ID` int(11) NOT NULL,
-  `PRIZE_ID` int(11) NOT NULL
+  `PRIZE_ID` int(11) NOT NULL,
+  `YEAR` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `actor_prize_movie`
+--
+
+INSERT INTO `actor_prize_movie` (`ACTOR_ID`, `MOVIE_ID`, `PRIZE_ID`, `YEAR`) VALUES
+(0, 0, 0, 1988),
+(1, 33, 0, 2020),
+(1, 33, 4, 2020),
+(3, 17, 5, 1988),
+(3, 31, 4, 1994);
 
 -- --------------------------------------------------------
 
@@ -95,8 +114,18 @@ CREATE TABLE `actor_prize_movie` (
 CREATE TABLE `actor_prize_series` (
   `ACTOR_ID` int(11) NOT NULL,
   `SERIES_ID` int(11) NOT NULL,
-  `PRIZE_ID` int(11) NOT NULL
+  `PRIZE_ID` int(11) NOT NULL,
+  `YEAR` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `actor_prize_series`
+--
+
+INSERT INTO `actor_prize_series` (`ACTOR_ID`, `SERIES_ID`, `PRIZE_ID`, `YEAR`) VALUES
+(3, 0, 0, 1988),
+(3, 1, 0, 1988),
+(3, 1, 4, 1988);
 
 -- --------------------------------------------------------
 
@@ -172,7 +201,8 @@ CREATE TABLE `director` (
 --
 
 INSERT INTO `director` (`ID`, `FNAME`, `LNAME`, `BIRTH_DATE`, `GENDER`, `IMAGE`) VALUES
-(1, 'Damien', 'Chazelle', '1985-01-19', 'M', 'https://www.gstatic.com/tv/thumb/persons/586751/586751_v9_bb.jpg');
+(1, 'Damien', 'Chazelle', '1985-01-19', 'M', 'https://www.gstatic.com/tv/thumb/persons/586751/586751_v9_bb.jpg'),
+(2, 'ert', 'wert', '1988-08-29', 'F', 'Link');
 
 -- --------------------------------------------------------
 
@@ -183,8 +213,16 @@ INSERT INTO `director` (`ID`, `FNAME`, `LNAME`, `BIRTH_DATE`, `GENDER`, `IMAGE`)
 CREATE TABLE `director_prize_movie` (
   `DIRECTOR_ID` int(11) NOT NULL,
   `MOVIE_ID` int(11) NOT NULL,
-  `PRIZE_ID` int(11) NOT NULL
+  `PRIZE_ID` int(11) NOT NULL,
+  `YEAR` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `director_prize_movie`
+--
+
+INSERT INTO `director_prize_movie` (`DIRECTOR_ID`, `MOVIE_ID`, `PRIZE_ID`, `YEAR`) VALUES
+(2, 21, 6, 1988);
 
 -- --------------------------------------------------------
 
@@ -195,8 +233,16 @@ CREATE TABLE `director_prize_movie` (
 CREATE TABLE `director_prize_series` (
   `DIRECTOR_ID` int(11) NOT NULL,
   `SERIES_ID` int(11) NOT NULL,
-  `PRIZE_ID` int(11) NOT NULL
+  `PRIZE_ID` int(11) NOT NULL,
+  `YEAR` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `director_prize_series`
+--
+
+INSERT INTO `director_prize_series` (`DIRECTOR_ID`, `SERIES_ID`, `PRIZE_ID`, `YEAR`) VALUES
+(1, 1, 7, 1988);
 
 -- --------------------------------------------------------
 
@@ -238,7 +284,13 @@ CREATE TABLE `funded_movie` (
 --
 
 INSERT INTO `funded_movie` (`MOVIE_ID`, `PRODUCTION_COMPANY_ID`) VALUES
-(33, 1);
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(37, 1),
+(38, 1),
+(39, 1);
 
 -- --------------------------------------------------------
 
@@ -268,7 +320,9 @@ CREATE TABLE `genre` (
 
 INSERT INTO `genre` (`ID`, `GENRE_TYPE`) VALUES
 (1, 'Adventure'),
-(2, 'Action');
+(2, 'Action'),
+(3, '7ellllo'),
+(4, 'to7faaa');
 
 -- --------------------------------------------------------
 
@@ -288,8 +342,21 @@ CREATE TABLE `genre_relation_movie` (
 INSERT INTO `genre_relation_movie` (`MOVIE_ID`, `GENRE_ID`) VALUES
 (0, 1),
 (0, 2),
+(0, 3),
+(0, 4),
+(0, 5),
 (33, 1),
-(33, 2);
+(33, 2),
+(34, 1),
+(35, 0),
+(36, 0),
+(37, 0),
+(37, 2),
+(38, 3),
+(38, 4),
+(38, 5),
+(39, 3),
+(39, 4);
 
 -- --------------------------------------------------------
 
@@ -364,7 +431,13 @@ INSERT INTO `movie` (`ID`, `NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF
 (30, 'Captain America: Civil War', 0, 147, 'Divided We Fall', 'English', 1153304495, 250000000, 'http://marvel.com/captainamericapremiere', NULL, NULL, 7, 7241, NULL, NULL, NULL),
 (31, 'LA lA LAND', 2016, 2, 'Sebastian (Ryan Gosling) and Mia (Emma Stone) are drawn together by their common desire to do what they love. But as success mounts they are faced with decisions that begin to fray the fragile fabric of their love affair, and the dreams they worked so hard to maintain in each other threaten to rip them apart.', 'English', 2147483647, 1000000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 8, 200000, 1, 1, 1),
 (32, 'LA lA LAND', 2016, 2, 'Sebastian (Ryan Gosling) and Mia (Emma Stone) are drawn together by their common desire to do what they love. But as success mounts they are faced with decisions that begin to fray the fragile fabric of their love affair, and the dreams they worked so hard to maintain in each other threaten to rip them apart.', 'English', 2147483647, 1000000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 8, 200000, 1, 1, 1),
-(33, '3 idiot', 2013, 2, 'fee description henaaaaaaa', 'English', 3000000, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 9, 10000000, 1, 1, 1);
+(33, '3 idiot', 2013, 2, 'fee description henaaaaaaa', 'English', 3000000, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 9, 10000000, 1, 1, 1),
+(34, 'Purple Dress', 2020, 120, 'blabla', 'Arabic', 100000000, 2147483647, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 2, 300, 2, 1, 1),
+(35, 'baby dress ', 2020, 120, 'pla pla plo', 'Arabic', 2147483647, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'Link', 'Raghad', 9, 200, 2, 1, 1),
+(36, 'first step in Data Science', 2020, 120, 'bla bla', 'Arabic', 10000, 10000, '2', 'Link', 'Raghad', 8, 7, 2, 1, 1),
+(37, 'baby dress ^^', 2020, 12, 'bla bla', 'Arabic', 12345, 123, '2', 'Link', 'Raghad', 2, 23456, 1, 1, 1),
+(38, 'Raghaoooooda', 2020, 123, 'pla', 'Arabic', 1000000000, 100000, '2', 'Link', 'Raghad', 100, 2, 2, 1, 1),
+(39, 'roro', 2020, 123, 'pla', 'Arabic', 1000000000, 100000, '2', 'Link', 'Raghad', 100, 2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -375,16 +448,21 @@ INSERT INTO `movie` (`ID`, `NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF
 CREATE TABLE `prize` (
   `ID` int(11) NOT NULL,
   `TITLE` varchar(1000) DEFAULT NULL,
-  `TYPE_OF_PRTIZE` varchar(1000) DEFAULT NULL,
-  `YEAR` int(11) DEFAULT NULL
+  `TYPE_OF_PRTIZE` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prize`
 --
 
-INSERT INTO `prize` (`ID`, `TITLE`, `TYPE_OF_PRTIZE`, `YEAR`) VALUES
-(1, 'Oscar', 'Best movie', 2000);
+INSERT INTO `prize` (`ID`, `TITLE`, `TYPE_OF_PRTIZE`) VALUES
+(1, 'Oscar', 'Best movie'),
+(3, 'Dress', 'yellow'),
+(4, 'oscar', 'Best Actor'),
+(5, 'Oscar', 'The Best'),
+(6, 'Best', 'Director'),
+(7, 'Oscar', 'Director'),
+(8, 'Oscar', 'BestFilm');
 
 -- --------------------------------------------------------
 
@@ -448,11 +526,11 @@ CREATE TABLE `season` (
 
 CREATE TABLE `series` (
   `ID` int(11) NOT NULL,
-  `NAME_MOVIE` varchar(100) NOT NULL,
+  `NAME_SERIES` varchar(100) NOT NULL,
   `YEAR` date DEFAULT NULL,
   `DURATION_MIN` int(11) DEFAULT NULL,
-  `DESCRIPTION_OF_MOVIE` varchar(1000) DEFAULT NULL,
-  `LANGUAGE_MOBIE` varchar(50) DEFAULT NULL,
+  `DESCRIPTION` varchar(1000) DEFAULT NULL,
+  `LANGUAGE` varchar(50) DEFAULT NULL,
   `REVENUE` int(11) DEFAULT NULL,
   `BUDGET` int(11) DEFAULT NULL,
   `HOME_PAGE_LINK` varchar(1000) DEFAULT NULL,
@@ -465,6 +543,13 @@ CREATE TABLE `series` (
   `PRIZE_WON_ID` int(11) DEFAULT NULL,
   `STORY_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `series`
+--
+
+INSERT INTO `series` (`ID`, `NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`, `STORY_ID`) VALUES
+(1, 'Friends', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -486,17 +571,6 @@ CREATE TABLE `story` (
 
 INSERT INTO `story` (`STORY_ID`, `STORY_NAME`, `AUTHOR_NAME`, `POSTER`, `Overview`) VALUES
 (1, 'The Days', 'Taha Huseen', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTTrV1_Qb7Jg_PYLamxiZnsSodHcsW38SOmdtP6nFHSvnAtUqpL', 'The Days is a novelized autobiography in three volumes by the Egyptian professor Taha Hussein, published between 1926 and 1967. It deals with his childhood in a small village, then his studies in Egypt and France. It is one of the most popular works of modern Arabic literature.');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `story_character`
---
-
-CREATE TABLE `story_character` (
-  `Story_ID` int(11) NOT NULL,
-  `Character_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -620,6 +694,7 @@ ALTER TABLE `director_prize_series`
 -- Indexes for table `fantasy_character`
 --
 ALTER TABLE `fantasy_character`
+  ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `ID` (`ID`),
   ADD KEY `STORY_ID` (`STORY_ID`);
 
@@ -668,38 +743,68 @@ ALTER TABLE `production_company`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `series`
+--
+ALTER TABLE `series`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `story`
 --
 ALTER TABLE `story`
   ADD PRIMARY KEY (`STORY_ID`);
 
 --
--- Indexes for table `story_character`
---
-ALTER TABLE `story_character`
-  ADD PRIMARY KEY (`Story_ID`,`Character_ID`),
-  ADD KEY `Character_ID` (`Character_ID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `actor`
+--
+ALTER TABLE `actor`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `director`
+--
+ALTER TABLE `director`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `fantasy_character`
+--
+ALTER TABLE `fantasy_character`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for table `prize`
 --
+ALTER TABLE `prize`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for table `story_character`
+-- AUTO_INCREMENT for table `series`
 --
-ALTER TABLE `story_character`
-  ADD CONSTRAINT `Character_ID` FOREIGN KEY (`Character_ID`) REFERENCES `fantasy_character` (`ID`),
-  ADD CONSTRAINT `Story_ID` FOREIGN KEY (`Story_ID`) REFERENCES `story` (`STORY_ID`);
+ALTER TABLE `series`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `story`
+--
+ALTER TABLE `story`
+  MODIFY `STORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

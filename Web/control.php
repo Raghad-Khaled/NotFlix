@@ -111,8 +111,8 @@ class Movie
   //Nada
   public function get_all_fav($user_name)
   {
-    $qury = ("SELECT NAME_MOVIE FROM MOVIE, add_to_fav_movie  WHERE USER_NAME_OF_USER ='$user_name'
-              UNION SELECT NAME_MOVIE FROM SERIES, add_to_fav_series  WHERE USER_NAME_OF_USER ='$user_name'");
+    $qury = ("SELECT ID,POSTER,NAME_MOVIE FROM MOVIE, add_to_fav_movie  WHERE ID = MOVIE_ID AND USER_NAME_OF_USER ='$user_name'
+              UNION SELECT ID,POSTER,NAME_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -172,21 +172,21 @@ class Movie
 
   public function getDirectorforMovie($ID)
   {
-    $qury = "SELECT FNAME,LNAME From D director, M MOVIE WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    $qury = "SELECT FNAME,LNAME From director D , MOVIE M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getPrizeforMovie($ID)
   {
 
-    $qury = "SELECT TITLE From P PRIZE, M MOVIE WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
+    $qury = "SELECT TITLE, TYPE_OF_PRTIZE From PRIZE P, MOVIE M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getStoryforMovie($ID)
   {
 
-    $qury = "SELECT STORY_NAME From STORY, MOVIE WHERE ID = '$ID' ";
+    $qury = "SELECT STORY_NAME From STORY S, MOVIE M WHERE M.STORY_ID = S.STORY_ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 ///
