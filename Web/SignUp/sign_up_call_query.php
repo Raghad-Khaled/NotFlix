@@ -13,6 +13,8 @@ $gender=$_POST['gender'];
 $save_user=new user;
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
 
+header("Location:../Home_movies/Movies.php?name=$username");
+
 }
 
 ?>

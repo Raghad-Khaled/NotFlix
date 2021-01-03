@@ -50,6 +50,8 @@
     $genre_obj=new genre;
     $movie=new movie;
     $prize_obj=new prize;
+    $name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+    $n="plapla";
     ?>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px;">
     <form action="Movies.php" method="Post">
@@ -66,7 +68,7 @@
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Profile</strong><br></a></li>
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
-                </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span>Donya Esawi</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
+                </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span><?=$name ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
             </div>
         </div>
     </nav>
@@ -465,7 +467,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                             <figure class="figure tc-cardhover-14"><figcaption>
-    <a href="../Movie_Page/Movie_page.php?id=<?=$data['ID']?>"  rel="stylesheet" type="text/css"><h3><?php echo $data['NAME_MOVIE'];?></h3>
+    <a href="../Movie_Page/Movie_page.php?id=<?=$data['ID']?>&name=<?=$name?>"  rel="stylesheet" type="text/css"><h3><?php echo $data['NAME_MOVIE'];?></h3>
     <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p></a>
   </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>></figure>
                         </div>
