@@ -187,7 +187,28 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 <div class="info">
                                   <!----------------- title -->
                                     <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$name?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
-                                    <div class="rating" style="margin-left: 18px;padding-bottom: 10px;"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
+                                    <div class="rating" style="margin-left: 18px;padding-bottom: 10px;">
+                                    <?php
+                                        $i=$data['IMDB_RATE'];
+                                        while($i>=2){
+                                        $i=$i-2;
+                                        ?>
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                        <?php } 
+                                        if($data['IMDB_RATE']% 2!=0){
+                                        ?>
+                                                    
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                        <?php 
+                                        }
+                                        $i=10-$data['IMDB_RATE'];
+                                        while($i>=2){
+                                            $i=$i-2;
+                                        ?>
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <?php
+                                        }
+                                        ?>       
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
 <!---------------------- Genre -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Genre</h4>
@@ -239,7 +260,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     ?>
 
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Prizes</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?> in <?= $dataPrize['YEAR']?> </p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?>  </p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Budget -->
