@@ -93,40 +93,70 @@ class Movie
   }
 
   //Nada
-
-  public function DeleteMoviewithId($id)
+  public function get_all_fav($user_name)
   {
-      $qury = "DELETE FROM  movie WHERE ID = '$id'";
-      //echo $qury;
+    $qury = ("SELECT NAME_MOVIE FROM MOVIE, add_to_fav_movie  WHERE USER_NAME_OF_USER ='$user_name'
+              UNION SELECT NAME_MOVIE FROM SERIES, add_to_fav_series  WHERE USER_NAME_OF_USER ='$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function RemoveFromFavorite($FilmID, $user_name)
+  {
+    $record = $this->_conn->query("SELECT ID FROM MOVIE WHERE ID ='$FilmID'");
+    if ($record->num_rows != 0) {
+    $qury = ("DELETE FROM add_to_fav_movie WHERE MOVIE_ID ='$FilmID' AND USER_NAME_OF_USER = '$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+    }
+    $record = $this->_conn->query("SELECT ID FROM SERIES WHERE ID ='$FilmID'");
+    if ($record->num_rows != 0) {
+    $qury = ("DELETE FROM add_to_fav_series WHERE SERIES_ID ='$FilmID' AND USER_NAME_OF_USER = '$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+    }
+  }
+
+  public function DeleteMoviewithId($FilmID)
+  {
+
+    $qury = ("DELETE FROM MOVIE WHERE ID ='$FilmID'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function UpdateNewMovie($id,$Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count, $Director, $prize, $story)
+  {
+    $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
+
+    
+      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
+       LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, STORY_ID = $story)
+       WHERE ID = '$id'";
       $result = mysqli_query($this->_conn, $qury);
-   
   }
 
   public function Retrieveactortofilm($FilmID)
   {
 
-    $qury = ("SELECT ID,FNAME,LNAME FROM acted_movie  WHERE MOVIE_ID ='$FilmID'");
+    $qury = ("SELECT ID,FNAME,LNAME FROM acted_movie, actor WHERE ACTOR_ID = ID AND MOVIE_ID ='$FilmID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function Retrievegenretofilm($FilmID)
   {
 
-    $qury = ("SELECT GENRE_TYPE FROM GENRE, GENRE_RELATION_MOVIE  WHERE ID = GENRE_ID AND MOVIE_ID ='$FilmID'");
+    $qury = ("SELECT ID,GENRE_TYPE FROM GENRE, GENRE_RELATION_MOVIE  WHERE ID = GENRE_ID AND MOVIE_ID ='$FilmID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function RetrieveProductionCompanytofilm($FilmID)
   {
 
-    $qury = ("SELECT COMPANY_NAME FROM PRODUCTION_COMPANY, FUNDED_MOVIE WHERE PRODUCTION_COMPANY_ID = ID and MOVIE_ID ='$FilmID'");
+    $qury = ("SELECT ID,COMPANY_NAME FROM PRODUCTION_COMPANY, FUNDED_MOVIE WHERE PRODUCTION_COMPANY_ID = ID and MOVIE_ID ='$FilmID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getDirectorforMovie($ID)
   {
-
-    $qury = "SELECT ID,FNAME,LNAME From D director, M MOVIE WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    $qury = "SELECT FNAME,LNAME From D director, M MOVIE WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
