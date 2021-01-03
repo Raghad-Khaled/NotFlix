@@ -298,27 +298,28 @@
     </div>
     <section id="cards">
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1><div class="filter">
-    <form> 
+    
+        <form action="Movies.php" method="Post">
+        
 
-   
+
     <!---  Combo boxes of filters ---->    
-    <select style="margin-bottom:20px; margin-left:10px">
+    <select style="margin-bottom:20px; margin-left:10px" name="language">
              <option value="">Language</option>
 
 
     <?php
      
     $records =  $movie->get_movie_languages();
-    $counter=0;
-    while($data = mysqli_fetch_array($records))
-    {
-    echo "<option value='". $temp ."'>" .$data['LANGUAGE_MOBIE']."</option>";  // displaying data in option menu
-    $counter++;
+    while($row = mysqli_fetch_array($records))
+    { ?>
+        <option value="<?php echo $row['LANGUAGE_MOBIE'];?>"><?php echo $row['LANGUAGE_MOBIE'];?></option>
+    <?php
     }	
     ?> 
 
-        </select>
-        <select style="margin-bottom:20px; margin-left:10px">
+    </select>
+    <select style="margin-bottom:20px; margin-left:10px" name="genre">
              <option value="">Genre</option>
   
              <?php
@@ -334,15 +335,17 @@
              
 
         </select>
-    <select style="margin-bottom:20px; margin-left:10px">
+    <select style="margin-bottom:20px; margin-left:10px" name="era">
              <option value="">Era</option>
              <?php
              
              $year=1910;
               $counter=0;
              while($counter<=10)
-     {
-        echo "<option value='". $counter ."'>" .$year."</option>";  // displaying data in option menu
+     {?>
+        <option value="<?php echo $year;?>"><?php echo $year;?></option>
+        <?php 
+        
         $counter++;
         $year+=10;
      }
@@ -350,16 +353,18 @@
              
              ?>
         </select>
-    <select style="margin-bottom:20px; margin-left:10px">
+    <select style="margin-bottom:20px; margin-left:10px" name="prize">
              <option value="">Prize</option>
 
              <?php
              
              $records =  $prize_obj->get_prize_names();
           
-             while($data = mysqli_fetch_array($records))
-             {
-             echo "<option value='". $data['ID'] ."'>" .$data['LANGUAGE_MOBIE']."</option>";  // displaying data in option menu
+             while($row = mysqli_fetch_array($records))
+             {?>
+             <option value="<?php echo $row['ID'];?>"><?php echo $row['TITLE'];?></option>
+                 <?php
+             //echo "<option value='". $data['ID'] ."'>" .$data['TITLE']."</option>";  // displaying data in option menu
              
              }	
              
@@ -367,13 +372,14 @@
         </select>
     <!--------------------------------->
     
-    </form>
-</div>
+
 
 <div class="d-xl-flex justify-content-xl-center align-items-xl-center block-heading">
-	<button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="button" style="height: 40px;border-radius: 584px;background: #6f38ff;box-shadow: 0px 0px 20px rgba(70,194,255,0.63);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0); margin-top: 20px; margin-bottom: 5px;
+	<button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="submit" name="show" style="height: 40px;border-radius: 584px;background: #6f38ff;box-shadow: 0px 0px 20px rgba(70,194,255,0.63);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0); margin-top: 20px; margin-bottom: 5px;
 	font-color: rgba(70,194,255,0.63);font-size:20px;text-align: center;font-family: 'Architects Daughter', cursive;">Show</button></div>
 
+</form>
+</div>
 
 
 <!---- Honestly IDK what is this :""  -->
@@ -436,6 +442,18 @@
                         $records=$movie->search_by_movie_name($search_string);
                        
 
+                        }
+                        
+                        if(isset($_POST['show']))
+                        {
+                            //echo "aaaaaa";
+                            $language=$_POST['language'];
+                            $era=$_POST['era'];
+                            $genre_id=$_POST['genre'];
+                            $prize_id=$_POST['prize'];
+                            $records=$movie->filter($language,$genre_id,$era,$prize_id);                                
+                           
+                            
                         }
 
                         while($data = mysqli_fetch_array($records)){
