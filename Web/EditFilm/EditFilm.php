@@ -130,18 +130,7 @@ $reselt6 = $movie->getStoryforMovie($id);
                             <?php
                             while ($genre = mysqli_fetch_assoc($reselt2)) {
                             ?>
-                            <select class="form-select form-control" aria-label="Default select example" id="G1" required name="genre1">
-                                <option selected><?= $genre['GENRE_TYPE'] ?></option>
-                                <?php
-
-                                $records =  $movie1->getgenre();
-
-                                while ($data1 = mysqli_fetch_array($records)) {
-                                    if($genre['ID'] != $data1['ID'])
-                                    echo "<option value='" . $data1['ID'] . "'>" . $data1['GENRE_TYPE'] . "</option>";  // displaying data in option menu
-                                }
-                                ?>
-                            </select>
+                            <input type="text" class="form-control" required name="genre1" id="G1" style="margin-top:10px;" placeholder="Genre" value=<?= $genre['GENRE_TYPE'] ?>>
                             <?php
                             }
                             ?>
@@ -176,18 +165,7 @@ $reselt6 = $movie->getStoryforMovie($id);
 
             <div class="row ">
                 <div class="col-12 col-lg-3 form-group">
-                    <select class="form-select form-control" aria-label="Default select example" required name="language">
-                        <option selected><?= $data['LANGUAGE_MOBIE'] ?></option>
-                        <?php
-
-                        $records =  $movie1->getlanguage();
-
-                        while ($data1 = mysqli_fetch_array($records)) {
-                            if($data['LANGUAGE_MOBIE'] != $data1['LANGUAGE_MOBIE'] )
-                            echo "<option value='" . $data1['LANGUAGE_MOBIE'] . "'>" . $data1['LANGUAGE_MOBIE'] . "</option>";  // displaying data1 in option menu
-                        }
-                        ?>
-                    </select>
+                <input type="text" class="form-control" required name="language" style="margin-top:10px" placeholder="language" value=<?= $data['LANGUAGE_MOBIE'] ?>>
                 </div>
                 <div class="col-12 col-lg-3 form-group">
                     <select class="form-select form-control" aria-label="Default select example" required name="Director">
@@ -240,8 +218,8 @@ $reselt6 = $movie->getStoryforMovie($id);
 
             <div class="row ">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"></textarea>
-                    <label for="floatingTextarea2"><?= $data['DESCRIPTION_OF_MOVIE'] ?></label>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description">value= <?= $data['DESCRIPTION_OF_MOVIE'] ?> </textarea>
+                    <label for="floatingTextarea2" ></label>
                 </div>
 
             </div>
