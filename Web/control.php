@@ -49,6 +49,7 @@ class user
 
 
 /////////////////////////////Raghad///////////////////////////////
+/////////////////////////////Elhadidy bardo hh bm ////////////////
 class Movie
 {
   private $_conn;
@@ -313,6 +314,30 @@ class Movie
 
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+
+  public function filter($language,$genre_id,$era,$prize_id)
+  {
+   $qury ="Select distinct mv.* from movie as mv , genre_relation_movie as grv  where 1";
+   if(!$language=="")
+   {
+    $qury.=" and mv.LANGUAGE_MOBIE='".$language."'";
+   }
+   if(!$genre_id=="")
+   {
+    $qury.=" and grv.GENRE_ID='".$genre_id."' and grv.MOVIE_ID=mv.ID";
+   }
+   if(!$prize_id=="")
+   {
+     $qury.=" and mv.PRIZE_WON_ID='".$prize_id."'";
+   }
+   if(!$era=="")
+   {
+     $qury.="  and (mv.YEAR>=".$era." and mv.YEAR<=".$era."+10 )";
+   }
+
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -361,7 +386,7 @@ class prize
 
   public function get_prize_names()
   {
-    $qury = "SELECT DISTINCT ID,TITLE From prize";
+    $qury = "SELECT DISTINCT * From prize";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
