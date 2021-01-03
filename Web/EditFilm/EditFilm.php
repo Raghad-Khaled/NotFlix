@@ -11,9 +11,9 @@ $reselt3 =$movie->RetrieveProductionCompanytofilm($id);
 $reselt4 = $movie->getDirectorforMovie($id);
 $reselt5 = $movie->getPrizeforMovie($id);
 $reselt6 = $movie->getStoryforMovie($id);
-//$director = mysqli_fetch_assoc($reselt4);
-//$prize = mysqli_fetch_assoc($reselt5);
-//$story = mysqli_fetch_assoc($reselt6);
+$director = mysqli_fetch_assoc($reselt4);
+$prize = mysqli_fetch_assoc($reselt5);
+$story = mysqli_fetch_assoc($reselt6);
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +38,11 @@ $reselt6 = $movie->getStoryforMovie($id);
             <!-- <img class="d-inline-block align-top"  src="https://img.icons8.com/cotton/40/000000/movie-beginning--v1.png"/> -->
         </div>
         <div class="head">
-            Edit New Film
+            Edit Film
         </div>
     </nav>
 
-    <form method="POST" action="Add.php" enctype="multipart/form-data">
+    <form method="POST" action="Edit.php?id=<?= $data['ID'] ?> " enctype="multipart/form-data">
         <div class="container">
             <div class="row ">
                 <div class="col-sm form-group">
@@ -128,10 +128,12 @@ $reselt6 = $movie->getStoryforMovie($id);
                     <div class="row">
                         <div class="col-12">
                             <?php
+                            $i=1;
                             while ($genre = mysqli_fetch_assoc($reselt2)) {
                             ?>
-                            <input type="text" class="form-control" required name="genre1" id="G1" style="margin-top:10px;" placeholder="Genre" value=<?= $genre['GENRE_TYPE'] ?>>
+                            <input type="text" class="form-control" required name="genre<?=$i?>" id="G1" style="margin-top:10px;" placeholder="Genre" value=<?= $genre['GENRE_TYPE'] ?>>
                             <?php
+                            $i=$i+1;
                             }
                             ?>
                             
@@ -199,7 +201,7 @@ $reselt6 = $movie->getStoryforMovie($id);
 
                 <div class="col-12 col-lg-3 form-group ">
                     <select class="form-select form-control" aria-label="Default select example" required name="prize">
-                        <option selected><?= $prize['TITLE'] ?></option>
+                        <option selected><?= $prize['TITLE'] ?><?= $prize['TYPE_OF_PRTIZE'] ?></option>
                         <?php
 
                         $records =  $movie1->getprize();
@@ -218,14 +220,14 @@ $reselt6 = $movie->getStoryforMovie($id);
 
             <div class="row ">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description">value= <?= $data['DESCRIPTION_OF_MOVIE'] ?> </textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"><?= $data['DESCRIPTION_OF_MOVIE'] ?> </textarea>
                     <label for="floatingTextarea2" ></label>
                 </div>
 
             </div>
 
             <div class="text-center ">
-                <button type="submit" class="btn btn-lg btn-light" name="submit">Submit</button>
+                <button type="submit" class="btn btn-lg btn-light" name="submit">Update</button>
             </div>
         </div>
         </div>

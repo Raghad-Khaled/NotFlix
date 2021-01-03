@@ -2,8 +2,6 @@
 include '../control.php';  // Using database connection file here
 $name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_NUMBER_INT);
 $movie=new movie;
-$reselt=$movie->getMovieforAdmin($name);
-$data=mysqli_fetch_assoc($reselt);
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +46,7 @@ $data=mysqli_fetch_assoc($reselt);
                 <?php
                         
                         $records=$movie->get_all_fav($name);
+                        var_dump($records);
                         while($data = mysqli_fetch_array($records)){
                             if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                             {
@@ -62,7 +61,7 @@ $data=mysqli_fetch_assoc($reselt);
                                     <div class="col mr-2">
                                         <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_MOVIE'] ?></span></div>
                                     </div>
-                                    <div class="col-auto"><a href="removeFromfavorite.php?id=<?= $data['ID'] ?>"rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
+                                    <div class="col-auto"><a href="removeFromfavorite.php?id=<?= $data['ID'] ?> &name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                 </div>
                             </div>
                         </div>
