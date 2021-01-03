@@ -1,6 +1,7 @@
 <?php
 include '../control.php';  // Using database connection file here
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
 $movie=new movie;
 $reselt=$movie->getMoviewithId($id);
 $data=mysqli_fetch_assoc($reselt);
@@ -76,7 +77,7 @@ $data=mysqli_fetch_assoc($reselt);
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi<img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -146,7 +147,7 @@ $data=mysqli_fetch_assoc($reselt);
                             <div class="col-md-6">
                                 <div class="info">
                                   <!----------------- title -->
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="#"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$name?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
                                     <div class="rating" style="margin-left: 18px;padding-bottom: 10px;"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
 <!---------------------- Genre -->

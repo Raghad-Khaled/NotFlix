@@ -338,6 +338,23 @@ class Movie
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 
+  public function insertFilmtoFav($name,$id)
+  {
+    $record = $this->_conn->query("SELECT USER_NAME_OF_USER,MOVIE_ID FROM add_to_fav_movie WHERE( USER_NAME_OF_USER='$name' AND MOVIE_ID='$id' )");
+    if ($record->num_rows != 0) {
+      echo "<script> alert('This Film already exist in your Favorite List'); </script>";
+      
+      
+    } else {
+      $qury = "INSERT INTO add_to_fav_movie VALUES ('$name',$id)";
+      
+      return $reselt = mysqli_query($this->_conn, $qury);
+     
+    }
+  
+  }
+  
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
