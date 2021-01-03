@@ -353,6 +353,27 @@ class Movie
     }
   
   }
+  public function addratetoFilm($name,$id,$rate){
+    $record = $this->_conn->query("SELECT * FROM rate_movie WHERE( USER_NAME_WHO_RATED='$name' AND MOVIE_ID=$id )");
+    if ($record->num_rows != 0) {
+      $qury = "UPDATE rate_movie set RATE=$rate where USER_NAME_WHO_RATED='$name' and MOVIE_ID=$id";
+     
+      return $reselt = mysqli_query($this->_conn, $qury);
+      
+    } else {
+      $qury = "INSERT INTO rate_movie VALUES ('$name',$id,$rate)";
+      
+      return $reselt = mysqli_query($this->_conn, $qury);
+     
+    }
+  }
+  
+  public function countnuberofrates($id){
+    $qury = "SELECT COUNT(*) FROM rate_movie where  MOVIE_ID=$id";
+      
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
   
 
 }

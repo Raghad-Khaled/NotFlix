@@ -5,7 +5,8 @@ $name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
 $movie=new movie;
 $reselt=$movie->getMoviewithId($id);
 $data=mysqli_fetch_assoc($reselt);
-
+$Notflixcount=$movie->countnuberofrates($id);
+$count=mysqli_fetch_assoc($Notflixcount);
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +110,7 @@ $data=mysqli_fetch_assoc($reselt);
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB Rate Count:&nbsp;</span>
                                         <div >
                                         <!-------------Rate COUNT------------------------------------------------------------------------------->
-                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;"><?=$data['IMDB_RATE_COUNT'] ?>&nbsp;</span>
                                         <!------------------------------------------------------------------------------------------------------>
                                         
                                         </div>
@@ -131,7 +132,7 @@ $data=mysqli_fetch_assoc($reselt);
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">Notflix Rate Count:&nbsp;</span>
                                         <div >
                                         <!-------------Rate COUNT------------------------------------------------------------------------------->
-                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;">3,200,000&nbsp;</span>
+                                        <span style="font-family: 'Architects Daughter', cursive;font-size: 22px;color: #8749ed;"><?=$count['COUNT(*)']?>&nbsp;</span>
                                         <!------------------------------------------------------------------------------------------------------>
                                         
                                         </div>
@@ -141,7 +142,10 @@ $data=mysqli_fetch_assoc($reselt);
                                 </div>
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
-                                    <div class="d-inline-flex"><input type="number" style="width: 123px;"><a href="#"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></a></div>
+                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
+                                    <div class="d-inline-flex"><input type="number" name="rate" style="width: 123px;">
+                                    <button style="background-color:#21212e" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-md-6">
