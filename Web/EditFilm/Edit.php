@@ -3,10 +3,7 @@
 require_once( '../control.php');
 if(isset($_POST['submit']))
 {
-
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$movie1=new movie;
-$movie1->DeleteMoviewithId($id); 
 
 $postar= $_POST['postar'];
 $title=$_POST['title'];
@@ -51,7 +48,7 @@ echo $prize;
 echo $description;
 
 $movie=new Movie;
-$movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
+$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
 $IDrow=$movie->getid($title);
 $data = mysqli_fetch_array($IDrow);
 $ID = $data['ID'];

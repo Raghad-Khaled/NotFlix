@@ -1,3 +1,11 @@
+<?php
+include '../control.php';  // Using database connection file here
+$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_NUMBER_INT);
+$movie=new movie;
+$reselt=$movie->getMovieforAdmin($name);
+$data=mysqli_fetch_assoc($reselt);
+
+?>
 <!DOCTYPE html>
 <html style="height: 622px;background: rgb(33,33,46);">
 
@@ -25,8 +33,8 @@
         <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="#" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href= #footer style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
             </div>
@@ -36,43 +44,40 @@
         <section class="d-inline-flex">
             <div class="container-fluid" style="margin-top: 98px;">
                 <div class="text-center d-sm-flex justify-content-between justify-content-lg-start mb-4"><span style="color: rgb(240,240,245);font-size: 50px;margin-top: 20px;font-family: Cookie, cursive;">Favourites</span></div>
-                <div class="row">
+                <div class="row no-gutters">
+                <?php
+                        
+                        $records=$movie->get_all_fav($name);
+                        while($data = mysqli_fetch_array($records)){
+                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                            {
+                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                            }
+                        ?>
                     <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
                         <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
                             <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
                                 <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src="assets/img/avatars/فيلم-Harry-Potter-1-2001-مترجم.jpg" style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
                                     <div class="col mr-2">
-                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);">Harry Potter</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_MOVIE'] ?></span></div>
                                     </div>
-                                    <div class="col-auto"><a href="#"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
+                                    <div class="col-auto"><a href="removeFromfavorite.php?id=<?= $data['ID'] ?>"rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
-                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
-                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src="assets/img/avatars/فيلم-Harry-Potter-1-2001-مترجم.jpg" style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
-                                    <div class="col mr-2">
-                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);">Harry Potter</span></div>
-                                    </div>
-                                    <div class="col-auto"><a href="#"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
     </main>
-    <footer id="footer" style="background: #994ebc;">
+    <footer id="footer" style="background: #994ebc;height: 146px;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
-                <p class="company-name" style="color: rgb(29,31,33);">CMP © 2023</p>
+                <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
                 <div class="d-lg-flex justify-content-lg-end align-items-lg-end"><img class="d-lg-flex" src="assets/img/icons8-address-64.png">
@@ -89,7 +94,7 @@
             <div class="clearfix"></div>
             <div class="col-md-4 footer-about">
                 <h4>About the Team</h4>
-                <p style="border-color: rgb(0,0,0);color: rgb(29,31,33);">&nbsp;2nd year grade students in CMP department main stream in faculty of engineering cairo university</p>
+                <p>&nbsp;2nd year grade students in CMP department main stream in faculty of engineering cairo university</p>
                 <div class="d-flex justify-content-center social-links social-icons"><a href="#"><img src="assets/img/icons8-facebook-64.png" style="width: 36px;"></a><a href="#"><img src="assets/img/icons8-twitter-64.png" style="width: 36px;"></a><a href="#"><img src="assets/img/icons8-linkedin-64.png" style="width: 36px;"></a><a href="#"><img src="assets/img/icons8-github-64.png" style="width: 36px;"></a></div>
             </div>
         </div>
