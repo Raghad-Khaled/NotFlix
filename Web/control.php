@@ -373,7 +373,12 @@ class Movie
       
     return $reselt = mysqli_query($this->_conn, $qury);
   }
-
+  
+  public function getFilmrate($id){
+    $qury = "SELECT AVG(RATE) FROM rate_movie where  MOVIE_ID=$id";
+      
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
   
 
 }

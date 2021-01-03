@@ -7,6 +7,8 @@ $reselt=$movie->getMoviewithId($id);
 $data=mysqli_fetch_assoc($reselt);
 $Notflixcount=$movie->countnuberofrates($id);
 $count=mysqli_fetch_assoc($Notflixcount);
+$Notflixrate=$movie->getFilmrate($id);
+$rate=mysqli_fetch_assoc($Notflixrate);
 ?>
 
 <!DOCTYPE html>
@@ -96,11 +98,27 @@ $count=mysqli_fetch_assoc($Notflixcount);
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">IMDB:&nbsp;</span>
                                         <div class="rating" style="width: 402px;margin-left: 27px;">
                                         <!-------------Rate Stars------------------------------------------------------------------------------->
+                                        <?php
+                                        $i=$data['IMDB_RATE'];
+                                        while($i>=2){
+                                        $i=$i-2;
+                                        ?>
                                                     <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
-                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
-                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                        <?php } 
+                                        if($data['IMDB_RATE']% 2!=0){
+                                        ?>
+                                                    
                                                     <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                        <?php 
+                                        }
+                                        $i=10-$data['IMDB_RATE'];
+                                        while($i>=2){
+                                            $i=$i-2;
+                                        ?>
                                                     <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <?php
+                                        }
+                                        ?>            
                                         <!------------------------------------------------------------------------------------------------------>
                                         
                                         </div>
@@ -120,11 +138,28 @@ $count=mysqli_fetch_assoc($Notflixcount);
                                     <div class="d-inline-flex d-lg-flex align-items-lg-center"><span style="font-family: 'Architects Daughter', cursive;font-size: 24px;">NOTflix:&nbsp;</span>
                                         <div class="rating" style="width: 402px;margin-left: 14px;">
                                         <!-------------Rate Stars------------------------------------------------------------------------------->
-                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
-                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
-                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
-                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
-                                                <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <?php
+                                       
+                                        $i=$rate['AVG(RATE)'];
+                                        while($i>=2){
+                                        $i=$i-2;
+                                        ?>
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star.svg" style="width: 19px;">
+                                        <?php } 
+                                        if( $i=$rate['AVG(RATE)']% 2!=0){
+                                        ?>
+                                                    
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-half-empty.svg" style="width: 19px;">
+                                        <?php 
+                                        }
+                                        $i=10- $i=$rate['AVG(RATE)'];
+                                        while($i>=2){
+                                            $i=$i-2;
+                                        ?>
+                                                    <img data-aos="flip-left" data-aos-delay="200" src="assets/img/star-empty.svg" style="width: 19px;">
+                                        <?php
+                                        }
+                                        ?>         
                                         <!------------------------------------------------------------------------------------------------------>
                                         
                                         </div>
