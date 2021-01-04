@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Jan 03, 2021 at 05:53 PM
-=======
 -- Generation Time: Jan 03, 2021 at 12:31 PM
->>>>>>> 9d60611ec307c865ab6e33593b256344776f6541
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -447,14 +443,10 @@ INSERT INTO `movie` (`ID`, `NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF
 (33, '3 idiot', 2013, 2, 'fee description henaaaaaaa', 'English', 3000000, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 9, 10000000, 1, 1, 1),
 (34, 'Purple Dress', 2020, 120, 'blabla', 'Arabic', 100000000, 2147483647, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 2, 300, 2, 1, 1),
 (35, 'baby dress ', 2020, 120, 'pla pla plo', 'Arabic', 2147483647, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'Link', 'Raghad', 9, 200, 2, 1, 1),
-<<<<<<< HEAD
-(36, 'first step in Data Science', 2020, 120, 'bla bla', 'Arabic', 10000, 10000, '2', 'Link', 'Raghad', 8, 7, 2, 1, 1);
-=======
 (36, 'first step in Data Science', 2020, 120, 'bla bla', 'Arabic', 10000, 10000, '2', 'Link', 'Raghad', 8, 7, 2, 1, 1),
 (37, 'baby dress ^^', 2020, 12, 'bla bla', 'Arabic', 12345, 123, '2', 'Link', 'Raghad', 2, 23456, 1, 1, 1),
 (38, 'Raghaoooooda', 2020, 123, 'pla', 'Arabic', 1000000000, 100000, '2', 'Link', 'Raghad', 100, 2, 2, 1, 1),
 (39, 'roro', 2020, 123, 'pla', 'Arabic', 1000000000, 100000, '2', 'Link', 'Raghad', 100, 2, 2, 1, 1);
->>>>>>> 9d60611ec307c865ab6e33593b256344776f6541
 
 -- --------------------------------------------------------
 
@@ -787,19 +779,11 @@ ALTER TABLE `story`
 
 --
 -- AUTO_INCREMENT for table `actor`
-<<<<<<< HEAD
 --
 ALTER TABLE `actor`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
-=======
---
-ALTER TABLE `actor`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
->>>>>>> 9d60611ec307c865ab6e33593b256344776f6541
 -- AUTO_INCREMENT for table `director`
 --
 ALTER TABLE `director`

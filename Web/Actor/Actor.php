@@ -1,3 +1,30 @@
+<?php
+include '../control.php';  // Using database connection file here
+
+//$id=1;
+$id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$actor=new actor;
+$result=$actor->getactorwithId($id);
+
+$data=mysqli_fetch_assoc($result);
+$movie_count=$actor->get_movie_count($id);
+$temp=mysqli_fetch_assoc($movie_count);
+$movie_count=$temp['movie_count'];
+
+$Prize_Title=$actor->get_awards($id);
+$actor_pic=$data['IMAGE'];
+
+if(is_null($actor_pic))
+{
+    $actor_pic="assets/img/actor_pic_not_available.jpg";
+}
+
+$movies_of_actor=$actor->get_movies($id);
+$series_of_actor=$actor->get_series($id);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -80,18 +107,18 @@
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src="assets/img/Chris_Evans.jpg" style="width: 100%;height: 100%;"></a></div>
+                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src=<?php echo $actor_pic;?> style="width: 100%;height: 100%;"></a></div>
                                 
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px">Chris Evans </h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px"><?php echo $data['FNAME']." ".$data['LNAME'];?> </h4>
                                     <div>
                                         <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Birth Date</h4>
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	15-03-1980
+                                        	<?php echo $data['BIRTH_DATE'];?>
                                         </p>
                                     </div>
 
@@ -100,7 +127,7 @@
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	20 movie
+                                        	<?php echo $movie_count; ?>
                                         </p>
                                     </div>
                                     
@@ -109,9 +136,15 @@
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	Golden Globe
+                                       <?php while($row = mysqli_fetch_array($Prize_Title) ) 
+                                                {
+                                                    echo $row['Prize_Title']."<br>";
+                                                }
+                                        ?>
+                                        
                                         </p>
                                     </div>
+                                   
 
                                      <!-- Advertisement Card-->
                 <div class="card" style="margin-top: 60px;">
@@ -134,16 +167,46 @@
                                     <h2 style="font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Movies And Series</h2>
 							          <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
 							<!--------------Repeat this---->
-							                                        
+                                  <?php  while($data = mysqli_fetch_array($movies_of_actor))  
+                                        {
+                                        if(is_null($data['POSTER']))
+                                        { 
+                                        $data['POSTER']="assets\img\movie_pic.jpg";
+                                        } 
+                                        
+                                      ?>                                  
 							    <div class="col">
+                                    
 							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="assets\img\71niXI3lxlL._AC_SY679_.jpg" style="  width: 100%;" />
-							                <figcaption class="figure-caption" style="  font-size: 12px;">Movie 3ady</figcaption>
+							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" />
+							                <figcaption class="figure-caption" style="  font-size: 12px;"><?php echo $data['NAME_MOVIE']?></figcaption>
 							            </figure>
 							           
 							        </div>
 							        
 							    </div>
+                                <?php }?>
+							<!----------------------------------->
+                            <!--------------Repeat this--FOR series this time-->
+                            <?php  while($data = mysqli_fetch_array($series_of_actor))  
+                                        {
+                                        if(is_null($data['POSTER']))
+                                        { 
+                                        $data['POSTER']="assets\img\movie_pic.jpg";
+                                        } 
+                                        
+                                      ?>                                  
+							    <div class="col">
+                                    
+							        <div class="justify-content-center spacer-slider">
+							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" />
+							                <figcaption class="figure-caption" style="  font-size: 12px;"><?php echo $data['NAME_SERIES']?></figcaption>
+							            </figure>
+							           
+							        </div>
+							        
+							    </div>
+                                <?php }?>
 							<!----------------------------------->
 										</div>
                                 </div>

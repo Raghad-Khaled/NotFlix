@@ -490,6 +490,28 @@ class actor
     $qury="INSERT INTO actor (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function get_movie_count($id)
+  {
+    $qury="SELECT COUNT(*) as movie_count from acted_movie WHERE acted_movie.ACTOR_ID=".$id;
+    return $result = mysqli_query($this->_conn, $qury); 
+  }
+
+  public function get_awards($id)
+  {
+    $qury="SELECT pz.TITLE as Prize_Title from prize as pz , actor_prize_movie as apv where pz.ID=apv.PRIZE_ID and apv.ACTOR_ID=".$id;
+    return $result = mysqli_query($this->_conn, $qury); 
+  }
+
+  public function get_movies($id)
+  {
+    $qury="SELECT movie.* FROM movie,acted_movie WHERE acted_movie.MOVIE_ID=movie.ID AND acted_movie.ACTOR_ID=".$id;
+    return $result = mysqli_query($this->_conn, $qury); 
+  }
+  public function get_series($id)
+  {
+    $qury="SELECT series.* FROM series,acted_series WHERE acted_series.SERIES_ID=series.ID AND acted_series.ACTOR_ID=".$id;
+    return $result = mysqli_query($this->_conn, $qury); 
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 class director
