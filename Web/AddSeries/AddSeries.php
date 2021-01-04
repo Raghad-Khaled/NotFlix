@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AddFilm</title>
+  <title>AddSeries</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
       <!-- <img class="d-inline-block align-top"  src="https://img.icons8.com/cotton/40/000000/movie-beginning--v1.png"/> -->
     </div>
     <div class="head">
-      Add New Film
+      Add New Series
     </div>
   </nav>
 
@@ -37,7 +37,7 @@
 
         </div>
         <div class="col-sm form-group">
-          <label class="form-label" for="title">Film Title </label>
+          <label class="form-label" for="title">Series Title </label>
           <input type="text" class="form-control" required name="title" id="title">
         </div>
         <div class="col-sm form-group">
@@ -49,7 +49,7 @@
 
       <div class="row ">
         <div class="col-12 col-lg-4 form-group">
-          <label class="form-label" for="Duration">Duration of the Film </label>
+          <label class="form-label" for="Duration">Duration of the Episode </label>
           <input type="text" class="form-control html-duration-picker" name="duration" required id="Duration" data-hide-seconds>
         </div>
         <div class="col-12 col-lg-4 form-group">
@@ -208,18 +208,7 @@
 
         </div>
         <div class="col-12 col-lg-3 form-group ">
-          <select class="form-select form-control" aria-label="Default select example" name="story">
-            <option disabled selected>If the Film has story chose it</option>
-
-            <?php
-
-            $records =  $movie->getstory();
-
-            while ($data = mysqli_fetch_array($records)) {
-              echo "<option value='" . $data['STORY_ID'] . "'>" . $data['STORY_NAME'] . "</option>";  // displaying data in option menu
-            }
-            ?>
-          </select>
+        <input type="number" class="form-control" required name="Episodes" style="margin-top:10px" placeholder="Number Of Episodes">
         </div>
 
         <div class="col-12 col-lg-3 form-group ">
@@ -243,7 +232,7 @@
       <div class="row ">
         <div class="form-floating">
           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"></textarea>
-          <label for="floatingTextarea2">Description for the Film</label>
+          <label for="floatingTextarea2">Description for the Series</label>
         </div>
 
       </div>
