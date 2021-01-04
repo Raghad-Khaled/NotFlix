@@ -320,7 +320,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                             ?>
     <div class="col">
         <div class="justify-content-center spacer-slider">
-            <figure class="figure" style="  width: 100%;"><a href=<?php echo "http://localhost:8090/projnot/NotFlix/Web/Actor/Actor.php?id=".$dataactor['ID'];?>><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
+            <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Actor/Actor.php?id=".$dataactor['ID'];?>><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
                 <figcaption class="figure-caption" style="  font-size: 12px;"><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?></figcaption>
             </figure>
            

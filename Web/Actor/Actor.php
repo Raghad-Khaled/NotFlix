@@ -138,7 +138,7 @@ $series_of_actor=$actor->get_series($id);
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
                                        <?php while($row = mysqli_fetch_array($Prize_Title) ) 
                                                 {
-                                                    echo $row['Prize_Title']."<br>";
+                                                    echo $row['Prize_Title']. "<br>";
                                                 }
                                         ?>
                                         
@@ -178,7 +178,7 @@ $series_of_actor=$actor->get_series($id);
 							    <div class="col">
                                     
 							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><a href=<?php echo "http://localhost:8090/projnot/NotFlix/Web/Movie_Page/Movie_page.php?id=".$data['ID'];?>><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" /> </a>
+							            <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Movie_Page/Movie_page.php?id=".$data['ID'];?>><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" /> </a>
 							                <figcaption class="figure-caption" style="  font-size: 12px;"><?php echo $data['NAME_MOVIE']?></figcaption>
 							            </figure>
 							           

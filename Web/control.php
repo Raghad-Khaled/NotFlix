@@ -108,6 +108,14 @@ class Movie
     $result = mysqli_query($this->_conn, $qury);
   }
 
+  public function addcompanytofilm($FilmID, $companyID)
+  {
+
+    $qury = "INSERT INTO funded_movie VALUES ($FilmID,$companyID)";
+    //echo $qury;
+    $result = mysqli_query($this->_conn, $qury);
+  }
+
   //Nada
   public function get_all_fav($user_name)
   {
@@ -190,13 +198,7 @@ class Movie
     return $result = mysqli_query($this->_conn, $qury);
   }
 ///
-  public function addcompanytofilm($FilmID, $companyID)
-  {
-
-    $qury = "INSERT INTO funded_movie VALUES ($FilmID,$companyID)";
-    //echo $qury;
-    $result = mysqli_query($this->_conn, $qury);
-  }
+ 
 
   public function getlanguage()
   {
@@ -616,6 +618,52 @@ class series
   public function get_all(){
     $qury="SELECT * from  series";
    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function addgenretoSeries($FilmID, $genreID)
+  {
+
+    $qury = "INSERT INTO genre_relation_series  VALUES ('$FilmID','$genreID')";
+    //echo $qury;
+    $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function addactortoSeries($FilmID, $actorID)
+  {
+
+    $qury = "INSERT INTO acted_series (`SERISE_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
+    //echo $qury;
+    $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function addcompanytoSeries($FilmID, $companyID)
+  {
+
+    $qury = "INSERT INTO funded_series VALUES ($FilmID,$companyID)";
+    //echo $qury;
+    $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function getid($title)
+  {
+    $qury = "SELECT ID From series WHERE NAME_SERIES='$title'";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function InsertNewSeries($Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count,$EPISODES ,$Director, $prize)
+  {
+    $record = $this->_conn->query("SELECT NAME_SERIES FROM series WHERE NAME_SERIES='$Name'");
+
+    if ($record->num_rows != 0)
+      echo "<script> alert(' This Series already Exist!');  window.location.href='AddSeries.php';</script>";
+
+    else {
+      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
+   ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director,$prize)";
+      echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }
   }
   
 
