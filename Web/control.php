@@ -44,6 +44,30 @@ class user
       echo "<script> alert('Welcome Back!!!!');</script>";
     }
   }
+
+  public function get_Movie_fav($user_name)
+  {
+    $qury = ("SELECT ID,POSTER,NAME_MOVIE FROM MOVIE, ADD_TO_FAV_MOVIE  WHERE ID = MOVIE_ID AND USER_NAME_OF_USER = '$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function get_Series_fav($user_name)
+  {
+    $qury = ("SELECT ID,POSTER,NAME_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function RemoveFilmFromFavorite($FilmID, $user_name)
+  {
+    $qury = ("DELETE FROM add_to_fav_movie WHERE MOVIE_ID ='$FilmID' AND USER_NAME_OF_USER = '$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
+  public function RemoveSeriesFromFavorite($SeriesID, $user_name)
+  {
+    $qury = ("DELETE FROM add_to_fav_series WHERE SERIES_ID ='$SeriesID' AND USER_NAME_OF_USER = '$user_name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
 }
 
 
@@ -109,26 +133,6 @@ class Movie
   }
 
   //Nada
-  public function get_all_fav($user_name)
-  {
-    $qury = ("SELECT ID,POSTER,NAME_MOVIE FROM MOVIE, add_to_fav_movie  WHERE ID = MOVIE_ID AND USER_NAME_OF_USER ='$user_name'
-              UNION SELECT ID,POSTER,NAME_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
-    return $result = mysqli_query($this->_conn, $qury);
-  }
-
-  public function RemoveFromFavorite($FilmID, $user_name)
-  {
-    $record = $this->_conn->query("SELECT ID FROM MOVIE WHERE ID ='$FilmID'");
-    if ($record->num_rows != 0) {
-    $qury = ("DELETE FROM add_to_fav_movie WHERE MOVIE_ID ='$FilmID' AND USER_NAME_OF_USER = '$user_name'");
-    return $result = mysqli_query($this->_conn, $qury);
-    }
-    $record = $this->_conn->query("SELECT ID FROM SERIES WHERE ID ='$FilmID'");
-    if ($record->num_rows != 0) {
-    $qury = ("DELETE FROM add_to_fav_series WHERE SERIES_ID ='$FilmID' AND USER_NAME_OF_USER = '$user_name'");
-    return $result = mysqli_query($this->_conn, $qury);
-    }
-  }
 
   public function DeleteMoviewithId($FilmID)
   {

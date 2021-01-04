@@ -1,7 +1,7 @@
 <?php
 include '../control.php';  // Using database connection file here
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_NUMBER_INT);
-$movie=new movie;
+$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$user=new user;
 
 ?>
 <!DOCTYPE html>
@@ -45,8 +45,7 @@ $movie=new movie;
                 <div class="row no-gutters">
                 <?php
                         
-                        $records=$movie->get_all_fav($name);
-                        var_dump($records);
+                        $records=$user->get_Movie_fav($name);
                         while($data = mysqli_fetch_array($records)){
                             if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                             {
@@ -61,7 +60,30 @@ $movie=new movie;
                                     <div class="col mr-2">
                                         <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_MOVIE'] ?></span></div>
                                     </div>
-                                    <div class="col-auto"><a href="removeFromfavorite.php?id=<?= $data['ID'] ?> &name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
+                                    <div class="col-auto"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php
+                        
+                        $records=$user->get_Series_fav($name);
+                        while($data = mysqli_fetch_array($records)){
+                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE 
+                            {
+                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                            }
+                        ?>
+                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
+                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
+                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                    <div class="col mr-2">
+                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_SERIES'] ?></span></div>
+                                    </div>
+                                    <div class="col-auto"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                 </div>
                             </div>
                         </div>
