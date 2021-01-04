@@ -178,7 +178,7 @@ $series_of_actor=$actor->get_series($id);
 							    <div class="col">
                                     
 							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" />
+							            <figure class="figure" style="  width: 100%;"><a href=<?php echo "http://localhost:8090/projnot/NotFlix/Web/Movie_Page/Movie_page.php?id=".$data['ID'];?>><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" /> </a>
 							                <figcaption class="figure-caption" style="  font-size: 12px;"><?php echo $data['NAME_MOVIE']?></figcaption>
 							            </figure>
 							           
