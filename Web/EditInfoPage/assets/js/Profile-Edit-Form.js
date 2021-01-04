@@ -8,7 +8,8 @@
                 $('.avatar-bg').css({
                     'background':'url('+e.target.result+')',
                     'background-size':'cover',
-                    'background-position': '50% 50%'
+                    'background-position': 'center',
+                    'background-repeat':'no-repeat'
                 });
             };
 
