@@ -7,8 +7,9 @@
             reader.onload = function (e) {
                 $('.avatar-bg').css({
                     'background':'url('+e.target.result+')',
-                    'background-size':'cover',
-                    'background-position': '50% 50%'
+                    'background-size':'contain',
+                    'background-position': 'center',
+                    'background-repeat':'no-repeat'
                 });
             };
 
