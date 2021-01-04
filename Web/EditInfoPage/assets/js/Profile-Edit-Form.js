@@ -7,7 +7,7 @@
             reader.onload = function (e) {
                 $('.avatar-bg').css({
                     'background':'url('+e.target.result+')',
-                    'background-size':'contain',
+                    'background-size':'cover',
                     'background-position': 'center',
                     'background-repeat':'no-repeat'
                 });
