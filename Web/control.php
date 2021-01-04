@@ -589,7 +589,7 @@ class character
   }
 
 }
-
+//////////////////////////////////////////////////////////
 class company
 {
   private $_conn; 
@@ -604,6 +604,23 @@ class company
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 }
+/////////////////////////////////////////////////////////
+class advertisement
+{
+  private $_conn; 
+  public function __construct ()
+  {
+    $DB_opt = Database::getInstance();
+    $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function Addnew($abminName,$pic){
+    $qury="INSERT into advertisement (ADMIN_ADDED , PICTURE) VALUES ('$abminName','$pic')";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+}
+
 /////////////////////////////////////////////////////////
 
 class series
@@ -644,6 +661,11 @@ class series
     $result = mysqli_query($this->_conn, $qury);
   }
 
+  public function addseason($series,$number,$poster,$link){
+    $qury="INSERT INTO season VALUES ($series,$number,'$poster','$link')";
+    $result = mysqli_query($this->_conn, $qury);
+  }
+
   public function getid($title)
   {
     $qury = "SELECT ID From series WHERE NAME_SERIES='$title'";
@@ -665,6 +687,7 @@ class series
       $result = mysqli_query($this->_conn, $qury);
     }
   }
+  
   
 
   

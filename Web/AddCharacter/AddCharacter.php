@@ -30,20 +30,20 @@
 
         <div class="row">
             <div class="col-lg-3 col-12 form-group">
-                <label class="form-label" for="title">Fantacy Character Frist Name</label>
+                <label class="form-label" for="title"> Frist Name</label>
                  <input type="text" class="form-control" required name="Fname" >
             </div>
             <div class="col-lg-3 col-12 form-group">
-                <label class="form-label" for="title">Fantacy Character Last Name</label>
+                <label class="form-label" for="title"> Last Name</label>
                 <input type="text" class="form-control" required name="Lname" >
             </div>
             <div class="col-lg-3 col-12 form-group">
-                <label class="form-label" for="title">Fantacy Character image</label>
+                <label class="form-label" for="title">Image Link</label>
                  <input type="text" class="form-control" required name="postar" id="postar">
             </div>
 
             <div class="col-lg-3 col-12 form-group">
-            <label class="form-label" for="date">Fantacy Character Birth date</label>
+            <label class="form-label" for="date">Birth date</label>
             <input class="form-control" type="date" required value="1988-08-11" name="birthdate" id="date">
         </div>
 
