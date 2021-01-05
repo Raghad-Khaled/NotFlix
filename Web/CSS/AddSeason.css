@@ -1,0 +1,56 @@
+body {
+    background-image: url("../images/outer-space-background.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    min-height: 500px;
+    font-family: 'Langar', cursive;
+    font-size: x-large;
+  }
+  .navbar{
+      background-color: #ffffffb9;
+      font-family: 'Langar', cursive;
+      font-size: xx-large;
+      font-weight: bold;
+     color:rgb(41 14 60);
+  }  
+  .navbar-brand{
+      margin-left:3%;
+  }
+  
+  .head{
+     margin-right:40% ;
+  
+  }
+  .form-label{
+      color: white;
+  }
+  .row{
+      margin-top: 10%;
+  }
+  .form-select{
+      margin-top: 4%;
+  }
+  
+  
+  .container{
+      margin-bottom: 40px;
+  }
+  .text-center{
+      margin-top: 2%;
+  }
+  .btn{
+      background-color:#922264 ;
+      color: white;
+      margin-top:5%;
+  }
+  .form-control{
+      background-color: rgba(255, 255, 255, 0.658);
+  }
+  @media (max-width: 470px) { 
+      .head{
+          margin-right:0% ;
+       
+       }
+  }
+  

@@ -7,7 +7,7 @@ body {
     min-height: 550px;
     font-family: 'Langar', cursive;
     color: white;
-    
+    font-size: x-large;
   }
   .navbar{
       background-color: #ffffffb9;
@@ -28,7 +28,7 @@ body {
       width: 100%;
   }
 form{
-    margin-top: 4%;
+    margin-top: 10%;
 }
 .row2{
     

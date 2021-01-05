@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 06:51 PM
+-- Generation Time: Jan 04, 2021 at 10:46 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -185,9 +185,17 @@ INSERT INTO `admin_website` (`ADMIN_NAME`, `PASSWORD_OF_ADMIN`, `EMAIL`, `AGE`, 
 --
 
 CREATE TABLE `advertisement` (
-  `PICTURE` blob NOT NULL,
-  `ADMIN_ADDED` varchar(100) DEFAULT NULL
+  `PICTURE` varchar(100) NOT NULL,
+  `ADMIN_ADDED` varchar(100) NOT NULL,
+  `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `advertisement`
+--
+
+INSERT INTO `advertisement` (`PICTURE`, `ADMIN_ADDED`, `ID`) VALUES
+('raghad.jpg', 'RoRo123', 2);
 
 -- --------------------------------------------------------
 
@@ -555,9 +563,16 @@ CREATE TABLE `rate_series` (
 CREATE TABLE `season` (
   `SERIES_ID` int(11) NOT NULL,
   `SEASON_NUMBER` int(11) NOT NULL,
-  `POSTER` blob DEFAULT NULL,
+  `POSTER` varchar(1000) DEFAULT NULL,
   `SEASON_LINK` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `season`
+--
+
+INSERT INTO `season` (`SERIES_ID`, `SEASON_NUMBER`, `POSTER`, `SEASON_LINK`) VALUES
+(2, 3, 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExIVFRUVGBsYGBcYFxYWGRgYGxcZGhgXGBYYHSggGBslHRgYITEiJSkrLi4uGB8zODMsNygtLisBCgoKDg0OGxAQGzAlHyYtKy0tNS01LS0tLS0tNS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIARMAtwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAwQFBgcCAQj/xABFEAABAwIEAwUFBQcBBgcBAAABAgMRAAQFEiExBkFREyJhcYEHMpGhwRRCsdHwI1JicoKS4aIzNHOywvEVFiVDRFOTCP/EABkBAAMBAQEAAAAAAAAAAAAAAAADBAIBBf/EACURAAIDAAIDAAEEAwAAAAAAAAABAgMREiEEMUEiEzJRYRRCgf/aAAwDAQACEQMRAD8Aw2iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACrfwHwg1eJfuLq4+zWlsElxzLmJUowlCR19CZKQAZ0qFa5hFxhdvgLCLwXKvtbzjpSyQFKUyrJuSEhAGXQ6ySRtoAU/i5zCA0lvD0XRdSvvvPFIStEHQJB3nL91Ox3qp1ZcZxiwIKbXDQgagOPPvOL1GighCkoSR0OYVEYphpZKZWlWZOYFJmuatw0oScXJel7/AOkhhPBt/cpbWxaOuIdJCVpHclJgys6IE6SogaGnXE3s/wAQsW+1uGIbkJzpWhYBOwVlMp23IiYFbLh/CFw5h1jatXqrdlDBXctNEdu4tyHcgJIyjvKGpjXUEVl3Ht5cpaFkjD3LGzaVnCClRU4v3Q666RCzA5aDbWBHTJQ6dYXhztw6hhlBW44cqUggSfMkAeZp3geDfaEvntm2+wZU7CzBcy/cR4n8qnvZe8li4fvVf/DtnHUzo', 'https://www.youtube.com/watch?v=0pdqf4P9MB8');
 
 -- --------------------------------------------------------
 
@@ -704,7 +719,8 @@ ALTER TABLE `admin_website`
 -- Indexes for table `advertisement`
 --
 ALTER TABLE `advertisement`
-  ADD UNIQUE KEY `PICTURE` (`PICTURE`) USING HASH,
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `PICTURE` (`PICTURE`),
   ADD KEY `ADMIN_ADDED` (`ADMIN_ADDED`);
 
 --
@@ -809,6 +825,12 @@ ALTER TABLE `story`
 --
 ALTER TABLE `actor`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `advertisement`
+--
+ALTER TABLE `advertisement`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `director`
