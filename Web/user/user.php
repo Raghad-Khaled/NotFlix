@@ -1,21 +1,24 @@
 <?php
 include '../control.php';  // Using database connection file here
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
-$user=new user;
+$name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$user = new user;
 
 ?>
 <!DOCTYPE html>
 <html style="height: 622px;background: rgb(33,33,46);">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Cards-with-Hover-Effect-50-1.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Cards-with-Hover-Effect-50.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
@@ -24,6 +27,10 @@ $user=new user;
     <link rel="stylesheet" href="assets/css/NotflixButton.css">
     <link rel="stylesheet" href="assets/css/Notflixfooter.css">
     <link rel="stylesheet" href="assets/css/NotflixNavBar.css">
+    <link rel="stylesheet" href="assets/css/Profile-Card-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Card.css">
+    <link rel="stylesheet" href="assets/css/Responsive-News-Card-Slider-1.css">
+    <link rel="stylesheet" href="assets/css/Responsive-News-Card-Slider.css">
 </head>
 
 <body id="page-top" style="height: 526px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;padding: 0px;background: rgba(49,23,54,0);">
@@ -32,62 +39,76 @@ $user=new user;
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href= #footer style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
+                    <li class="nav-item"><a class="nav-link" href=#footer style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                </ul>
             </div>
         </div>
     </nav>
     <main>
+        <div class="text-center profile-card" style="margin: 15px;color: #858796;background: rgba(255,255,255,0);border-color: rgba(133,135,150,0);">
+            <div style="margin-top: 94px;margin-right: 0px;">
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-auto" style="width: 300px;margin-right: 0px;margin-left: 0px;"><img class="img-thumbnail d-xl-flex align-items-xl-start" style="margin-top: 0px;text-align: right;" src="assets/img/avatar-dhg.png" height="150px"></div>
+                    <div class="col-auto" style="margin-top: 30px;">
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;">Nada Elsayed</h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;">example@gmail.com</h3>
+                        <div class="row" style="padding:0;padding-bottom:10px;padding-top:20px;">
+                            <div class="col-auto"><button class="btn btn-primary" onclick="window.location.href='../EditInfoPage/EditProfile.html';" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;">Edit Info</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="d-inline-flex">
             <div class="container-fluid" style="margin-top: 98px;">
                 <div class="text-center d-sm-flex justify-content-between justify-content-lg-start mb-4"><span style="color: rgb(240,240,245);font-size: 50px;margin-top: 20px;font-family: Cookie, cursive;">Favourites</span></div>
                 <div class="row no-gutters">
-                <?php
-                        
-                        $records=$user->get_Movie_fav($name);
-                        while($data = mysqli_fetch_array($records)){
-                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
-                            {
-                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
-                            }
-                        ?>
-                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
-                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
-                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
-                                    <div class="col mr-2">
-                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_MOVIE'] ?></span></div>
+                    <?php
+
+                    $records = $user->get_Movie_fav($name);
+                    while ($data = mysqli_fetch_array($records)) {
+                        if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                        {
+                            $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                        }
+                    ?>
+                        <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
+                            <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
+                                <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                        <div class="col mr-2">
+                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?= $data['NAME_MOVIE'] ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                     </div>
-                                    <div class="col-auto"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php } ?>
                     <?php
-                        
-                        $records=$user->get_Series_fav($name);
-                        while($data = mysqli_fetch_array($records)){
-                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE 
-                            {
-                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
-                            }
-                        ?>
-                    <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
-                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
-                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
-                                    <div class="col mr-2">
-                                        <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?=$data['NAME_SERIES'] ?></span></div>
+
+                    $records = $user->get_Series_fav($name);
+                    while ($data = mysqli_fetch_array($records)) {
+                        if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE 
+                        {
+                            $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                        }
+                    ?>
+                        <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
+                            <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(#bd11fa, #46c2ff), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;margin-left: 20px;">
+                                <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;border-radius: 0px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                        <div class="col mr-2">
+                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(33,33,46);border-color: rgb(33,33,46);"><?= $data['NAME_SERIES'] ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                     </div>
-                                    <div class="col-auto"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> "rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
             </div>
