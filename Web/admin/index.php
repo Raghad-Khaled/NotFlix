@@ -1,9 +1,9 @@
 <?php
 include '../control.php';  // Using database connection file here
-$name=filter_input(INPUT_GET,'Admin_Name',FILTER_SANITIZE_NUMBER_INT);
-$movie=new movie;
-$reselt=$movie->getMovieforAdmin($name);
-$data=mysqli_fetch_assoc($reselt);
+$name = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
+$movie = new movie;
+$reselt = $movie->getMovieforAdmin($name);
+$data = mysqli_fetch_assoc($reselt);
 
 ?>
 
@@ -26,6 +26,7 @@ $data=mysqli_fetch_assoc($reselt);
     <link rel="stylesheet" href="assets/css/NotflixButton.css">
     <link rel="stylesheet" href="assets/css/Notflixfooter.css">
     <link rel="stylesheet" href="assets/css/NotflixNavBar.css">
+    <link rel="stylesheet" href="assets/css/Profile-Card-1.css">
 </head>
 
 <body id="page-top" style="height: 526px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;padding: 0px;background: rgba(49,23,54,0);">
@@ -33,70 +34,165 @@ $data=mysqli_fetch_assoc($reselt);
         <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="#" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href= "#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
+                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href=#footer style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                </ul>
             </div>
         </div>
     </nav>
     <main>
+        <div class="text-center profile-card" style="margin: 15px;color: #858796;background: rgba(255,255,255,0);border-color: rgba(133,135,150,0);">
+            <div style="margin-top: 94px;margin-right: 0px;">
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-auto" style="width: 300px;margin-right: 0px;margin-left: 0px;"><img class="img-thumbnail d-xl-flex align-items-xl-start" style="margin-top: 0px;text-align: right;" src="assets/img/avatar-dhg.png" height="150px"></div>
+                    <div class="col-auto" style="margin-top: 30px;">
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;">Nada Elsayed</h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;">example@gmail.com</h3>
+                        <div class="row" style="padding:0;padding-bottom:10px;padding-top:20px;">
+                            <div class="col-auto"><button class="btn btn-primary" onclick="window.location.href='../EditInfoPage/EditProfile.html';" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;">Edit Info</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="d-inline-flex">
             <div class="container-fluid" style="margin-top: 98px;">
                 <div class="text-center d-sm-flex justify-content-between justify-content-lg-start mb-4"><span style="color: rgb(240,240,245);font-size: 26px;margin-top: 20px;"><em>Film &amp; series added</em><br></span></div>
-                <div class="row no-gutters"> 
+                <div class="row no-gutters">
+                    <div class="col-auto d-xl-flex justify-content-xl-start">
+                        <div class="row no-gutters">
+                            <?php
 
-                <?php
-                        
-                    $records=$movie->get_all();
-                    while($data = mysqli_fetch_array($records)){
-                        if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
-                        {
-                            $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
-                        }
-                    ?>
-                      
-                        <div class="col-auto d-xl-flex justify-content-xl-start" style="width: 580px;">
-                        <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0)), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;">
-                            <div class="card-body d-xl-flex justify-content-xl-start" style="width: 500px;">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
-                                    <div class="col-auto">
-                                        <div class = "row">
-                                        <div class="col mr-2">
-                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);"><?=$data['NAME_MOVIE'] ?></span></div>
-                                        </div>
-                                    </div>
-                                        <div class = "row">
-                                        <div class="col-auto"><a class="icons8-edit" data-bs-hover-animate="pulse" href="../EditFilm/EditFilm.php?id=<?=$data['ID']?>"rel="stylesheet" type="text/css"></a></div>
-                                        <div class="col-auto"><a class="icons8-trash" data-bs-hover-animate="pulse" href="delete.php?id=<?= $data['ID'] ?>"rel="stylesheet" type="text/css"></a></div>
+                            $records = $movie->get_all();
+                            while ($data = mysqli_fetch_array($records)) {
+                                if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                                {
+                                    $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                                }
+                            ?>
+
+                                <div class="col-auto d-xl-flex justify-content-xl-start" >
+                                    <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0)), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;">
+                                        <div class="card-body d-xl-flex justify-content-xl-start" >
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                                <div class="col-auto">
+                                                    <div class="row">
+                                                        <div class="col mr-2">
+                                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);"><?= $data['NAME_MOVIE'] ?></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-auto"><a class="icons8-edit" data-bs-hover-animate="pulse" href="../EditFilm/EditFilm.php?id=<?= $data['ID'] ?> & Admin_name<?= $name ?>" rel="stylesheet" type="text/css"></a></div>
+                                                        <div class="col-auto"><a class="icons8-trash" data-bs-hover-animate="pulse" href="delete.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
+                            <?php } ?>
                         </div>
+                    </div>
+                    <div class="col-auto d-xl-flex justify-content-xl-start">
+                        <div class="row no-gutters">
+                            <?php
+                            $advertisement = new advertisement;
+                            $records = $advertisement->get_for_admin($name);
+                            while ($data = mysqli_fetch_array($records)) {
+                                if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                                {
+                                    $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                                }
+                            ?>
+
+                                <div class="col-auto d-xl-flex justify-content-xl-start" >
+                                    <div class="card shadow d-xl-flex justify-content-xl-start border-left-primary py-2" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0)), rgb(61,135,222);border-color: var(--dark);width: 500px;margin: 20px;">
+                                        <div class="card-body d-xl-flex justify-content-xl-start" >
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-auto"><img class="border rounded img-profile" src=<?php echo $data['POSTER']; ?> style="width: 100px;height: 100px;border-color: rgb(187,3,191);box-shadow: 0px 0px;" width="200" height="200"></div>
+                                                <div class="col-auto">
+                                                    <div class="row">
+                                                        <div class="col mr-2">
+                                                            <div class="text-dark font-weight-bold h5 mb-0" style="margin: 10px;font-size: 35px;"><span style="color: rgb(154,59,128);"><?= $data['NAME_MOVIE'] ?></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-auto"><a class="icons8-edit" data-bs-hover-animate="pulse" href="../EditFilm/EditFilm.php?id=<?= $data['ID'] ?> & Admin_name<?= $name ?>" rel="stylesheet" type="text/css"></a></div>
+                                                        <div class="col-auto"><a class="icons8-trash" data-bs-hover-animate="pulse" href="delete.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php } ?>
                         </div>
-                    
-                <?php } ?>
+                    </div>
+                    <div class="card" style="margin-top: 20px;">
+                    <div class="card-body" style="height: 100%;width: 100%;"><img src="assets/img/329990e7a9fe7cb6fd3bf9d616f1b0dc.jpg" style="width: 100%;"></div>
+                </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="row">
-                            <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Movie</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><a href="../AddFilm/AddFilm.php"></a>
-                                <defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddFilm/AddFilm.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Series</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddSeries/AddSeries.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                 </div>
@@ -104,19 +200,59 @@ $data=mysqli_fetch_assoc($reselt);
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Novel</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddNovel/AddNovel.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Season</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddSeason/AddSeason.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                 </div>
@@ -124,19 +260,59 @@ $data=mysqli_fetch_assoc($reselt);
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Actor</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddActor/AddActor.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Character</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddCharacter/AddCharacter.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                 </div>
@@ -144,19 +320,59 @@ $data=mysqli_fetch_assoc($reselt);
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Prize</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddPrize/AddPrize.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Director</span></div>
-                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="64" height="64"
-                                viewBox="0 0 172 172"
-                                style=" fill:#000000;"><defs><linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1"><stop offset="0" stop-color="#c8b8f8"></stop><stop offset="1" stop-color="#d08abc"></stop></linearGradient><linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient><linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3"><stop offset="0" stop-color="#7a51ef"></stop><stop offset="1" stop-color="#a7438b"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path><path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path><path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path></g></g></svg></div>
+                            <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddDirector/Adddirector.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <defs>
+                                            <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                                <stop offset="0" stop-color="#c8b8f8"></stop>
+                                                <stop offset="1" stop-color="#d08abc"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                            <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                                <stop offset="0" stop-color="#7a51ef"></stop>
+                                                <stop offset="1" stop-color="#a7438b"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g>
+                                                <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                                <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                                <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                            </g>
+                                        </g>
+                                    </svg></a></div>
                         </div>
                     </div>
                 </div>

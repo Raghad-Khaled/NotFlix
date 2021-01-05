@@ -290,7 +290,7 @@ class Movie
 
   public function getMovieforAdmin($Name)
   {
-    $qury = "SELECT * from movie where ADMIN_INSETED_MOVIE=" . "'$Name'";
+    $qury = "SELECT * from movie where ADMIN_INSETED_MOVIE='$Name'";
 
     return $reselt = mysqli_query($this->_conn, $qury);
   }
@@ -623,6 +623,12 @@ class advertisement
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+
+  public function get_for_admin($abminName){
+    $qury="SELECT PICTURE FROM advertisement WHERE ADMIN_ADDED = '$abminName'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
 }
 
 /////////////////////////////////////////////////////////
@@ -638,6 +644,11 @@ class series
 
   public function get_all(){
     $qury="SELECT * from  series";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function get_all_for_admin($name){
+    $qury="SELECT * from  series WHERE ADMIN_INSETED_SERIES = " . "'$name'";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 
@@ -691,7 +702,6 @@ class series
       $result = mysqli_query($this->_conn, $qury);
     }
   }
-  
   
 
   

@@ -47,246 +47,248 @@
 <body style="background: #21212e;">
     <?php
     include '../control.php';  // Using database connection file here
-    $genre_obj=new genre;
-    $movie=new movie;
-    $prize_obj=new prize;
-    $name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
-    $n="plapla";
+    $genre_obj = new genre;
+    $movie = new movie;
+    $prize_obj = new prize;
+    $name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+    $n = "plapla";
     ?>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px;">
-    <form action="Movies.php" method="Post">
-        <div class="container"><a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;"></a><button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"><input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string">
-          
-            <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; height: 40px; box-shadow:0px 0px 0px 0px">
-           
-            </button>
+        <form action="Movies.php" method="Post">
+            <div class="container"><a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;"></a><button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;"></button>
+                <div class="collapse navbar-collapse" id="navcol-1"><input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string">
+
+                    <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; height: 40px; box-shadow:0px 0px 0px 0px">
+
+                    </button>
+                </div>
+
+        </form>
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Profile</strong><br></a></li>
+            <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
+        </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span><?= $name ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
         </div>
-            
-    </form>
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Profile</strong><br></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
-                </ul><a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;"><span><?=$name ?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></a>
-            </div>
         </div>
     </nav>
-    <section id="header" style="margin-bottom: 133px;border-radius: 54px;box-shadow: -7px 7px 20px 4px rgba(189,17,250,0.25), 30px -1px 11px #46c2ff;"><!-- Paradise Slider -->
-	<div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+    <section id="header" style="margin-bottom: 133px;border-radius: 54px;box-shadow: -7px 7px 20px 4px rgba(189,17,250,0.25), 30px -1px 11px #46c2ff;">
+        <!-- Paradise Slider -->
+        <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
-			<li data-target="#fw_al_007" data-slide-to="1"></li>
-			<li data-target="#fw_al_007" data-slide-to="2"></li>
-            <li data-target="#fw_al_007" data-slide-to="3" ></li>
-			<li data-target="#fw_al_007" data-slide-to="4"></li>
-			<li data-target="#fw_al_007" data-slide-to="5"></li>
-		</ol>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
+                <li data-target="#fw_al_007" data-slide-to="1"></li>
+                <li data-target="#fw_al_007" data-slide-to="2"></li>
+                <li data-target="#fw_al_007" data-slide-to="3"></li>
+                <li data-target="#fw_al_007" data-slide-to="4"></li>
+                <li data-target="#fw_al_007" data-slide-to="5"></li>
+            </ol>
 
-		<!-- Wrapper For Slides -->
-		<div class="carousel-inner" role="listbox">
+            <!-- Wrapper For Slides -->
+            <div class="carousel-inner" role="listbox">
 
-			<!-- First Slide -->
-			<div class="carousel-item active">
+                <!-- First Slide -->
+                <div class="carousel-item active">
 
-				<!-- Slide Background -->
-				<img src="assets/img/wallpapersden.com_star-wars-dark-side_2560x1440.jpg" alt="fw_al_007_01">
+                    <!-- Slide Background -->
+                    <img src="assets/img/wallpapersden.com_star-wars-dark-side_2560x1440.jpg" alt="fw_al_007_01">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
 
-			<!-- Second Slide -->
-			<div class="carousel-item">
+                <!-- Second Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/30Qm6l.gif" alt="fw_al_007_02">
+                    <!-- Slide Background -->
+                    <img src="assets/img/30Qm6l.gif" alt="fw_al_007_02">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
 
-			<!-- Third Slide -->
-			<div class="carousel-item">
+                <!-- Third Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/tenor.gif" alt="fw_al_007_03">
+                    <!-- Slide Background -->
+                    <img src="assets/img/tenor.gif" alt="fw_al_007_03">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- Fourth Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- Fourth Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/uw0gHLX.jpg" alt="fw_al_007_04">
+                    <!-- Slide Background -->
+                    <img src="assets/img/uw0gHLX.jpg" alt="fw_al_007_04">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- Fifth Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- Fifth Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/joker-joker-2019-movie-joaquin-phoenix-movies-hd-wallpaper-preview.jpg" alt="fw_al_007_05">
+                    <!-- Slide Background -->
+                    <img src="assets/img/joker-joker-2019-movie-joaquin-phoenix-movies-hd-wallpaper-preview.jpg" alt="fw_al_007_05">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- Sixth Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- Sixth Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/KlutzyFemaleArabianoryx-max-14mb.gif" alt="fw_al_007_06">
+                    <!-- Slide Background -->
+                    <img src="assets/img/KlutzyFemaleArabianoryx-max-14mb.gif" alt="fw_al_007_06">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-             <!-- seventh Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- seventh Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/13-Reasons-to-watch-13-Reasons-Why-768x514.jpg" alt="fw_al_007_07">
+                    <!-- Slide Background -->
+                    <img src="assets/img/13-Reasons-to-watch-13-Reasons-Why-768x514.jpg" alt="fw_al_007_07">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-             <!-- eight Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- eight Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/Animation.gif" alt="fw_al_007_08">
+                    <!-- Slide Background -->
+                    <img src="assets/img/Animation.gif" alt="fw_al_007_08">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- 9th Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- 9th Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/Friends.gif" alt="fw_al_007_09">
+                    <!-- Slide Background -->
+                    <img src="assets/img/Friends.gif" alt="fw_al_007_09">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- 10th Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- 10th Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/the-nun-movie-4k-fz.jpg" alt="fw_al_007_10">
+                    <!-- Slide Background -->
+                    <img src="assets/img/the-nun-movie-4k-fz.jpg" alt="fw_al_007_10">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- 11th Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- 11th Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/TheQ.gif" alt="fw_al_007_11">
+                    <!-- Slide Background -->
+                    <img src="assets/img/TheQ.gif" alt="fw_al_007_11">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-            <!-- 12th Slide -->
-			<div class="carousel-item">
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+                <!-- 12th Slide -->
+                <div class="carousel-item">
 
-				<!-- Slide Background -->
-				<img src="assets/img/Nemo.gif" alt="fw_al_007_12">
+                    <!-- Slide Background -->
+                    <img src="assets/img/Nemo.gif" alt="fw_al_007_12">
 
-				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide">
-					<h3 data-animation="animated flipInX">NOTflix</h3>
-					<h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
-					<p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
-					<a href="#cards" data-animation="animated flipInX">Start Now !</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-		</div><!-- End of Wrapper For Slides -->
-		
-		<!-- Left Control -->
-		<a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
-			<span class="fa fa-angle-left" aria-hidden="true"></span>
-		</a>
-		<!-- Right Control -->
-		<a class="carousel-control-next" href="#fw_al_007" data-slide="next">
-			<span class="fa fa-angle-right" aria-hidden="true"></span>
-            
-		</a>
+                    <!-- Slide Text Layer -->
+                    <div class="fw_al_007_slide">
+                        <h3 data-animation="animated flipInX">NOTflix</h3>
+                        <h1 data-animation="animated flipInX"><span>FIND</span> Your Interest</h1>
+                        <p data-animation="animated flipInX">Of Movies, Series, Novels and More !</p>
+                        <a href="#cards" data-animation="animated flipInX">Start Now !</a>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+            </div><!-- End of Wrapper For Slides -->
 
-	
+            <!-- Left Control -->
+            <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+            </a>
+            <!-- Right Control -->
+            <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
 
+            </a>
 
 
- <!-- End --></section>
+
+
+
+            <!-- End -->
+    </section>
     <div style="height: 100px;">
         <div class="cd-tab-filter-wrapper">
             <div class="cd-tab-filter">
@@ -299,92 +301,90 @@
         </div>
     </div>
     <section id="cards">
-        <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1><div class="filter">
-    
-        <form action="Movies.php" method="Post">
-        
+        <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
+        <div class="filter">
+
+            <form action="Movies.php" method="Post">
 
 
-    <!---  Combo boxes of filters ---->    
-    <select style="margin-bottom:20px; margin-left:10px" name="language">
-             <option value="">Language</option>
+
+                <!---  Combo boxes of filters ---->
+                <select style="margin-bottom:20px; margin-left:10px" name="language">
+                    <option value="">Language</option>
 
 
-    <?php
-     
-    $records =  $movie->get_movie_languages();
-    while($row = mysqli_fetch_array($records))
-    { ?>
-        <option value="<?php echo $row['LANGUAGE_MOBIE'];?>"><?php echo $row['LANGUAGE_MOBIE'];?></option>
-    <?php
-    }	
-    ?> 
+                    <?php
 
-    </select>
-    <select style="margin-bottom:20px; margin-left:10px" name="genre">
-             <option value="">Genre</option>
-  
-             <?php
-     
-    $records =  $movie->getgenre();
-    $temp=0;
-     while($data = mysqli_fetch_array($records))
-     {
-        echo "<option value='". $data['ID'] ."'>" .$data['GENRE_TYPE']."</option>";  // displaying data in option menu
-        $temp++;
-     }	
- ?> 
-             
+                    $records =  $movie->get_movie_languages();
+                    while ($row = mysqli_fetch_array($records)) { ?>
+                        <option value="<?php echo $row['LANGUAGE_MOBIE']; ?>"><?php echo $row['LANGUAGE_MOBIE']; ?></option>
+                    <?php
+                    }
+                    ?>
 
-        </select>
-    <select style="margin-bottom:20px; margin-left:10px" name="era">
-             <option value="">Era</option>
-             <?php
-             
-             $year=1910;
-              $counter=0;
-             while($counter<=10)
-     {?>
-        <option value="<?php echo $year;?>"><?php echo $year;?></option>
-        <?php 
-        
-        $counter++;
-        $year+=10;
-     }
-             
-             
-             ?>
-        </select>
-    <select style="margin-bottom:20px; margin-left:10px" name="prize">
-             <option value="">Prize</option>
+                </select>
+                <select style="margin-bottom:20px; margin-left:10px" name="genre">
+                    <option value="">Genre</option>
 
-             <?php
-             
-             $records =  $prize_obj->get_prize_names();
-          
-             while($row = mysqli_fetch_array($records))
-             {?>
-             <option value="<?php echo $row['ID'];?>"><?php echo $row['TITLE'];?></option>
-                 <?php
-             //echo "<option value='". $data['ID'] ."'>" .$data['TITLE']."</option>";  // displaying data in option menu
-             
-             }	
-             
-             ?>
-        </select>
-    <!--------------------------------->
-    
+                    <?php
+
+                    $records =  $movie->getgenre();
+                    $temp = 0;
+                    while ($data = mysqli_fetch_array($records)) {
+                        echo "<option value='" . $data['ID'] . "'>" . $data['GENRE_TYPE'] . "</option>";  // displaying data in option menu
+                        $temp++;
+                    }
+                    ?>
 
 
-<div class="d-xl-flex justify-content-xl-center align-items-xl-center block-heading">
-	<button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="submit" name="show" style="height: 40px;border-radius: 584px;background: #6f38ff;box-shadow: 0px 0px 20px rgba(70,194,255,0.63);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0); margin-top: 20px; margin-bottom: 5px;
-	font-color: rgba(70,194,255,0.63);font-size:20px;text-align: center;font-family: 'Architects Daughter', cursive;">Show</button></div>
+                </select>
+                <select style="margin-bottom:20px; margin-left:10px" name="era">
+                    <option value="">Era</option>
+                    <?php
 
-</form>
-</div>
+                    $year = 1910;
+                    $counter = 0;
+                    while ($counter <= 10) { ?>
+                        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                    <?php
+
+                        $counter++;
+                        $year += 10;
+                    }
 
 
-<!---- Honestly IDK what is this :""  -->
+                    ?>
+                </select>
+                <select style="margin-bottom:20px; margin-left:10px" name="prize">
+                    <option value="">Prize</option>
+
+                    <?php
+
+                    $records =  $prize_obj->get_prize_names();
+
+                    while ($row = mysqli_fetch_array($records)) { ?>
+                        <option value="<?php echo $row['ID']; ?>"><?php echo $row['TITLE']; ?></option>
+                    <?php
+                        //echo "<option value='". $data['ID'] ."'>" .$data['TITLE']."</option>";  // displaying data in option menu
+
+                    }
+
+                    ?>
+                </select>
+                <!--------------------------------->
+
+
+
+                <div class="d-xl-flex justify-content-xl-center align-items-xl-center block-heading">
+                    <button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="submit" name="show" style="height: 40px;border-radius: 584px;background: #6f38ff;box-shadow: 0px 0px 20px rgba(70,194,255,0.63);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0); margin-top: 20px; margin-bottom: 5px;
+	font-color: rgba(70,194,255,0.63);font-size:20px;text-align: center;font-family: 'Architects Daughter', cursive;">Show</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!---- Honestly IDK what is this :""  -->
         <div class="row" style="margin-top: 40px;padding: 33px;">
             <div class="col-md-3">
                 <div class="d-none d-md-block"></div>
@@ -413,7 +413,7 @@
                     </div>
                 </div>
 
-<!------------------------------------------------------------>
+                <!------------------------------------------------------------>
 
 
 
@@ -431,51 +431,49 @@
 
 
 
-                    	<!-- Movie Card-->
+                        <!-- Movie Card-->
                         <?php
-                        
-                        $records=$movie->get_all();
-                        if(isset($_POST['search']))
-                        {
+
+                        $records = $movie->get_all();
+                        if (isset($_POST['search'])) {
 
 
-                        $search_string=$_POST['search_string'];
+                            $search_string = $_POST['search_string'];
 
-                        $records=$movie->search_by_movie_name($search_string);
-                       
-
+                            $records = $movie->search_by_movie_name($search_string);
                         }
-                        
-                        if(isset($_POST['show']))
-                        {
+
+                        if (isset($_POST['show'])) {
                             //echo "aaaaaa";
-                            $language=$_POST['language'];
-                            $era=$_POST['era'];
-                            $genre_id=$_POST['genre'];
-                            $prize_id=$_POST['prize'];
-                            $records=$movie->filter($language,$genre_id,$era,$prize_id);                                
-                           
-                            
+                            $language = $_POST['language'];
+                            $era = $_POST['era'];
+                            $genre_id = $_POST['genre'];
+                            $prize_id = $_POST['prize'];
+                            $records = $movie->filter($language, $genre_id, $era, $prize_id);
                         }
 
-                        while($data = mysqli_fetch_array($records)){
-                            if(is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                        while ($data = mysqli_fetch_array($records)) {
+                            if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                             {
-                                $data['POSTER']="assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                                $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
                             }
                         ?>
 
-                        <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
-                            <figure class="figure tc-cardhover-14"><figcaption>
-    <a href="../Movie_Page/Movie_page.php?id=<?=$data['ID']?>&name=<?=$name?>"  rel="stylesheet" type="text/css"><h3><?php echo $data['NAME_MOVIE'];?></h3>
-    <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p></a>
-  </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>></figure>
-                        </div>
+                            <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
+                                <figure class="figure tc-cardhover-14">
+                                    <figcaption>
+                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css">
+                                            <h3><?php echo $data['NAME_MOVIE']; ?></h3>
+                                            <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
+                                        </a>
+                                    </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>>
+                                </figure>
+                            </div>
 
                         <?php } ?>
-                        
+
                         <!------------->
-									
+
 
 
 
@@ -539,5 +537,3 @@
 </body>
 
 </html>
-
-

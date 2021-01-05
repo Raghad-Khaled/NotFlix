@@ -4,6 +4,7 @@ include '../control.php';
 if(isset($_POST['submit']))
 {
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$name = filter_input(INPUT_GET, 'Admin_name', FILTER_SANITIZE_STRING);
 
 $postar= $_POST['postar'];
 $title=$_POST['title'];
@@ -37,10 +38,10 @@ $description=$_POST['description'];
 $movie=new Movie;
 if($_POST['actor1']!=''){
 $actor1=$_POST['actor1'];
-$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
+$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
 }
 else{
-    $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,NULL);    
+    $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,NULL);    
 }
 $IDrow=$movie->getid($title);
 $data = mysqli_fetch_array($IDrow);

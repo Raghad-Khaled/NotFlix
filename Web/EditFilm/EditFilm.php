@@ -2,6 +2,8 @@
 include '../control.php';  // Using database connection file here
 $movie1 = new movie;
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$name = filter_input(INPUT_GET, 'Admin_name', FILTER_SANITIZE_STRING);
+
 $movie = new movie;
 $reselt = $movie->getMoviewithId($id);
 $data = mysqli_fetch_assoc($reselt);
@@ -101,9 +103,10 @@ $story = mysqli_fetch_assoc($reselt6);
                     <div class="row">
                         <div class="col-12 ">
                             <?php
+                            $i= 1;
                             while ($actors = mysqli_fetch_assoc($reselt1)) {
                             ?>
-                            <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor1">
+                            <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor<?= $i ?>">
 
                                 <option selected><?= $actors['FNAME'] ?><?= $actors['LNAME'] ?></option>
                                 <?php
@@ -117,6 +120,26 @@ $story = mysqli_fetch_assoc($reselt6);
                                 ?>
                             </select>
                             <?php
+                            $i = $i +1;
+                            }
+                            ?>
+                            <?php
+                            while ($i < 4) {
+                            ?>
+                            <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor<?= $i ?>">
+
+                                <option selected></option>
+                                <?php
+                                $records =  $movie1->getactor();
+
+                                while ($data1 = mysqli_fetch_array($records)) {
+                                    if($actors['ID'] != $data1['ID'])
+                                    echo "<option value='" . $data1['ID'] . "'>" . $data1['FNAME'] . $data1['LNAME']  . "</option>";  // displaying data in option menu
+                                }
+                                ?>
+                            </select>
+                            <?php
+                            $i = $i +1;
                             }
                             ?>
                         </div>
@@ -131,7 +154,15 @@ $story = mysqli_fetch_assoc($reselt6);
                             $i=1;
                             while ($genre = mysqli_fetch_assoc($reselt2)) {
                             ?>
-                            <input type="text" class="form-control" required name="genre<?=$i?>" id="G1" style="margin-top:10px;" placeholder="Genre" value=<?= $genre['GENRE_TYPE'] ?>>
+                            <input type="text" class="form-control" required name="genre<?=$i?>" id="G1" style="margin-top:15px;" placeholder="Genre" value=<?= $genre['GENRE_TYPE'] ?>>
+                            <?php
+                            $i=$i+1;
+                            }
+                            ?>
+                            <?php
+                            while ($i < 4) {
+                            ?>
+                            <input type="text" class="form-control" required name="genre<?=$i?>" id="G1" style="margin-top:15px;" placeholder="Genre" >
                             <?php
                             $i=$i+1;
                             }
@@ -144,9 +175,10 @@ $story = mysqli_fetch_assoc($reselt6);
                     <div class="row">
                         <div class="col-12">
                             <?php
+                            $i = 1;
                             while ($ProductionCompany = mysqli_fetch_assoc($reselt3)) {
                             ?>
-                            <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company1">
+                            <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company<?=$i?>">
                                 <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
                                 <?php
                                 $records =  $movie1->getcompany();
@@ -158,6 +190,25 @@ $story = mysqli_fetch_assoc($reselt6);
                                 ?>
                             </select>
                             <?php
+                            $i = $i +1;
+                            }
+                            ?>
+                            <?php
+                            while ($i < 4) {
+                            ?>
+                            <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company<?=$i?>">
+                                <option selected></option>
+                                <?php
+                                $records =  $movie1->getcompany();
+                                
+                                while ($data1 = mysqli_fetch_array($records)) {
+                                    if($ProductionCompany['ID'] != $data1['ID'])
+                                    echo "<option value='" . $data1['ID'] . "'>" . $data1['COMPANY_NAME'] . "</option>";  // displaying data1 in option menu
+                                }
+                                ?>
+                            </select>
+                            <?php
+                            $i = $i +1;
                             }
                             ?>
                         </div>
