@@ -1,11 +1,11 @@
 <?php
 include '../control.php';  // Using database connection file here
-$movie1 = new movie;
+$movie1 = new series;
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $name = filter_input(INPUT_GET, 'Admin_name', FILTER_SANITIZE_STRING);
 
-$movie = new movie;
-$reselt = $movie->getMoviewithId($id);
+$movie = new series;
+$reselt = $movie->get_all_for_admin($id);
 $data = mysqli_fetch_assoc($reselt);
 $reselt1 = $movie->Retrieveactortofilm($id);
 $reselt2 = $movie->Retrievegenretofilm($id);

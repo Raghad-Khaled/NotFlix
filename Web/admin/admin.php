@@ -4,6 +4,9 @@ $name = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
 $movie = new movie;
 $reselt = $movie->getMovieforAdmin($name);
 $data = mysqli_fetch_assoc($reselt);
+$admin = new admin;
+$reselt1 = $admin->get_admin_info($name);
+$admin_info = mysqli_fetch_assoc($reselt1);
 
 ?>
 <!DOCTYPE html>
@@ -54,8 +57,8 @@ $data = mysqli_fetch_assoc($reselt);
                 <div class="row" style="margin-right: 0px;">
                     <div class="col-auto" style="width: 300px;margin-right: 0px;margin-left: 0px;"><img src="assets/img/avatars/IMG_20190911_145102_039.jpg"></div>
                     <div class="col-auto" style="margin-top: 30px;">
-                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;">Nada Elsayed</h3>
-                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;">example@gmail.com</h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;"><?= $admin_info['ADMIN_NAME'] ?></h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;"><?= $admin_info['EMAIL'] ?></h3>
                         <div class="row" style="padding:0;padding-bottom:10px;padding-top:20px;">
                             <div class="col-auto"><button class="btn btn-primary" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;">Edit Info</button></div>
                         </div>
