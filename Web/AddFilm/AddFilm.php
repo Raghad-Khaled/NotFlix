@@ -89,8 +89,8 @@
               <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor1">
                 <option disabled selected>Actor</option>
                 <?php
-
-                $records =  $movie->getactor();
+                $actor = new actor;
+                $records =  $actor->getactor();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['FNAME'] . $data['LNAME']  . "</option>";  // displaying data in option menu
@@ -101,7 +101,7 @@
                 <option disabled selected>Actor</option>
                 <?php
 
-                $records =  $movie->getactor();
+                $records =  $actor->getactor();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['FNAME'] . $data['LNAME'] . "</option>";  // displaying data in option menu
@@ -112,7 +112,7 @@
                 <option disabled selected>Actor</option>
                 <?php
 
-                $records =  $movie->getactor();
+                $records =  $actor->getactor();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['FNAME'] . $data['LNAME'] . "</option>";  // displaying data in option menu
@@ -147,8 +147,8 @@
               <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company1">
                 <option disabled selected>Production Company</option>
                 <?php
-
-                $records =  $movie->getcompany();
+                $company = new company;
+                $records =  $company->getcompany();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['COMPANY_NAME'] . "</option>";  // displaying data in option menu
@@ -159,7 +159,7 @@
                 <option disabled selected>Production Company</option>
                 <?php
 
-                $records =  $movie->getcompany();
+                $records =  $company->getcompany();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['COMPANY_NAME'] . "</option>";  // displaying data in option menu
@@ -170,7 +170,7 @@
                 <option disabled selected>Production Company</option>
                 <?php
 
-                $records =  $movie->getcompany();
+                $records =  $company->getcompany();
 
                 while ($data = mysqli_fetch_array($records)) {
                   echo "<option value='" . $data['ID'] . "'>" . $data['COMPANY_NAME'] . "</option>";  // displaying data in option menu
@@ -198,7 +198,8 @@
             <option disabled selected>Director</option>
 
             <?php
-            $records =  $movie->getDirector();
+            $Director = new Director;
+            $records =  $Director->get_all();
 
             while ($data = mysqli_fetch_array($records)) {
               echo "<option value='" . $data['ID'] . "'>" . $data['FNAME'] . $data['LNAME'] . "</option>";  // displaying data in option menu
@@ -212,8 +213,8 @@
             <option disabled selected>If the Film has story chose it</option>
 
             <?php
-
-            $records =  $movie->getstory();
+            $story = new story;
+            $records =  $story->getstory();
 
             while ($data = mysqli_fetch_array($records)) {
               echo "<option value='" . $data['STORY_ID'] . "'>" . $data['STORY_NAME'] . "</option>";  // displaying data in option menu
@@ -226,8 +227,8 @@
           <select class="form-select form-control" aria-label="Default select example" required name="prize">
             <option disabled selected>Prize</option>
             <?php
-
-            $records =  $movie->getprize();
+            $prize = new prize;
+            $records =  $prize->getprize();
 
             while ($data = mysqli_fetch_array($records)) {
               echo "<option value='" . $data['ID'] . "'>" . $data['TITLE'] . $data['TYPE_OF_PRTIZE'] . "</option>";  // displaying data in option menu

@@ -201,6 +201,7 @@ class Movie
     $qury = "SELECT STORY_NAME From STORY S, MOVIE M WHERE M.STORY_ID = S.STORY_ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
+
 ///
  
 
@@ -212,51 +213,12 @@ class Movie
     return $result = mysqli_query($this->_conn, $qury);
   }
 
-  public function getDirector()
-  {
 
-    $qury = "SELECT DISTINCT ID,FNAME,LNAME From director";
-    //echo $qury;
-    return $result = mysqli_query($this->_conn, $qury);
-  }
-
-  public function getstory()
-  {
-
-    $qury = "SELECT DISTINCT STORY_ID,STORY_NAME From story";
-    //echo $qury;
-    return $result = mysqli_query($this->_conn, $qury);
-  }
-
-  public function getprize()
-  {
-
-    $qury = "SELECT DISTINCT ID,TITLE,TYPE_OF_PRTIZE From prize";
-    //echo $qury;
-    return $result = mysqli_query($this->_conn, $qury);
-  }
-
-
-  public function getactor()
-  {
-
-    $qury = "SELECT DISTINCT ID,FNAME,LNAME From actor";
-    //echo $qury;
-    return $result = mysqli_query($this->_conn, $qury);
-  }
 
   public function getgenre()
   {
 
     $qury = "SELECT DISTINCT ID,GENRE_TYPE From genre";
-    //echo $qury;
-    return $result = mysqli_query($this->_conn, $qury);
-  }
-
-  public function getcompany()
-  {
-
-    $qury = "SELECT ID,COMPANY_NAME From production_company";
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
@@ -273,7 +235,6 @@ class Movie
     $qury = "SELECT DISTINCT LANGUAGE_MOBIE FROM movie ";
     return $result = mysqli_query($this->_conn, $qury);
   }
-
 
   public function get_all()
   {
@@ -439,6 +400,14 @@ class prize
     return $result = mysqli_query($this->_conn, $qury);
   }
 
+  public function getprize()
+  {
+
+    $qury = "SELECT DISTINCT ID,TITLE,TYPE_OF_PRTIZE From prize";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
   public function getprizewithId($ID)
   {
     $qury = "SELECT *from prize where ID=" . "'$ID'";
@@ -518,6 +487,13 @@ class actor
     $qury="SELECT series.* FROM series,acted_series WHERE acted_series.SERIES_ID=series.ID AND acted_series.ACTOR_ID=".$id;
     return $result = mysqli_query($this->_conn, $qury); 
   }
+  public function getactor()
+  {
+
+    $qury = "SELECT DISTINCT ID,FNAME,LNAME From actor";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 class director
@@ -546,6 +522,7 @@ class director
     return $result = mysqli_query($this->_conn, $qury);
 
   }
+
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 class story
@@ -555,6 +532,14 @@ class story
   {
     $DB_opt = Database::getInstance();
     $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function getstory()
+  {
+
+    $qury = "SELECT DISTINCT STORY_ID,STORY_NAME From story";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getstorywithId($ID)
@@ -606,6 +591,13 @@ class company
   public function get_company_withID($ID){
     $qury="SELECT * from production_company where ID="."'$ID'";
    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  public function getcompany()
+  {
+
+    $qury = "SELECT ID,COMPANY_NAME From production_company";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
   }
 }
 /////////////////////////////////////////////////////////

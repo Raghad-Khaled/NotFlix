@@ -36,28 +36,25 @@ $description=$_POST['description'];
 
 
 $movie=new Movie;
-if($_POST['actor1']!=''){
-$actor1=$_POST['actor1'];
+if($_POST['story']!=''){
+$actor1=$_POST['story'];
 $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
 }
 else{
     $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,NULL);    
 }
-$IDrow=$movie->getid($title);
-$data = mysqli_fetch_array($IDrow);
-$ID = $data['ID'];
 
 $genre=new genre;
 $check=$genre->exist($genre1);
 if($check->num_rows!=0){
 $data = mysqli_fetch_array($check);
-$movie->addgenretofilm($ID,$data['ID']);
+$movie->addgenretofilm($id,$data['ID']);
 }
 else{
 $genre->insert($genre1);
 $check=$genre->exist($genre1);
 $data = mysqli_fetch_array($check);
-$movie->addgenretofilm($ID,$data['ID']);
+$movie->addgenretofilm($id,$data['ID']);
 }
 if(isset($_POST['genre2'])){
 
@@ -65,13 +62,13 @@ if(isset($_POST['genre2'])){
     $check=$genre->exist($genre2);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);
-    $movie->addgenretofilm($ID,$data['ID']);
+    $movie->addgenretofilm($id,$data['ID']);
     }
     else{
     $genre->insert($genre2);
     $check=$genre->exist($genre2);
     $data = mysqli_fetch_array($check);
-    $movie->addgenretofilm($ID,$data['ID']);
+    $movie->addgenretofilm($id,$data['ID']);
 }
 }
 if($_POST['genre3']!=NULL){
@@ -79,35 +76,35 @@ if($_POST['genre3']!=NULL){
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);
-    $movie->addgenretofilm($ID,$data['ID']);
+    $movie->addgenretofilm($id,$data['ID']);
     }
     else{
     $genre->insert($genre3);
     $check=$genre->exist($genre3);
     $data = mysqli_fetch_array($check);
-    $movie->addgenretofilm($ID,$data['ID']);
+    $movie->addgenretofilm($id,$data['ID']);
     }
 }
 
-$movie->addactortofilm($ID,$actor1);
+$movie->addactortofilm($id,$actor1);
 
 if(isset($_POST['actor2'])){
     $actor2=$_POST['actor2'];
-    $movie->addgenretofilm($ID,$actor2);
+    $movie->addgenretofilm($id,$actor2);
 }
 if(isset($_POST['actor3'])){
     $genre2=$_POST['actor3'];
-    $movie->addgenretofilm($ID,$actor3);
+    $movie->addgenretofilm($id,$actor3);
 }
-$movie->addcompanytofilm($ID,$company1);
+$movie->addcompanytofilm($id,$company1);
 
 if(isset($_POST['company2'])){
     $company2=$_POST['company2'];
-    $movie->addgenretofilm($ID,$company2);
+    $movie->addgenretofilm($id,$company2);
 }
 if(isset($_POST['company3'])){
     $company3=$_POST['company3'];
-    $movie->addgenretofilm($ID,$company3);
+    $movie->addgenretofilm($id,$company3);
 }
 
 }
