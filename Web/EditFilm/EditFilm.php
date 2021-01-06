@@ -44,7 +44,7 @@ $story = mysqli_fetch_assoc($reselt6);
         </div>
     </nav>
 
-    <form method="POST" action="Edit.php?id=<?= $data['ID'] ?>&Admin_name=<?= $name ?> " enctype="multipart/form-data">
+    <form method="POST" action="Edit.php?id=<?= $data['ID'] ?>&Admin_Name=<?= $name ?> " enctype="multipart/form-data">
         <div class="container">
             <div class="row ">
                 <div class="col-sm form-group">
@@ -286,6 +286,7 @@ $story = mysqli_fetch_assoc($reselt6);
                                 if ($story['STORY_NAME'] != $data1['STORY_NAME'])
                                     echo "<option value='" . $data1['STORY_ID'] . "'>" . $data1['STORY_NAME'] . "</option>";  // displaying data1 in option menu
                             }
+                            echo "<option value= > </option>";
                             ?>
                         </select>
                     </div>

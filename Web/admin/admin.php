@@ -83,57 +83,60 @@ $admin_info = mysqli_fetch_assoc($reselt1);
                         <div class="col-md-6 col-lg-4 filtr-item" data-category="film">
                             <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
-                                    <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_MOVIE'] ?></h5>
-                                </div><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>>
-                                <div class="card-body" style="background: linear-gradient(white 63%, rgb(247,251,131) 100%), rgb(255,255,255);color: rgb(1,5,41);">
+                                    <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css">
+                                        <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_MOVIE'] ?></h5>
+                                    </a>
+                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                <div class="card-body" style="background: linear-gradient(white 63%,rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_MOVIE'] ?><br></p>
                                 </div>
-                                <div class="d-flex card-footer" style="background: rgb(247,251,131);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='../EditFilm/EditFilm.php?id=<?= $data['ID'] ?>Admin_name=<?= $name ?>';" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='delete.php?id=<?= $data['ID'] ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
+                                <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='../EditFilm/EditFilm.php?id=<?= $data['ID'] ?>&Admin_name=<?= $name ?>';" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteFilm.php?id=<?= $data['ID'] ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                             </div>
                         </div>
                     <?php } ?>
-                </div>
-                <?php
-                $series = new series;
-                $records = $series->get_all_for_admin($name);
-                while ($data = mysqli_fetch_array($records)) {
-                    if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
-                    {
-                        $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
-                    }
-                ?>
-                    <div class="col-md-6 col-lg-4 filtr-item" data-category="Series">
-                        <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
-                            <div class="card-header text-light" style="background: rgba(90,92,105,0);">
-                                <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
-                            </div><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>>
-                            <div class="card-body" style="background: linear-gradient(white 63%, rgb(247,251,131) 100%), rgb(255,255,255);color: rgb(1,5,41);">
-                                <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
+                    <?php
+                    $series = new series;
+                    $records = $series->get_all_for_admin($name);
+                    while ($data = mysqli_fetch_array($records)) {
+                        if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                        {
+                            $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                        }
+                    ?>
+                        <div class="col-md-6 col-lg-4 filtr-item" data-category="Series">
+                            <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
+                                <div class="card-header text-light" style="background: rgba(90,92,105,0);">
+                                    <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css">
+                                        <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
+                                    </a>
+                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                <div class="card-body" style="background: linear-gradient(white 63%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
+                                    <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_SERIES'] ?><br></p>
+                                </div>
+                                <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='../EditSeries/EditSeries.php?id=<?= $data['ID'] ?>&Admin_name=<?= $name ?>';" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteSeries.php?id=<?= $data['ID'] ?> & Admin_name=<?= $name ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                             </div>
-                            <div class="d-flex card-footer" style="background: rgb(247,251,131);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='../EditFilm/EditFilm.php?id=<?= $data['ID'] ?>Admin_name=<?= $name ?>';" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='delete.php?id=<?= $data['ID'] ?> & Admin_name=<?= $name ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                         </div>
-                    </div>
-                <?php } ?>
-            </div>
-            <?php
+                    <?php } ?>
+                    <?php
 
-            $advertisement = new advertisement;
-            $records = $advertisement->get_for_admin($name);
-            while ($data = mysqli_fetch_array($records)) {
-            ?>
-                <div class="col-md-6 col-lg-4 filtr-item" data-category="Advertisement">
-                    <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
-                        <div class="card-header text-light" style="background: rgba(90,92,105,0);">
-                            <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);">Advertisement</h5>
-                        </div><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['PICTURE']; ?>>
-                        <div class="card-body" style="background: linear-gradient(white 63%, rgb(247,251,131) 100%), rgb(255,255,255);color: rgb(1,5,41);">
-                            <p class="card-text" style="color: rgb(30,8,58);"><br></p>
+                    $advertisement = new advertisement;
+                    $records = $advertisement->get_for_admin($name);
+                    while ($data = mysqli_fetch_array($records)) {
+                    ?>
+                        <div class="col-md-6 col-lg-4 filtr-item" data-category="Advertisement">
+                            <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
+                                <div class="card-header text-light" style="background: rgba(90,92,105,0);">
+                                    <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);">Advertisement</h5>
+                                </div><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['PICTURE']; ?>>
+                                <div class="card-body" style="background: linear-gradient(white 63%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
+                                    <p class="card-text" style="color: rgb(30,8,58);"><br></p>
+                                </div>
+                                <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteSeries.php?id=<?= $data['ID'] ?> & Admin_name=<?= $name ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                         </div>
-                        <div class="d-flex card-footer" style="background: rgb(247,251,131);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
-                    </div>
                 </div>
-            <?php } ?>
             </div>
+        <?php } ?>
+        </div>
 
         </section>
         </div>
@@ -351,6 +354,66 @@ $admin_info = mysqli_fetch_assoc($reselt1);
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Director</span></div>
                     <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddDirector/Adddirector.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <defs>
+                                    <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                        <stop offset="0" stop-color="#c8b8f8"></stop>
+                                        <stop offset="1" stop-color="#d08abc"></stop>
+                                    </linearGradient>
+                                    <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                        <stop offset="0" stop-color="#7a51ef"></stop>
+                                        <stop offset="1" stop-color="#a7438b"></stop>
+                                    </linearGradient>
+                                    <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                        <stop offset="0" stop-color="#7a51ef"></stop>
+                                        <stop offset="1" stop-color="#a7438b"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g>
+                                        <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                        <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                        <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                    </g>
+                                </g>
+                            </svg></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Advertisement</span></div>
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddAdvertisement/AddAdvertisement.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <defs>
+                                    <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                        <stop offset="0" stop-color="#c8b8f8"></stop>
+                                        <stop offset="1" stop-color="#d08abc"></stop>
+                                    </linearGradient>
+                                    <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                        <stop offset="0" stop-color="#7a51ef"></stop>
+                                        <stop offset="1" stop-color="#a7438b"></stop>
+                                    </linearGradient>
+                                    <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                        <stop offset="0" stop-color="#7a51ef"></stop>
+                                        <stop offset="1" stop-color="#a7438b"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g>
+                                        <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                        <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                        <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                    </g>
+                                </g>
+                            </svg></a></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Company</span></div>
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddCharacter/AddCharacter.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>

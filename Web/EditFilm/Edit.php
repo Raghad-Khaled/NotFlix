@@ -4,7 +4,7 @@ include '../control.php';
 if(isset($_POST['submit']))
 {
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_GET, 'Admin_name', FILTER_SANITIZE_STRING);
+$name = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
 
 $postar= $_POST['postar'];
 $title=$_POST['title'];
@@ -75,7 +75,7 @@ if(isset($_POST['genre2'])){
 }
 }
 if($_POST['genre3']!=NULL){
-    $genre2=$_POST['genre3'];
+    $genre3=$_POST['genre3'];
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);
@@ -111,5 +111,5 @@ if(isset($_POST['company3'])){
 }
 
 }
-header("Location:../admin/admin.php?Admin_name=$name");
+header("Location:../admin/admin.php?Admin_Name=$name");
 ?>

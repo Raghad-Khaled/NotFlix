@@ -5,5 +5,5 @@ $name=filter_input(INPUT_GET,'Admin_name',FILTER_SANITIZE_STRING);
 $movie=new movie();
 $movie->DeleteMoviewithId($id);
 
-header("Location:admin.php?Admin_name=$name");
+header("Location:admin.php?Admin_Name=$name");
 ?>

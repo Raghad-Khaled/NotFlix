@@ -47,13 +47,13 @@ class user
 
   public function get_Movie_fav($user_name)
   {
-    $qury = ("SELECT ID,POSTER,NAME_MOVIE FROM MOVIE, ADD_TO_FAV_MOVIE  WHERE ID = MOVIE_ID AND USER_NAME_OF_USER = '$user_name'");
+    $qury = ("SELECT ID,POSTER,NAME_MOVIE,DESCRIPTION_OF_MOVIE FROM MOVIE, ADD_TO_FAV_MOVIE  WHERE ID = MOVIE_ID AND USER_NAME_OF_USER = '$user_name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function get_Series_fav($user_name)
   {
-    $qury = ("SELECT ID,POSTER,NAME_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
+    $qury = ("SELECT ID,POSTER,NAME_SERIES,DESCRIPTION_OF_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -68,6 +68,12 @@ class user
     $qury = ("DELETE FROM add_to_fav_series WHERE SERIES_ID ='$SeriesID' AND USER_NAME_OF_USER = '$user_name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function get_user_info($name)
+  {
+    $qury = ("SELECT * FROM user_of_notflix  WHERE USER_NAME = '$name'");
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
 }
 
 class admin{
@@ -650,10 +656,16 @@ class advertisement
   }
 
   public function get_for_admin($abminName){
-    $qury="SELECT PICTURE FROM advertisement WHERE ADMIN_ADDED = '$abminName'";
+    $qury="SELECT PICTURE,ID FROM advertisement WHERE ADMIN_ADDED = '$abminName'";
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+  public function DeleteadvertisementwithId($ID){
+    $qury="DELETE FROM advertisement WHERE ID = '$ID'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  
 }
 
 /////////////////////////////////////////////////////////
@@ -674,6 +686,11 @@ class series
 
   public function get_all_for_admin($name){
     $qury="SELECT * from  series WHERE ADMIN_INSETED_SERIES = " . "'$name'";
+   return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function get_all_with_id($id){
+    $qury="SELECT * from  series WHERE ID = " . "'$id'";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 
@@ -721,7 +738,7 @@ class series
       echo "<script> alert(' This Series already Exist!');  window.location.href='AddSeries.php';</script>";
 
     else {
-      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
+      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_SERIES`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director,$prize)";
       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
@@ -736,14 +753,14 @@ class series
     return $result = mysqli_query($this->_conn, $qury);
   }
 
-  public function UpdateSeries($id,$Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count, $Director, $prize, $story)
+  public function UpdateSeries($id,$Name, $year, $duration, $description, $language, $revenue, $budget, $link, $poster, $admin, $rate, $count, $Director, $prize, $NUMBER_OF_EPISODES)
   {
-    $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
+    $record = $this->_conn->query("SELECT NAME_SERIES FROM SERIES WHERE NAME_SERIES='$Name'");
 
     
-      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION = '$description',
+      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_SERIES = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, STORY_ID = $story)
+       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES)
        WHERE ID = '$id'";
       $result = mysqli_query($this->_conn, $qury);
   }
@@ -751,43 +768,55 @@ class series
   public function RetrieveactortoSeries($SeriesID)
   {
 
-    $qury = ("SELECT ID,FNAME,LNAME FROM acted_movie, actor WHERE ACTOR_ID = ID AND MOVIE_ID ='$SeriesID'");
+    $qury = ("SELECT ID,FNAME,LNAME FROM acted_series, actor WHERE ACTOR_ID = ID AND SERIES_ID ='$SeriesID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function RetrievegenretoSeries($SeriesID)
   {
 
-    $qury = ("SELECT ID,GENRE_TYPE FROM GENRE, GENRE_RELATION_MOVIE  WHERE ID = GENRE_ID AND MOVIE_ID ='$SeriesID'");
+    $qury = ("SELECT ID,GENRE_TYPE FROM GENRE, GENRE_RELATION_SERIES  WHERE ID = GENRE_ID AND SERIES_ID ='$SeriesID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function RetrieveProductionCompanytoSeries($SeriesID)
   {
 
-    $qury = ("SELECT ID,COMPANY_NAME FROM PRODUCTION_COMPANY, FUNDED_MOVIE WHERE PRODUCTION_COMPANY_ID = ID and MOVIE_ID ='$SeriesID'");
+    $qury = ("SELECT ID,COMPANY_NAME FROM PRODUCTION_COMPANY, FUNDED_SERIES WHERE PRODUCTION_COMPANY_ID = ID and SERIES_ID ='$SeriesID'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getDirectorforSeries($ID)
   {
-    $qury = "SELECT FNAME,LNAME From director D , MOVIE M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    $qury = "SELECT FNAME,LNAME From director D , SERIES M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getPrizeforSeries($ID)
   {
 
-    $qury = "SELECT TITLE, TYPE_OF_PRTIZE From PRIZE P, MOVIE M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
+    $qury = "SELECT TITLE, TYPE_OF_PRTIZE From PRIZE P, SERIES M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
-  public function getStoryforSeries($ID)
+  public function delet_actor_with_seriesId($ID)
   {
+    $qury = "DELETE from acted_series where SERIES_ID=" . "'$ID'";
 
-    $qury = "SELECT STORY_NAME From STORY S, MOVIE M WHERE M.STORY_ID = S.STORY_ID AND M.ID = '$ID' ";
-    return $result = mysqli_query($this->_conn, $qury);
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function delet_genre_with_seriesId($ID){
+    $qury="DELETE from genre_relation_series where SERIES_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
   }
   
+  public function delet_company_with_seriesId($ID){
+    $qury="DELETE from funded_series where SERIES_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
 }
 ?>

@@ -1,21 +1,18 @@
 <?php
 include '../control.php';  // Using database connection file here
-$movie1 = new series;
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $name = filter_input(INPUT_GET, 'Admin_name', FILTER_SANITIZE_STRING);
 
 $movie = new series;
-$reselt = $movie->get_all_for_admin($id);
+$reselt = $movie->get_all_with_id($id);
 $data = mysqli_fetch_assoc($reselt);
-$reselt1 = $movie->Retrieveactortofilm($id);
-$reselt2 = $movie->Retrievegenretofilm($id);
-$reselt3 = $movie->RetrieveProductionCompanytofilm($id);
-$reselt4 = $movie->getDirectorforMovie($id);
-$reselt5 = $movie->getPrizeforMovie($id);
-$reselt6 = $movie->getStoryforMovie($id);
+$reselt1 = $movie->RetrieveactortoSeries($id);
+$reselt2 = $movie->RetrievegenretoSeries($id);
+$reselt3 = $movie->RetrieveProductionCompanytoSeries($id);
+$reselt4 = $movie->getDirectorforSeries($id);
+$reselt5 = $movie->getPrizeforSeries($id);
 $director = mysqli_fetch_assoc($reselt4);
 $prize = mysqli_fetch_assoc($reselt5);
-$story = mysqli_fetch_assoc($reselt6);
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +37,11 @@ $story = mysqli_fetch_assoc($reselt6);
             <!-- <img class="d-inline-block align-top"  src="https://img.icons8.com/cotton/40/000000/movie-beginning--v1.png"/> -->
         </div>
         <div class="head">
-            Edit Film
+            Edit Series
         </div>
     </nav>
 
-    <form method="POST" action="Edit.php?id=<?= $data['ID'] ?>&Admin_name=<?= $name ?> " enctype="multipart/form-data">
+    <form method="POST" action="EditS.php?id=<?= $data['ID'] ?>&Admin_Name=<?= $name ?> " enctype="multipart/form-data">
         <div class="container">
             <div class="row ">
                 <div class="col-sm form-group">
@@ -53,8 +50,8 @@ $story = mysqli_fetch_assoc($reselt6);
 
                 </div>
                 <div class="col-sm form-group">
-                    <label class="form-label" for="title">Film Title </label>
-                    <input type="text" class="form-control" required name="title" id="title" value=<?= $data['NAME_MOVIE'] ?>>
+                    <label class="form-label" for="title">Series Title </label>
+                    <input type="text" class="form-control" required name="title" id="title" value=<?= $data['NAME_SERIES'] ?>>
                 </div>
                 <div class="col-sm form-group">
                     <label for="example-month-input" class="form-label">Year</label>
@@ -199,35 +196,35 @@ $story = mysqli_fetch_assoc($reselt6);
                             <?php
                             $i = 1;
                             while ($ProductionCompany = mysqli_fetch_assoc($reselt3)) {
-                                if($i == 1){
+                                if ($i == 1) {
                             ?>
-                                <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company<?= $i ?>">
-                                    <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
-                                    <?php
-                                    $company = new company;
-                                    $records =  $company->getcompany();
-
-                                    while ($data1 = mysqli_fetch_array($records)) {
-                                        if ($ProductionCompany['ID'] != $data1['ID'])
-                                            echo "<option value='" . $data1['ID'] . "'>" . $data1['COMPANY_NAME'] . "</option>";  // displaying data1 in option menu
-                                    }
-                                    ?>
-                                </select>
-                            <?php
-                                }else{
-                                    ?>
-                                    <select class="form-select form-control" aria-label="Default select example" id="P1" name="company<?= $i ?>">
+                                    <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company<?= $i ?>">
                                         <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
                                         <?php
+                                        $company = new company;
                                         $records =  $company->getcompany();
-    
+
                                         while ($data1 = mysqli_fetch_array($records)) {
                                             if ($ProductionCompany['ID'] != $data1['ID'])
                                                 echo "<option value='" . $data1['ID'] . "'>" . $data1['COMPANY_NAME'] . "</option>";  // displaying data1 in option menu
                                         }
                                         ?>
                                     </select>
-                                <?php 
+                                <?php
+                                } else {
+                                ?>
+                                    <select class="form-select form-control" aria-label="Default select example" id="P1" name="company<?= $i ?>">
+                                        <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
+                                        <?php
+                                        $records =  $company->getcompany();
+
+                                        while ($data1 = mysqli_fetch_array($records)) {
+                                            if ($ProductionCompany['ID'] != $data1['ID'])
+                                                echo "<option value='" . $data1['ID'] . "'>" . $data1['COMPANY_NAME'] . "</option>";  // displaying data1 in option menu
+                                        }
+                                        ?>
+                                    </select>
+                            <?php
                                 }
                                 $i = $i + 1;
                             }
@@ -275,19 +272,7 @@ $story = mysqli_fetch_assoc($reselt6);
 
                     </div>
                     <div class="col-12 col-lg-3 form-group ">
-                        <select class="form-select form-control" aria-label="Default select example" name="story">
-                            <option selected><?= $story['STORY_NAME'] ?></option>
-
-                            <?php
-                            $story1 = new story;
-                            $records =  $story1->getstory();
-
-                            while ($data1 = mysqli_fetch_array($records)) {
-                                if ($story['STORY_NAME'] != $data1['STORY_NAME'])
-                                    echo "<option value='" . $data1['STORY_ID'] . "'>" . $data1['STORY_NAME'] . "</option>";  // displaying data1 in option menu
-                            }
-                            ?>
-                        </select>
+                        <input type="number" class="form-control" required name="Episodes" style="margin-top:10px" placeholder="Number_Of_Episodes" value=<?= $data['NUMBER_OF_EPISODES_IN_SEASON'] ?>>
                     </div>
 
                     <div class="col-12 col-lg-3 form-group ">
@@ -311,7 +296,7 @@ $story = mysqli_fetch_assoc($reselt6);
 
                 <div class="row ">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"><?= $data['DESCRIPTION_OF_MOVIE'] ?> </textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"><?= $data['DESCRIPTION_OF_SERIES'] ?> </textarea>
                         <label for="floatingTextarea2"></label>
                     </div>
 
