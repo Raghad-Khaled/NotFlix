@@ -1,3 +1,14 @@
+<?php
+include '../control.php';  // Using database connection file here
+$id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$character=new character;
+$reselt=$character->getCharacterwithId($id);
+$data=mysqli_fetch_assoc($reselt);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -85,24 +96,24 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px">Harry Potter</h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px"><?= $data['FNAME'] ?> <?= $data['LNAME'] ?> </h4>
                                     <div>
                                         <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Birth Date</h4>
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	15-03-1980
+                                        	<?= $data['BIRTH_DATE'] ?>
                                         </p>
                                     </div>
 
                                   
                                     
                                     <div>
-                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Overview</h4>
+                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Story Line</h4>
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	Harry James Potter is a fictional character and the titular protagonist in J. K. Rowling's series of eponymous novels. The majority of the books' plot covers seven years in the life of the orphan Harry, who, on his eleventh birthday, learns he is a wizard.
+                                        	<?= $data['STORY'] ?>
                                         </p>
                                     </div>
 

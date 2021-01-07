@@ -696,6 +696,11 @@ class character
     return $result = mysqli_query($this->_conn, $qury);
   }
 
+ public function getCharacterwithId($ID)
+  {
+    $qury = "SELECT * from  fantasy_character where ID=$ID";
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
 }
 //////////////////////////////////////////////////////////
 class company
