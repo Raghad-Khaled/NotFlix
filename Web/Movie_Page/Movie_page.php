@@ -179,7 +179,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
                                     <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
                                     <div class="d-inline-flex"><input type="number" name="rate" style="width: 123px;">
-                                    <button style="background-color:#21212e" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
+                                    <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
                                 </div>
                             </div>
@@ -209,6 +209,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                         <?php
                                         }
                                         ?>       
+                                 </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
 <!---------------------- Genre -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Genre</h4>
@@ -228,7 +229,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['YEAR'] ?></p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
-<!---------------------- Production Company -->
+                                    <!---------------------- Production Company -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Production Company</h4>
                                         <?php
                                             $records=$movie->get_company_with_movieId($data['ID']);
@@ -243,7 +244,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!------------------------- Duration -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Duration</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> hr</p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> min</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Language -->
@@ -297,7 +298,8 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                   ?>
                                     <figure class="figure" style="width: 241px;"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
                                 </div>
-                                <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start"><a href="#">
+                                <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start">
+                                    <a href="#">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;"><?=$datadirector['FNAME'] ?> <?=$datadirector['LNAME'] ?> </h4>
                                     </a></div>
                             </div>
