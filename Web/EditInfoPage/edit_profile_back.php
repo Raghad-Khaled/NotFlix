@@ -1,7 +1,7 @@
 <?php
    include '../control.php';
    $name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
-   $name="Raghad_Khaled";
+   $user_name="Raghad_Khaled";
    $user_obj=new user;
    $temp=$user_obj->get_user_info($name);
    $data=mysqli_fetch_assoc($temp);
