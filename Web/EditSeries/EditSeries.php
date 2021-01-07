@@ -296,7 +296,7 @@ $prize = mysqli_fetch_assoc($reselt5);
 
                 <div class="row ">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"><?= $data['DESCRIPTION_OF_SERIES'] ?> </textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"><?= $data['DESCRIPTION'] ?> </textarea>
                         <label for="floatingTextarea2"></label>
                     </div>
 
