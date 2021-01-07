@@ -18,7 +18,6 @@ $count=$_POST['count'];
 $link=$_POST['link'];
 
 
-
 $genre1=$_POST['genre1'];
 
 echo $genre1;
@@ -29,13 +28,15 @@ $company1=$_POST['company1'];
 
 $language=$_POST['language'];
 $Director=$_POST['Director'];
+
 $prize=$_POST['prize'];
 $description=$_POST['description'];
 $actor1=$_POST['actor1'];
 
 
+
 $movie=new Movie;
-if($_POST['story']!=''){
+if(isset($_POST['story'])){
 $story=$_POST['story'];
 $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
 }
@@ -59,7 +60,7 @@ $check=$genre->exist($genre1);
 $data = mysqli_fetch_array($check);
 $movie->addgenretofilm($id,$data['ID']);
 }
-if(isset($_POST['genre2'])){
+if($_POST['genre2']!= ''){
 
     $genre2=$_POST['genre2'];
     $check=$genre->exist($genre2);
@@ -74,7 +75,7 @@ if(isset($_POST['genre2'])){
     $movie->addgenretofilm($id,$data['ID']);
 }
 }
-if($_POST['genre3']!=NULL){
+if($_POST['genre3']!=''){
     $genre3=$_POST['genre3'];
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
@@ -111,5 +112,6 @@ if(isset($_POST['company3'])){
 }
 
 }
-header("Location:../admin/admin.php?Admin_Name=$name");
+
+//header("Location:../admin/admin.php?Admin_Name=$name");
 ?>

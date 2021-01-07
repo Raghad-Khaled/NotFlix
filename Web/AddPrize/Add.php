@@ -99,7 +99,7 @@ else{
 $prize->InsertPrize($title,$type);
 $check=$prize->exist($title,$type);
 $data = mysqli_fetch_array($check);
-$prize->InsertDirectorMovies($actor,$movie,$data['ID'],$year);
+$prize->InsertDirectorMovie($actor,$movie,$data['ID'],$year);
 }
 }
 } 

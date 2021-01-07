@@ -109,7 +109,7 @@ $story = mysqli_fetch_assoc($reselt6);
                             ?>
                                     <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor<?= $i ?>">
 
-                                        <option selected><?= $actors['FNAME'] ?><?= $actors['LNAME'] ?></option>
+                                        <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
 
@@ -123,7 +123,7 @@ $story = mysqli_fetch_assoc($reselt6);
                                         ?>
                                         <select class="form-select form-control" aria-label="Default select example" id="A1" name="actor<?= $i ?>">
 
-                                            <option selected><?= $actors['FNAME'] ?><?= $actors['LNAME'] ?></option>
+                                            <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
                                         $records =  $actor->getactor();
