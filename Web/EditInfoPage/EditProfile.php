@@ -2,7 +2,7 @@
 
 include '../control.php';
 $name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
-$name="Raghad_Khaled";
+//$name="Raghad_Khaled";
 $user_obj=new user;
 $temp=$user_obj->get_user_info($name);
 $data=mysqli_fetch_assoc($temp);
@@ -51,20 +51,20 @@ $data=mysqli_fetch_assoc($temp);
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                            <form class="user" action= "edit_profile_back.php"  method="Post" enctype="multipart/form-data>
+                            <form class="user" action= "edit_profile_back.php?user_name=<?php echo$name ?>"  method="Post" enctype="multipart/form-data">
                                 <div class="p-5">
-                                    <div class="avatar" style="margin-top: -10px;">
-                                        <div class="avatar-bg center" style="margin-bottom: 12px;border-style: none;box-shadow: 0px 0px 10px rgb(47,168,255);"></div><input class="d-lg-flex align-items-lg-center form-control" type="file" data-aos="zoom-in-right"  required name="avatar-file" style="padding-top: 4px;padding-right: 0px;padding-left: 7px;padding-bottom: 1px;color: var(--secondary);background: rgba(255,255,255,0);border-radius: 6px;box-shadow: inset 0px 0px 5px 0px rgb(124,106,246);margin-bottom: 2px;height: 40px;border: 1.5px dashed rgb(91,103,194);margin-top: 7px;">
+                                    <div class="avatar" style="margin-top: -10px;" >
+                                        <div class="avatar-bg center" style="margin-bottom: 12px;border-style: none;box-shadow: 0px 0px 10px rgb(47,168,255);" value=<?=$data['image']?>></div><input class="d-lg-flex align-items-lg-center form-control" type="file" data-aos="zoom-in-right"  required name="avatar-file" style="padding-top: 4px;padding-right: 0px;padding-left: 7px;padding-bottom: 1px;color: var(--secondary);background: rgba(255,255,255,0);border-radius: 6px;box-shadow: inset 0px 0px 5px 0px rgb(124,106,246);margin-bottom: 2px;height: 40px;border: 1.5px dashed rgb(91,103,194);margin-top: 7px;">
                                     </div>
                                     <div class="text-center">
-                                        <h3 class="pulse animated" style="color: rgb(143,85,251);font-family: 'Caveat Brush', cursive;margin-top: 4px;margin-bottom: 12px;">Donia_Esawi</h3>
+                                        <h3 class="pulse animated" style="color: rgb(143,85,251);font-family: 'Caveat Brush', cursive;margin-top: 4px;margin-bottom: 12px;"><?php echo $data['USER_NAME'];?></h3>
                                     </div>
                                     
-                                        <div class="form-group"><input class="form-control form-control-user"  type="email" data-aos="zoom-in-left" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address..." name="email" inputmode="email" multiple="" style="box-shadow: 0px 0px 12px #6f58fe;"></div>
-                                        <div class="form-group"><input class="form-control form-control-user" type="password" data-aos="zoom-in-right" id="exampleInputPassword" placeholder="Enter New Password" name="password" style="box-shadow: 0px 0px 12px #6f58fe;"></div>
+                                        <div class="form-group"><input class="form-control form-control-user"  type="email" data-aos="zoom-in-left" id="exampleInputEmail" aria-describedby="emailHelp"  name="email" inputmode="email" multiple="" value=<?=$data['EMAIL']?> style="box-shadow: 0px 0px 12px #6f58fe;"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="password" data-aos="zoom-in-right" id="exampleInputPassword"  name="password" value=<?=$data['PASSWORD_OF_USER']?> style="box-shadow: 0px 0px 12px #6f58fe;"></div>
                                         <div class="form-group d-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center align-items-xl-center" style="padding: 4px;">
                                         <input class="form-control" type="number" data-aos="zoom-in-left" name="age" 
-                                        placeholder="AGE" min="1" max="100" step="1" style="width: 111px;"><label style="margin-left: 12px;margin-bottom: 0px;">Gender:&nbsp;</label><?php echo $data['GENDER'];?><label style="margin-left: 3px;margin-bottom: 0px;color: rgb(118,117,249);"><?php?></label></div>
+                                        placeholder="AGE" min="1" max="100" step="1" style="width: 111px;" value=<?=$data['AGE']?>><label style="margin-left: 12px;margin-bottom: 0px;">Gender:&nbsp;</label><?php echo $data['GENDER'];?><label style="margin-left: 3px;margin-bottom: 0px;color: rgb(118,117,249);"><?php?></label></div>
                                         <button class="btn btn-primary btn-block text-white btn-user" data-bs-hover-animate="pulse" type="submit" name="Save_Information" style="background: rgb(149,70,246);box-shadow: 0px 0px 12px #6f58fe;border-width: 0;">Save Information</button>
                                         <hr style="margin-bottom: 0px;">
                                        
