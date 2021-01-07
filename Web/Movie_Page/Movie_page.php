@@ -74,11 +74,12 @@ $rate=mysqli_fetch_assoc($Notflixrate);
 
 <body style="background: linear-gradient(#bd11fa, #46c2ff);">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="padding: 4px;filter: hue-rotate(9deg); height: 67px">
-        <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="#" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px; height: 60px"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="height: 50px"></button>
+        <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="../Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px; height: 60px"></a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="height: 50px"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
@@ -178,7 +179,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
                                     <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
-                                    <div class="d-inline-flex"><input type="number" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
+                                    <div class="d-inline-flex"><input type="number" value="0" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
                                 </div>
@@ -225,12 +226,12 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!------------------- Year of release -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Year of release</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Year of release</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['YEAR'] ?></p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!---------------------- Production Company -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Production Company</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Production Company</h4>
                                         <?php
                                             $records=$movie->get_company_with_movieId($data['ID']);
                                             $company=new company;
@@ -243,12 +244,12 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!------------------------- Duration -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Duration</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Duration</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['DURATION_MIN'] ?> min</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Language -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Language</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Language</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['LANGUAGE_MOBIE'] ?></p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
@@ -260,17 +261,17 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     
                                     ?>
 
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Prizes</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Prizes</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?>  </p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Budget -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Budget</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Budget</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['BUDGET'] ?> $</p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                    <!----------------------------- Revenue -->
-                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;">Revenue</h4>
+                                        <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Revenue</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$data['REVENUE'] ?> $</p>
                                     </div>
                                     <div>

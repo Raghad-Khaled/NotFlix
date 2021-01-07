@@ -86,7 +86,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px; ">Log out</a></li>
                 </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
@@ -186,9 +186,9 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate Series</h3>
+                                    <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Series</h3>
                                     <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
-                                    <div class="d-inline-flex"><input type="number" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
+                                    <div class="d-inline-flex"><input type="number" value="0" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
                                 </div>
