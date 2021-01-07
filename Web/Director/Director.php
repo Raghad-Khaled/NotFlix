@@ -97,7 +97,7 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.htm" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="../user/user.php?name<?= $user_info['USER_NAME'] ?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?= $user_info['USER_NAME'] ?><img class="border rounded-circle img-profile" src="<?= $user_info['image'] ?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
@@ -185,7 +185,7 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     ?>
                                         <div class="col">
                                             <div class="justify-content-center spacer-slider">
-                                                <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" />
+                                                <figure class="figure" style="  width: 100%;"><a href="../Movie_Page/Movie_page.php?id=<?= $Movie['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" /></a>
                                                     <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Movie['NAME_MOVIE']?></figcaption>
                                                 </figure>
 
@@ -200,7 +200,7 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     ?>
                                         <div class="col">
                                             <div class="justify-content-center spacer-slider">
-                                                <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" />
+                                                <figure class="figure" style="  width: 100%;"><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" /></a>
                                                     <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Series['NAME_SERIES']?></figcaption>
                                                 </figure>
 
