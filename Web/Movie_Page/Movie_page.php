@@ -372,8 +372,16 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     <div class="blog-slider__item swiper-slide">
                                         <div></div>
 <!----------- character -->
-                                        <div class="blog-slider__img"><img src="<?= $data3['IMAGE'] ?>" style="width: 100%;height: 100%;"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title"><?= $data3['FNAME'] ?> <?= $data3['LNAME'] ?></div><div class="blog-slider__text"><?= $data3['STORY'] ?> </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
+                                        <div class="blog-slider__img">
+                                            <img src="<?= $data3['IMAGE'] ?>" style="width: 100%;height: 100%;"></div>
+                                        <div class="blog-slider__content">
+                                            <div class="blog-slider__title"><?= $data3['FNAME'] ?> <?= $data3['LNAME'] ?>
+                                            
+                                        </div>
+                                        <div class="blog-slider__text"><?= $data3['STORY'] ?> </div>
+                                        <a class="class=&quot;blog-slider__button" style="color:rgba(120,17,250,0.42)"
+                                         href="../Character/Character.php?id=<?= $data3['ID'] ?>&name=<?= $name ?>">
+                                    View Character Page</a></div>
                                     </div>
                                     
                                     <?php } ?>

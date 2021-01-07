@@ -1,7 +1,7 @@
 <?php
    include '../control.php';
    $name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
-   $user_name="Raghad_Khaled";
+   //$name="Raghad_Khaled";
    $user_obj=new user;
    $temp=$user_obj->get_user_info($name);
    $data=mysqli_fetch_assoc($temp);
@@ -34,7 +34,7 @@
             // Upload file to server
             if(move_uploaded_file($_FILES["avatar-file"]["tmp_name"], $targetFilePath))
             {
-                $user_obj->edit_user_image($user_name,$fileName);
+                $user_obj->edit_user_image($name,$fileName);
                 // Insert image file name into database
             //  $advertisment=new advertisement;
             //  $advertisment->Addnew("RoRo123",$fileName);
@@ -48,7 +48,7 @@
 
     } 
     
-   // header("Location: EditProfile.php");
-//exit();
+    header("Location: EditProfile.php");
+    exit();
                                                                                 
  ?>
