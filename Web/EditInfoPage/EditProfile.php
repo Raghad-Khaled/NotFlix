@@ -1,3 +1,14 @@
+<?php
+
+include '../control.php';
+$name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
+$name="Raghad_Khaled";
+$user_obj=new user;
+$temp=$user_obj->get_user_info($name);
+$data=mysqli_fetch_assoc($temp);
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -47,11 +58,29 @@
                                     <div class="text-center">
                                         <h3 class="pulse animated" style="color: rgb(143,85,251);font-family: 'Caveat Brush', cursive;margin-top: 4px;margin-bottom: 12px;">Donia_Esawi</h3>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group"><input class="form-control form-control-user" type="email" data-aos="zoom-in-left" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address..." name="email" inputmode="email" multiple="" style="box-shadow: 0px 0px 12px #6f58fe;"></div>
+                                    <form action= "EditProfile.php"  method="Post">
+                                        <div class="form-group"><input class="form-control form-control-user"  type="email" data-aos="zoom-in-left" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address..." name="email" inputmode="email" multiple="" style="box-shadow: 0px 0px 12px #6f58fe;"></div>
                                         <div class="form-group"><input class="form-control form-control-user" type="password" data-aos="zoom-in-right" id="exampleInputPassword" placeholder="Enter New Password" name="password" style="box-shadow: 0px 0px 12px #6f58fe;"></div>
-                                        <div class="form-group d-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center align-items-xl-center" style="padding: 4px;"><input class="form-control" type="number" data-aos="zoom-in-left" placeholder="AGE" min="1" max="100" step="1" style="width: 111px;"><label style="margin-left: 12px;margin-bottom: 0px;">Gender:&nbsp;</label><label style="margin-left: 3px;margin-bottom: 0px;color: rgb(118,117,249);">Female</label></div><button class="btn btn-primary btn-block text-white btn-user" data-bs-hover-animate="pulse" type="submit" style="background: rgb(149,70,246);box-shadow: 0px 0px 12px #6f58fe;border-width: 0;">Save Information</button>
+                                        <div class="form-group d-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center align-items-xl-center" style="padding: 4px;">
+                                        <input class="form-control" type="number" data-aos="zoom-in-left" name="age" laceholder="AGE" min="1" max="100" step="1" style="width: 111px;"><label style="margin-left: 12px;margin-bottom: 0px;">Gender:&nbsp;</label><?php echo $data['GENDER'];?><label style="margin-left: 3px;margin-bottom: 0px;color: rgb(118,117,249);"><?php?></label></div>
+                                        <button class="btn btn-primary btn-block text-white btn-user" data-bs-hover-animate="pulse" type="submit" name="Save_Information" style="background: rgb(149,70,246);box-shadow: 0px 0px 12px #6f58fe;border-width: 0;">Save Information</button>
                                         <hr style="margin-bottom: 0px;">
+                                        <?php
+                                        
+                                        
+                                        if(isset($_POST['Save_Information']))
+                                        {
+                                        
+                                        
+                                        $email=$_POST['email'];
+                                        $password=$_POST['password'];
+                                        $age=$_POST['age'];
+                                        $user_obj->edit_user_email($name,$email);
+                                        $user_obj->edit_user_password($name,$password);
+                                        $user_obj->edit_user_age($name,$age);                                        
+                                        }                              
+                                                                                
+                                        ?>
                                     </form>
                                 </div>
                             </div>
