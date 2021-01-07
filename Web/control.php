@@ -122,6 +122,14 @@ class user
     $qury="UPDATE user_of_notflix SET AGE= '".$age."' where USER_NAME ='".$user_name."' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function edit_user_image($user_name,$image)
+  {
+
+    $qury="UPDATE user_of_notflix SET image= '".$image."' where USER_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    return 0;
+
+  }
 }
 
 class admin{
