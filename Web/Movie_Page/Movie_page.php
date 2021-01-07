@@ -178,7 +178,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
                                     <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
-                                    <div class="d-inline-flex"><input type="number" name="rate" style="width: 123px;">
+                                    <div class="d-inline-flex"><input type="number" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
                                 </div>
