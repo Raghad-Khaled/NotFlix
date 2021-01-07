@@ -84,7 +84,7 @@ class user
     $record = $this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE EMAIL='$email'");
     if ($record->num_rows != 0)
     {
-    echo "<script> alert('Oops!, This Email is already Exist!');  </script>";
+    //echo "<script> alert('Oops!, This Email is already Exist!');  </script>";
     }
     else
     {
@@ -103,7 +103,7 @@ class user
     $record = $this->_conn->query("SELECT PASSWORD_OF_USER FROM user_of_notflix WHERE PASSWORD_OF_USER ='$password'");
     if ($record->num_rows != 0)
     {
-    echo "<script> alert('Oops!, Use another password');  </script>";
+   // echo "<script> alert('Oops!, Use another password');  </script>";
     }
     else
     {

@@ -16,7 +16,7 @@
     $user_obj->edit_user_email($name,$email);
     $user_obj->edit_user_password($name,$password);
     $user_obj->edit_user_age($name,$age);   
-    
+    $redirection_string="Location: EditProfile.php?user_name=$name";
     // File upload path
     $targetDir = "user_pics/";
     $fileName = basename($_FILES["avatar-file"]["name"]);
@@ -26,7 +26,7 @@
 
     if(  !empty($_FILES["avatar-file"]["name"]) )
     {
-        echo "PICTURE IS NWOWWWWWWWWWWW";
+       // echo "PICTURE IS NWOWWWWWWWWWWW";
             // Allow certain file formats
         $allowTypes = array('jpg','png','jpeg','gif');
         if(in_array($fileType, $allowTypes))
@@ -48,7 +48,7 @@
 
     } 
     
-    header("Location: EditProfile.php");
+    header($redirection_string);
     exit();
                                                                                 
  ?>
