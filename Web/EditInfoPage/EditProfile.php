@@ -6,6 +6,7 @@ $name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
 $user_obj=new user;
 $temp=$user_obj->get_user_info($name);
 $data=mysqli_fetch_assoc($temp);
+$dirc="user_pics/";
 
 ?>
 
@@ -54,7 +55,7 @@ $data=mysqli_fetch_assoc($temp);
                             <form class="user" action= "edit_profile_back.php?user_name=<?php echo$name ;?>"  method="Post" enctype="multipart/form-data">
                                 <div class="p-5">
                                     <div class="avatar" style="margin-top: -10px;" >
-                                        <div class="avatar-bg center" style="margin-bottom: 12px;border-style: none;box-shadow: 0px 0px 10px rgb(47,168,255);" value=<?=$data['image']?>></div><input class="d-lg-flex align-items-lg-center form-control" type="file" data-aos="zoom-in-right"   name="avatar-file" style="padding-top: 4px;padding-right: 0px;padding-left: 7px;padding-bottom: 1px;color: var(--secondary);background: rgba(255,255,255,0);border-radius: 6px;box-shadow: inset 0px 0px 5px 0px rgb(124,106,246);margin-bottom: 2px;height: 40px;border: 1.5px dashed rgb(91,103,194);margin-top: 7px;">
+                                        <div class="avatar-bg center" style="margin-bottom: 12px;border-style: none;box-shadow: 0px 0px 10px rgb(47,168,255); background: url (<?php echo $dirc.$data['image'];?>);"  ></div><input class="d-lg-flex align-items-lg-center form-control" type="file" data-aos="zoom-in-right"   name="avatar-file" style="padding-top: 4px;padding-right: 0px;padding-left: 7px;padding-bottom: 1px;color: var(--secondary);background: rgba(255,255,255,0);border-radius: 6px;box-shadow: inset 0px 0px 5px 0px rgb(124,106,246);margin-bottom: 2px;height: 40px;border: 1.5px dashed rgb(91,103,194);margin-top: 7px;">
                                     </div>
                                     <div class="text-center">
                                         <h3 class="pulse animated" style="color: rgb(143,85,251);font-family: 'Caveat Brush', cursive;margin-top: 4px;margin-bottom: 12px;"><?php echo $data['USER_NAME'];?></h3>
