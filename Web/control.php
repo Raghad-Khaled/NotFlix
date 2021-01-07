@@ -74,6 +74,54 @@ class user
     return $result = mysqli_query($this->_conn, $qury);
   }
 
+
+  public function edit_user_email($user_name,$email)
+  {
+    if($email=="")
+    {
+      return;
+    }
+    $record = $this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE EMAIL='$email'");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, This Email is already Exist!');  </script>";
+    }
+    else
+    {
+    $qury="UPDATE user_of_notflix SET EMAIL= '".$email."' where USER_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    }
+    return;
+  }
+
+  public function edit_user_password($user_name,$password)
+  {
+    if($password=="")
+    {
+      return;
+    } 
+    $record = $this->_conn->query("SELECT PASSWORD_OF_USER FROM user_of_notflix WHERE PASSWORD_OF_USER ='$password'");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, Use another password');  </script>";
+    }
+    else
+    {
+    $qury="UPDATE user_of_notflix SET PASSWORD_OF_USER = '".$password."' where USER_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    }
+    return;
+  }
+
+  public function edit_user_age($user_name,$age)
+  {
+    if($age==0 || $age=="")
+    {
+      return;
+    }
+    $qury="UPDATE user_of_notflix SET AGE= '".$age."' where USER_NAME ='".$user_name."' ";
+    return $result = mysqli_query($this->_conn, $qury);
+  }
 }
 
 class admin{
@@ -637,6 +685,18 @@ class company
     $qury = "SELECT ID,COMPANY_NAME From production_company";
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
+  }
+  public function insertnewCompany($name,$year){
+    $record = $this->_conn->query("SELECT COMPANY_NAME FROM production_company WHERE COMPANY_NAME='$name'");
+    if ($record->num_rows != 0)
+    echo "<script> alert('Oops!, This Company is already Exist!');  window.location.href='AddCompany.html';</script>";
+  else{
+    $qury = "INSERT INTO production_company (`COMPANY_NAME`,`YEAR_FOUNDED`) VALUES ('$name',$year)";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+
+  }
+
   }
 }
 /////////////////////////////////////////////////////////
