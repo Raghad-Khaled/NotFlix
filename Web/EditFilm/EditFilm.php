@@ -109,7 +109,7 @@ $story = mysqli_fetch_assoc($reselt6);
                             ?>
                                     <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor<?= $i ?>">
 
-                                        <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
+                                        <option value="<?=$actors['ID']?>" selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
 
@@ -123,7 +123,7 @@ $story = mysqli_fetch_assoc($reselt6);
                                         ?>
                                         <select class="form-select form-control" aria-label="Default select example" id="A1" name="actor<?= $i ?>">
 
-                                            <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
+                                            <option value="<?=$actors['ID']?>" selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
                                         $records =  $actor->getactor();
@@ -202,7 +202,7 @@ $story = mysqli_fetch_assoc($reselt6);
                                 if($i == 1){
                             ?>
                                 <select class="form-select form-control" aria-label="Default select example" id="P1" required name="company<?= $i ?>">
-                                    <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
+                                    <option value="<?=$ProductionCompany['ID']?>" selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
                                     <?php
                                     $company = new company;
                                     $records =  $company->getcompany();
@@ -217,7 +217,7 @@ $story = mysqli_fetch_assoc($reselt6);
                                 }else{
                                     ?>
                                     <select class="form-select form-control" aria-label="Default select example" id="P1" name="company<?= $i ?>">
-                                        <option selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
+                                        <option value="<?=$ProductionCompany['ID']?>" selected><?= $ProductionCompany['COMPANY_NAME'] ?></option>
                                         <?php
                                         $records =  $company->getcompany();
     
@@ -261,7 +261,7 @@ $story = mysqli_fetch_assoc($reselt6);
                     </div>
                     <div class="col-12 col-lg-3 form-group">
                         <select class="form-select form-control" aria-label="Default select example" required name="Director">
-                            <option selected><?= $director['FNAME'] ?><?= $director['LNAME'] ?></option>
+                            <option value="<?=$director['Director_ID']?>" selected><?= $director['FNAME'] ?><?= $director['LNAME'] ?></option>
                             <?php
                             $Director = new Director;
                             $records =  $Director->get_all();
@@ -276,7 +276,7 @@ $story = mysqli_fetch_assoc($reselt6);
                     </div>
                     <div class="col-12 col-lg-3 form-group ">
                         <select class="form-select form-control" aria-label="Default select example" name="story">
-                            <option selected><?= $story['STORY_NAME'] ?></option>
+                            <option value="<?=$story['STORY_ID']?>" selected><?= $story['STORY_NAME'] ?></option>
 
                             <?php
                             $story1 = new story;
@@ -293,7 +293,7 @@ $story = mysqli_fetch_assoc($reselt6);
 
                     <div class="col-12 col-lg-3 form-group ">
                         <select class="form-select form-control" aria-label="Default select example" required name="prize">
-                            <option selected><?= $prize['TITLE'] ?><?= $prize['TYPE_OF_PRTIZE'] ?></option>
+                            <option value="<?=$prize['PRIZE_WON_ID']?>" selected><?= $prize['TITLE'] ?><?= $prize['TYPE_OF_PRTIZE'] ?></option>
                             <?php
                             $prize1 = new prize;
                             $records =  $prize1->getprize();

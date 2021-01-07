@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 10:46 PM
+-- Generation Time: Jan 07, 2021 at 03:52 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -29,22 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `acted_movie` (
   `MOVIE_ID` int(11) NOT NULL,
-  `ACTOR_ID` int(11) NOT NULL,
-  `CHARACTER_PLAYED_ID` int(11) NOT NULL
+  `ACTOR_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `acted_movie`
 --
 
-INSERT INTO `acted_movie` (`MOVIE_ID`, `ACTOR_ID`, `CHARACTER_PLAYED_ID`) VALUES
-(33, 1, 0),
-(34, 1, 0),
-(35, 1, 0),
-(36, 1, 0),
-(37, 1, 0),
-(38, 1, 0),
-(39, 1, 0);
+INSERT INTO `acted_movie` (`MOVIE_ID`, `ACTOR_ID`) VALUES
+(34, 1),
+(34, 3);
 
 -- --------------------------------------------------------
 
@@ -142,7 +136,6 @@ CREATE TABLE `add_to_fav_movie` (
 --
 
 INSERT INTO `add_to_fav_movie` (`USER_NAME_OF_USER`, `MOVIE_ID`) VALUES
-('Raghodaaaa', 31),
 ('Raghodaaaa', 33),
 ('RoRo123', 2);
 
@@ -168,15 +161,16 @@ CREATE TABLE `admin_website` (
   `PASSWORD_OF_ADMIN` varchar(100) NOT NULL,
   `EMAIL` varchar(500) NOT NULL,
   `AGE` int(11) DEFAULT NULL,
-  `GENDER` char(1) DEFAULT NULL
+  `GENDER` char(1) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin_website`
 --
 
-INSERT INTO `admin_website` (`ADMIN_NAME`, `PASSWORD_OF_ADMIN`, `EMAIL`, `AGE`, `GENDER`) VALUES
-('Raghad', '1234', 'raghoda1234692000@gmail.com', 20, 'F');
+INSERT INTO `admin_website` (`ADMIN_NAME`, `PASSWORD_OF_ADMIN`, `EMAIL`, `AGE`, `GENDER`, `image`) VALUES
+('Raghad', '1234', 'raghoda1234692000@gmail.com', 20, 'F', NULL);
 
 -- --------------------------------------------------------
 
@@ -300,13 +294,17 @@ CREATE TABLE `funded_movie` (
 --
 
 INSERT INTO `funded_movie` (`MOVIE_ID`, `PRODUCTION_COMPANY_ID`) VALUES
-(33, 1),
 (34, 1),
+(34, 2),
 (35, 1),
 (36, 1),
 (37, 1),
 (38, 1),
-(39, 1);
+(39, 1),
+(40, 2),
+(41, 2),
+(42, 1),
+(42, 2);
 
 -- --------------------------------------------------------
 
@@ -347,7 +345,10 @@ INSERT INTO `genre` (`ID`, `GENRE_TYPE`) VALUES
 (2, 'Action'),
 (3, '7ellllo'),
 (4, 'to7faaa'),
-(6, 'Drama');
+(6, 'Drama'),
+(7, ''),
+(8, 'lol'),
+(9, '7elooo');
 
 -- --------------------------------------------------------
 
@@ -372,7 +373,10 @@ INSERT INTO `genre_relation_movie` (`MOVIE_ID`, `GENRE_ID`) VALUES
 (0, 5),
 (33, 1),
 (33, 2),
+(33, 8),
 (34, 1),
+(34, 8),
+(34, 9),
 (35, 0),
 (36, 0),
 (37, 0),
@@ -381,7 +385,11 @@ INSERT INTO `genre_relation_movie` (`MOVIE_ID`, `GENRE_ID`) VALUES
 (38, 4),
 (38, 5),
 (39, 3),
-(39, 4);
+(39, 4),
+(40, 3),
+(40, 7),
+(41, 3),
+(42, 3);
 
 -- --------------------------------------------------------
 
@@ -476,8 +484,11 @@ INSERT INTO `movie` (`ID`, `NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF
 (30, 'Captain America: Civil War', 0, 147, 'Divided We Fall', 'English', 1153304495, 250000000, 'http://marvel.com/captainamericapremiere', NULL, NULL, 7, 7241, NULL, NULL, NULL),
 (31, 'LA lA LAND', 2016, 2, 'Sebastian (Ryan Gosling) and Mia (Emma Stone) are drawn together by their common desire to do what they love. But as success mounts they are faced with decisions that begin to fray the fragile fabric of their love affair, and the dreams they worked so hard to maintain in each other threaten to rip them apart.', 'English', 2147483647, 1000000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 8, 200000, 1, 1, 1),
 (32, 'LA lA LAND', 2016, 2, 'Sebastian (Ryan Gosling) and Mia (Emma Stone) are drawn together by their common desire to do what they love. But as success mounts they are faced with decisions that begin to fray the fragile fabric of their love affair, and the dreams they worked so hard to maintain in each other threaten to rip them apart.', 'English', 2147483647, 1000000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 8, 200000, 1, 1, 1),
-(33, '3 idiot', 2013, 2, 'fee description henaaaaaaa', 'English', 3000000, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 9, 10000000, 1, 1, 1),
-(34, 'Purple Dress', 2020, 120, 'blabla', 'Arabic', 100000000, 2147483647, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 2, 300, 2, 1, 1);
+(33, '3 idiot', 2020, 0, 'fee description henaaaaaaa  ', 'English', 0, 100000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 1, 10000000, 1, 1, 1),
+(34, 'Purple', 2020, 0, 'blabla  tany           ', 'Arabic', 100000000, 2147483647, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', '', 7, 300, 2, 1, 1),
+(40, 'Raghodaaaaaaa', 2019, 120, 'bla bla', 'Arabic', 10000000, 2147483647, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 2, 10, 1, 3, NULL),
+(41, 'uuu', 2020, 120, 'blo blo', 'Arabic', 19999999, 10000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 9, 1000, 2, 5, 1),
+(42, 'roro Film', 2020, 120, 'bl plo', 'Arabic', 10000000, 1000000, 'https://www.youtube.com/watch?v=0pdqf4P9MB8', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFtgdSYQ89vUMjMJal2D8H39qBCkh9ptCEoZEsafOzkeQPTu2', 'Raghad', 5, 9, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -521,7 +532,8 @@ CREATE TABLE `production_company` (
 --
 
 INSERT INTO `production_company` (`ID`, `COMPANY_NAME`, `YEAR_FOUNDED`) VALUES
-(1, 'Ingenious Film Partners', 1999);
+(1, 'Ingenious Film Partners', 1999),
+(2, 'Hcona Matata', 1988);
 
 -- --------------------------------------------------------
 
@@ -638,19 +650,20 @@ CREATE TABLE `user_of_notflix` (
   `PASSWORD_OF_USER` varchar(100) NOT NULL,
   `EMAIL` varchar(500) NOT NULL,
   `AGE` int(11) DEFAULT NULL,
-  `GENDER` char(1) DEFAULT NULL
+  `GENDER` char(1) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_of_notflix`
 --
 
-INSERT INTO `user_of_notflix` (`USER_NAME`, `PASSWORD_OF_USER`, `EMAIL`, `AGE`, `GENDER`) VALUES
-('raghadkhaled', '1234', 'RoRo@gmail.com', 20, 'F'),
-('Raghad_Khaled', '234', 'Raghad@gmail.com', 20, 'F'),
-('raghad_khaled1', '1234', 'raghad200059@gmail.com', 20, 'F'),
-('RoRo123', '123', 'RoRo123', 20, 'F'),
-('Raghodaaa', '12345', 'raghaoda1234692000@gm', 20, 'F');
+INSERT INTO `user_of_notflix` (`USER_NAME`, `PASSWORD_OF_USER`, `EMAIL`, `AGE`, `GENDER`, `image`) VALUES
+('raghadkhaled', '1234', 'RoRo@gmail.com', 20, 'F', NULL),
+('Raghad_Khaled', '5555', 'Raghad@gmail', 21, 'F', NULL),
+('raghad_khaled1', '1234', 'raghad200059@gmail.com', 20, 'F', NULL),
+('RoRo123', '123', 'RoRo123', 20, 'F', NULL),
+('Raghodaaa', '12345', 'raghaoda1234692000@gm', 20, 'F', NULL);
 
 --
 -- Indexes for dumped tables
@@ -661,8 +674,7 @@ INSERT INTO `user_of_notflix` (`USER_NAME`, `PASSWORD_OF_USER`, `EMAIL`, `AGE`, 
 --
 ALTER TABLE `acted_movie`
   ADD PRIMARY KEY (`MOVIE_ID`,`ACTOR_ID`),
-  ADD UNIQUE KEY `MOVIE_ID_2` (`MOVIE_ID`,`ACTOR_ID`,`CHARACTER_PLAYED_ID`),
-  ADD UNIQUE KEY `MOVIE_ID_3` (`MOVIE_ID`);
+  ADD KEY `ACTOR_ID` (`ACTOR_ID`);
 
 --
 -- Indexes for table `acted_series`
@@ -796,7 +808,9 @@ ALTER TABLE `prize`
 -- Indexes for table `production_company`
 --
 ALTER TABLE `production_company`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `COMPANY_NAME` (`COMPANY_NAME`),
+  ADD UNIQUE KEY `COMPANY_NAME_2` (`COMPANY_NAME`);
 
 --
 -- Indexes for table `season`
@@ -848,19 +862,25 @@ ALTER TABLE `fantasy_character`
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `prize`
 --
 ALTER TABLE `prize`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `production_company`
+--
+ALTER TABLE `production_company`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `series`
@@ -873,6 +893,17 @@ ALTER TABLE `series`
 --
 ALTER TABLE `story`
   MODIFY `STORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `acted_movie`
+--
+ALTER TABLE `acted_movie`
+  ADD CONSTRAINT `acted_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
+  ADD CONSTRAINT `acted_movie_ibfk_2` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

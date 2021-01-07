@@ -196,7 +196,7 @@ class Movie
   {
 
     $qury = "INSERT INTO acted_movie (`MOVIE_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
-    //echo $qury;
+    echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -222,10 +222,12 @@ class Movie
     $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
 
     
-      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
+      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, STORY_ID = $story)
-       WHERE ID = '$id'";
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, STORY_ID = $story
+       WHERE ID = $id";
+
+       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -252,21 +254,22 @@ class Movie
 
   public function getDirectorforMovie($ID)
   {
-    $qury = "SELECT FNAME,LNAME From director D , MOVIE M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    $qury = "SELECT FNAME,LNAME,Director_ID From director D , MOVIE M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getPrizeforMovie($ID)
   {
 
-    $qury = "SELECT TITLE, TYPE_OF_PRTIZE From PRIZE P, MOVIE M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
+    $qury = "SELECT TITLE, TYPE_OF_PRTIZE,PRIZE_WON_ID From PRIZE P, MOVIE M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getStoryforMovie($ID)
   {
 
-    $qury = "SELECT STORY_NAME From STORY S, MOVIE M WHERE M.STORY_ID = S.STORY_ID AND M.ID = '$ID' ";
+    $qury = "SELECT STORY_NAME,S.STORY_ID From STORY S, MOVIE M WHERE M.STORY_ID = S.STORY_ID AND M.ID = '$ID' ";
+    //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
 

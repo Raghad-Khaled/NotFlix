@@ -20,7 +20,7 @@ $link=$_POST['link'];
 
 $genre1=$_POST['genre1'];
 
-echo $genre1;
+//echo $genre1;
 
 $company1=$_POST['company1'];
 
@@ -92,6 +92,8 @@ if($_POST['genre3']!=''){
 
 $movie->addactortofilm($id,$actor1);
 
+//echo $actor1;
+
 if(isset($_POST['actor2'])){
     $actor2=$_POST['actor2'];
     $movie->addactortofilm($id,$actor2);
@@ -101,6 +103,8 @@ if(isset($_POST['actor3'])){
     $movie->addactortofilm($id,$actor3);
 }
 $movie->addcompanytofilm($id,$company1);
+
+//echo $company1;
 
 if(isset($_POST['company2'])){
     $company2=$_POST['company2'];
