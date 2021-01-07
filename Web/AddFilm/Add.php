@@ -38,7 +38,7 @@ $actor1=$_POST['actor1'];
 
 
 $movie=new Movie;
-if($_POST['story']!=''){
+if(isset($_POST['story'])){
 $story=$_POST['story'];
 $movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
 }
@@ -61,7 +61,7 @@ $check=$genre->exist($genre1);
 $data = mysqli_fetch_array($check);
 $movie->addgenretofilm($ID,$data['ID']);
 }
-if(isset($_POST['genre2'])){
+if($_POST['genre2']!=''){
 
     $genre2=$_POST['genre2'];
     $check=$genre->exist($genre2);
@@ -77,7 +77,7 @@ if(isset($_POST['genre2'])){
 }
 }
 if($_POST['genre3']!=''){
-    $genre2=$_POST['genre3'];
+    $genre3=$_POST['genre3'];
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);
