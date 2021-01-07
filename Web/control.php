@@ -915,5 +915,79 @@ class series
     return $reselt=mysqli_query($this->_conn,$qury);
   }
 
+  public function getSerierate($ID)
+  {
+  	$qury = "SELECT AVG(RATE) FROM rate_series where  SERIES_ID=$ID";
+      
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function countrates($ID){
+    $qury = "SELECT COUNT(*) FROM rate_series where  SERIES_ID=$ID";
+      
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+  
+
+  public function addratetoSerie($name,$id,$rate)
+  {
+    $record = $this->_conn->query("SELECT * FROM rate_series WHERE( USER_NAME_WHO_RATED='$name' AND SERIES_ID=$id )");
+    if ($record->num_rows != 0) {
+      $qury = "UPDATE rate_series set RATE=$rate where USER_NAME_WHO_RATED='$name' and SERIES_ID=$id";
+     
+      return $reselt = mysqli_query($this->_conn, $qury);
+      
+    } else {
+      $qury = "INSERT INTO rate_series VALUES ('$name',$id,$rate)";
+      
+      return $reselt = mysqli_query($this->_conn, $qury);
+     
+    }
+  }
+
+
+public function insertSerietoFav($name,$id)
+  {
+    $record = $this->_conn->query("SELECT USER_NAME_OF_USER,MOVIE_ID FROM add_to_fav_series WHERE( USER_NAME_OF_USER='$name' AND SERIES_ID='$id' )");
+    if ($record->num_rows != 0) {
+      echo "<script> alert('This Film already exist in your Favorite List'); </script>";
+      
+      
+    } else {
+      $qury = "INSERT INTO add_to_fav_series VALUES ('$name',$id)";
+      
+      return $reselt = mysqli_query($this->_conn, $qury);
+     
+    }
+  
+  }
+
+  public function get_genre_with_serieId($ID){
+    $qury="SELECT * from genre_relation_series where SERIES_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function get_company_with_serieId($ID){
+    $qury="SELECT * from funded_series where SERIES_ID="."'$ID'";
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function get_actor_with_serieId($ID)
+  {
+    $qury = "SELECT * from acted_series where SERIES_ID=" . "'$ID'";
+
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
+
+  public function get_season_with_serieId($ID)
+  {
+    $qury = "SELECT * from season where SERIES_ID=" . "'$ID'";
+
+    return $reselt = mysqli_query($this->_conn, $qury);
+  }
 }
+
+
 ?>
