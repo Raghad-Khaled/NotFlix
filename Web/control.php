@@ -937,7 +937,8 @@ class series
      
       return $reselt = mysqli_query($this->_conn, $qury);
       
-    } else {
+    } 
+    else {
       $qury = "INSERT INTO rate_series VALUES ('$name',$id,$rate)";
       
       return $reselt = mysqli_query($this->_conn, $qury);
@@ -948,9 +949,9 @@ class series
 
 public function insertSerietoFav($name,$id)
   {
-    $record = $this->_conn->query("SELECT USER_NAME_OF_USER,MOVIE_ID FROM add_to_fav_series WHERE( USER_NAME_OF_USER='$name' AND SERIES_ID='$id' )");
+    $record = $this->_conn->query("SELECT USER_NAME_OF_USER,SERIES_ID FROM add_to_fav_series WHERE( USER_NAME_OF_USER='$name' AND SERIES_ID='$id' )");
     if ($record->num_rows != 0) {
-      echo "<script> alert('This Film already exist in your Favorite List'); </script>";
+      echo "<script> alert('This Series already exist in your Favorite List'); </script>";
       
       
     } else {
