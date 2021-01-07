@@ -200,7 +200,7 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     ?>
                                         <div class="col">
                                             <div class="justify-content-center spacer-slider">
-                                                <figure class="figure" style="  width: 100%;"><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" /></a>
+                                                <figure class="figure" style="  width: 100%;"><a href="../Series/Serie_page.php?id=<?= $Series['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" /></a>
                                                     <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Series['NAME_SERIES']?></figcaption>
                                                 </figure>
 

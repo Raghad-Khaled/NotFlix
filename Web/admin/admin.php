@@ -106,7 +106,7 @@ $admin_info = mysqli_fetch_assoc($reselt1);
                         <div class="col-md-6 col-lg-4 filtr-item" data-category="Series">
                             <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
-                                    <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css">
+                                    <a href="../Series/Serie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css">
                                         <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
                                     </a>
                                 </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
