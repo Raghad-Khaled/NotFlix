@@ -686,6 +686,18 @@ class company
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function insertnewCompany($name,$year){
+    $record = $this->_conn->query("SELECT COMPANY_NAME FROM production_company WHERE COMPANY_NAME='$name'");
+    if ($record->num_rows != 0)
+    echo "<script> alert('Oops!, This Company is already Exist!');  window.location.href='AddCompany.html';</script>";
+  else{
+    $qury = "INSERT INTO production_company (`COMPANY_NAME`,`YEAR_FOUNDED`) VALUES ('$name',$year)";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+
+  }
+
+  }
 }
 /////////////////////////////////////////////////////////
 class advertisement
