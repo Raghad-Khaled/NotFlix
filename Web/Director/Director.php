@@ -1,3 +1,33 @@
+<?php
+include '../control.php';  // Using database connection file here
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$director = new director;
+$reselt = $director->getdirectotwithId($id);
+$director_info = mysqli_fetch_assoc($reselt);
+
+$reselt_S = $director->Num_of_Series($id);
+$Sries_Num = mysqli_fetch_assoc($reselt_S);
+$reselt_M = $director->Num_of_Movies($id);
+$Movie_Num = mysqli_fetch_assoc($reselt_M);
+
+$reselt_P = $director->Get_Prize($id);
+
+$result_M = $director->Get_Movies($id);
+$result_S = $director->Get_Series($id);
+
+$name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$user = new user;
+$reselt1 = $user->get_user_info($name);
+$user_info = mysqli_fetch_assoc($reselt1);
+
+
+$Adv_id = filter_input(INPUT_GET, 'Adv_id', FILTER_SANITIZE_NUMBER_INT);
+$advertisement = new advertisement();
+$reselt2 = $advertisement->get_whit_id($Adv_id);
+$adv_info = mysqli_fetch_assoc($reselt2);
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -65,10 +95,10 @@
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="height: 50px"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi<img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
+                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.htm" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="../user/user.php?name<?= $user_info['USER_NAME'] ?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?= $user_info['USER_NAME'] ?><img class="border rounded-circle img-profile" src="<?= $user_info['image'] ?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -80,18 +110,18 @@
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src="assets/img/director.jpg" style="width: 100%;height: 100%;"></a></div>
-                                
+                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src="<?= $director_info['IMAGE'] ?>" style="width: 100%;height: 100%;"></a></div>
+
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px">Quentin Tarantino </h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px"><?= $director_info['FNAME'] ?> <?= $director_info['LNAME'] ?></h4>
                                     <div>
                                         <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Birth Date</h4>
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	15-03-1980
+                                            <?= $director_info['BIRTH_DATE'] ?>
                                         </p>
                                     </div>
 
@@ -100,56 +130,92 @@
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	20 movie
+                                            <?= $Movie_Num['COUNT(MOVIE_ID)'] ?> movie
                                         </p>
                                     </div>
-                                    
                                     <div>
-                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Awards</h4>
+                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Nomber of series Directed</h4>
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                        	Oscar Best Director
+                                            <?= $Sries_Num['COUNT(SERIES_ID)'] ?> series
                                         </p>
                                     </div>
 
-                                     <!-- Advertisement Card-->
-                <div class="card" style="margin-top: 60px;">
-                    <div class="card-body" style="height: 100%;width: 100%;"><img src="assets/img/add.jpg" style="width: 100%;"></div>
-                </div>
-                <!---------------------->
+                                    <div>
+                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Awards</h4>
+                                    </div>
+
+                                    <?php
+                                    while ($Prize = mysqli_fetch_assoc($reselt_P)) {
+                                    ?>
+                                        <div class="summary">
+                                            <h4 style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
+                                                <?=$Prize['TITLE']?> <?=$Prize['TYPE_OF_PRTIZE']?>
+                                            </h4>
+                                        </div>
+
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <!-- Advertisement Card-->
+                                    <div class="card" style="margin-top: 60px;">
+                                        <div class="card-body" style="height: 100%;width: 100%;"><img src="<?= $adv_info['PICTURE'] ?>" style="width: 100%;"></div>
+                                    </div>
+                                    <!---------------------->
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="product-info">
-                        
-                        
-                       
+
+
+
 
                         <!------------------------------------------------------------------------------------------------------------------>
-                         <div class="row" style="padding-right: 50px;padding-left: 50px;">
+                        <div class="row" style="padding-right: 50px;padding-left: 50px;">
                             <div class="col">
                                 <div style="margin-top: 22px;">
                                     <h2 style="font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Movies And Series</h2>
-							          <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
-							<!--------------Repeat this---->
-							                                        
-							    <div class="col">
-							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="assets\img\movie.jpg" style="  width: 100%;" />
-							                <figcaption class="figure-caption" style="  font-size: 12px;">Movie 3ady</figcaption>
-							            </figure>
-							           
-							        </div>
-							        
-							    </div>
-							<!----------------------------------->
-										</div>
+                                    <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
+                                        <!--------------Repeat this---->
+                                        <?php
+                                    while ($Movie = mysqli_fetch_assoc($result_M)) {
+                                    ?>
+                                        <div class="col">
+                                            <div class="justify-content-center spacer-slider">
+                                                <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" />
+                                                    <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Movie['NAME_MOVIE']?></figcaption>
+                                                </figure>
+
+                                            </div>
+
+                                        </div>
+                                        <?php 
+                                        }
+                                        ?>
+                                        <?php
+                                    while ($Series = mysqli_fetch_assoc($result_S)) {
+                                    ?>
+                                        <div class="col">
+                                            <div class="justify-content-center spacer-slider">
+                                                <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" />
+                                                    <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Series['NAME_SERIES']?></figcaption>
+                                                </figure>
+
+                                            </div>
+
+                                        </div>
+                                        <?php 
+                                        }
+                                        ?>
+                                        <!----------------------------------->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -161,7 +227,7 @@
     <footer id="footer" style="background: rgb(33,33,46);margin-top: 0px;box-shadow: 0px -2px 20px 4px #21212e;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
+                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>

@@ -118,7 +118,7 @@ $user_info = mysqli_fetch_assoc($reselt1);
                                     </div>
                                 </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: radial-gradient(rgb(255,255,255) 0%, white 61%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
-                                    <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_SERIES'] ?><br></p>
+                                    <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
                                 </div>
                             </div>
                         </div>

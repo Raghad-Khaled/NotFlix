@@ -44,9 +44,9 @@ $admin_info = mysqli_fetch_assoc($reselt1);
         <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="#" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.htm" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul>
             </div>
         </div>
@@ -111,7 +111,7 @@ $admin_info = mysqli_fetch_assoc($reselt1);
                                     </a>
                                 </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: linear-gradient(white 63%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
-                                    <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_SERIES'] ?><br></p>
+                                    <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
                                 </div>
                                 <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-dark btn-sm" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='../EditSeries/EditSeries.php?id=<?= $data['ID'] ?>&Admin_name=<?= $name ?>';" style="background: rgba(245,245,247,0);color: rgb(30,8,58);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</button><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteSeries.php?id=<?= $data['ID'] ?> & Admin_name=<?= $name ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                             </div>

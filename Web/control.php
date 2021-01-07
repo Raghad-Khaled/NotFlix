@@ -53,7 +53,7 @@ class user
 
   public function get_Series_fav($user_name)
   {
-    $qury = ("SELECT ID,POSTER,NAME_SERIES,DESCRIPTION_OF_SERIES FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
+    $qury = ("SELECT ID,POSTER,NAME_SERIES,DESCRIPTION FROM SERIES, add_to_fav_series  WHERE ID = SERIES_ID AND USER_NAME_OF_USER ='$user_name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -612,6 +612,35 @@ class director
     return $result = mysqli_query($this->_conn, $qury);
 
   }
+  public function Num_of_Movies($id){
+    $qury="SELECT COUNT(MOVIE_ID) FROM director_prize_movie WHERE DIRECTOR_ID = '$id'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  public function Num_of_Series($id){
+    $qury="SELECT COUNT(SERIES_ID) FROM director_prize_series WHERE DIRECTOR_ID = '$id'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function Get_Prize($id){
+    $qury="SELECT TITLE,TYPE_OF_PRTIZE FROM PRIZE WHERE ID=
+    (SELECT DISTINCT m.PRIZE_ID FROM director_prize_movie m WHERE m.DIRECTOR_ID = '$id'
+    union SELECT DISTINCT s.PRIZE_ID FROM director_prize_series s WHERE s.DIRECTOR_ID = '$id')";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function Get_Movies($id){
+    $qury="SELECT * FROM MOVIE WHERE DIRECTOR_ID = '$id'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+  public function Get_Series($id){
+    $qury="SELECT * FROM series WHERE DIRECTOR_ID = '$id'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -728,6 +757,11 @@ class advertisement
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+  public function get_whit_id($id){
+    $qury="SELECT * FROM advertisement WHERE ID = '$id'";
+    
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
   
 }
 
@@ -801,7 +835,7 @@ class series
       echo "<script> alert(' This Series already Exist!');  window.location.href='AddSeries.php';</script>";
 
     else {
-      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_SERIES`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
+      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director,$prize)";
       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
@@ -821,7 +855,7 @@ class series
     $record = $this->_conn->query("SELECT NAME_SERIES FROM SERIES WHERE NAME_SERIES='$Name'");
 
     
-      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_SERIES = '$description',
+      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
        ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES)
        WHERE ID = '$id'";
