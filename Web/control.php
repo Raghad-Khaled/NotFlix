@@ -20,7 +20,13 @@ class user
   {
     $record = $this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE EMAIL='$email'");
     $record2 = $this->_conn->query("SELECT USER_NAME FROM user_of_notflix WHERE USER_NAME='$name'");
-
+    echo $gender;
+    if($gender=='F'){
+      $image="F.png";
+    }
+    else{
+      $image="M.png";
+    }
 
 
     if ($record->num_rows != 0)
@@ -28,8 +34,8 @@ class user
     else if ($record2->num_rows != 0)
       echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.html';</script>";
     else {
-      $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`)  VALUES ('$name','$password','$email',$age,'$gender')";
-      //echo $qury;
+      $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`,`image`)  VALUES ('$name','$password','$email',$age,'$gender','$image')";
+      echo $qury;
       $result = mysqli_query($this->_conn, $qury);
     }
   }

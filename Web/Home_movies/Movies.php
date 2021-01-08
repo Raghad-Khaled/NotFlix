@@ -6,6 +6,8 @@
     $prize_obj = new prize;
     $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
     $name=$user->GetnameWithpass($path);
+    $userdata=$user->get_user_info($name);
+    $info=mysqli_fetch_assoc($userdata);
     ?>
 
 <!DOCTYPE html>
@@ -85,7 +87,7 @@
                 <span>
                     <?= $name ?>
                 </span>
-                <img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" 
+                <img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$info['image']?>" 
                 style="width: 50px;margin-left: 5px;" />
             </a>
         </div>
@@ -515,7 +517,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="links"><a href="../Home_movies/Movies.php?name=<?=$path?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">

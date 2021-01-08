@@ -16,7 +16,7 @@ $password=password_hash($password, PASSWORD_DEFAULT);
 $save_user=new user;
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
 
-//header("Location:../Home_movies/Movies.php?name=$password");
+header("Location:../Home_movies/Movies.php?name=$password");
 
 }
 
