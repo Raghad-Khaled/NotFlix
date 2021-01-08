@@ -1,3 +1,18 @@
+<?php
+include '../control.php';  // Using database connection file here
+$id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$story=new story;
+$reselt=$story->getstorywithId($id);
+$data=mysqli_fetch_assoc($reselt);
+
+
+$moviesRelated=$story->getmovieRelated($id);
+$chracter=$story->getCharacterRelated($id);
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -60,15 +75,15 @@
 </head>
 
 <body style="background: linear-gradient(#bd11fa, #46c2ff);">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="padding: 4px;filter: hue-rotate(9deg); height: 67px">
-        <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="#" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px; height: 60px"></a>
+     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="padding: 4px;filter: hue-rotate(9deg); height: 67px">
+        <div class="container"><a class="navbar-brand logo" data-aos="flip-left" data-aos-duration="1450" href="../Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 28px;padding-top: 0px;padding-bottom: 0px;"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: -1px;padding-top: 13px; height: 60px"></a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="height: 50px"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi<img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
+                    <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px; ">Log out</a></li>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -80,22 +95,18 @@
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src="assets/img/novel.jpg" style="width: 100%;height: 100%;"></a></div>
+                                <div class="gallery" style="background: rgba(135,73,237,0.32);box-shadow: inset 0px 0px 17px #af5eee;border-radius: 6px;"><a href=""><img src="<?=$data['POSTER'] ?>" style="width: 100%;height: 100%;"></a></div>
                                 
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px">Little Women (1868) </h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px; margin-bottom: 30px"><?=$data['STORY_NAME'] ?>   <img src="assets/img/book.png" style="height: 40px ; width: 40px; padding-top:5px;"></h4>
                                     
                                     <div>
-                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Description</h4>
+                                        <h4 style="margin-top: 22px;font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed; margin-left: 15px">Story Overview <img src="assets/img/description.png" style="height: 45px ; width: 40px; padding-top:5px;"></h4>
                                     </div>
                                     <div class="summary">
-                                        <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">Little Women is a coming-of-age novel written by American novelist Louisa May Alcott (1832–1888) which was originally published in two volumes in 1868 and 1869. Alcott wrote the book over several months at the request of her publisher.[1][2] The story follows the lives of the four March sisters—Meg, Jo, Beth, and Amy—and details their passage from childhood to womanhood. It is loosely based on the lives of the author and her three sisters.[3][4]:202 Scholars classify it as an autobiographical or semi-autobiographical novel.[5][6]:12
-
-Little Women was an immediate commercial and critical success, with readers demanding to know more about the characters. Alcott quickly completed a second volume (titled Good Wives in the United Kingdom, although this name originated from the publisher and not from Alcott), and it was also successful. The two volumes were issued in 1880 as a single novel titled Little Women.
-
-Alcott wrote two sequels to her popular work, both of which also featured the March sisters: Little Men (1871) and Jo's Boys (1886). The novel addresses three major themes: "domesticity, work, and true love, all of them interdependent and each necessary to the achievement of its heroine's individual identity."[7]:200 According to Sarah Elbert, Alcott created a new form of literature, one that took elements from Romantic children's fiction and combined it with others from sentimental novels, resulting in a totally new format. Elbert argues that within Little Women can be found the first vision of the "All-American girl" and that her various aspects are embodied in the differing March sisters.</p>
+                                        <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;"><?=$data['Overview'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -115,31 +126,40 @@ Alcott wrote two sequels to her popular work, both of which also featured the Ma
                         </div>
                        
 
-                        
-                        <div class="m-auto" style="margin-top: 54px;margin-left: 18px;padding-right: 50px;padding-left: 50px;">
-                            <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin: 26px;margin-left: 11px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Main Characters&nbsp;</h2>
-                            <div class="m-auto blog-slider" style="margin-top: 40px;margin-left: 0px;">
-                                <div class="blog-slider__wrp swiper-wrapper">
-                                    <div class="blog-slider__item swiper-slide">
-                                        <div></div>
-                                        <div class="blog-slider__img"><img src="assets/img/2135651-robert-1578822748.jpg" style="width: 100%;height: 100%;"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
+                         <div class="row" style="padding-right: 50px;padding-left: 50px;">
+                            <div class="col">
+                                <div style="margin-top: 22px;">
+                                    <h2 style="font-size: 42px;font-family: Acme, sans-serif;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Characters Related <img src="assets/img/char.png" style="height: 50px padding-top:5px;"></h2>
+                                      <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
+                            <!--------------Repeat this---->
+                               <?php
+                                      while($data2 = mysqli_fetch_array($chracter)){
+                                     ?>
+                                    
+                                  
+                                     
+                                <div class="col">
+                                    <a href="../Character/Character.php?id=<?=$data2['ID']?>">
+                                    <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
+                                        <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data2['IMAGE']?>" style="  width: 100%;" />
+                                            <figcaption class="figure-caption" style="  font-size: 16px;"><span>
+                                                <?=$data2['FNAME']?> <?=$data2['LNAME']?> 
+                                            </span>
+                                            </figcaption>
+                                        </figure>
+                                       
                                     </div>
-                                    <div class="blog-slider__item swiper-slide">
-                                        <div></div>
-                                        <div class="d-lg-flex blog-slider__img"><img src="assets/img/https___hypebeast.com_wp-content_blogs.dir_6_files_2019_07_black-widow-marvel-movie-scarlett-johansson-taskmaster-stranger-things-david-harbour-1.jpg"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
-                                    </div>
-                                    <div class="blog-slider__item swiper-slide">
-                                        <div></div>
-                                        <div class="blog-slider__img"><img src="assets/img/thor-movie-storybook.jpg" style="width: 100%;height: 100%;"></div>
-                                        <div class="blog-slider__content"><div class="blog-slider__title">Lorem Ipsum Dolor</div><div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
-                                    </div>
-                                    <div class="blog-slider__pagination"></div>
+                                    </a>
+                                </div>
+
+                                 <?php }?>
+                            <!----------------------------------->
+                            </div>
                                 </div>
                             </div>
                         </div>
-
+                        
+                                    
                         <!------------------------------------------------------------------------------------------------------------------>
                          <div class="row" style="padding-right: 50px;padding-left: 50px;">
                             <div class="col">
@@ -148,15 +168,27 @@ Alcott wrote two sequels to her popular work, both of which also featured the Ma
 							          <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
 							<!--------------Repeat this---->
 							                                        
-							    <div class="col">
-							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="assets\img\Karen_Gillan.jpg" style="  width: 100%;" />
-							                <figcaption class="figure-caption" style="  font-size: 12px;">Wahed 3ady</figcaption>
-							            </figure>
-							           
-							        </div>
-							        
-							    </div>
+							   <?php
+                                      while($data3 = mysqli_fetch_array($moviesRelated)){
+                                     ?>
+                                    
+                                  
+                                     
+                                <div class="col">
+                                    <a href="../Movie_Page/Movie_page.php?id=<?=$data3['ID']?>">
+                                    <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
+                                        <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data3['POSTER']?>" style="  width: 100%;" />
+                                            <figcaption class="figure-caption" style="  font-size: 16px;"><span>
+                                                <?=$data3['NAME_MOVIE']?>  
+                                            </span>
+                                            </figcaption>
+                                        </figure>
+                                       
+                                    </div>
+                                    </a>
+                                </div>
+
+                                 <?php }?>
 							<!----------------------------------->
 							</div>
                                 </div>

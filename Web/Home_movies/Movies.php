@@ -53,7 +53,7 @@
     $name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
     $n = "plapla";
     ?>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px;">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px; ">
     <div class="container">
         <a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;">
             <img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;" />

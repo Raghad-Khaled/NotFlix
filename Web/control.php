@@ -681,6 +681,19 @@ class story
     return $reselt = mysqli_query($this->_conn, $qury);
   }
 
+  public function getmovieRelated($ID)
+  {
+    $qury ="SELECT * FROM movie where STORY_ID=$ID";
+    return $reselt = mysqli_query($this->_conn, $qury);
+
+  }
+  public function getCharacterRelated($ID)
+  {
+    $qury ="SELECT * FROM fantasy_character where STORY_ID=$ID";
+    return $reselt = mysqli_query($this->_conn, $qury);
+
+  }
+
 }
 //////////////////////////////
 class character
@@ -709,6 +722,17 @@ class character
     $qury = "SELECT * from  fantasy_character where ID=$ID";
     return $reselt = mysqli_query($this->_conn, $qury);
   }
+ public function  getmovieRelated($ID)
+ {
+  $qury = "SELECT DISTINCT NAME_MOVIE,ID, POSTER FROM movie where STORY_ID=$ID";
+  return $reselt = mysqli_query($this->_conn, $qury);
+ }
+ public function  getStoryRelated($ID)
+ {
+  $qury = "SELECT * FROM story where STORY_ID=$ID";
+  return $reselt = mysqli_query($this->_conn, $qury);
+ }
+
 }
 //////////////////////////////////////////////////////////
 class company

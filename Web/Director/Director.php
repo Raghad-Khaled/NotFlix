@@ -184,9 +184,9 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     while ($Movie = mysqli_fetch_assoc($result_M)) {
                                     ?>
                                         <div class="col">
-                                            <div class="justify-content-center spacer-slider">
+                                            <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
                                                 <figure class="figure" style="  width: 100%;"><a href="../Movie_Page/Movie_page.php?id=<?= $Movie['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" /></a>
-                                                    <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Movie['NAME_MOVIE']?></figcaption>
+                                                    <figcaption class="figure-caption" style="  font-size: 16px;"><span><?= $Movie['NAME_MOVIE']?></span></figcaption>
                                                 </figure>
 
                                             </div>
@@ -199,9 +199,9 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     while ($Series = mysqli_fetch_assoc($result_S)) {
                                     ?>
                                         <div class="col">
-                                            <div class="justify-content-center spacer-slider">
+                                            <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
                                                 <figure class="figure" style="  width: 100%;"><a href="../Series/Serie_page.php?id=<?= $Series['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Series['POSTER']?>" style="  width: 100%;" /></a>
-                                                    <figcaption class="figure-caption" style="  font-size: 12px;"><?= $Series['NAME_SERIES']?></figcaption>
+                                                    <figcaption class="figure-caption" style=" font-size: 16px;"><span><?= $Series['NAME_SERIES']?></span></figcaption>
                                                 </figure>
 
                                             </div>

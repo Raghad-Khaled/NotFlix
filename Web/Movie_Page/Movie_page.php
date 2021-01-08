@@ -322,9 +322,10 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                                $dataactor=mysqli_fetch_assoc($actordata);
                                             ?>
     <div class="col">
-        <div class="justify-content-center spacer-slider">
+        <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
             <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Actor/Actor.php?id=".$dataactor['ID'];?>><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
-                <figcaption class="figure-caption" style="  font-size: 12px;"><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?></figcaption>
+                <figcaption class="figure-caption" style="  font-size: 16px;"><span><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?>
+            </span></figcaption>
             </figure>
            
         </div>

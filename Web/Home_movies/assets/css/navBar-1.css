@@ -65,9 +65,9 @@
 }
 
 #transmenu .navbar-toggler span:nth-child(1), #transmenu .navbar-toggler span:nth-child(3) {
-  -webkit-transition: transform .35s ease-in-out;
-  -moz-transition: transform .35s ease-in-out;
-  transition: transform .35s ease-in-out;
+  -webkit-transition: transform .6s ease-in-out;
+  -moz-transition: transform .6s ease-in-out;
+  transition: transform .6s ease-in-out;
 }
 
 * {
