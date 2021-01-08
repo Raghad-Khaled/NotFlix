@@ -2,9 +2,10 @@
     include '../control.php';  // Using database connection file here
     $genre_obj = new genre;
     $movie = new movie;
+    $user =new user;
     $prize_obj = new prize;
-    $name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
-    $n = "plapla";
+    $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+    $name=$user->GetnameWithpass($path);
     ?>
 
 <!DOCTYPE html>
@@ -479,7 +480,7 @@
                             <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                                 <figure class="figure tc-cardhover-14">
                                     <figcaption>
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css">
+                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
                                             <h3><?php echo $data['NAME_MOVIE']; ?></h3>
                                             <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
                                         </a>

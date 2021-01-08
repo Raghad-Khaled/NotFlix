@@ -28,8 +28,8 @@ class user
     else if ($record2->num_rows != 0)
       echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.html';</script>";
     else {
-      $qury = "INSERT INTO user_of_notflix  VALUES ('$name','$password','$email','$age','$gender')";
-      echo $qury;
+      $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`)  VALUES ('$name','$password','$email',$age,'$gender')";
+      //echo $qury;
       $result = mysqli_query($this->_conn, $qury);
     }
   }
@@ -37,12 +37,27 @@ class user
 
   public function User_Sign_In($email, $password)
   {
-    $record = $this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE( EMAIL='$email' AND PASSWORD_OF_USER='$password' )");
-    if ($record->num_rows == 0) {
-      echo "<script> alert('Wrong username or password');</script>";
-    } else {
-      echo "<script> alert('Welcome Back!!!!');</script>";
+    $record = $this->_conn->query("SELECT PASSWORD_OF_USER FROM user_of_notflix WHERE EMAIL='$email'");
+    if($record->num_rows == 0){
+      echo "<script> alert('Wrong Email') window.location.href='SignIn.html';</script>";
     }
+    else{
+      $data=mysqli_fetch_assoc($record);
+      if(password_verify($password, $data['PASSWORD_OF_USER'])){
+        $path=$data['PASSWORD_OF_USER'];
+        echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?name=$path';</script>";
+      }
+      else{
+        echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";
+      }
+    }
+   
+  }
+
+  public function GetnameWithpass($pass){
+    $record = $this->_conn->query("SELECT USER_NAME FROM user_of_notflix WHERE PASSWORD_OF_USER='$pass'");
+    $data=mysqli_fetch_assoc($record);
+    return $data['USER_NAME'];
   }
 
   public function get_Movie_fav($user_name)

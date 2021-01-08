@@ -1,7 +1,9 @@
 <?php
 include '../control.php';  // Using database connection file here
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$user =new user;
+$name=$user->GetnameWithpass($path);
 $movie=new movie;
 $reselt=$movie->getMoviewithId($id);
 $data=mysqli_fetch_assoc($reselt);
