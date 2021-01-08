@@ -15,8 +15,9 @@ $reselt_P = $director->Get_Prize($id);
 $result_M = $director->Get_Movies($id);
 $result_S = $director->Get_Series($id);
 
-$name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $user = new user;
+$name=$user->GetnameWithpass($path);
 $reselt1 = $user->get_user_info($name);
 $user_info = mysqli_fetch_assoc($reselt1);
 
@@ -185,7 +186,7 @@ $adv_info = mysqli_fetch_assoc($reselt2);
                                     ?>
                                         <div class="col">
                                             <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
-                                                <figure class="figure" style="  width: 100%;"><a href="../Movie_Page/Movie_page.php?id=<?= $Movie['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" /></a>
+                                                <figure class="figure" style="  width: 100%;"><a href="../Movie_Page/Movie_page.php?id=<?= $Movie['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css"><img class="figure-img" src="<?= $Movie['POSTER']?>" style="  width: 100%;" /></a>
                                                     <figcaption class="figure-caption" style="  font-size: 16px;"><span><?= $Movie['NAME_MOVIE']?></span></figcaption>
                                                 </figure>
 

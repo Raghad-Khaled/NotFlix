@@ -180,7 +180,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 </div>
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
-                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
+                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$path?>" enctype="multipart/form-data">
                                     <div class="d-inline-flex"><input type="number" value="0" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
@@ -189,7 +189,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                             <div class="col-md-6">
                                 <div class="info">
                                   <!----------------- title -->
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$name?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$path?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
                                     <div class="rating" style="margin-left: 18px;padding-bottom: 10px;">
                                     <?php
                                         $i=$data['IMDB_RATE'];
@@ -302,7 +302,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     <figure class="figure" style="width: 241px;"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
                                 </div>
                                 <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start">
-                                    <a href="#">
+                                    <a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;"><?=$datadirector['FNAME'] ?> <?=$datadirector['LNAME'] ?> </h4>
                                     </a></div>
                             </div>
@@ -325,7 +325,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                             ?>
     <div class="col">
         <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
-            <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Actor/Actor.php?id=".$dataactor['ID'];?>><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
+            <figure class="figure" style="  width: 100%;"><a href= "../Actor/Actor.php?id=<?=$dataactor['ID']?>&name=<?=$path?> "><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
                 <figcaption class="figure-caption" style="  font-size: 16px;"><span><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?>
             </span></figcaption>
             </figure>
@@ -356,7 +356,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 </div>
                               <!------------------------------------ story -->
                                 
-                                <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="#">
+                                <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="../NovelPage/Novel_page.php?id=<?=$data['STORY_ID']?>&name=<?=$path?>">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-left: 19px;"><?= $datastory['STORY_NAME'] ?></h4>
                                     </a></div>
                             </div>
@@ -383,7 +383,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                         </div>
                                         <div class="blog-slider__text"><?= $data3['STORY'] ?> </div>
                                         <a class="class=&quot;blog-slider__button" style="color:rgba(120,17,250,0.42)"
-                                         href="../Character/Character.php?id=<?= $data3['ID'] ?>&name=<?= $name ?>">
+                                         href="../Character/Character.php?id=<?= $data3['ID'] ?>&name=<?= $path ?>">
                                     View Character Page</a></div>
                                     </div>
                                     

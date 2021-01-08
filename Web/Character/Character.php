@@ -1,10 +1,14 @@
 <?php
 include '../control.php';  // Using database connection file here
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+
 $character=new character;
 $reselt=$character->getCharacterwithId($id);
 $data=mysqli_fetch_assoc($reselt);
+
+$user = new user;
+$name=$user->GetnameWithpass($path);
 
 $Adv_id = filter_input(INPUT_GET, 'Adv_id', FILTER_SANITIZE_NUMBER_INT);
 $advertisement = new advertisement();
@@ -149,7 +153,7 @@ $storyRelated=$character->getStoryRelated($id);
 							          <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
 							<!--------------Repeat this---->
 							<?php while($data2 = mysqli_fetch_array($moviesRelated)){ ?>                                       
-							  <a href="<?php echo "../Movie_Page/Movie_Page.php?id=".$data2['ID'];?>">  <div class="col">
+							  <a href="<?php echo "../Movie_Page/Movie_Page.php?id=".$data2['ID']."&name=".$path;?>">  <div class="col">
 							        <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
 							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data2['POSTER']?>" style="  width: 100%;" />
 							                <figcaption class="figure-caption" style="   font-size: 16px;"><span><?=$data2['NAME_MOVIE']?>
@@ -176,7 +180,7 @@ $storyRelated=$character->getStoryRelated($id);
 							          <div class="row no-gutters row-cols-3 justify-content-center align-items-center" style="  padding: 0px;margin-top: 25px;">
 							<!--------------Repeat this---->
 							<?php while($data3 = mysqli_fetch_array($storyRelated)){ ?>                                          
-							<a href="<?php echo "../NovelPage/NovelPage.php?id=".$data3['STORY_ID'];?>">   <div class="col" >
+							<a href="<?php echo "../NovelPage/Novel_page.php?id=".$data3['STORY_ID']."&name=".$path;?>">   <div class="col" >
 							        <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
 							            <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data3['POSTER']?>" style="  width: 100%;" />
 							                <figcaption class="figure-caption" style="  font-size: 16px;"><span>"<?=$data3['STORY_NAME']?>"</span> By <?=$data3['AUTHOR_NAME']?></figcaption>

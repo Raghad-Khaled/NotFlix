@@ -1,8 +1,10 @@
 <?php
    include '../control.php';
-   $name = filter_input(INPUT_GET, 'user_name', FILTER_SANITIZE_STRING);
+   $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+
    //$name="Raghad_Khaled";
    $user_obj=new user;
+   $name=$user_obj->GetnameWithpass($path);
    $temp=$user_obj->get_user_info($name);
    $data=mysqli_fetch_assoc($temp);
                                         
@@ -16,7 +18,7 @@
     $user_obj->edit_user_email($name,$email);
     $user_obj->edit_user_password($name,$password);
     $user_obj->edit_user_age($name,$age);   
-    $redirection_string="Location: EditProfile.php?user_name=$name";
+    $redirection_string="Location: EditProfile.php?name=$path";
     // File upload path
     $targetDir = "user_pics/";
     $fileName = basename($_FILES["avatar-file"]["name"]);

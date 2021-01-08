@@ -3,6 +3,9 @@ include '../control.php';  // Using database connection file here
 
 //$id=1;
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$user = new user;
+$name=$user->GetnameWithpass($path);
 $actor=new actor;
 $result=$actor->getactorwithId($id);
 
@@ -95,7 +98,7 @@ $series_of_actor=$actor->get_series($id);
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;">Donya Esawi<img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -178,7 +181,7 @@ $series_of_actor=$actor->get_series($id);
 							    <div class="col">
                                     
 							        <div class="justify-content-center spacer-slider">
-							            <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Movie_Page/Movie_page.php?id=".$data['ID'];?>><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" /> </a>
+							            <figure class="figure" style="  width: 100%;"><a href=<?php echo "../Movie_Page/Movie_page.php?id=".$data['ID']."&name=".$path;?>><img class="figure-img" src=<?php echo $data['POSTER']; ?> style="  width: 100%;" /> </a>
 							                <figcaption class="figure-caption" style="  font-size: 12px;"><?php echo $data['NAME_MOVIE']?></figcaption>
 							            </figure>
 							           

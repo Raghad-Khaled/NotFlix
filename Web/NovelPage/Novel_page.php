@@ -1,11 +1,12 @@
 <?php
 include '../control.php';  // Using database connection file here
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
 $story=new story;
 $reselt=$story->getstorywithId($id);
 $data=mysqli_fetch_assoc($reselt);
-
+$user = new user;
+$name=$user->GetnameWithpass($path);
 
 $moviesRelated=$story->getmovieRelated($id);
 $chracter=$story->getCharacterRelated($id);
@@ -116,10 +117,8 @@ $chracter=$story->getCharacterRelated($id);
                         <div style="border-style: none;padding-right: 50px;padding-left: 50px;">
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin-bottom: 20px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Author</h2>
                             <div class="row d-xl-flex">
-                                <div class="col-md-5" style="width: 239px;">
-                                    <figure class="figure" style="width: 241px;"><img class="figure-img" src="assets/img/Author.jpg" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
-                                </div>
-                                <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start"><a href="#">
+                               
+                                <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start"><a >
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;">Louisa May Alcott</h4>
                                     </a></div>
                             </div>
@@ -139,7 +138,7 @@ $chracter=$story->getCharacterRelated($id);
                                   
                                      
                                 <div class="col">
-                                    <a href="../Character/Character.php?id=<?=$data2['ID']?>">
+                                    <a href="../Character/Character.php?id=<?=$data2['ID']?>&name=<?=$path?>">
                                     <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
                                         <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data2['IMAGE']?>" style="  width: 100%;" />
                                             <figcaption class="figure-caption" style="  font-size: 16px;"><span>
@@ -175,7 +174,7 @@ $chracter=$story->getCharacterRelated($id);
                                   
                                      
                                 <div class="col">
-                                    <a href="../Movie_Page/Movie_page.php?id=<?=$data3['ID']?>">
+                                    <a href="../Movie_Page/Movie_page.php?id=<?=$data3['ID']?>&name=<?=$path?>">
                                     <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
                                         <figure class="figure" style="  width: 100%;"><img class="figure-img" src="<?=$data3['POSTER']?>" style="  width: 100%;" />
                                             <figcaption class="figure-caption" style="  font-size: 16px;"><span>

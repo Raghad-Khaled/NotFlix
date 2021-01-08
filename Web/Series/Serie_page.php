@@ -3,7 +3,9 @@ include('../control.php');
 if(isset($_GET['id']))
 {
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$name=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$user =new user;
+$name=$user->GetnameWithpass($path);
 $serie=new series;
 $reselt=$serie->get_all_with_id($id);
 $data=mysqli_fetch_assoc($reselt);
@@ -187,7 +189,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 </div>
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Series</h3>
-                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$name?>" enctype="multipart/form-data">
+                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$path?>" enctype="multipart/form-data">
                                     <div class="d-inline-flex"><input type="number" value="0" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
@@ -195,7 +197,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_SERIES'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$name?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_SERIES'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$path?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a>
                                     </h4>
                                     <div class="rating" style="margin-left: 18px;padding-bottom: 10px;">
                                         <?php
