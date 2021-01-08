@@ -1,3 +1,12 @@
+<?php
+    include '../control.php';  // Using database connection file here
+    $genre_obj = new genre;
+    $movie = new movie;
+    $prize_obj = new prize;
+    $name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+    $n = "plapla";
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,15 +53,8 @@
     <link rel="stylesheet" href="assets/css/tc-cardhover-14.css">
 </head>
 
-<body style="background: #21212e;">
-    <?php
-    include '../control.php';  // Using database connection file here
-    $genre_obj = new genre;
-    $movie = new movie;
-    $prize_obj = new prize;
-    $name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
-    $n = "plapla";
-    ?>
+<body style="background: #21212e; padding-right: 0px">
+    
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px; ">
     <div class="container">
         <a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;">
@@ -88,7 +90,7 @@
         </div>
     </div>
     </nav>
-    <section id="header" style="margin-bottom: 133px;border-radius: 54px;box-shadow: -7px 7px 20px 4px rgba(189,17,250,0.25), 30px -1px 11px #46c2ff;">
+    <section id="header" style="margin-bottom: 133px;border-radius: 54px;box-shadow: 0px 7px 20px 4px rgba(189,17,250,0.25), 30px -1px 11px #46c2ff; width:100%;">
         <!-- Paradise Slider -->
         <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
@@ -291,12 +293,11 @@
 
             <!-- Left Control -->
             <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
-                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                
             </a>
             <!-- Right Control -->
             <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
-                <span class="fa fa-angle-right" aria-hidden="true"></span>
-
+              
             </a>
 
 
@@ -401,7 +402,7 @@
 
 
         <!---- Honestly IDK what is this :""  -->
-        <div class="row" style="margin-top: 40px;padding: 33px;">
+        <div class="row" style="margin-top: 40px;margin-right: 0px; margin-top: 0px; padding: 33px;">
             <div class="col-md-3">
                 <div class="d-none d-md-block"></div>
                 <div class="d-md-none"><a class="btn btn-link d-md-none filter-collapse" data-toggle="collapse" aria-expanded="false" aria-controls="filters" href="#filters" role="button">Filters<i class="icon-arrow-down filter-caret"></i></a>
