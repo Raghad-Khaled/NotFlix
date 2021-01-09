@@ -22,7 +22,8 @@ if($result->num_rows != 0){
       echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?';</script>";
     }
     else{
-      //echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";
+      echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";
+      //echo password_hash(1234, PASSWORD_DEFAULT);
     }
 }else{
     $_SESSION['type'] = 'user';
