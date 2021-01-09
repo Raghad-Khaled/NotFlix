@@ -8,6 +8,18 @@
     $name=$user->GetnameWithpass($path);
     $userdata=$user->get_user_info($name);
     $info=mysqli_fetch_assoc($userdata);
+
+    ////////////////////////////COPY///////////////////////////////
+$adver=new advertisement;
+$advpic=$adver->getcount();
+$pic=mysqli_fetch_assoc($advpic);
+$count=(int)$pic['count(*)'];
+$idadv=rand(1,$count);
+$picture=$adver->get_whit_id($idadv);
+$picture2=mysqli_fetch_assoc($picture);
+////////////////////////////COPY///////////////////////////////
+
+
     ?>
 
 <!DOCTYPE html>
@@ -438,8 +450,8 @@
 
 
                 <!-- Advertisement Card-->
-                <div class="card" style="margin-top: 20px;">
-                    <div class="card-body" style="height: 100%;width: 100%;"><img src="assets/img/329990e7a9fe7cb6fd3bf9d616f1b0dc.jpg" style="width: 100%;"></div>
+                             <div class="card" style="margin-top: 60px;">
+                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?=$picture2['PICTURE']?>" style="width: 100%;"></div>
                 </div>
                 <!---------------------->
 
