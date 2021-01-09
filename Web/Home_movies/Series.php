@@ -3,6 +3,7 @@
     $genre_obj = new genre;
     $movie = new movie;
     $user =new user;
+    $series_obj=new series;
     $prize_obj = new prize;
     $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
     $name=$user->GetnameWithpass($path);
@@ -68,7 +69,7 @@
     </button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <!---------------------------BackEndHere-------------------------------->
-            <form action="Movies.php" method="Post">
+            <form action="Series.php" method="Post">
                 <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" 
                 name="search_string" />
 
@@ -314,8 +315,8 @@
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a class="selected" href="Movies.php" data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a href="Series.php" data-type="color-1">Series</a></li>
+                    <li class="filter"><a  href="Movies.php" data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a class="selected" href="Series.php" data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -324,7 +325,7 @@
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action="Movies.php" method="Post">
+            <form action="Series.php" method="Post">
 
 
 
@@ -335,9 +336,9 @@
 
                     <?php
 
-                    $records =  $movie->get_movie_languages();
+                    $records =  $series_obj->get_all();
                     while ($row = mysqli_fetch_array($records)) { ?>
-                        <option value="<?php echo $row['LANGUAGE_MOBIE']; ?>"><?php echo $row['LANGUAGE_MOBIE']; ?></option>
+                        <option value="<?php echo $row['LANGUAGE']; ?>"><?php echo $row['LANGUAGE']; ?></option>
                     <?php
                     }
                     ?>
@@ -348,7 +349,7 @@
 
                     <?php
 
-                    $records =  $movie->getgenre();
+                    $records =  $movie->getgenre();   //doesnt need to be calle from series class as genre table is a standalone table
                     $temp = 0;
                     while ($data = mysqli_fetch_array($records)) {
                         echo "<option value='" . $data['ID'] . "'>" . $data['GENRE_TYPE'] . "</option>";  // displaying data in option menu
@@ -451,16 +452,16 @@
 
 
 
-                        <!-- Movie Card-->
+                        <!-- Series Card-->
                         <?php
 
-                        $records = $movie->get_all();
+                        $records = $series_obj->get_all();
                         if (isset($_POST['search'])) {
 
 
                             $search_string = $_POST['search_string'];
 
-                            $records = $movie->search_by_movie_name($search_string);
+                            $records = $series_obj->search_by_series_name($search_string);
                         }
 
                         if (isset($_POST['show'])) {
@@ -469,7 +470,7 @@
                             $era = $_POST['era'];
                             $genre_id = $_POST['genre'];
                             $prize_id = $_POST['prize'];
-                            $records = $movie->filter($language, $genre_id, $era, $prize_id);
+                            $records = $series_obj->filter($language, $genre_id, $era, $prize_id);
                         }
 
                         while ($data = mysqli_fetch_array($records)) {
@@ -482,9 +483,9 @@
                             <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                                 <figure class="figure tc-cardhover-14">
                                     <figcaption>
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
-                                            <h3><?php echo $data['NAME_MOVIE']; ?></h3>
-                                            <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
+                                        <a href="../Series/Serie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
+                                            <h3><?php echo $data['NAME_SERIES']; ?></h3>
+                                            <p><?php echo $data['DESCRIPTION']; ?></p>
                                         </a>
                                     </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>>
                                 </figure>
