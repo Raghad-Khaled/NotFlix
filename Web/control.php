@@ -820,6 +820,12 @@ class advertisement
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+  public function getcount(){
+    $qury="SELECT count(*) FROM advertisement ";
+    return $reselt=mysqli_query($this->_conn,$qury);
+    
+    //return[$info[(co)]]
+  }
   
 }
 
