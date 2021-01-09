@@ -29,7 +29,6 @@ $company1=$_POST['company1'];
 $language=$_POST['language'];
 $Director=$_POST['Director'];
 
-$prize=$_POST['prize'];
 $description=$_POST['description'];
 $actor1=$_POST['actor1'];
 
@@ -38,11 +37,17 @@ $actor1=$_POST['actor1'];
 $movie=new Movie;
 if(isset($_POST['story'])){
 $story=$_POST['story'];
-$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
 }
 else{
-    $movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,NULL);    
+    $story = NULL;  
 }
+if(isset($_POST['prize'])){
+    $prize=$_POST['prize'];
+    }
+    else{
+        $prize = NULL;  
+    }
+$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
 
 $movie->delet_genre_with_movieId($id);
 $movie->delet_actor_with_movieId($id);

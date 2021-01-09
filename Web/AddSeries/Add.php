@@ -92,7 +92,7 @@ if(isset($_POST['actor2'])){
     $Series->addactortoSeries($ID,$actor2);
 }
 if(isset($_POST['actor3'])){
-    $genre2=$_POST['actor3'];
+    $actor3=$_POST['actor3'];
     $Series->addactortoSeries($ID,$actor3);
 }
 $Series->addcompanytoSeries($ID,$company1);

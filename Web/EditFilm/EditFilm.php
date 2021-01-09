@@ -293,15 +293,16 @@ $story = mysqli_fetch_assoc($reselt6);
 
                     <div class="col-12 col-lg-3 form-group ">
                         <select class="form-select form-control" aria-label="Default select example" required name="prize">
-                            <option value="<?=$prize['PRIZE_WON_ID']?>" selected><?= $prize['TITLE'] ?><?= $prize['TYPE_OF_PRTIZE'] ?></option>
+                            <option value="<?=$prize['PRIZE_WON_ID']?>" selected><?= $prize['TITLE'] ?> <?= $prize['TYPE_OF_PRTIZE'] ?></option>
                             <?php
                             $prize1 = new prize;
                             $records =  $prize1->getprize();
 
                             while ($data1 = mysqli_fetch_array($records)) {
                                 if ($prize['ID'] != $data1['ID'])
-                                    echo "<option value='" . $data1['ID'] . "'>" . $data1['TITLE'] . "</option>";  // displaying data1 in option menu
+                                    echo "<option value='" . $data1['ID'] . "'>" . $data1['TITLE'] . " ".$data1['TYPE_OF_PRTIZE'] . "</option>";  // displaying data1 in option menu
                             }
+                            echo "<option value='" . " " . "'>" ." " . "</option>";  // displaying data1 in option menu
                             ?>
                         </select>
                     </div>

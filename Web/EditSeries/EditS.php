@@ -3,9 +3,8 @@
 include '../control.php';
 if(isset($_POST['submit']))
 {
-    
+session_start();
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
 
 $postar= $_POST['postar'];
 $title=$_POST['title'];
@@ -29,16 +28,16 @@ $actor1=$_POST['actor1'];
 
 
 $Series=new series;
-$Series->UpdateSeries($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Episodes,$Director,$prize);    
+$Series->UpdateSeries($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count, $Director, $prize, $Episodes);    
 
 $IDrow=$Series->getid($title);
 $data = mysqli_fetch_array($IDrow);
 $ID = $data['ID'];
 ///////////////////////////////////////////
 
-$movie->delet_genre_with_seriesId($id);
-$movie->delet_actor_with_seriesId($id);
-$movie->delet_company_with_seriesId($id);
+$Series->delet_genre_with_seriesId($id);
+$Series->delet_actor_with_seriesId($id);
+$Series->delet_company_with_seriesId($id);
 
 $genre=new genre;
 $check=$genre->exist($genre1);
@@ -69,7 +68,7 @@ if(isset($_POST['genre2'])){
 }
 }
 if($_POST['genre3']!=''){
-    $genre2=$_POST['genre3'];
+    $genre3=$_POST['genre3'];
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);
@@ -89,8 +88,8 @@ if(isset($_POST['actor2'])){
     $actor2=$_POST['actor2'];
     $Series->addactortoSeries($ID,$actor2);
 }
-if(isset($_POST['actor3'])){
-    $genre2=$_POST['actor3'];
+if($_POST['actor3']!=""){
+    $actor3=$_POST['actor3'];
     $Series->addactortoSeries($ID,$actor3);
 }
 $Series->addcompanytoSeries($ID,$company1);
@@ -103,7 +102,6 @@ if(isset($_POST['company3'])){
     $company3=$_POST['company3'];
     $Series->addcompanytoSeries($ID,$company3);
 }
-
 }
-header("Location:../admin/admin.php?Admin_Name=$name");
+//header("Location:../admin/admin.php");
 ?>
