@@ -106,7 +106,7 @@ $prize = mysqli_fetch_assoc($reselt5);
                             ?>
                                     <select class="form-select form-control" aria-label="Default select example" id="A1" required name="actor<?= $i ?>">
 
-                                        <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
+                                        <option value="<?=$actors['ID']?>" selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
 
@@ -120,7 +120,7 @@ $prize = mysqli_fetch_assoc($reselt5);
                                         ?>
                                         <select class="form-select form-control" aria-label="Default select example" id="A1" name="actor<?= $i ?>">
 
-                                            <option selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
+                                            <option value="<?=$actors['ID']?>" selected><?= $actors['FNAME'] ?> <?= $actors['LNAME'] ?></option>
                                         <?php
                                         $actor = new actor;
                                         $records =  $actor->getactor();

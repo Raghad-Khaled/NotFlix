@@ -100,7 +100,7 @@ $hearder = "../user/user.php";
                     <?php } ?>
                     <?php
                     $series = new series;
-                    $records = $series->get_all_for_admin($path);
+                    $records = $series->get_all_for_admin($_SESSION['name']);
                     while ($data = mysqli_fetch_array($records)) {
                         if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                         {
