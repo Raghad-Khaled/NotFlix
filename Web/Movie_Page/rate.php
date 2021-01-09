@@ -15,6 +15,6 @@ $name=$user->GetnameWithpass($path);
 $movie->addratetoFilm($name,$id,$rate);
 
     }
-header("Location:Movie_page.php?id=$id&name=$path");
+header("Location:Movie_page.php?id=$id");
 }
 ?>

@@ -18,7 +18,7 @@
     $user_obj->edit_user_email($name,$email);
     $user_obj->edit_user_password($name,$password);
     $user_obj->edit_user_age($name,$age);   
-    $redirection_string="Location: EditProfile.php?name=$path";
+    $redirection_string="Location: EditProfile.php";
     // File upload path
     $targetDir = "user_pics/";
     $fileName = basename($_FILES["avatar-file"]["name"]);

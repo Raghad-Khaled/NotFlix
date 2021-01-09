@@ -16,6 +16,6 @@ $name=$user->GetnameWithpass($path);
 $serie->addratetoSerie($name,$id,$rate);
 
     }
-header("Location:Serie_page.php?id=$id&name=$path");
+header("Location:Serie_page.php?id=$id");
 }
 ?>

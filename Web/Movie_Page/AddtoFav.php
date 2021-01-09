@@ -7,5 +7,5 @@ $name=$user->GetnameWithpass($path);
 $movie=new movie;
 $movie->insertFilmtoFav($name,$id);
 
-header("Location:Movie_page.php?id=$id&name=$path");
+header("Location:Movie_page.php?id=$id");
 ?>

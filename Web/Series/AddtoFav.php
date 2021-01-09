@@ -7,5 +7,5 @@ $name=$user->GetnameWithpass($path);
 $serie=new series;
 $serie->insertSerietoFav($name,$id);
 
-header("Location:Serie_page.php?id=$id&name=$path");
+header("Location:Serie_page.php?id=$id");
 ?>

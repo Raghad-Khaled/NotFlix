@@ -9,9 +9,9 @@ $path = $_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')
-    $hearder = "../admin/admin.php?name=";
+    $hearder = "../admin/admin.php";
 else
-    $hearder = "../user/user.php?name=";
+    $hearder = "../user/user.php";
 
 ////////////////////////////COPY///////////////////////////////
 $adver = new advertisement;
@@ -495,7 +495,7 @@ $picture2 = mysqli_fetch_assoc($picture);
                             <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                                 <figure class="figure tc-cardhover-14">
                                     <figcaption>
-                                        <a href="../Series/Serie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
+                                        <a href="../Series/Serie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                             <h3><?php echo $data['NAME_SERIES']; ?></h3>
                                             <p><?php echo $data['DESCRIPTION']; ?></p>
                                         </a>
@@ -530,7 +530,7 @@ $picture2 = mysqli_fetch_assoc($picture);
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
-                <p class="links"><a href="../Home_movies/Movies.php?name=<?= $path ?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="links"><a href="../Home_movies/Movies.php">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">

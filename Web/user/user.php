@@ -1,13 +1,12 @@
 <?php
 include '../control.php';  // Using database connection file here
-$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$path = $_SESSION['path'];
 $user = new user;
 session_start();
-$_SESSION['path']=$path;
 if($_SESSION['type'] == 'admin')
-$hearder = "../admin/admin.php?name=";
+$hearder = "../admin/admin.php";
 else
-$hearder = "../user/user.php?name=";
+$hearder = "../user/user.php";
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +60,7 @@ $hearder = "../user/user.php?name=";
                         <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;"><?= $_SESSION['name'] ?></h3>
                         <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;"><?= $_SESSION['email'] ?></h3>
                         <div class="row" style="padding:0;padding-bottom:10px;padding-top:20px;">
-                            <div class="col-auto"><button class="btn btn-primary" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;" onclick="window.location.href='../EditInfoPage/EditProfile.php?name=<?= $path ?>';">Edit Info</button></div>
+                            <div class="col-auto"><button class="btn btn-primary" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;" onclick="window.location.href='../EditInfoPage/EditProfile.php';">Edit Info</button></div>
                         </div>
                     </div>
                 </div>
@@ -86,13 +85,13 @@ $hearder = "../user/user.php?name=";
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
                                     <div class="row">
                                         <div class="col">
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
+                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                             <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_MOVIE'] ?></h5>
                                         </a>
                                         </div>
                                         <div class="col-auto" style="text-align: right;"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></div>
                                     </div>
-                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: radial-gradient(rgb(255,255,255) 0%, white 61%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_MOVIE'] ?><br></p>
                                 </div>
@@ -113,13 +112,13 @@ $hearder = "../user/user.php?name=";
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
                                     <div class="row">
                                         <div class="col">
-                                            <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css">
+                                            <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                                 <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
                                             </a>
                                         </div>
                                         <div class="col-auto" style="text-align: right;"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></a></div>
                                     </div>
-                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: radial-gradient(rgb(255,255,255) 0%, white 61%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
                                 </div>

@@ -54,7 +54,7 @@ $dirc="user_pics/";
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                            <form class="user" action= "edit_profile_back.php?name=<?php echo$path ;?>"  method="Post" enctype="multipart/form-data">
+                            <form class="user" action= "edit_profile_back.php"  method="Post" enctype="multipart/form-data">
                                 <div class="p-5">
                                     <div class="avatar" style="margin-top: -10px;" >
                                         <div class="avatar-bg center" style="margin-bottom: 12px;border-style: none;box-shadow: 0px 0px 10px rgb(47,168,255); background: url(<?php echo $dirc.$data['image'];?>);"  ></div><input class="d-lg-flex align-items-lg-center form-control" type="file" data-aos="zoom-in-right"   name="avatar-file" style="padding-top: 4px;padding-right: 0px;padding-left: 7px;padding-bottom: 1px;color: var(--secondary);background: rgba(255,255,255,0);border-radius: 6px;box-shadow: inset 0px 0px 5px 0px rgb(124,106,246);margin-bottom: 2px;height: 40px;border: 1.5px dashed rgb(91,103,194);margin-top: 7px;">

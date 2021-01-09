@@ -7,9 +7,9 @@ $path = $_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')
-    $hearder = "../admin/admin.php?name=";
+    $hearder = "../admin/admin.php";
 else
-    $hearder = "../user/user.php?name=";
+    $hearder = "../user/user.php";
 ////////////////////////////COPY///////////////////////////////
 $adver = new advertisement;
 $advpic = $adver->getcount();
@@ -79,7 +79,7 @@ $picture2 = mysqli_fetch_assoc($picture);
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <!---------------------------BackEndHere-------------------------------->
-                <form action=<?php echo "Movies.php?name=$path ;"?> method="Post">
+                <form action=<?php echo "Movies.php ;"?> method="Post">
                     <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
 
                     <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
@@ -92,7 +92,7 @@ $picture2 = mysqli_fetch_assoc($picture);
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
-                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?= $hearder ?><?= $path ?>" style="margin-top: 0px;margin-left: 21px;">
+                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?= $hearder ?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
                         <?= $_SESSION['name'] ?>
                     </span>
@@ -322,8 +322,8 @@ $picture2 = mysqli_fetch_assoc($picture);
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a class="selected" href=<?php echo "Movies.php?name=$path ;"?> data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a href=<?php echo "Series.php?name=$path ;"?> data-type="color-1">Series</a></li>
+                    <li class="filter"><a class="selected" href=<?php echo "Movies.php ;"?> data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a href=<?php echo "Series.php ;"?> data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -332,7 +332,7 @@ $picture2 = mysqli_fetch_assoc($picture);
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action=<?php echo "Movies.php?name=$path ;"?> method="Post">
+            <form action=<?php echo "Movies.php ;"?> method="Post">
 
 
 
@@ -490,7 +490,7 @@ $picture2 = mysqli_fetch_assoc($picture);
                             <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
                                 <figure class="figure tc-cardhover-14">
                                     <figcaption>
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
+                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                             <h3><?php echo $data['NAME_MOVIE']; ?></h3>
                                             <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
                                         </a>
@@ -525,7 +525,7 @@ $picture2 = mysqli_fetch_assoc($picture);
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
-                <p class="links"><a href="../Home_movies/Movies.php?name=<?= $path ?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="links"><a href="../Home_movies/Movies.php">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
