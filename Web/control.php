@@ -816,6 +816,12 @@ class advertisement
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
+  public function getcount(){
+    $qury="SELECT count(*) FROM advertisement ";
+    return $reselt=mysqli_query($this->_conn,$qury);
+    
+    //return[$info[(co)]]
+  }
   
 }
 
@@ -828,6 +834,36 @@ class series
   {
     $DB_opt = Database::getInstance();
     $this->_conn = $DB_opt->getConnection();
+  }
+
+  public function search_by_series_name($series_Name)
+  {
+    $qury="SELECT * FROM `series` WHERE NAME_SERIES LIKE '%".$series_Name."%' "; 
+
+    return $reselt=mysqli_query($this->_conn,$qury);
+  }
+
+  public function filter($language,$genre_id,$era,$prize_id)
+  {
+   $qury ="Select distinct sr.* from series as sr , genre_relation_series as grs  where 1";
+   if(!$language=="")
+   {
+    $qury.=" and sr.	LANGUAGE='".$language."'";
+   }
+   if(!$genre_id=="")
+   {
+    $qury.=" and grs.GENRE_ID='".$genre_id."' and grs.SERIES_ID=sr.ID";
+   }
+   if(!$prize_id=="")
+   {
+     $qury.=" and sr.PRIZE_WON_ID='".$prize_id."'";
+   }
+   if(!$era=="")
+   {
+     $qury.="  and (sr.YEAR>=".$era." and sr.YEAR<=".$era."+10 )";
+   }
+
+   return $reselt=mysqli_query($this->_conn,$qury);
   }
 
   public function get_all(){
