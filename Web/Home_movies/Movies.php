@@ -10,6 +10,15 @@ if ($_SESSION['type'] == 'admin')
     $hearder = "../admin/admin.php?name=";
 else
     $hearder = "../user/user.php?name=";
+////////////////////////////COPY///////////////////////////////
+$adver = new advertisement;
+$advpic = $adver->getcount();
+$pic = mysqli_fetch_assoc($advpic);
+$count = (int)$pic['count(*)'];
+$idadv = rand(1, $count);
+$picture = $adver->get_whit_id($idadv);
+$picture2 = mysqli_fetch_assoc($picture);
+////////////////////////////COPY///////////////////////////////
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +92,7 @@ else
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
-                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?><?=$path?>" style="margin-top: 0px;margin-left: 21px;">
+                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?= $hearder ?><?= $path ?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
                         <?= $_SESSION['name'] ?>
                     </span>
@@ -437,80 +446,79 @@ else
 
 
                 <!-- Advertisement Card-->
-                <div class="card" style="margin-top: 20px;">
-                    <div class="card-body" style="height: 100%;width: 100%;"><img src="assets/img/329990e7a9fe7cb6fd3bf9d616f1b0dc.jpg" style="width: 100%;"></div>
+                <div class="card" style="margin-top: 60px;">
+                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?= $picture2['PICTURE'] ?>" style="width: 100%;"></div>
+                    <!---------------------->
+
+
                 </div>
-                <!---------------------->
-
-
-            </div>
-            <div class="col-md-9">
-                <div class="products">
-                    <div class="row no-gutters">
+                <div class="col-md-9">
+                    <div class="products">
+                        <div class="row no-gutters">
 
 
 
-                        <!-- Movie Card-->
-                        <?php
+                            <!-- Movie Card-->
+                            <?php
 
-                        $records = $movie->get_all();
-                        if (isset($_POST['search'])) {
+                            $records = $movie->get_all();
+                            if (isset($_POST['search'])) {
 
 
-                            $search_string = $_POST['search_string'];
+                                $search_string = $_POST['search_string'];
 
-                            $records = $movie->search_by_movie_name($search_string);
-                        }
-
-                        if (isset($_POST['show'])) {
-                            //echo "aaaaaa";
-                            $language = $_POST['language'];
-                            $era = $_POST['era'];
-                            $genre_id = $_POST['genre'];
-                            $prize_id = $_POST['prize'];
-                            $records = $movie->filter($language, $genre_id, $era, $prize_id);
-                        }
-
-                        while ($data = mysqli_fetch_array($records)) {
-                            if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
-                            {
-                                $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                                $records = $movie->search_by_movie_name($search_string);
                             }
-                        ?>
 
-                            <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
-                                <figure class="figure tc-cardhover-14">
-                                    <figcaption>
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
-                                            <h3><?php echo $data['NAME_MOVIE']; ?></h3>
-                                            <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
-                                        </a>
-                                    </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>>
-                                </figure>
-                            </div>
+                            if (isset($_POST['show'])) {
+                                //echo "aaaaaa";
+                                $language = $_POST['language'];
+                                $era = $_POST['era'];
+                                $genre_id = $_POST['genre'];
+                                $prize_id = $_POST['prize'];
+                                $records = $movie->filter($language, $genre_id, $era, $prize_id);
+                            }
 
-                        <?php } ?>
+                            while ($data = mysqli_fetch_array($records)) {
+                                if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
+                                {
+                                    $data['POSTER'] = "assets/img/91SCNVEssVL._AC_SY741_.jpg";
+                                }
+                            ?>
 
-                        <!------------->
+                                <div class="col-12 col-md-6 col-lg-4" style="padding: 13px;">
+                                    <figure class="figure tc-cardhover-14">
+                                        <figcaption>
+                                            <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
+                                                <h3><?php echo $data['NAME_MOVIE']; ?></h3>
+                                                <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
+                                            </a>
+                                        </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>>
+                                    </figure>
+                                </div>
+
+                            <?php } ?>
+
+                            <!------------->
 
 
 
 
 
 
+                        </div>
+                        <nav class="d-flex d-sm-flex d-lg-flex justify-content-center justify-content-sm-center justify-content-lg-center">
+                            <ul class="pagination">
+                                <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav class="d-flex d-sm-flex d-lg-flex justify-content-center justify-content-sm-center justify-content-lg-center">
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
-        </div>
     </section>
     <footer id="footer" style="background: #21212e;">
         <div class="row">
