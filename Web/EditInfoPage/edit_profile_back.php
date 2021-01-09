@@ -1,6 +1,6 @@
 <?php
    include '../control.php';
-   $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+   $path = $_SESSION['path'];
 
    //$name="Raghad_Khaled";
    $user_obj=new user;

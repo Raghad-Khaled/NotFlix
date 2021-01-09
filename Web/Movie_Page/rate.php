@@ -9,7 +9,7 @@ if($_POST['rate']!=''){
 $movie=new movie;
 $rate=$_POST['rate'];
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=$_SESSION['path'];
 $user =new user;
 $name=$user->GetnameWithpass($path);
 $movie->addratetoFilm($name,$id,$rate);

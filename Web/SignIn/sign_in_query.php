@@ -16,10 +16,10 @@ if($result->num_rows != 0){
     $_SESSION['type'] = 'admin';
     $data=mysqli_fetch_assoc($result);
     if(password_verify($_SESSION['password'], $data['PASSWORD_OF_ADMIN'])){
-      $path=$data['PASSWORD_OF_ADMIN'];
       $_SESSION['name'] = $data['ADMIN_NAME'];
       $_SESSION['image'] = $data['image'];
-      echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?name=$path';</script>";
+      $_SESSION['path'] =$data['PASSWORD_OF_ADMIN'];
+      echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?';</script>";
     }
     else{
       //echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";
@@ -35,10 +35,11 @@ if($result->num_rows != 0){
       else{
         $data=mysqli_fetch_assoc($record);
         if(password_verify($_SESSION['password'], $data['PASSWORD_OF_USER'])){
-          $path=$data['PASSWORD_OF_USER'];
           $_SESSION['name'] = $data['USER_NAME'];
           $_SESSION['image'] = $data['image'];
-          echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?name=$path';</script>";
+          $_SESSION['path'] =$data['PASSWORD_OF_USER'];
+          
+          echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php';</script>";
         }
         else{
           echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";

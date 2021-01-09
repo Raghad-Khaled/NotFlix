@@ -1,6 +1,6 @@
 <?php
 include '../control.php';  // Using database connection file here
-$path = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
+$path = $_SESSION['path'];
 $movie = new movie;
 $reselt = $movie->getMovieforAdmin($path);
 $data = mysqli_fetch_assoc($reselt);

@@ -9,7 +9,7 @@ if($_POST['rate']!=''){
 $serie=new series;
 $rate=$_POST['rate'];
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=$_SESSION['path'];
 $user =new user;
 $name=$user->GetnameWithpass($path);
 

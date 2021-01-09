@@ -3,7 +3,7 @@ include '../control.php';  // Using database connection file here
 $genre_obj = new genre;
 $movie = new movie;
 $prize_obj = new prize;
-$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$path = $_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')

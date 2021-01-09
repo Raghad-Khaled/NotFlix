@@ -38,7 +38,8 @@ class user
       echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.html';</script>";
     else {
       $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`,`image`)  VALUES ('$name','$password','$email',$age,'$gender','$image')";
-      echo $qury;
+      //echo $qury;
+      echo "<script> alert('Have a nice watch :)');  window.location.href='../Home_movies/Movies.php?';</script>";
       $result = mysqli_query($this->_conn, $qury);
     }
   }

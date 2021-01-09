@@ -1,7 +1,6 @@
 <?php
 include '../control.php';  // Using database connection file here
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
 
 session_start();
 if($_SESSION['type'] == 'admin')
@@ -85,10 +84,10 @@ $rate=mysqli_fetch_assoc($Notflixrate);
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><img src="assets/img/icons8-menu-64.png" style="height: 50px"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php?name=<?=$path?>" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
+                    <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php?name=<?=$_SESSION['path']?>" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?><?=$path?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$_SESSION['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?><?=$_SESSION['path']?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$_SESSION['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -185,7 +184,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 </div>
                                 <div>
                                     <h3 style="margin-top: 10px;font-family: 'Balsamiq Sans', cursive;font-size: 30px;margin-bottom: 10px;color: #8749ed;">Rate This Movie</h3>
-                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$path?>" enctype="multipart/form-data">
+                                    <form method="POST" action="rate.php?id=<?=$id?>&name=<?=$_SESSION['path']?>" enctype="multipart/form-data">
                                     <div class="d-inline-flex"><input type="number" value="0" placeholder="0" min="0" max="10" name="rate" style="width: 123px;">
                                     <button style="background-color:#21212e; box-shadow: 0px; border-width: 0px" type="submit" name="submit"><img data-bs-hover-animate="swing" src="assets/img/star.svg" style="width: 26px;margin-left: 20px;"></button></div>
                                     </form>
@@ -194,7 +193,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                             <div class="col-md-6">
                                 <div class="info">
                                   <!----------------- title -->
-                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$path?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
+                                    <h4 style="font-family: Acme, sans-serif;font-size: 32px;"><?=$data['NAME_MOVIE'] ?><a href="AddtoFav.php?id=<?=$id?>&name=<?=$_SESSION['path']?>"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;"></a></h4>
                                     <div class="rating" style="margin-left: 18px;padding-bottom: 10px;">
                                     <?php
                                         $i=$data['IMDB_RATE'];
@@ -304,10 +303,10 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     $datadirector=mysqli_fetch_assoc($directordata);
                                     
                                   ?>
-                                    <figure class="figure" style="width: 241px;"><a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></a></figure>
+                                    <figure class="figure" style="width: 241px;"><a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$_SESSION['path']?>"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></a></figure>
                                 </div>
                                 <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start">
-                                    <a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>">
+                                    <a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$_SESSION['path']?>">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;"><?=$datadirector['FNAME'] ?> <?=$datadirector['LNAME'] ?> </h4>
                                     </a></div>
                             </div>
@@ -330,7 +329,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                             ?>
     <div class="col">
         <div class="justify-content-center spacer-slider" data-bs-hover-animate="pulse">
-            <figure class="figure" style="  width: 100%;"><a href= "../Actor/Actor.php?id=<?=$dataactor['ID']?>&name=<?=$path?> "><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
+            <figure class="figure" style="  width: 100%;"><a href= "../Actor/Actor.php?id=<?=$dataactor['ID']?>&name=<?=$_SESSION['path']?> "><img class="figure-img" src="<?= $dataactor['IMAGE'] ?>" style="  width: 100%;" /></a>
                 <figcaption class="figure-caption" style="  font-size: 16px;"><span><?= $dataactor['FNAME'] ?> <?= $dataactor['LNAME'] ?>
             </span></figcaption>
             </figure>
@@ -361,7 +360,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                 </div>
                               <!------------------------------------ story -->
                                 
-                                <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="../NovelPage/Novel_page.php?id=<?=$data['STORY_ID']?>&name=<?=$path?>">
+                                <div class="col-md-7 d-lg-flex d-xl-flex align-items-lg-center justify-content-xl-start align-items-xl-center"><a href="../NovelPage/Novel_page.php?id=<?=$data['STORY_ID']?>&name=<?=$_SESSION['path']?>">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-left: 19px;"><?= $datastory['STORY_NAME'] ?></h4>
                                     </a></div>
                             </div>
@@ -388,7 +387,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                         </div>
                                         <div class="blog-slider__text"><?= $data3['STORY'] ?> </div>
                                         <a class="class=&quot;blog-slider__button" style="color:rgba(120,17,250,0.42)"
-                                         href="../Character/Character.php?id=<?= $data3['ID'] ?>&name=<?= $path ?>">
+                                         href="../Character/Character.php?id=<?= $data3['ID'] ?>&name=<?= $_SESSION['path'] ?>">
                                     View Character Page</a></div>
                                     </div>
                                     
@@ -406,7 +405,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
-                <p class="links"><a href="../Home_movies/Movies.php?name=<?=$path?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="links"><a href="../Home_movies/Movies.php?name=<?=$_SESSION['path']?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">

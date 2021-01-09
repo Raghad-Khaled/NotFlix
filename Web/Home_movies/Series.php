@@ -5,7 +5,7 @@ $movie = new movie;
 $user = new user;
 $series_obj = new series;
 $prize_obj = new prize;
-$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+$path = $_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')

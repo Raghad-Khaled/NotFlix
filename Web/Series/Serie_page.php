@@ -3,7 +3,7 @@ include('../control.php');
 if(isset($_GET['id']))
 {
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
+$path=$_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')
