@@ -19,6 +19,7 @@ class user
   public function InsertNewUser($name, $password, $email, $age, $gender)
   {
     $record = $this->_conn->query("SELECT EMAIL FROM user_of_notflix WHERE EMAIL='$email'");
+    $record1 = $this->_conn->query("SELECT EMAIL FROM admin_website WHERE EMAIL='$email'");
     $record2 = $this->_conn->query("SELECT USER_NAME FROM user_of_notflix WHERE USER_NAME='$name'");
     echo $gender;
     if($gender=='F'){
@@ -30,6 +31,8 @@ class user
 
 
     if ($record->num_rows != 0)
+      echo "<script> alert('Oops!, This Email is already Exist!');  window.location.href='SignUp.html';</script>";
+    else if ($record1->num_rows != 0)
       echo "<script> alert('Oops!, This Email is already Exist!');  window.location.href='SignUp.html';</script>";
     else if ($record2->num_rows != 0)
       echo "<script> alert('Oops!, This Username is already Exist!');  window.location.href='SignUp.html';</script>";
@@ -43,7 +46,7 @@ class user
 
   public function User_Sign_In($email)
   {
-    $qury = ("SELECT PASSWORD_OF_USER, USER_NAME,image FROM user_of_notflix WHERE EMAIL='$email'");
+    $qury = ("SELECT * FROM user_of_notflix WHERE EMAIL='$email'");
     
     return $result = mysqli_query($this->_conn, $qury);
   }
@@ -157,7 +160,7 @@ class admin{
   }
   public function Admin_Sign_In($email)
   {
-    $qury = ("SELECT PASSWORD_OF_ADMIN, ADMIN_NAME,image FROM admin_website WHERE EMAIL='$email'");
+    $qury = ("SELECT * FROM admin_website WHERE EMAIL='$email'");
     //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
    

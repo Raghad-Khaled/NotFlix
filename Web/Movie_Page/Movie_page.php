@@ -304,7 +304,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     $datadirector=mysqli_fetch_assoc($directordata);
                                     
                                   ?>
-                                    <figure class="figure" style="width: 241px;"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
+                                    <figure class="figure" style="width: 241px;"><a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></a></figure>
                                 </div>
                                 <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start">
                                     <a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>">

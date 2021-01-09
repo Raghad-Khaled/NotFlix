@@ -4,10 +4,12 @@ if(isset($_GET['id']))
 {
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
 $path=filter_input(INPUT_GET,'name',FILTER_SANITIZE_STRING);
-$user =new user;
-$name=$user->GetnameWithpass($path);
-$userdata=$user->get_user_info($name);
-$info=mysqli_fetch_assoc($userdata);
+
+session_start();
+if ($_SESSION['type'] == 'admin')
+    $hearder = "../admin/admin.php?name=";
+else
+    $hearder = "../user/user.php?name=";
 
 $serie=new series;
 $reselt=$serie->get_all_with_id($id);
@@ -92,7 +94,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                     <li class="nav-item" style="font-size: 16px;"><a href="../Home_movies/Movies.php?name=<?=$path?>" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px; ">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$info['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$_SESSION['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>
@@ -333,10 +335,10 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                   ?>
 
 
-                                    <figure class="figure" style="width: 241px;"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></figure>
+                                    <figure class="figure" style="width: 241px;"><a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>"><img class="figure-img" src="<?=$datadirector['IMAGE'] ?>" style="width: 100%;height: 100%;box-shadow: 0px 0px 11px rgba(70,194,255,0.77), 0px 0px 12px #bd11fa;"></a></figure>
                                 </div>
                                 <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start">
-                                    <a href="../Director/Director.html">
+                                    <a href="../Director/Director.php?id=<?=$data['DIRECTOR_ID']?>&name=<?=$path?>">
                                         <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;"><?=$datadirector['FNAME'] ?> <?=$datadirector['LNAME'] ?></h4>
                                     </a></div>
                             </div>

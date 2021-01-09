@@ -12,11 +12,14 @@ $gender=$_POST['gender'];
 
 $password=password_hash($password, PASSWORD_DEFAULT);
 
-//echo $password;
 $save_user=new user;
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
+session_start();
+$_SESSION['name'] ='name';
+$_SESSION['type'] ='user';
+$_SESSION['email'] ='email';
 
-header("Location:../Home_movies/Movies.php?name=$password");
+//header("Location:../Home_movies/Movies.php?name=$password");
 
 }
 
