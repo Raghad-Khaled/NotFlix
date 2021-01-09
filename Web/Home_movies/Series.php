@@ -20,6 +20,7 @@ $count = (int)$pic['count(*)'];
 $idadv = rand(1, $count);
 $picture = $adver->get_whit_id($idadv);
 $picture2 = mysqli_fetch_assoc($picture);
+$all_ads=$adver->get_all();
 ////////////////////////////COPY///////////////////////////////
 
 
