@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/AddFilm.css">
+  <link rel="icon" href="../images/logo.png">
 </head>
 
 <body>
@@ -224,7 +225,7 @@
         </div>
 
         <div class="col-12 col-lg-3 form-group ">
-          <select class="form-select form-control" aria-label="Default select example" required name="prize">
+          <select class="form-select form-control" aria-label="Default select example"  name="prize">
             <option disabled selected>Prize</option>
             <?php
             $prize = new prize;

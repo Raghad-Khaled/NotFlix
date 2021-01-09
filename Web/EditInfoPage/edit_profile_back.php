@@ -1,14 +1,19 @@
 <?php
    include '../control.php';
+   session_start();
    $path = $_SESSION['path'];
 
                                         
  if(isset($_POST['Save_Information']))
 {
-                                        
-                                        
+    if($_SESSION['type']=='admin')
+    $user_obj = new admin;  
+    else
+    $user_obj = new user;   
+                                  
     $email=$_POST['email'];
-    $password=$_POST['password'];
+    $password1=$_POST['password'];
+    $password = password_hash($password, PASSWORD_DEFAULT);
     $age=$_POST['age'];
     $user_obj->edit_user_email($_SESSION['name'],$email);
     $user_obj->edit_user_password($_SESSION['name'],$password);
@@ -42,10 +47,15 @@
             echo "<script> alert(' only JPG, JPEG, PNG &GIF files are allowed to upload.');  window.location.href='EditProfile.php';</script>";
         }
     }
+    $_SESSION['image']=$fileName;
+    $_SESSION['email']=$email;
+    $_SESSION['path']=$password;
+    $_SESSION['age']=$age;
 
-    } 
-    
-    header($redirection_string);
-    exit();
+} 
+    if($_SESSION['type']='admin')
+    header("Location:../admin/admin.php");
+    else
+    header("Location:../user/user.php");
                                                                                 
  ?>

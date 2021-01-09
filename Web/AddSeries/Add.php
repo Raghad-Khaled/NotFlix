@@ -3,8 +3,12 @@
 include '../control.php';
 if(isset($_POST['submit']))
 {
+    if (!isset($_POST['company1'])||! isset($_POST['Director'])|| !isset($_POST['actor1']) )
+{
+    echo "<script> alert('please Fill All input!');  window.location.href='AddSeries.php';</script>";
+}
 
-
+session_start();
 $postar= $_POST['postar'];
 $title=$_POST['title'];
 $year=$_POST['year'];
@@ -18,7 +22,7 @@ $link=$_POST['link'];
 $language=$_POST['language'];
 $Director=$_POST['Director'];
 $Episodes=$_POST['Episodes'];
-$prize=$_POST['prize'];
+
 $description=$_POST['description'];
 $genre1=$_POST['genre1'];
 $company1=$_POST['company1'];
@@ -27,8 +31,13 @@ $actor1=$_POST['actor1'];
 
 
 $Series=new series;
-$Series->InsertNewSeries($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Episodes,$Director,$prize);    
-
+if(isset($_POST['prize'])){
+$prize=$_POST['prize'];
+$Series->InsertNewSeries($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Episodes,$Director,$prize);    
+}
+else{
+    $Series->InsertNewSeries($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Episodes,$Director,NULL);
+}
 $IDrow=$Series->getid($title);
 $data = mysqli_fetch_array($IDrow);
 $ID = $data['ID'];
@@ -83,7 +92,7 @@ if(isset($_POST['actor2'])){
     $Series->addactortoSeries($ID,$actor2);
 }
 if(isset($_POST['actor3'])){
-    $genre2=$_POST['actor3'];
+    $actor3=$_POST['actor3'];
     $Series->addactortoSeries($ID,$actor3);
 }
 $Series->addcompanytoSeries($ID,$company1);
@@ -97,6 +106,7 @@ if(isset($_POST['company3'])){
     $Series->addcompanytoSeries($ID,$company3);
 }
 
+header("Location:AddSeries.php");
 }
 
 ?>

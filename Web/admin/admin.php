@@ -113,7 +113,7 @@ $hearder = "../user/user.php";
                                     <a href="../Series/Serie_page.php?id=<?= $data['ID'] ?> " rel="stylesheet" type="text/css">
                                         <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
                                     </a>
-                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Series/Serie_page.php?id=<?= $data['ID'] ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: linear-gradient(white 63%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
                                 </div>
@@ -448,7 +448,7 @@ $hearder = "../user/user.php";
     <footer id="footer" style="background: rgb(154,59,128);">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
+                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>

@@ -161,7 +161,63 @@ class admin{
     return $result = mysqli_query($this->_conn, $qury);
    
   }
+
+  public function edit_user_email($user_name,$email)
+  {
+    if($email=="")
+    {
+      return;
+    }
+    $record = $this->_conn->query("SELECT EMAIL FROM admin_website WHERE EMAIL='$email'");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, This Email is already Exist!');  </script>";
+    }
+    else
+    {
+    $qury="UPDATE admin_website SET EMAIL= '".$email."' where ADMIN_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    }
+    return;
+  }
   
+  public function edit_user_password($user_name,$password)
+  {
+    if($password=="")
+    {
+      return;
+    } 
+    $record = $this->_conn->query("SELECT PASSWORD_OF_Admin FROM admin_website WHERE PASSWORD_OF_Admin ='$password'");
+    if ($record->num_rows != 0)
+    {
+   // echo "<script> alert('Oops!, Use another password');  </script>";
+    }
+    else
+    {
+    $qury="UPDATE admin_website SET PASSWORD_OF_Admin = '".$password."' where ADMIN_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    }
+    return;
+  }
+
+  public function edit_user_age($user_name,$age)
+  {
+    if($age==0 || $age=="")
+    {
+      return;
+    }
+    $qury="UPDATE admin_website SET AGE= '".$age."' where ADMIN_NAME ='".$user_name."' ";
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+  public function edit_user_image($user_name,$image)
+  {
+
+    $qury="UPDATE admin_website SET image= '".$image."' where ADMIN_NAME ='".$user_name."' ";
+    mysqli_query($this->_conn, $qury);
+    return 0;
+
+  }
+
 }
 
 /////////////////////////////Raghad///////////////////////////////
@@ -184,11 +240,18 @@ class Movie
     if ($record->num_rows != 0)
       echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
 
-    else {
+    else if($prize!=NULL) {
       $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`, `STORY_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize,$story)";
-      //echo $qury;
+      echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`,  `STORY_ID`)  VALUES 
+      ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$story)";
+         echo $qury;
+         $result = mysqli_query($this->_conn, $qury);
+
     }
   }
 
@@ -199,11 +262,17 @@ class Movie
     if ($record->num_rows != 0)
       echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
 
-    else {
+    else if($prize!=NULL) {
       $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize)";
       //echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`)  VALUES 
+      ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director)";
+         echo $qury;
+         $result = mysqli_query($this->_conn, $qury);
     }
   }
 
@@ -245,7 +314,33 @@ class Movie
   {
     $record = $this->_conn->query("SELECT NAME_MOVIE FROM movie WHERE NAME_MOVIE='$Name'");
 
-    
+    if($story == NULL && $prize == NULL){
+      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
+       LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = 0, STORY_ID = 0
+       WHERE ID = $id";
+
+       echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }
+    else if($story == NULL){
+      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
+       LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize,STORY_ID = 0
+       WHERE ID = $id";
+
+       echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }else if($prize == NULL){
+      $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
+       LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, STORY_ID = $story, PRIZE_WON_ID = 0
+       WHERE ID = $id";
+
+       echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+
+    }else{
       $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
        ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, STORY_ID = $story
@@ -253,6 +348,7 @@ class Movie
 
        echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
   }
 
   public function Retrieveactortofilm($FilmID)
@@ -889,7 +985,7 @@ class series
   {
 
     $qury = "INSERT INTO genre_relation_series  VALUES ('$FilmID','$genreID')";
-    //echo $qury;
+    echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -897,7 +993,7 @@ class series
   {
 
     $qury = "INSERT INTO acted_series (`SERISE_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
-    //echo $qury;
+    echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -928,11 +1024,18 @@ class series
     if ($record->num_rows != 0)
       echo "<script> alert(' This Series already Exist!');  window.location.href='AddSeries.php';</script>";
 
-    else {
+    else if($prize !=NULL) {
       $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director,$prize)";
       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`)  VALUES 
+   ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director)";
+      echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+
     }
   }
   
@@ -948,12 +1051,23 @@ class series
   {
     $record = $this->_conn->query("SELECT NAME_SERIES FROM SERIES WHERE NAME_SERIES='$Name'");
 
-    
-      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', 'YEAR' = $year, DURATION_MIN = '$duration', DESCRIPTION = '$description',
-       LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES)
+    if($prize == NULL)
+    {
+      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', YEAR = $year, DURATION_MIN = $duration, DESCRIPTION = '$description',
+       LANGUAGE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = 0, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES
        WHERE ID = '$id'";
+       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', YEAR = $year, DURATION_MIN = $duration, DESCRIPTION = '$description',
+       LANGUAGE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
+       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES
+       WHERE ID = '$id'";
+       echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+    }
   }
 
   public function RetrieveactortoSeries($SeriesID)
@@ -979,27 +1093,29 @@ class series
 
   public function getDirectorforSeries($ID)
   {
-    $qury = "SELECT FNAME,LNAME From director D , SERIES M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    $qury = "SELECT FNAME,LNAME, D.ID From director D , SERIES M WHERE M.Director_ID = D.ID AND M.ID = '$ID' ";
+    
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function getPrizeforSeries($ID)
   {
 
-    $qury = "SELECT TITLE, TYPE_OF_PRTIZE From PRIZE P, SERIES M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
+    $qury = "SELECT TITLE,TYPE_OF_PRTIZE,M.PRIZE_WON_ID From PRIZE P, SERIES M WHERE M.PRIZE_WON_ID = P.ID AND M.ID = '$ID' ";
+    //echo $qury;
     return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function delet_actor_with_seriesId($ID)
   {
     $qury = "DELETE from acted_series where SERIES_ID=" . "'$ID'";
-
+    echo $qury;
     return $reselt = mysqli_query($this->_conn, $qury);
   }
 
   public function delet_genre_with_seriesId($ID){
     $qury="DELETE from genre_relation_series where SERIES_ID="."'$ID'";
-
+    echo $qury;
     return $reselt=mysqli_query($this->_conn,$qury);
   }
   
