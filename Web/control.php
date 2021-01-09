@@ -821,6 +821,11 @@ class advertisement
     
     //return[$info[(co)]]
   }
+  public function get_all()
+  {
+    $qury="SELECT * FROM advertisement";
+    return $reselt=mysqli_query($this->_conn,$qury); 
+  }
   
 }
 
