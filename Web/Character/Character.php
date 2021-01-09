@@ -7,10 +7,11 @@ $character=new character;
 $reselt=$character->getCharacterwithId($id);
 $data=mysqli_fetch_assoc($reselt);
 
-$user = new user;
-$name=$user->GetnameWithpass($path);
-$userdata=$user->get_user_info($name);
-$info=mysqli_fetch_assoc($userdata);
+session_start();
+if ($_SESSION['type'] == 'admin')
+    $hearder = "../admin/admin.php?name=";
+else
+    $hearder = "../user/user.php?name=";
 
 $Adv_id = filter_input(INPUT_GET, 'Adv_id', FILTER_SANITIZE_NUMBER_INT);
 $advertisement = new advertisement();
@@ -93,7 +94,7 @@ $storyRelated=$character->getStoryRelated($id);
                     <li class="nav-item"><a href="#footer" class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px; ">Log out</a></li>
                 </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;">
-                	<span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$info['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
+                	<span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?= $_SESSION['image'] ?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>

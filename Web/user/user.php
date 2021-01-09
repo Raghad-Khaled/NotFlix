@@ -1,10 +1,13 @@
 <?php
 include '../control.php';  // Using database connection file here
-$name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
-
+$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $user = new user;
-$reselt1 = $user->get_user_info($name);
-$user_info = mysqli_fetch_assoc($reselt1);
+session_start();
+$_SESSION['path']=$path;
+if($_SESSION['type'] == 'admin')
+$hearder = "../admin/admin.php?name=";
+else
+$hearder = "../user/user.php?name=";
 
 ?>
 <!DOCTYPE html>
@@ -53,12 +56,12 @@ $user_info = mysqli_fetch_assoc($reselt1);
         <div class="text-center profile-card" style="margin: 15px;color: #858796;background: rgba(255,255,255,0);border-color: rgba(133,135,150,0);">
             <div style="margin-top: 94px;margin-right: 0px;">
                 <div class="row" style="margin-right: 0px;">
-                    <div class="col-auto" style="width: 300px;margin-right: 0px;margin-left: 0px;"><img class="img-thumbnail d-xl-flex align-items-xl-start" style="margin-top: 0px;text-align: right;" src="assets/img/avatar-dhg.png" height="150px"></div>
+                    <div class="col-auto" style="width: 300px;margin-right: 0px;margin-left: 0px;"><img class="img-thumbnail d-xl-flex align-items-xl-start" style="margin-top: 0px;text-align: right;" src="../EditinfoPage/user_pics/<?= $_SESSION['image'] ?>" height="150px"></div>
                     <div class="col-auto" style="margin-top: 30px;">
-                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;"><?= $user_info['USER_NAME'] ?></h3>
-                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;"><?= $user_info['EMAIL'] ?></h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin-bottom: 12px;font-size: 40px;"><?= $_SESSION['name'] ?></h3>
+                        <h3 style="text-align: left;color: rgb(255,255,255);margin: 0px;margin-top: 0px;font-size: 25px;"><?= $_SESSION['email'] ?></h3>
                         <div class="row" style="padding:0;padding-bottom:10px;padding-top:20px;">
-                            <div class="col-auto"><button class="btn btn-primary" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;">Edit Info</button></div>
+                            <div class="col-auto"><button class="btn btn-primary" type="button" style="background: #219bd7;text-align: center;margin-top: 5px;font-size: 20px;" onclick="window.location.href='../EditInfoPage/EditProfile.php?name=<?= $path ?>';">Edit Info</button></div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +74,7 @@ $user_info = mysqli_fetch_assoc($reselt1);
                 <div class="row filtr-container">
                     <?php
 
-                    $records = $user->get_Movie_fav($name);
+                    $records = $user->get_Movie_fav($_SESSION['name'] );
                     while ($data = mysqli_fetch_array($records)) {
                         if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                         {
@@ -83,13 +86,13 @@ $user_info = mysqli_fetch_assoc($reselt1);
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
                                     <div class="row">
                                         <div class="col">
-                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?>" rel="stylesheet" type="text/css">
+                                        <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?>" rel="stylesheet" type="text/css">
                                             <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_MOVIE'] ?></h5>
                                         </a>
                                         </div>
-                                        <div class="col-auto" style="text-align: right;"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></div>
+                                        <div class="col-auto" style="text-align: right;"><a href="removeFilmFromfavorite.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></div>
                                     </div>
-                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: radial-gradient(rgb(255,255,255) 0%, white 61%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_MOVIE'] ?><br></p>
                                 </div>
@@ -98,7 +101,7 @@ $user_info = mysqli_fetch_assoc($reselt1);
                     <?php } ?>
                     <?php
 
-                    $records = $user->get_Series_fav($name);
+                    $records = $user->get_Series_fav( $_SESSION['name'] );
                     while ($data = mysqli_fetch_array($records)) {
                         if (is_null($data['POSTER']))  //IF THE PO5TER IS NULL LOAD IT WITH THE DEFAULT POSTER OF AVENGERS THAT WE HAVE
                         {
@@ -110,13 +113,13 @@ $user_info = mysqli_fetch_assoc($reselt1);
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
                                     <div class="row">
                                         <div class="col">
-                                            <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css">
+                                            <a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css">
                                                 <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_SERIES'] ?></h5>
                                             </a>
                                         </div>
-                                        <div class="col-auto" style="text-align: right;"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> & name=<?= $name ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></a></div>
+                                        <div class="col-auto" style="text-align: right;"><a href="removeSeriesFromfavorite.php?id=<?= $data['ID'] ?> " rel="stylesheet" type="text/css"><img data-bs-hover-animate="tada" src="assets/img/icons8-star-64.png" style="width: 35px;margin-left: 14px;text-align: right;"></a></div>
                                     </div>
-                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $name ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Series/Serie_page.html?id=<?= $data['ID'] ?>&name=<?= $path ?> " rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: radial-gradient(rgb(255,255,255) 0%, white 61%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION'] ?><br></p>
                                 </div>

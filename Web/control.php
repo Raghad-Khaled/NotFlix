@@ -41,23 +41,11 @@ class user
   }
 
 
-  public function User_Sign_In($email, $password)
+  public function User_Sign_In($email)
   {
-    $record = $this->_conn->query("SELECT PASSWORD_OF_USER FROM user_of_notflix WHERE EMAIL='$email'");
-    if($record->num_rows == 0){
-      echo "<script> alert('Wrong Email') window.location.href='SignIn.html';</script>";
-    }
-    else{
-      $data=mysqli_fetch_assoc($record);
-      if(password_verify($password, $data['PASSWORD_OF_USER'])){
-        $path=$data['PASSWORD_OF_USER'];
-        echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php?name=$path';</script>";
-      }
-      else{
-        echo "<script> alert('Wrong password'); window.location.href='SignIn.html';</script>";
-      }
-    }
-   
+    $qury = ("SELECT PASSWORD_OF_USER, USER_NAME,image FROM user_of_notflix WHERE EMAIL='$email'");
+    
+    return $result = mysqli_query($this->_conn, $qury);
   }
 
   public function GetnameWithpass($pass){
@@ -167,6 +155,14 @@ class admin{
     $qury = ("SELECT * FROM admin_website  WHERE ADMIN_NAME = '$name'");
     return $result = mysqli_query($this->_conn, $qury);
   }
+  public function Admin_Sign_In($email)
+  {
+    $qury = ("SELECT PASSWORD_OF_ADMIN, ADMIN_NAME,image FROM admin_website WHERE EMAIL='$email'");
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+   
+  }
+  
 }
 
 /////////////////////////////Raghad///////////////////////////////

@@ -4,10 +4,13 @@ include '../control.php';  // Using database connection file here
 //$id=1;
 $id=filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
 $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
-$user = new user;
-$name=$user->GetnameWithpass($path);
-$userdata=$user->get_user_info($name);
-$info=mysqli_fetch_assoc($userdata);
+
+session_start();
+$_SESSION['path']=$path;
+if($_SESSION['type'] == 'admin')
+$hearder = "../admin/admin.php?name=";
+else
+$hearder = "../user/user.php?name=";
 
 $actor=new actor;
 $result=$actor->getactorwithId($id);
@@ -101,7 +104,7 @@ $series_of_actor=$actor->get_series($id);
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="../Home_movies/Movies.php?name=<?=$path?>" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
-                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$name?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$info['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
+                </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?><?=$path?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$_SESSION['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>
     </nav>

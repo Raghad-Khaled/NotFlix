@@ -1,14 +1,16 @@
 <?php
-    include '../control.php';  // Using database connection file here
-    $genre_obj = new genre;
-    $movie = new movie;
-    $user =new user;
-    $prize_obj = new prize;
-    $path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
-    $name=$user->GetnameWithpass($path);
-    $userdata=$user->get_user_info($name);
-    $info=mysqli_fetch_assoc($userdata);
-    ?>
+include '../control.php';  // Using database connection file here
+$genre_obj = new genre;
+$movie = new movie;
+$prize_obj = new prize;
+$path = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
+
+session_start();
+if ($_SESSION['type'] == 'admin')
+    $hearder = "../admin/admin.php?name=";
+else
+    $hearder = "../user/user.php?name=";
+?>
 
 <!DOCTYPE html>
 <html>
@@ -57,41 +59,38 @@
 </head>
 
 <body style="background: #21212e; padding-right: 0px">
-    
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px; ">
-    <div class="container">
-        <a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;">
-            <img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;" />
-        </a>
-    <button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1">
-        <img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;" />
-    </button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <!---------------------------BackEndHere-------------------------------->
-            <form action="Movies.php" method="Post">
-                <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" 
-                name="search_string" />
 
-                 <button class="btn btn-primary d-table-row" type="submit" name="search" 
-                 style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
-                 height: 40px; box-shadow:0px 0px 0px 0px">
-                </button>
-                
-             </form>
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li>
-                <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
-            </ul>
-            <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;">
-                <span>
-                    <?= $name ?>
-                </span>
-                <img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$info['image']?>" 
-                style="width: 50px;margin-left: 5px;" />
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white transparency border-bottom border-light" id="transmenu" style="height: 72px; ">
+        <div class="container">
+            <a class="navbar-brand text-success" href="#header" style="padding-top: 0px;padding-bottom: 0px;">
+                <img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 2px;padding-top: 8px;height: 63px;width: 173px;" />
             </a>
+            <button data-toggle="collapse" class="navbar-toggler collapsed" data-target="#navcol-1">
+                <img src="assets/img/icons8-menu-64.png" style="width: 49px;height: 47px;margin-top: -15px;" />
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <!---------------------------BackEndHere-------------------------------->
+                <form action="Movies.php" method="Post">
+                    <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
+
+                    <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
+                 height: 40px; box-shadow:0px 0px 0px 0px">
+                    </button>
+
+                </form>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
+                </ul>
+                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?><?=$path?>" style="margin-top: 0px;margin-left: 21px;">
+                    <span>
+                        <?= $_SESSION['name'] ?>
+                    </span>
+                    <img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?= $_SESSION['image'] ?>" style="width: 50px;margin-left: 5px;" />
+                </a>
+            </div>
         </div>
-    </div>
     </nav>
     <section id="header" style="margin-bottom: 133px;border-radius: 54px;box-shadow: 0px 7px 20px 4px rgba(189,17,250,0.25), 30px -1px 11px #46c2ff; width:100%;">
         <!-- Paradise Slider -->
@@ -296,11 +295,11 @@
 
             <!-- Left Control -->
             <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
-                
+
             </a>
             <!-- Right Control -->
             <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
-              
+
             </a>
 
 
@@ -517,7 +516,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
-                <p class="links"><a href="../Home_movies/Movies.php?name=<?=$path?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="links"><a href="../Home_movies/Movies.php?name=<?= $path ?>">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
