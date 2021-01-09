@@ -18,6 +18,8 @@ $_SESSION['name'] =$username;
 $_SESSION['type'] ='user';
 $_SESSION['email'] =$email;
 $_SESSION['path'] =$password;
+$_SESSION['age'] = $age;
+$_SESSION['gender'] = $gender;
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
 
 //header("Location:../Home_movies/Movies.php?name=$password");

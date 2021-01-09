@@ -66,7 +66,7 @@ $story = mysqli_fetch_assoc($reselt6);
             <div class="row ">
                 <div class="col-12 col-lg-4 form-group">
                     <label class="form-label" for="Duration">Duration of the Film </label>
-                    <input type="text" class="form-control html-duration-picker" name="duration" required id="Duration" data-hide-seconds value=<?= $data['DURATION_MIN'] ?>>
+                    <input type="number" class="form-control " name="duration" required id="Duration" data-hide-seconds value=<?= $data['DURATION_MIN'] ?>>
                 </div>
                 <div class="col-12 col-lg-4 form-group">
                     <label class="form-label" for="Buget">Budget </label>

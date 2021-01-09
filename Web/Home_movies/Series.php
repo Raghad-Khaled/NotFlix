@@ -5,7 +5,6 @@ $movie = new movie;
 $user = new user;
 $series_obj = new series;
 $prize_obj = new prize;
-$path = $_SESSION['path'];
 
 session_start();
 if ($_SESSION['type'] == 'admin')
@@ -84,7 +83,7 @@ $picture2 = mysqli_fetch_assoc($picture);
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <!---------------------------BackEndHere-------------------------------->
-                <form action=<?php echo "Series.php?name=$path"; ?> method="Post">
+                <form action=<?php echo "Series.php"; ?> method="Post">
                     <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
 
                     <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
@@ -97,7 +96,7 @@ $picture2 = mysqli_fetch_assoc($picture);
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
-                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="#" style="margin-top: 0px;margin-left: 21px;">
+                <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
                         <?= $_SESSION['name'] ?>
                     </span>
@@ -327,8 +326,8 @@ $picture2 = mysqli_fetch_assoc($picture);
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a href=<?php echo "Movies.php?name=$path ;" ?> data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a class="selected" href=<?php echo "Series.php?name=$path"; ?> data-type="color-1">Series</a></li>
+                    <li class="filter"><a href=<?php echo "Movies.php ;" ?> data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a class="selected" href=<?php echo "Series.php"; ?> data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -337,7 +336,7 @@ $picture2 = mysqli_fetch_assoc($picture);
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action=<?php echo "Series.php?name=$path"; ?> method="Post">
+            <form action=<?php echo "Series.php"; ?> method="Post">
 
 
 

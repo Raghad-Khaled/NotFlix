@@ -2,11 +2,6 @@
    include '../control.php';
    $path = $_SESSION['path'];
 
-   //$name="Raghad_Khaled";
-   $user_obj=new user;
-   $name=$user_obj->GetnameWithpass($path);
-   $temp=$user_obj->get_user_info($name);
-   $data=mysqli_fetch_assoc($temp);
                                         
  if(isset($_POST['Save_Information']))
 {
@@ -15,9 +10,9 @@
     $email=$_POST['email'];
     $password=$_POST['password'];
     $age=$_POST['age'];
-    $user_obj->edit_user_email($name,$email);
-    $user_obj->edit_user_password($name,$password);
-    $user_obj->edit_user_age($name,$age);   
+    $user_obj->edit_user_email($_SESSION['name'],$email);
+    $user_obj->edit_user_password($_SESSION['name'],$password);
+    $user_obj->edit_user_age($_SESSION['name'],$age);   
     $redirection_string="Location: EditProfile.php";
     // File upload path
     $targetDir = "user_pics/";
@@ -36,7 +31,7 @@
             // Upload file to server
             if(move_uploaded_file($_FILES["avatar-file"]["tmp_name"], $targetFilePath))
             {
-                $user_obj->edit_user_image($name,$fileName);
+                $user_obj->edit_user_image($_SESSION['name'],$fileName);
                 // Insert image file name into database
             //  $advertisment=new advertisement;
             //  $advertisment->Addnew("RoRo123",$fileName);

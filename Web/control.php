@@ -52,11 +52,6 @@ class user
     return $result = mysqli_query($this->_conn, $qury);
   }
 
-  public function GetnameWithpass($pass){
-    $record = $this->_conn->query("SELECT USER_NAME FROM user_of_notflix WHERE PASSWORD_OF_USER='$pass'");
-    $data=mysqli_fetch_assoc($record);
-    return $data['USER_NAME'];
-  }
 
   public function get_Movie_fav($user_name)
   {
