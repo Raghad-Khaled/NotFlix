@@ -4,7 +4,11 @@ include '../control.php';
 if(isset($_POST['submit']))
 {
 
-
+if (!isset($_POST['company1'])||! isset($_POST['Director'])|| !isset($_POST['actor1']) )
+{
+    echo "<script> alert('please Fill All input!');  window.location.href='AddFilm.php';</script>";
+}
+session_start();
 $postar= $_POST['postar'];
 $title=$_POST['title'];
 $year=$_POST['year'];
@@ -15,36 +19,35 @@ $revenue=$_POST['revenue'];
 $rate=$_POST['rate'];
 $count=$_POST['count'];
 $link=$_POST['link'];
-
-
-
-
-
-
 $genre1=$_POST['genre1'];
-
-echo $genre1;
-
 $company1=$_POST['company1'];
-
-
-
 $language=$_POST['language'];
 $Director=$_POST['Director'];
-
-$prize=$_POST['prize'];
 $description=$_POST['description'];
 $actor1=$_POST['actor1'];
+
+
 
 
 $movie=new Movie;
 if(isset($_POST['story'])){
 $story=$_POST['story'];
-$movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize,$story);
+if(isset($_POST['prize'])){
+    $prize=$_POST['prize'];    
+$movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Director,$prize,$story);
 }
 else{
-    $movie->InsertNewMovie2($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,"Raghad",$rate,$count,$Director,$prize);    
+    $movie->InsertNewMovie($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Director,NULL,$story);
 }
+}
+else if(isset($_POST['prize'])){
+    $prize=$_POST['prize'];
+    $movie->InsertNewMovie2($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Director,$prize);    
+}
+else{
+    $movie->InsertNewMovie2($title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Director,NULL);
+}
+
 $IDrow=$movie->getid($title);
 $data = mysqli_fetch_array($IDrow);
 $ID = $data['ID'];
@@ -111,6 +114,8 @@ if(isset($_POST['company3'])){
     $company3=$_POST['company3'];
     $movie->addcompanytofilm($ID,$company3);
 }
+
+header("Location:AddFilm.php");
 
 }
 

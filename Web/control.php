@@ -184,11 +184,18 @@ class Movie
     if ($record->num_rows != 0)
       echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
 
-    else {
+    else if($prize!=NULL) {
       $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`, `STORY_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize,$story)";
-      //echo $qury;
+      echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`,  `STORY_ID`)  VALUES 
+      ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$story)";
+         echo $qury;
+         $result = mysqli_query($this->_conn, $qury);
+
     }
   }
 
@@ -199,11 +206,17 @@ class Movie
     if ($record->num_rows != 0)
       echo "<script> alert(' This Film is already Exist!');  window.location.href='AddFilm.php';</script>";
 
-    else {
+    else if($prize!=NULL) {
       $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director,$prize)";
       //echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO movie (`NAME_MOVIE`, `YEAR`, `DURATION_MIN`, `DESCRIPTION_OF_MOVIE`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_MOVIE`, `IMDB_RATE`, `IMDB_RATE_COUNT`, `DIRECTOR_ID`)  VALUES 
+      ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$Director)";
+         echo $qury;
+         $result = mysqli_query($this->_conn, $qury);
     }
   }
 
@@ -923,11 +936,18 @@ class series
     if ($record->num_rows != 0)
       echo "<script> alert(' This Series already Exist!');  window.location.href='AddSeries.php';</script>";
 
-    else {
+    else if($prize !=NULL) {
       $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`, `PRIZE_WON_ID`)  VALUES 
    ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director,$prize)";
       echo $qury;
       $result = mysqli_query($this->_conn, $qury);
+    }
+    else{
+      $qury = "INSERT INTO series (`NAME_SERIES`, `YEAR`, `DURATION_MIN`, `DESCRIPTION`, `LANGUAGE_MOBIE`, `REVENUE`, `BUDGET`, `HOME_PAGE_LINK`, `POSTER`, `ADMIN_INSETED_SERIES`, `IMDB_RATE`, `IMDB_RATE_COUNT`,`NUMBER_OF_EPISODES_IN_SEASON`, `DIRECTOR_ID`)  VALUES 
+   ('$Name',$year,'$duration','$description','$language',$revenue,$budget,'$link','$poster','$admin',$rate,$count,$EPISODES,$Director)";
+      echo $qury;
+      $result = mysqli_query($this->_conn, $qury);
+
     }
   }
   
