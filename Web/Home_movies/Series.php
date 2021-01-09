@@ -81,7 +81,7 @@ $picture2=mysqli_fetch_assoc($picture);
     </button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <!---------------------------BackEndHere-------------------------------->
-            <form action="Series.php" method="Post">
+            <form action=<?php echo "Series.php?name=$path" ;?> method="Post">
                 <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" 
                 name="search_string" />
 
@@ -327,8 +327,8 @@ $picture2=mysqli_fetch_assoc($picture);
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a  href="Movies.php" data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a class="selected" href="Series.php" data-type="color-1">Series</a></li>
+                    <li class="filter"><a  href=<?php echo "Movies.php?name=$path ;"?>  data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a class="selected" href=<?php echo "Series.php?name=$path" ;?>  data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -337,7 +337,7 @@ $picture2=mysqli_fetch_assoc($picture);
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action="Series.php" method="Post">
+            <form action=<?php echo "Series.php?name=$path" ;?> method="Post">
 
 
 
