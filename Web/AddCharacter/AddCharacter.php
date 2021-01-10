@@ -73,7 +73,8 @@
                 
                 <?php
  
-    $records =  $movie->getstory();
+    $story= new story;
+    $records =  $story->getstory();
 
     while($data = mysqli_fetch_array($records))
     {

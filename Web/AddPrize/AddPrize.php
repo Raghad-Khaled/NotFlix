@@ -95,7 +95,8 @@
                 <option disabled selected>Actor</option> 
                 <?php
      
-                $records =  $movie->getactor();
+                $actor=new actor;
+                $records =  $actor->getactor();
            
                 while($data = mysqli_fetch_array($records))
                 {
@@ -162,7 +163,8 @@
                 <option disabled selected>Actor</option> 
                 <?php
      
-                $records =  $movie->getactor();
+                $actor=new actor;
+                $records =  $actor->getactor();
            
                 while($data = mysqli_fetch_array($records))
                 {
