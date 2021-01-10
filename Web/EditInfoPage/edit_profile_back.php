@@ -13,7 +13,7 @@
                                   
     $email=$_POST['email'];
     $password1=$_POST['password'];
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password1, PASSWORD_DEFAULT);
     $age=$_POST['age'];
     $user_obj->edit_user_email($_SESSION['name'],$email);
     $user_obj->edit_user_password($_SESSION['name'],$password);
@@ -40,6 +40,8 @@
                 // Insert image file name into database
             //  $advertisment=new advertisement;
             //  $advertisment->Addnew("RoRo123",$fileName);
+                $_SESSION['image']=$fileName;
+            
             }
         }
         else
@@ -47,13 +49,12 @@
             echo "<script> alert(' only JPG, JPEG, PNG &GIF files are allowed to upload.');  window.location.href='EditProfile.php';</script>";
         }
     }
-    $_SESSION['image']=$fileName;
     $_SESSION['email']=$email;
     $_SESSION['path']=$password;
     $_SESSION['age']=$age;
 
 } 
-    if($_SESSION['type']='admin')
+    if($_SESSION['type']!='user')
     header("Location:../admin/admin.php");
     else
     header("Location:../user/user.php");

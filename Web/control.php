@@ -39,7 +39,7 @@ class user
     else {
       $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`,`image`)  VALUES ('$name','$password','$email',$age,'$gender','$image')";
       //echo $qury;
-      echo "<script> alert('Have a nice watch :)');  window.location.href='../Home_movies/Movies.php?';</script>";
+      echo "<script> alert('Have a nice watch :)');  window.location.href='../Home_movies/Movies.php';</script>";
       $result = mysqli_query($this->_conn, $qury);
     }
   }

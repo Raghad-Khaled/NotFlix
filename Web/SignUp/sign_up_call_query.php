@@ -22,7 +22,15 @@ $_SESSION['age'] = $age;
 $_SESSION['gender'] = $gender;
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
 
-//header("Location:../Home_movies/Movies.php?name=$password");
+if($gender=='F'){
+    $image="F.png";
+  }
+  else{
+    $image="M.png";
+  }
+$_SESSION['image'] = $image;
+
+header("Location:../Home_movies/Movies.php");
 
 }
 
