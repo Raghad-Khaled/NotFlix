@@ -429,7 +429,7 @@ class Movie
 
   public function get_all()
   {
-    $qury = "SELECT  * FROM movie ";
+    $qury = "SELECT  * FROM movie ORDER BY IMDB_RATE DESC";
     return $result = mysqli_query($this->_conn, $qury);
   }
 
@@ -967,7 +967,7 @@ class series
   }
 
   public function get_all(){
-    $qury="SELECT * from  series";
+    $qury="SELECT * from  series ORDER BY IMDB_RATE DESC";
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 
