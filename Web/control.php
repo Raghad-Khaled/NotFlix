@@ -993,7 +993,7 @@ class series
   public function addgenretoSeries($FilmID, $genreID)
   {
 
-    $qury = "INSERT INTO genre_relation_series  VALUES ('$FilmID','$genreID')";
+    $qury = "INSERT INTO genre_relation_series  VALUES ($FilmID,$genreID)";
     echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
@@ -1001,7 +1001,7 @@ class series
   public function addactortoSeries($FilmID, $actorID)
   {
 
-    $qury = "INSERT INTO acted_series (`SERISE_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
+    $qury = "INSERT INTO acted_series (`SERIES_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
     echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
