@@ -22,10 +22,15 @@ else
     $hearder = "../user/user.php";
 
 
-$Adv_id = filter_input(INPUT_GET, 'Adv_id', FILTER_SANITIZE_NUMBER_INT);
-$advertisement = new advertisement();
-$reselt2 = $advertisement->get_whit_id($Adv_id);
-$adv_info = mysqli_fetch_assoc($reselt2);
+////////////////////////////COPY///////////////////////////////
+$adver = new advertisement;
+$advpic = $adver->getcount();
+$pic = mysqli_fetch_assoc($advpic);
+$count = (int)$pic['count(*)'];
+$idadv = rand(1, $count);
+$picture = $adver->get_whit_id($idadv);
+$adv_info = mysqli_fetch_assoc($picture);
+////////////////////////////COPY///////////////////////////////
 
 
 ?>

@@ -17,6 +17,7 @@ $count = (int)$pic['count(*)'];
 $idadv = rand(1, $count);
 $picture = $adver->get_whit_id($idadv);
 $picture2 = mysqli_fetch_assoc($picture);
+$all_ads=$adver->get_all();
 ////////////////////////////COPY///////////////////////////////
 ?>
 
@@ -442,14 +443,16 @@ $picture2 = mysqli_fetch_assoc($picture);
 
                 <!------------------------------------------------------------>
 
-
-
                 <!-- Advertisement Card-->
+                <?php   while($row = mysqli_fetch_array($all_ads))  { ?>
+               
                 <div class="card" style="margin-top: 60px;">
-                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?= $picture2['PICTURE'] ?>" style="width: 100%;"></div>
+                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?= $row['PICTURE'] ?>" style="width: 100%;"></div>
                 </div>
-                <!---------------------->
+               
+                        <?php }?>
 
+                 <!---------------------->
 
             </div>
             <div class="col-md-9">
