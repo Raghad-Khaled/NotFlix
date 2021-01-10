@@ -93,9 +93,9 @@ $all_ads=$adver->get_all();
 
                 </form>
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
                 <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
@@ -533,7 +533,7 @@ $all_ads=$adver->get_all();
     <footer id="footer" style="background: #21212e;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
+                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="../Home_movies/Movies.php">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>

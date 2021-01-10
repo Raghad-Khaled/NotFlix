@@ -15,7 +15,8 @@ if($result->num_rows != 0){
 
     $_SESSION['type'] = 'admin';
     $data=mysqli_fetch_assoc($result);
-    if(password_verify($_SESSION['password'], $data['PASSWORD_OF_ADMIN'])){
+    $v = password_verify($_SESSION['password'], $data['PASSWORD_OF_ADMIN']);
+    if($v){
       $_SESSION['name'] = $data['ADMIN_NAME'];
       $_SESSION['image'] = $data['image'];
       $_SESSION['path'] =$data['PASSWORD_OF_ADMIN'];
@@ -37,7 +38,8 @@ if($result->num_rows != 0){
       }
       else{
         $data=mysqli_fetch_assoc($record);
-        if(password_verify($_SESSION['password'], $data['PASSWORD_OF_USER'])){
+        $v = password_verify($_SESSION['password'], $data['PASSWORD_OF_USER']);
+        if($v){
           $_SESSION['name'] = $data['USER_NAME'];
           $_SESSION['image'] = $data['image'];
           $_SESSION['path'] =$data['PASSWORD_OF_USER'];

@@ -20,9 +20,17 @@ $_SESSION['email'] =$email;
 $_SESSION['path'] =$password;
 $_SESSION['age'] = $age;
 $_SESSION['gender'] = $gender;
+if($gender=='F'){
+    $image="F.png";
+  }
+  else{
+    $image="M.png";
+  }
+$_SESSION['image'] = $image;
+
 $save_user->InsertNewUser($username,$password,$email,$age,$gender);
 
-//header("Location:../Home_movies/Movies.php?name=$password");
+//header("Location:../Home_movies/Movies.php");
 
 }
 

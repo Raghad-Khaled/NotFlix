@@ -79,7 +79,7 @@ $all_ads=$adver->get_all();
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <!---------------------------BackEndHere-------------------------------->
-                <form action=<?php echo "Movies.php ;"?> method="Post">
+                <form action="<?php echo "Movies.php ;"?>" method="Post">
                     <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
 
                     <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
@@ -88,9 +88,9 @@ $all_ads=$adver->get_all();
 
                 </form>
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
                 <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?= $hearder ?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
@@ -322,8 +322,8 @@ $all_ads=$adver->get_all();
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a class="selected" href=<?php echo "Movies.php ;"?> data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a href=<?php echo "Series.php ;"?> data-type="color-1">Series</a></li>
+                    <li class="filter"><a class="selected" href="<?php echo "Movies.php";?>" data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a href="<?php echo "Series.php";?>" data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -332,7 +332,7 @@ $all_ads=$adver->get_all();
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action=<?php echo "Movies.php ;"?> method="Post">
+            <form action="<?php echo "Movies.php";?>" method="Post">
 
 
 
@@ -373,7 +373,7 @@ $all_ads=$adver->get_all();
                     $year = 1910;
                     $counter = 0;
                     while ($counter <= 10) { ?>
-                        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                        <option value="<?php echo $year; ?>"><?php echo $year."s"; ?></option>
                     <?php
 
                         $counter++;
@@ -526,7 +526,7 @@ $all_ads=$adver->get_all();
     <footer id="footer" style="background: #21212e;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flex</span></a></h3>
+                <h3><a href="#" style="font-size: 37px;font-family: Cookie, cursive;">NOT&nbsp;&nbsp;<span style="color: rgb(97,154,254);">flix</span></a></h3>
                 <p class="links"><a href="../Home_movies/Movies.php">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
                 <p class="company-name">CMP © 2023</p>
             </div>

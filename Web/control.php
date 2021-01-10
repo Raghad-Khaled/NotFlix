@@ -39,7 +39,7 @@ class user
     else {
       $qury = "INSERT INTO user_of_notflix (`USER_NAME`,`PASSWORD_OF_USER`,`EMAIL`,`AGE`,`GENDER`,`image`)  VALUES ('$name','$password','$email',$age,'$gender','$image')";
       //echo $qury;
-      echo "<script> alert('Have a nice watch :)');  window.location.href='../Home_movies/Movies.php?';</script>";
+      echo "<script> alert('Have a nice watch :)');  window.location.href='../Home_movies/Movies.php';</script>";
       $result = mysqli_query($this->_conn, $qury);
     }
   }
@@ -993,7 +993,7 @@ class series
   public function addgenretoSeries($FilmID, $genreID)
   {
 
-    $qury = "INSERT INTO genre_relation_series  VALUES ('$FilmID','$genreID')";
+    $qury = "INSERT INTO genre_relation_series  VALUES ($FilmID,$genreID)";
     echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
@@ -1001,7 +1001,7 @@ class series
   public function addactortoSeries($FilmID, $actorID)
   {
 
-    $qury = "INSERT INTO acted_series (`SERISE_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
+    $qury = "INSERT INTO acted_series (`SERIES_ID`,`ACTOR_ID`) VALUES ($FilmID,$actorID)";
     echo $qury;
     $result = mysqli_query($this->_conn, $qury);
   }
