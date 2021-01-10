@@ -122,5 +122,5 @@ if(isset($_POST['company3'])){
 
 }
 
-//header("Location:../admin/admin.php?Admin_Name=$name");
+header("Location:../admin/admin.php");
 ?>

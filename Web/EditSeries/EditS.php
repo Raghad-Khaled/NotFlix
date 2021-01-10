@@ -112,5 +112,5 @@ if(isset($_POST['company3'])){
     $Series->addcompanytoSeries($ID,$company3);
 }
 }
-//header("Location:../admin/admin.php");
+header("Location:../admin/admin.php");
 ?>
