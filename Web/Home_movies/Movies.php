@@ -79,7 +79,7 @@ $all_ads=$adver->get_all();
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <!---------------------------BackEndHere-------------------------------->
-                <form action=<?php echo "Movies.php ;"?> method="Post">
+                <form action="<?php echo "Movies.php ;"?>" method="Post">
                     <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
 
                     <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
@@ -322,8 +322,8 @@ $all_ads=$adver->get_all();
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a class="selected" href=<?php echo "Movies.php ;"?> data-type="all">movies</a></li>
-                    <li class="filter" data-filter=".color-1"><a href=<?php echo "Series.php ;"?> data-type="color-1">Series</a></li>
+                    <li class="filter"><a class="selected" href="<?php echo "Movies.php";?>" data-type="all">movies</a></li>
+                    <li class="filter" data-filter=".color-1"><a href="<?php echo "Series.php";?>" data-type="color-1">Series</a></li>
                 </ul>
             </div>
         </div>
@@ -332,7 +332,7 @@ $all_ads=$adver->get_all();
         <h1 style="margin-bottom: 31px;color: rgba(70,194,255,0.63);font-size: 30px;text-align: center;font-family: 'Architects Daughter', cursive;">Filter Results</h1>
         <div class="filter">
 
-            <form action=<?php echo "Movies.php ;"?> method="Post">
+            <form action="<?php echo "Movies.php";?>" method="Post">
 
 
 
@@ -373,7 +373,7 @@ $all_ads=$adver->get_all();
                     $year = 1910;
                     $counter = 0;
                     while ($counter <= 10) { ?>
-                        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                        <option value="<?php echo $year; ?>"><?php echo $year."s"; ?></option>
                     <?php
 
                         $counter++;
