@@ -12,5 +12,5 @@ if(isset($_POST['submit']))
 
 
 }
-
+header("Location:AddSeason.php");
 ?>

@@ -15,7 +15,7 @@ echo $gendr;
 $director=new director;
 $director->insertdirector($Fname,$Lname,$gendr,$birthdate,$postar);
 
-
+header("Location:AddDirector.php");
 }    
 
 ?>

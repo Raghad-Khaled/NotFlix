@@ -8,6 +8,7 @@ $year=substr($year,0,4);
 $company=new company;
 
 $company->insertnewCompany($name,$year);
+header("Location:AddCompany.php");
 
 }
 ?>

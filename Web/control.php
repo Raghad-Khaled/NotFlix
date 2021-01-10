@@ -588,7 +588,11 @@ class actor
     return $result = mysqli_query($this->_conn, $qury);
   }
   public function insertactor($Fname,$Lname,$gender,$birth,$image){
-
+    $record = $this->_conn->query("SELECT * FROM actor WHERE FNAME ='$Fname' and LNAME='$Lname' ");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, This Actor already exist'); window.location.href='AddActor.php';  </script>";
+    }
     $qury="INSERT INTO actor (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
     return $result = mysqli_query($this->_conn, $qury);
   }
@@ -742,6 +746,11 @@ class character
 
   public function insertcharacter($Fname,$Lname,$gender,$birth,$image,$storyid,$overview){
 
+    $record = $this->_conn->query("SELECT * FROM fantasy_character  WHERE FNAME ='$Fname' and LNAME='$Lname' ");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, This Character already exist'); window.location.href='AddActor.php';  </script>";
+    }
     $qury="INSERT INTO fantasy_character (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE` ,`STORY`,`STORY_ID`) VALUES('$Fname','$Lname','$gender','$birth','$image','$overview','$storyid')";
     return $result = mysqli_query($this->_conn, $qury);
   }

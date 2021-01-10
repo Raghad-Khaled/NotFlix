@@ -11,7 +11,7 @@ $Overview=$_POST['Overview'];
 
 $story=new story;
 $story->InsertStory($title,$author,$postar,$Overview);
-
+header("Location:AddNovel.php");
 
 }    
 

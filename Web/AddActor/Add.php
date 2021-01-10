@@ -15,7 +15,7 @@ echo $gendr;
 $actor=new actor;
 $actor->insertactor($Fname,$Lname,$gendr,$birthdate,$postar);
 
-
+header("Location:AddActor.php");
 }    
 
 ?>

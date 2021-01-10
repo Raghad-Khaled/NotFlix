@@ -123,6 +123,7 @@ else{
 $prize->InsertPrize($title,$type);}
 
 }
-}    
+}  
+header("Location:AddPrize.php");
 
 ?>

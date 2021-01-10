@@ -15,7 +15,7 @@ $Overview=$_POST['Overview'];
 $character=new character;
 $character->insertcharacter($Fname,$Lname,$gendr,$birthdate,$postar,$story,$Overview);
 
-
+header("Location:AddCharater.php");
 }    
 
 ?>
