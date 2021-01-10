@@ -7,10 +7,31 @@ $data = mysqli_fetch_assoc($reselt);
 $admin = new admin;
 
 session_start();
-if($_SESSION['type'] == 'admin')
-$hearder = "../admin/admin.php";
-else
-$hearder = "../user/user.php";
+if ($_SESSION['type'] == 'admin') {
+    $hearder = "../admin/admin.php";
+    $addFilm = "../AddFilm/AddFilm.php";
+    $addseries = "../AddSeries/AddSeries.php";
+    $addseason = "../AddSeason/AddSeason.php";
+    $addactor = "../AddActor/AddActor.html";
+    $addchar = "../AddCharacter/AddCharacter.php";
+    $addprize = "../AddPrize/AddPrize.php";
+    $adddirector = "../AddDirector/Adddirector.html";
+    $addadvert = "../AddAdvertisement/AddAdvertisement.html";
+    $addnovel = "../AddNovel/AddNovel.html";
+    $addcompany = "../AddCompany/AddCompany.html";
+} else {
+    $hearder = "../user/user.php";
+    $addFilm = "../user/user.php";
+    $addseries = "../user/user.php";
+    $addseason = "../user/user.php";
+    $addactor = "../user/user.php";
+    $addchar = "../user/user.php";
+    $addprize = "../user/user.php";
+    $adddirector = "../user/user.php";
+    $addadvert = "../user/user.php";
+    $addnovel = "../user/user.php";
+    $addcompany = "../user/user.php";
+}
 
 ?>
 <!DOCTYPE html>
@@ -136,11 +157,11 @@ $hearder = "../user/user.php";
                                     <p class="card-text" style="color: rgb(30,8,58);"><br></p>
                                 </div>
                                 <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteAdvertisement.php?id=<?= $data['ID'] ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
+                            </div>
                         </div>
                 </div>
+            <?php } ?>
             </div>
-        <?php } ?>
-        </div>
 
         </section>
         </div>
@@ -148,7 +169,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddFilm/AddFilm.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addFilm ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -177,7 +198,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Series</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddSeries/AddSeries.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addseries ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -208,7 +229,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Novel</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddNovel/AddNovel.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addnovel ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -237,7 +258,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Season</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddSeason/AddSeason.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addseason ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -268,7 +289,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Actor</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddActor/AddActor.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addactor ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -297,7 +318,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Character</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddCharacter/AddCharacter.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addchar ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -328,7 +349,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Prize</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddPrize/AddPrize.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addprize ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -357,7 +378,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Director</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddDirector/Adddirector.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $adddirector ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -388,7 +409,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Advertisement</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="../AddAdvertisement/AddAdvertisement.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addadvert ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -417,7 +438,7 @@ $hearder = "../user/user.php";
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Company</span></div>
-                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="../AddCharacter/AddCharacter.php"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addcompany ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                 <defs>
                                     <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                         <stop offset="0" stop-color="#c8b8f8"></stop>
