@@ -160,8 +160,9 @@ if ($_SESSION['type'] == 'admin') {
                                 <div class="d-flex card-footer" style="background: rgb(151,189,255);"><button class="btn btn-outline-dark btn-sm ml-auto" data-bs-hover-animate="pulse" type="button" onclick="window.location.href='deleteAdvertisement.php?id=<?= $data['ID'] ?>';" style="color: rgb(30,8,58);background: rgba(248,244,244,0);border-color: rgba(40,13,96,0);font-size: 18px;font-family: Almendra, serif;"><i class="fa fa-trash-o"></i>&nbsp;Delete</button></div>
                             </div>
                         </div>
+                        <?php } ?>
                 </div>
-            <?php } ?>
+            
             </div>
 
         </section>
