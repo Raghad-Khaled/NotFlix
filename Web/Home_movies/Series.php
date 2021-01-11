@@ -451,13 +451,17 @@ $all_ads=$adver->get_all();
 
 
                <!-- Advertisement Card-->
-               <?php   while($row = mysqli_fetch_array($all_ads))  { ?>
+               <?php  
+               $counter=0;
+               while($row = mysqli_fetch_array($all_ads) && $counter<10)  { ?>
                
                <div class="card" style="margin-top: 60px;">
                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?= $row['PICTURE'] ?>" style="width: 100%;"></div>
                </div>
                
-                       <?php }?>
+                       <?php 
+                    $counter++;
+                    }?>
                 <!---------------------->
 
 
