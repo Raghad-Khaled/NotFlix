@@ -3,7 +3,7 @@ body {
     background-image:url('../images/company.jpg');
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-size: contain; /* Resize the background image to cover the entire container */
     min-height: 550px;
     font-family: 'Langar', cursive;
     color: white;

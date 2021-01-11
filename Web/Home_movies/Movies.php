@@ -79,7 +79,7 @@ $all_ads=$adver->get_all();
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <!---------------------------BackEndHere-------------------------------->
-                <form action="<?php echo "Movies.php ;"?>" method="Post">
+                <form action="<?php echo "Movies.php";?>" method="Post">
                     <input type="search" style="border-radius: 24px;width: 238px;height: 34px;border-width: 0px;margin-left: -14px;" name="search_string" />
 
                     <button class="btn btn-primary d-table-row" type="submit" name="search" style=" background: url(assets/img/icons8-search-64.png) center / contain no-repeat, rgba(147,3,3,0) ; 
@@ -494,7 +494,7 @@ $all_ads=$adver->get_all();
                                     <figcaption>
                                         <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                             <h3><?php echo $data['NAME_MOVIE']; ?></h3>
-                                            <p><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
+                                            <p style="color: white !important; font-size: 12px ;"><?php echo $data['DESCRIPTION_OF_MOVIE']; ?></p>
                                         </a>
                                     </figcaption><img class="figure-img" src=<?php echo $data['POSTER']; ?>>
                                 </figure>
