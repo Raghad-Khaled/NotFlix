@@ -136,7 +136,7 @@ $adv_info = mysqli_fetch_assoc($picture);
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                            <?= $Movie_Num['COUNT(MOVIE_ID)'] ?> movie
+                                            <?= $Movie_Num['COUNT(ID)'] ?> movie
                                         </p>
                                     </div>
                                     <div>
@@ -144,7 +144,7 @@ $adv_info = mysqli_fetch_assoc($picture);
                                     </div>
                                     <div class="summary">
                                         <p style="margin-left: 22px;color: rgba(255,255,255,0.97);font-size: 16px;margin-bottom: 16px;font-family: Nunito, sans-serif;">
-                                            <?= $Sries_Num['COUNT(SERIES_ID)'] ?> series
+                                            <?= $Sries_Num['COUNT(ID)'] ?> series
                                         </p>
                                     </div>
 

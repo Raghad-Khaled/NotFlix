@@ -751,12 +751,14 @@ class director
 
   }
   public function Num_of_Movies($id){
-    $qury="SELECT COUNT(MOVIE_ID) FROM director_prize_movie WHERE DIRECTOR_ID = '$id'";
+    //$qury="SELECT COUNT(MOVIE_ID) FROM director_prize_movie WHERE DIRECTOR_ID = '$id'";
+    $qury = "SELECT COUNT(ID) FROM movie WHERE DIRECTOR_ID = '$id'";
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
   public function Num_of_Series($id){
-    $qury="SELECT COUNT(SERIES_ID) FROM director_prize_series WHERE DIRECTOR_ID = '$id'";
+    //$qury="SELECT COUNT(SERIES_ID) FROM director_prize_series WHERE DIRECTOR_ID = '$id'";
+    $qury = "SELECT COUNT(ID) FROM series WHERE DIRECTOR_ID = '$id'";
     
     return $reselt=mysqli_query($this->_conn,$qury);
   }
