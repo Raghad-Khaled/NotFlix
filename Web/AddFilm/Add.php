@@ -101,7 +101,7 @@ if(isset($_POST['actor2'])){
     $movie->addactortofilm($ID,$actor2);
 }
 if(isset($_POST['actor3'])){
-    $genre2=$_POST['actor3'];
+    $actor3=$_POST['actor3'];
     $movie->addactortofilm($ID,$actor3);
 }
 $movie->addcompanytofilm($ID,$company1);
