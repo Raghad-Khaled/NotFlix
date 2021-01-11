@@ -624,9 +624,16 @@ class prize
     return $reselt = mysqli_query($this->_conn, $qury);
   }
   public function InsertPrize($title,$type){
+    $record = $this->_conn->query("SELECT * FROM prize WHERE( TITLE='$title' AND TYPE_OF_PRTIZE='$type' )");
+    if ($record->num_rows != 0) {
+      echo "<script> alert('This Prize already exist'); window.location.href='AddPrize.php'; </script>";
+      
+      
+    }else{
 
     $qury = "INSERT INTO prize (`TITLE`,`TYPE_OF_PRTIZE`) VALUES('$title','$type')";
     return $reselt = mysqli_query($this->_conn, $qury);
+    }
 
   }
   public function exist($title,$type){
@@ -726,8 +733,15 @@ class director
   }
   public function insertdirector($Fname,$Lname,$gender,$birth,$image){
 
+    $record = $this->_conn->query("SELECT * FROM director WHERE FNAME ='$Fname' and LNAME='$Lname' ");
+    if ($record->num_rows != 0)
+    {
+    echo "<script> alert('Oops!, This Director already exist'); window.location.href='Adddirector.html';  </script>";
+    }
+    else{
     $qury="INSERT INTO director (`FNAME`,`LNAME`,`GENDER`,`BIRTH_DATE`,`IMAGE`) VALUES('$Fname','$Lname','$gender','$birth','$image')";
     return $result = mysqli_query($this->_conn, $qury);
+    }
   }
 
   public function get_all(){
