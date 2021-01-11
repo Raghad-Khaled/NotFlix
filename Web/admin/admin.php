@@ -72,7 +72,7 @@ if ($_SESSION['type'] == 'admin') {
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../log_out/log_out.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul>
             </div>
         </div>

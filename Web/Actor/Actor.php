@@ -108,8 +108,8 @@ $picture2=mysqli_fetch_assoc($picture);
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link active" href="../Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="product-page.html" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../log_out/log_out.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
                 </ul><a class="d-flex justify-content-lg-center align-items-lg-center" href="<?=$hearder?>" style="margin-top: 0px;margin-left: 0px;"><span class="d-flex align-items-center" style="font-family: Acme, sans-serif;font-size: 18px;"><?=$_SESSION['name']?><img class="border rounded-circle img-profile" src="../EditinfoPage/user_pics/<?=$_SESSION['image']?>" style="width: 50px;margin-left: 5px;"></span></a>
             </div>
         </div>

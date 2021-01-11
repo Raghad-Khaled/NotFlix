@@ -20,6 +20,7 @@ if($result->num_rows != 0){
       $_SESSION['name'] = $data['ADMIN_NAME'];
       $_SESSION['image'] = $data['image'];
       $_SESSION['path'] =$data['PASSWORD_OF_ADMIN'];
+      $_SESSION['email'] = $data['EMAIL'];
       $_SESSION['age'] = $data['AGE'];
       $_SESSION['gender'] = $data['GENDER'];
       echo "<script> alert('Welcome Back!!!!'); window.location.href='../Home_movies/Movies.php';</script>";
@@ -42,6 +43,7 @@ if($result->num_rows != 0){
         if($v){
           $_SESSION['name'] = $data['USER_NAME'];
           $_SESSION['image'] = $data['image'];
+          $_SESSION['email'] = $data['EMAIL'];
           $_SESSION['path'] =$data['PASSWORD_OF_USER'];
           $_SESSION['age'] = $data['AGE'];
           $_SESSION['gender'] = $data['GENDER'];
