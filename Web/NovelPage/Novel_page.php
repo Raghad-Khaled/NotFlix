@@ -12,6 +12,16 @@ else
 
 $moviesRelated=$story->getmovieRelated($id);
 $chracter=$story->getCharacterRelated($id);
+
+////////////////////////////COPY///////////////////////////////
+$adver=new advertisement;
+$advpic=$adver->getcount();
+$pic=mysqli_fetch_assoc($advpic);
+$count=(int)$pic['count(*)'];
+$idadv=rand(1,$count);
+$picture=$adver->get_whit_id($idadv);
+$picture2=mysqli_fetch_assoc($picture);
+////////////////////////////COPY///////////////////////////////
 ?>
 
 

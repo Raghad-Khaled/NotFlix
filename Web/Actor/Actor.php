@@ -162,8 +162,8 @@ $picture2=mysqli_fetch_assoc($picture);
                                    
 
                                      <!-- Advertisement Card-->
-                <div class="card" style="margin-top: 60px;">
-                    <div class="card-body" style="height: 100%;width: 100%;"><img src="../AddAdvertisement/Addvertisements/<?=$picture2['PICTURE']?>" style="width: 100%;"></div>
+                <div class="card" style="margin-top: 10px; margin-left:60px; height: 100%;width: 80%;">
+                    <div class="card-body" style="height: 100%; width: 100%;"><img style="height: 100%; width: 100%;" src="../AddAdvertisement/Addvertisements/<?=$picture2['PICTURE']?>" style="width: 100%;"></div>
                 </div>
                 <!---------------------->
                                 </div>

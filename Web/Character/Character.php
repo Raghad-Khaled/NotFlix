@@ -19,7 +19,19 @@ $adv_info = mysqli_fetch_assoc($reselt2);
 
 $moviesRelated=$character->getmovieRelated($id);
 $storyRelated=$character->getStoryRelated($id);
+
+////////////////////////////COPY///////////////////////////////
+$adver=new advertisement;
+$advpic=$adver->getcount();
+$pic=mysqli_fetch_assoc($advpic);
+$count=(int)$pic['count(*)'];
+$idadv=rand(1,$count);
+$picture=$adver->get_whit_id($idadv);
+$picture2=mysqli_fetch_assoc($picture);
+////////////////////////////COPY///////////////////////////////
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -131,11 +143,9 @@ $storyRelated=$character->getStoryRelated($id);
                                         </p>
                                     </div>
 
-                                     <!-- Advertisement Card-->
-                <div class="card" style="margin-top: 60px;">
-                    <div class="card-body" style="height: 100%;width: 100%;">
-                    	<img src="<?= $adv_info['PICTURE'] ?>" style="width: 100%;">
-                    </div>
+                                      <!-- Advertisement Card-->
+                <div class="card" style="margin-top: 10px; margin-left:60px; height: 100%;width: 80%;">
+                    <div class="card-body" style="height: 100%; width: 100%;"><img style="height: 100%; width: 100%;" src="../AddAdvertisement/Addvertisements/<?=$picture2['PICTURE']?>" style="width: 100%;"></div>
                 </div>
                 <!---------------------->
                                 </div>

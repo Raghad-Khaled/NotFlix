@@ -14,7 +14,13 @@ $reselt_P = $director->Get_Prize($id);
 
 $result_M = $director->Get_Movies($id);
 $result_S = $director->Get_Series($id);
-
+$adver=new advertisement;
+$advpic=$adver->getcount();
+$pic=mysqli_fetch_assoc($advpic);
+$count=(int)$pic['count(*)'];
+$idadv=rand(1,$count);
+$picture=$adver->get_whit_id($idadv);
+$picture2=mysqli_fetch_assoc($picture);
 session_start();
 if ($_SESSION['type'] == 'admin')
     $hearder = "../admin/admin.php";
@@ -165,11 +171,12 @@ $adv_info = mysqli_fetch_assoc($picture);
                                     }
                                     ?>
 
-                                    <!-- Advertisement Card-->
-                                    <div class="card" style="margin-top: 60px;">
-                                        <div class="card-body" style="height: 100%;width: 100%;"><img src="<?= $adv_info['PICTURE'] ?>" style="width: 100%;"></div>
-                                    </div>
-                                    <!---------------------->
+<!-- Advertisement Card-->
+                <div class="card" style="margin-top: 10px; margin-left:60px; height: 100%;width: 80%;">
+                    <div class="card-body" style="height: 100%; width: 100%;"><img style="height: 100%; width: 100%;" src="../AddAdvertisement/Addvertisements/<?=$picture2['PICTURE']?>" style="width: 100%;"></div>
+                </div>
+                <!---------------------->
+                                   
                                 </div>
                             </div>
                         </div>

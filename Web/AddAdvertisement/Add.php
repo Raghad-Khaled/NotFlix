@@ -24,7 +24,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["avatar-file"]["name"])){
     }
 }
 
-header("Location:AddAdvertisement.php");
+header("Location:AddAdvertisement.html");
 
 
 ?>
