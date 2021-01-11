@@ -245,7 +245,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                                $companydata= $company->get_company_withID($data2['PRODUCTION_COMPANY_ID']);
                                                $datacompany=mysqli_fetch_assoc($companydata);
                                         ?>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$datacompany['COMPANY_NAME'] ?> founded at <?=$datacompany['YEAR_FOUNDED'] ?></p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$datacompany['COMPANY_NAME'] ?> founded in <?=$datacompany['YEAR_FOUNDED'] ?></p>
                                         <?php } ?>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">

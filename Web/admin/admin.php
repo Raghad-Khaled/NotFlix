@@ -1,5 +1,6 @@
 <?php
 include '../control.php';  // Using database connection file here
+session_start();
 $path = $_SESSION['path'];
 $movie = new movie;
 $reselt = $movie->getMovieforAdmin($path);
