@@ -146,7 +146,7 @@ if ($_SESSION['type'] == 'admin') {
                     <?php
 
                     $advertisement = new advertisement;
-                    $records = $advertisement->get_for_admin($path);
+                    $records = $advertisement->get_for_admin($_SESSION['name']);
                     while ($data = mysqli_fetch_array($records)) {
                     ?>
                         <div class="col-md-6 col-lg-4 filtr-item" data-category="Advertisement">
