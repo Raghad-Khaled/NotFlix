@@ -4,7 +4,7 @@ include '../control.php';
 if(isset($_POST['submit']))
 {
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_GET, 'Admin_Name', FILTER_SANITIZE_STRING);
+session_start();
 
 $postar= $_POST['postar'];
 $title=$_POST['title'];
@@ -47,7 +47,7 @@ if(isset($_POST['prize'])){
     else{
         $prize = NULL;  
     }
-$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$name,$rate,$count,$Director,$prize,$story);
+$movie->UpdateNewMovie($id,$title,$year,$duration,$description,$language,$revenue,$budget,$link,$postar,$_SESSION['name'],$rate,$count,$Director,$prize,$story);
 
 $movie->delet_genre_with_movieId($id);
 $movie->delet_actor_with_movieId($id);

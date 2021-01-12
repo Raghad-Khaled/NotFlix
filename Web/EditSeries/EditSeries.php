@@ -269,7 +269,7 @@ $prize = mysqli_fetch_assoc($reselt5);
 
                     </div>
                     <div class="col-12 col-lg-3 form-group ">
-                        <input type="number" class="form-control" required name="Episodes" style="margin-top:10px" placeholder="Number_Of_Episodes" value=<?= $data['NUMBER_OF_EPISODES_IN_SEASON'] ?>>
+                        <input type="number" class="form-control"  name="Episodes" style="margin-top:10px" placeholder="Number_Of_Episodes" value=<?= $data['NUMBER_OF_EPISODES_IN_SEASON'] ?>>
                     </div>
 
                     <div class="col-12 col-lg-3 form-group ">
