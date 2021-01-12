@@ -1006,6 +1006,14 @@ class series
    return $reselt=mysqli_query($this->_conn,$qury);
   }
 
+  public function getlanguage_Series()
+  {
+
+    $qury = "SELECT DISTINCT LANGUAGE From series";
+    //echo $qury;
+    return $result = mysqli_query($this->_conn, $qury);
+  }
+
   public function addgenretoSeries($FilmID, $genreID)
   {
 

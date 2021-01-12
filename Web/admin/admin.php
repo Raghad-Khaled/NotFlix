@@ -161,10 +161,15 @@ if ($_SESSION['type'] == 'admin') {
                         </div>
                         <?php } ?>
                 </div>
-            
+                
             </div>
             </div>
             <div class="row">
+                
+        </section>
+        
+
+        <div class="row">
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>

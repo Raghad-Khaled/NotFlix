@@ -327,7 +327,7 @@ $all_ads=$adver->get_all();
             <div class="cd-tab-filter">
                 <ul class="cd-filters">
                     <li class="placeholder"><a class="selected" href="#0" data-type="all"><strong>All</strong></a></li>
-                    <li class="filter"><a href="<?php echo "Movies.php ;" ?>" data-type="all">movies</a></li>
+                    <li class="filter"><a href="<?php echo "Movies.php"; ?>" data-type="all">movies</a></li>
                     <li class="filter" data-filter=".color-1"><a class="selected" href="<?php echo "Series.php"; ?>" data-type="color-1">Series</a></li>
                 </ul>
             </div>
@@ -348,7 +348,7 @@ $all_ads=$adver->get_all();
 
                     <?php
 
-                    $records =  $series_obj->get_all();
+                    $records =  $series_obj->getlanguage_Series();
                     while ($row = mysqli_fetch_array($records)) { ?>
                         <option value="<?php echo $row['LANGUAGE']; ?>"><?php echo $row['LANGUAGE']; ?></option>
                     <?php
