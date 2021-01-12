@@ -54,7 +54,7 @@ $story = mysqli_fetch_assoc($reselt6);
                 </div>
                 <div class="col-sm form-group">
                     <label class="form-label" for="title">Film Title </label>
-                    <input type="text" class="form-control" required name="title" id="title" value=<?= $data['NAME_MOVIE'] ?>>
+                    <input type="text" class="form-control" required name="title" id="title" value="<?= $data['NAME_MOVIE'] ?>">
                 </div>
                 <div class="col-sm form-group">
                     <label for="example-month-input" class="form-label">Year</label>
