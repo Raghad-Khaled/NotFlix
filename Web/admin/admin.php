@@ -7,7 +7,6 @@ $reselt = $movie->getMovieforAdmin($path);
 $data = mysqli_fetch_assoc($reselt);
 $admin = new admin;
 
-session_start();
 if ($_SESSION['type'] == 'admin') {
     $hearder = "../admin/admin.php";
     $addFilm = "../AddFilm/AddFilm.php";
