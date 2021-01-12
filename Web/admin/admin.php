@@ -161,11 +161,12 @@ if ($_SESSION['type'] == 'admin') {
                         </div>
                         <?php } ?>
                 </div>
-            
+                
             </div>
-
+                
         </section>
-        </div>
+        
+
         <div class="row">
             <div class="col">
                 <div class="row">
