@@ -1,15 +1,16 @@
 import pandas as pd
 
 
-data=pd.read_csv('genre_type.csv')
+data=pd.read_csv('series2.csv')
 
-f= open("INSERT_GENRES.sql","w+")
+f= open("add_genre_series.sql","w+")
 
-for i in range(12):
+for i in range(20):
 
-    ID=str(data.loc[i,'ID'])
-    GENRE_TYPE=data.loc[i,'GENRE_TYPE']
-    f.write("INSERT INTO genre (ID,GENRE_TYPE) VALUES('{0}','{1}');\n".format(ID,GENRE_TYPE)) 
+    id_series=str(data.loc[i,'id'])
+    genre_id=data.loc[i,'genre']
+    #f.write("update actor set image='{0}' where id='{1}'   ;\n".format(image,ID)) 
+    f.write("INSERT INTO `genre_relation_series`(`SERIES_ID`, `GENRE_ID`) VALUES ('{0}','{1}');\n".format(id_series,genre_id))
    
      
 
