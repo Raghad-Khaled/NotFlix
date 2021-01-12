@@ -76,6 +76,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
     <link rel="stylesheet" href="assets/css/Testimonial-Slider-9.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
     <link rel="stylesheet" href="assets/css/User-Rating-F19690.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body style="background: linear-gradient(#bd11fa, #46c2ff);">
