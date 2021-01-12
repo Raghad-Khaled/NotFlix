@@ -163,10 +163,8 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
             
             </div>
-
-        </section>
-        </div>
-        <div class="row">
+            </div>
+            <div class="row">
             <div class="col">
                 <div class="row">
                     <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>
@@ -466,6 +464,8 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
             </div>
         </div>
+        </section>
+        
     </main>
     <footer id="footer" style="background: rgb(154,59,128);">
         <div class="row">
