@@ -71,7 +71,7 @@ if(isset($_POST['genre2'])){
 }
 }
 if($_POST['genre3']!=''){
-    $genre2=$_POST['genre3'];
+    $genre3=$_POST['genre3'];
     $check=$genre->exist($genre3);
     if($check->num_rows!=0){
     $data = mysqli_fetch_array($check);

@@ -90,7 +90,7 @@ $all_ads=$adver->get_all();
                 <ul class="nav navbar-nav ml-auto">
                     <!-- <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(251,251,251);"><strong>Series</strong><br /></a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgb(255,255,255);">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../log_out/log_out.php" style="color: rgb(255,255,255);">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SignIn/SignIn.html" style="color: rgb(255,255,255);">Log out</a></li>
                 </ul>
                 <a class="d-lg-flex justify-content-lg-center align-items-lg-center" href="<?= $hearder ?>" style="margin-top: 0px;margin-left: 21px;">
                     <span>
