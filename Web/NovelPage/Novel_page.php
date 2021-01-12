@@ -135,10 +135,7 @@ $picture2=mysqli_fetch_assoc($picture);
                                     </a></div>
                             
                         </div>
-                        <?php
-                        $data10 = mysqli_fetch_array($chracter);
-                                      if($data10!=NULL){
-                                     ?>
+                        
 
                          <div class="row" style="padding-right: 50px;padding-left: 50px;">
                             <div class="col">
@@ -172,7 +169,7 @@ $picture2=mysqli_fetch_assoc($picture);
                                 </div>
                             </div>
                         </div>
-                         <?php }?>
+                         
                                     
                         <!------------------------------------------------------------------------------------------------------------------>
                          <div class="row" style="padding-right: 50px;padding-left: 50px;">

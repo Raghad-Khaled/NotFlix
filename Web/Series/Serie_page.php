@@ -379,18 +379,19 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                             </div>
                         </div>
                         <!-------------------------------------------------------------------------------------------------------------------------->
-                        <?php
+                       
+                                           
                                             
-                                            $seasons_records=$serie->get_season_with_serieId($data['ID']);
-                                            $data6 = mysqli_fetch_array($seasons_records);
-                                            if($data6!=NULL){
-                                        ?>
+                                            
+                                    
                         <div class="m-auto" style="margin-top: 54px;margin-left: 18px;padding-right: 50px;padding-left: 50px;">
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin: 26px;margin-left: 11px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Seasons&nbsp;</h2>
                             <div class="m-auto blog-slider" style="margin-top: 40px;margin-left: 0px;">
                                 <div class="blog-slider__wrp swiper-wrapper">
 
-                                    <?php while($data3 = mysqli_fetch_array($seasons_records)){
+                                    <?php  
+                                            $seasons_records=$serie->get_season_with_serieId($data['ID']);
+                                            while($data3 = mysqli_fetch_array($seasons_records)){
 
                                                
                                             ?>
@@ -409,7 +410,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
 
                                         </div><div class="blog-slider__text">View More Details Here: </div><a class="class=&quot;blog-slider__button" href="<?= $data3['SEASON_LINK'] ?>" style="color:rgba(120,17,250,0.42)">Season Link</a></div>
                                     </div>
-                                    <?php }} ?>
+                                    <?php } ?>
                                     <!---------------------------------------------------------------------->
 
 

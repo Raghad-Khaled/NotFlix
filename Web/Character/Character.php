@@ -17,8 +17,8 @@ $advertisement = new advertisement();
 $reselt2 = $advertisement->get_whit_id($Adv_id);
 $adv_info = mysqli_fetch_assoc($reselt2);
 
-$moviesRelated=$character->getmovieRelated($id);
-$storyRelated=$character->getStoryRelated($id);
+$moviesRelated=$character->getmovieRelated($data['STORY_ID']);
+$storyRelated=$character->getStoryRelated($data['STORY_ID']);
 
 ////////////////////////////COPY///////////////////////////////
 $adver=new advertisement;
