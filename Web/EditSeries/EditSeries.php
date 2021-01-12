@@ -273,7 +273,7 @@ $prize = mysqli_fetch_assoc($reselt5);
                     </div>
 
                     <div class="col-12 col-lg-3 form-group ">
-                        <select class="form-select form-control" aria-label="Default select example" required name="prize">
+                        <select class="form-select form-control" aria-label="Default select example" name="prize">
                             <option value="<?=$prize['PRIZE_WON_ID']?>" selected><?= $prize['TITLE'] ?> <?= $prize['TYPE_OF_PRTIZE'] ?></option>
                             <?php
                             $prize1 = new prize;
