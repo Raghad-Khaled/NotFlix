@@ -111,7 +111,7 @@ if ($_SESSION['type'] == 'admin') {
                                     <a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css">
                                         <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);"><?= $data['NAME_MOVIE'] ?></h5>
                                     </a>
-                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['POSTER']; ?>></a>
+                                </div><a href="../Movie_Page/Movie_page.php?id=<?= $data['ID'] ?>" rel="stylesheet" type="text/css"><img class="img-fluid card-img w-100 d-block rounded-0" src=<?= $data['POSTER']; ?>></a>
                                 <div class="card-body" style="background: linear-gradient(white 63%,rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><?= $data['DESCRIPTION_OF_MOVIE'] ?><br></p>
                                 </div>
@@ -152,7 +152,7 @@ if ($_SESSION['type'] == 'admin') {
                             <div class="card border-dark" style="color: rgb(176,179,204);background: rgba(255,255,255,0);">
                                 <div class="card-header text-light" style="background: rgba(90,92,105,0);">
                                     <h5 class="m-0" style="font-size: 26px;font-family: Almendra, serif;border-color: rgb(255,255,255);">Advertisement</h5>
-                                </div><img class="img-fluid card-img w-100 d-block rounded-0" src=<?php echo $data['PICTURE']; ?>>
+                                </div><img class="img-fluid card-img w-100 d-block rounded-0" src="../AddAdvertisement/Addvertisements/<?= $data['PICTURE']; ?>">
                                 <div class="card-body" style="background: linear-gradient(white 63%, rgb(151,189,255) 100%), rgb(255,255,255);color: rgb(1,5,41);">
                                     <p class="card-text" style="color: rgb(30,8,58);"><br></p>
                                 </div>
