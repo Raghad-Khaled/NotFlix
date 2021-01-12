@@ -37,6 +37,7 @@ $hearder = "../user/user.php";
     <link rel="stylesheet" href="assets/css/Profile-Card.css">
     <link rel="stylesheet" href="assets/css/Responsive-News-Card-Slider-1.css">
     <link rel="stylesheet" href="assets/css/Responsive-News-Card-Slider.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body id="page-top" style="height: 526px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;padding: 0px;background: rgba(49,23,54,0);">
