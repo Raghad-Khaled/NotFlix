@@ -264,12 +264,13 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                     $prize=new prize;
                                     $prizedata=$prize->getprizewithId($data['PRIZE_WON_ID']);
                                     $dataPrize=mysqli_fetch_assoc($prizedata);
-                                    
+                                    if($dataPrize!=NULL){
                                     ?>
 
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Prizes</h4>
                                         <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?>  </p>
                                     </div>
+                                     <?php }?>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                     <!--------------------------- Budget -->
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Budget</h4>
