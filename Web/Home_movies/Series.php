@@ -70,6 +70,7 @@ $all_ads=$adver->get_all();
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Swipe-Slider-9.css">
     <link rel="stylesheet" href="assets/css/tc-cardhover-14.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body style="background: #21212e; padding-right: 0px">

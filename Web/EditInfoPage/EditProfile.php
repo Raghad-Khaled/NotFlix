@@ -32,6 +32,7 @@ $dirc = "user_pics/";
     <link rel="stylesheet" href="assets/css/Profile-Card.css">
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body class="bg-gradient-primary" style="background: linear-gradient(#bd11fa, #46c2ff 100%), #46c2ff;">

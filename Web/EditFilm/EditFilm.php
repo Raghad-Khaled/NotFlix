@@ -29,6 +29,7 @@ $story = mysqli_fetch_assoc($reselt6);
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/AddFilm.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body>

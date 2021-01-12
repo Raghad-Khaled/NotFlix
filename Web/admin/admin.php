@@ -62,6 +62,7 @@ if ($_SESSION['type'] == 'admin') {
     <link rel="stylesheet" href="assets/css/NotflixButton.css">
     <link rel="stylesheet" href="assets/css/Notflixfooter.css">
     <link rel="stylesheet" href="assets/css/NotflixNavBar.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body id="page-top" style="height: 526px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;padding: 0px;background: rgba(49,23,54,0);">
