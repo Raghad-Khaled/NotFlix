@@ -168,8 +168,8 @@ if ($_SESSION['type'] == 'admin') {
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addFilm ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right"   style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Film</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;margin-right: 20px;"><a href="<?= $addFilm ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -197,68 +197,8 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Series</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addseries ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
-                                    <defs>
-                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
-                                            <stop offset="0" stop-color="#c8b8f8"></stop>
-                                            <stop offset="1" stop-color="#d08abc"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <path d="M0,172v-172h172v172z" fill="none"></path>
-                                        <g>
-                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
-                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
-                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
-                                        </g>
-                                    </g>
-                                </svg></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Novel</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addnovel ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
-                                    <defs>
-                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
-                                            <stop offset="0" stop-color="#c8b8f8"></stop>
-                                            <stop offset="1" stop-color="#d08abc"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <path d="M0,172v-172h172v172z" fill="none"></path>
-                                        <g>
-                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
-                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
-                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
-                                        </g>
-                                    </g>
-                                </svg></a></div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Season</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addseason ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right"   style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Series</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;"><a href="<?= $addseries ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -288,8 +228,8 @@ if ($_SESSION['type'] == 'admin') {
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Actor</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addactor ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Novel</span></div>
+                        <div class="col-1 text-left"  style="margin: 20px;margin-right: 20px;"><a href="<?= $addnovel ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -317,68 +257,8 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Character</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addchar ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
-                                    <defs>
-                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
-                                            <stop offset="0" stop-color="#c8b8f8"></stop>
-                                            <stop offset="1" stop-color="#d08abc"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <path d="M0,172v-172h172v172z" fill="none"></path>
-                                        <g>
-                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
-                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
-                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
-                                        </g>
-                                    </g>
-                                </svg></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Prize</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addprize ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
-                                    <defs>
-                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
-                                            <stop offset="0" stop-color="#c8b8f8"></stop>
-                                            <stop offset="1" stop-color="#d08abc"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
-                                            <stop offset="0" stop-color="#7a51ef"></stop>
-                                            <stop offset="1" stop-color="#a7438b"></stop>
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <path d="M0,172v-172h172v172z" fill="none"></path>
-                                        <g>
-                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
-                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
-                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
-                                        </g>
-                                    </g>
-                                </svg></a></div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Director</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $adddirector ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right"   style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Season</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;"><a href="<?= $addseason ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -408,8 +288,8 @@ if ($_SESSION['type'] == 'admin') {
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Advertisement</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;margin-right: 20px;"><a href="<?= $addadvert ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right"   style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Actor</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;margin-right: 20px;"><a href="<?= $addactor ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
@@ -437,8 +317,128 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="col text-right" data-aos="fade-up" style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Company</span></div>
-                        <div class="col-1 text-left" data-aos="fade-up" style="margin: 20px;"><a href="<?= $addcompany ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <div class="col text-right"   style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Character</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;"><a href="<?= $addchar ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <defs>
+                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                            <stop offset="0" stop-color="#c8b8f8"></stop>
+                                            <stop offset="1" stop-color="#d08abc"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g>
+                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                        </g>
+                                    </g>
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-right"   style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Prize</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;margin-right: 20px;"><a href="<?= $addprize ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <defs>
+                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                            <stop offset="0" stop-color="#c8b8f8"></stop>
+                                            <stop offset="1" stop-color="#d08abc"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g>
+                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                        </g>
+                                    </g>
+                                </svg></a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-right"   style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Director</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;"><a href="<?= $adddirector ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <defs>
+                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                            <stop offset="0" stop-color="#c8b8f8"></stop>
+                                            <stop offset="1" stop-color="#d08abc"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g>
+                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                        </g>
+                                    </g>
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-right"   style="margin: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Advertisement</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;margin-right: 20px;"><a href="<?= $addadvert ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <defs>
+                                        <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
+                                            <stop offset="0" stop-color="#c8b8f8"></stop>
+                                            <stop offset="1" stop-color="#d08abc"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="86" y1="25.08244" x2="86" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-2_48133_gr2">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                        <linearGradient x1="126.3125" y1="25.08244" x2="126.3125" y2="144.75144" gradientUnits="userSpaceOnUse" id="color-3_48133_gr3">
+                                            <stop offset="0" stop-color="#7a51ef"></stop>
+                                            <stop offset="1" stop-color="#a7438b"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g>
+                                            <path d="M88.6875,56.4375c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z" fill="url(#color-1_48133_gr1)"></path>
+                                            <path d="M142.4375,86h-8.0625v-51.0625c0,-4.44513 -3.61738,-8.0625 -8.0625,-8.0625h-102.125c-4.44513,0 -8.0625,3.61737 -8.0625,8.0625v72.5625v2.6875v10.75c0,4.44512 3.61469,8.0625 8.0625,8.0625h72.5625v2.6875c0,7.40944 6.02806,13.4375 13.4375,13.4375h32.25c7.40944,0 13.4375,-6.02806 13.4375,-13.4375v-32.25c0,-7.40944 -6.02806,-13.4375 -13.4375,-13.4375zM21.5,34.9375c0,-1.48081 1.204,-2.6875 2.6875,-2.6875h102.125c1.4835,0 2.6875,1.20669 2.6875,2.6875v51.0625h-5.375v-43c0,-2.96431 -2.41338,-5.375 -5.375,-5.375h-86c-2.96431,0 -5.375,2.41069 -5.375,5.375v59.125c0,2.96431 2.41069,5.375 5.375,5.375h64.5v5.375h-72.5625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-2.6875zM96.75,99.4375v2.6875h-29.69956c-1.32494,-18.60019 -15.98794,-33.47819 -34.80044,-34.80044v-24.32456h86v43h-8.0625c-7.40944,0 -13.4375,6.02806 -13.4375,13.4375zM32.25,94.44413c2.6875,0.97825 6.70262,3.92106 7.68088,7.68087h-7.68087zM45.44294,102.125c-1.13681,-6.73756 -5.13044,-12.05612 -13.19294,-13.19562v-5.43144c10.75,1.21744 17.40694,8.91981 18.62438,18.62706zM56.30044,102.125c-1.26581,-12.67694 -10.61294,-22.78731 -24.05044,-24.05044v-5.375c16.125,1.30075 28.12738,13.78687 29.42544,29.42544zM24.1875,123.625c-1.4835,0 -2.6875,-1.20669 -2.6875,-2.6875v-3.182c0,0.301 1.73881,0.4945 2.6875,0.4945h72.5625v5.375zM150.5,131.6875c0,4.44512 -3.61738,8.0625 -8.0625,8.0625h-32.25c-4.44512,0 -8.0625,-3.61738 -8.0625,-8.0625v-2.6875v-5.375v-5.375v-5.375v-5.375v-5.375v-2.6875c0,-4.44512 3.61469,-8.0625 8.0625,-8.0625h32.25c4.44512,0 8.0625,3.61738 8.0625,8.0625z" fill="url(#color-2_48133_gr2)"></path>
+                                            <path d="M129,102.125h-5.375v10.75h-10.75v5.375h10.75v10.75h5.375v-10.75h10.75v-5.375h-10.75z" fill="url(#color-3_48133_gr3)"></path>
+                                        </g>
+                                    </g>
+                                </svg></a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-right"   style="margin: 20px;margin-left: 20px;"><span style="color: rgb(245,245,249);font-size: 26px;">Add New Company</span></div>
+                        <div class="col-1 text-left"   style="margin: 20px;"><a href="<?= $addcompany ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172" style=" fill:#000000;">
                                     <defs>
                                         <linearGradient x1="88.6875" y1="54.75781" x2="88.6875" y2="73.95194" gradientUnits="userSpaceOnUse" id="color-1_48133_gr1">
                                             <stop offset="0" stop-color="#c8b8f8"></stop>
