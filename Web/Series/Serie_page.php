@@ -97,8 +97,8 @@ $rate=mysqli_fetch_assoc($Notflixrate);
             </div>
         </div>
     </nav>
-    <main class="page product-page" style="color: rgb(255,255,255);font-size: 24px;">
-        <section class="clean-block clean-product dark" style="background: linear-gradient(#bd11fa, #46c2ff);">
+    <main class="page product-page" style="color: rgb(255,255,255);font-size: 24px; margin-top: 0px">
+        <section class="clean-block clean-product dark" style="background: linear-gradient(#bd11fa, #46c2ff); margin-top: 0px;">
             <div class="container">
                 <div class="d-xl-flex justify-content-xl-center align-items-xl-center block-heading"><button class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center" data-bs-hover-animate="pulse" type="button" style="height: 104px;border-radius: 584px;background: rgb(33,33,46);box-shadow: 0px 0px 20px rgb(33,33,46);border-width: 0px;border-bottom: 0px none rgba(0,123,255,0);margin-bottom: 35px;"><a href="../Home_movies/Movies.php"><img src="assets/img/5027d5fc-d38c-4aba-ab1c-e41212bf9e10_200x200.png" style="margin-top: 11px;filter: hue-rotate(17deg);"></a></button></div>
                 <div class="block-content" style="background: rgb(33,33,46);box-shadow: 0px 0px 60px rgb(45,45,68);">
@@ -272,18 +272,19 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                                         </p>
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
+ <!----------------------- Prizes -->
+                                    <?php
+                                    $prize=new prize;
+                                    $prizedata=$prize->getprizewithId($data['PRIZE_WON_ID']);
+                                    $dataPrize=mysqli_fetch_assoc($prizedata);
+                                    if($dataPrize!=NULL){
+                                    ?>
 
-                                        <?php
-                                            $prize=new prize;
-                                            $prizedata=$prize->getprizewithId($data['PRIZE_WON_ID']);
-                                            $dataPrize=mysqli_fetch_assoc($prizedata);
-                                            
-                                        ?>
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Prizes</h4>
-                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;">
-                                            
-                                            <?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?>  
-                                        </p>
+                                        <p class="text-left" style="margin-bottom: 10px;margin-top: 16px;margin-left: 18px;color: rgba(255,255,255,0.97);font-size: 16px;font-family: Nunito, sans-serif;"><?=$dataPrize['TITLE']?> <?=$dataPrize['TYPE_OF_PRTIZE'] ?>  </p>
+                                    </div>
+                                     <?php }?>
+                                      
                                     </div>
                                     <div style="border-style: none;border-bottom: 1px solid rgba(120,17,250,0.42) ;">
                                         <h4 style="border-bottom: 1px none rgb(229,229,229);font-family: 'Balsamiq Sans', cursive;font-size: 28px;color: #8749ed;margin-top: 10px;">Budget</h4>
@@ -378,16 +379,18 @@ $rate=mysqli_fetch_assoc($Notflixrate);
                             </div>
                         </div>
                         <!-------------------------------------------------------------------------------------------------------------------------->
+                        <?php
+                                            
+                                            $seasons_records=$serie->get_season_with_serieId($data['ID']);
+                                            $data6 = mysqli_fetch_array($seasons_records);
+                                            if($data6!=NULL){
+                                        ?>
                         <div class="m-auto" style="margin-top: 54px;margin-left: 18px;padding-right: 50px;padding-left: 50px;">
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin: 26px;margin-left: 11px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Seasons&nbsp;</h2>
                             <div class="m-auto blog-slider" style="margin-top: 40px;margin-left: 0px;">
                                 <div class="blog-slider__wrp swiper-wrapper">
 
-                                            <?php
-                                            
-                                            $seasons_records=$serie->get_season_with_serieId($data['ID']);
-                                            
-                                            while($data3 = mysqli_fetch_array($seasons_records)){
+                                    <?php while($data3 = mysqli_fetch_array($seasons_records)){
 
                                                
                                             ?>
@@ -406,7 +409,7 @@ $rate=mysqli_fetch_assoc($Notflixrate);
 
                                         </div><div class="blog-slider__text">View More Details Here: </div><a class="class=&quot;blog-slider__button" href="<?= $data3['SEASON_LINK'] ?>" style="color:rgba(120,17,250,0.42)">Season Link</a></div>
                                     </div>
-                                    <?php } ?>
+                                    <?php }} ?>
                                     <!---------------------------------------------------------------------->
 
 
