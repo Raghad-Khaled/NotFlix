@@ -161,11 +161,14 @@ if ($_SESSION['type'] == 'admin') {
                         </div>
                         <?php } ?>
                 </div>
-            
+                
             </div>
-
+            </div>
+            <div class="row">
+                
         </section>
-        </div>
+        
+
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -466,6 +469,8 @@ if ($_SESSION['type'] == 'admin') {
                 </div>
             </div>
         </div>
+        </section>
+        
     </main>
     <footer id="footer" style="background: rgb(154,59,128);">
         <div class="row">

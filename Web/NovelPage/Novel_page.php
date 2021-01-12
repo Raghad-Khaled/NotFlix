@@ -128,14 +128,17 @@ $picture2=mysqli_fetch_assoc($picture);
                     <div class="product-info">
                         <div style="border-style: none;padding-right: 50px;padding-left: 50px;">
                             <h2 style="font-size: 42px;font-family: Acme, sans-serif;margin-bottom: 20px;border-bottom: 1px solid #46c2ff;padding-bottom: 10px;padding-top: 10px;">Author</h2>
-                            <div class="row d-xl-flex">
+                            
                                
-                                <div class="col-md-7 d-lg-flex m-auto align-items-lg-center justify-content-xl-start"><a >
-                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px;">Louisa May Alcott</h4>
+                                <a >
+                                        <h4 style="font-size: 34px;font-family: 'Chelsea Market', cursive;margin-top: 0px; padding-left: 15px"><?=$data['AUTHOR_NAME'] ?></h4>
                                     </a></div>
-                            </div>
+                            
                         </div>
-                       
+                        <?php
+                        $data10 = mysqli_fetch_array($chracter);
+                                      if($data10!=NULL){
+                                     ?>
 
                          <div class="row" style="padding-right: 50px;padding-left: 50px;">
                             <div class="col">
@@ -169,7 +172,7 @@ $picture2=mysqli_fetch_assoc($picture);
                                 </div>
                             </div>
                         </div>
-                        
+                         <?php }?>
                                     
                         <!------------------------------------------------------------------------------------------------------------------>
                          <div class="row" style="padding-right: 50px;padding-left: 50px;">
