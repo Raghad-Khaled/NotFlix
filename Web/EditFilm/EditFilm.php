@@ -58,7 +58,7 @@ $story = mysqli_fetch_assoc($reselt6);
                 </div>
                 <div class="col-sm form-group">
                     <label for="example-month-input" class="form-label">Year</label>
-                    <input class="form-control" type="month" value="2020-08" required name="year" id="example-month-input" value=<?= $data['YEAR'] ?>>
+                    <input class="form-control" type="month" required name="year" id="example-month-input" value="<?= $data['YEAR'] ?>-08">
                 </div>
             </div>
 
