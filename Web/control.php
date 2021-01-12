@@ -317,7 +317,7 @@ class Movie
     if($story == NULL && $prize == NULL){
       $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = 0, STORY_ID = 0
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = 0
        WHERE ID = $id";
 
        echo $qury;
@@ -326,7 +326,7 @@ class Movie
     else if($story == NULL){
       $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize,STORY_ID = 0
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = $prize
        WHERE ID = $id";
 
        echo $qury;
@@ -334,7 +334,7 @@ class Movie
     }else if($prize == NULL){
       $qury = "UPDATE  movie SET NAME_MOVIE = '$Name', YEAR = $year, DURATION_MIN = '$duration', DESCRIPTION_OF_MOVIE = '$description',
        LANGUAGE_MOBIE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, STORY_ID = $story, PRIZE_WON_ID = 0
+       ADMIN_INSETED_MOVIE = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, STORY_ID = $story
        WHERE ID = $id";
 
        echo $qury;
@@ -1088,7 +1088,7 @@ class series
     {
       $qury = "UPDATE  SERIES SET NAME_SERIES = '$Name', YEAR = $year, DURATION_MIN = $duration, DESCRIPTION = '$description',
        LANGUAGE = '$language', REVENUE = $revenue, BUDGET = $budget, HOME_PAGE_LINK = '$link', POSTER = '$poster',
-       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, PRIZE_WON_ID = 0, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES
+       ADMIN_INSETED_SERIES = '$admin', IMDB_RATE = $rate, IMDB_RATE_COUNT = $count, DIRECTOR_ID = $Director, NUMBER_OF_EPISODES_IN_SEASON = $NUMBER_OF_EPISODES
        WHERE ID = '$id'";
        echo $qury;
       $result = mysqli_query($this->_conn, $qury);

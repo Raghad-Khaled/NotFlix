@@ -276,8 +276,13 @@ $story = mysqli_fetch_assoc($reselt6);
                     </div>
                     <div class="col-12 col-lg-3 form-group ">
                         <select class="form-select form-control" aria-label="Default select example" name="story">
+                        <?php if($story!=NULL) { ?>
                             <option value="<?=$story['STORY_ID']?>" selected><?= $story['STORY_NAME'] ?></option>
 
+                            <?php } else{?>
+                                <option selected></option>
+                            <?php
+                               } ?>
                             <?php
                             $story1 = new story;
                             $records =  $story1->getstory();
@@ -292,8 +297,16 @@ $story = mysqli_fetch_assoc($reselt6);
                     </div>
 
                     <div class="col-12 col-lg-3 form-group ">
-                        <select class="form-select form-control" aria-label="Default select example" required name="prize">
+                        <select class="form-select form-control" aria-label="Default select example"  name="prize">
+                        <?php
+                        if($prize!=NULL){
+                        ?>
                             <option value="<?=$prize['PRIZE_WON_ID']?>" selected><?= $prize['TITLE'] ?> <?= $prize['TYPE_OF_PRTIZE'] ?></option>
+                            <?php }
+                            else{ ?>
+                                <option selected></option> 
+                            <?php }
+                            ?>
                             <?php
                             $prize1 = new prize;
                             $records =  $prize1->getprize();
