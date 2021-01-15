@@ -1448,138 +1448,138 @@ ALTER TABLE `story`
 -- Constraints for table `acted_movie`
 --
 ALTER TABLE `acted_movie`
-  ADD CONSTRAINT `acted_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
-  ADD CONSTRAINT `acted_movie_ibfk_2` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`);
+  ADD CONSTRAINT `acted_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`) on delete cascade,
+  ADD CONSTRAINT `acted_movie_ibfk_2` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`) on delete cascade;
 
 --
 -- Constraints for table `acted_series`
 --
 ALTER TABLE `acted_series`
-  ADD CONSTRAINT `acted_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`),
-  ADD CONSTRAINT `acted_series_ibfk_2` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`);
+  ADD CONSTRAINT `acted_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`) on delete cascade,
+  ADD CONSTRAINT `acted_series_ibfk_2` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `actor_prize_movie`
 --
 ALTER TABLE `actor_prize_movie`
-  ADD CONSTRAINT `actor_prize_movie_ibfk_1` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`),
-  ADD CONSTRAINT `actor_prize_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
-  ADD CONSTRAINT `actor_prize_movie_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`);
+  ADD CONSTRAINT `actor_prize_movie_ibfk_1` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`)on delete cascade,
+  ADD CONSTRAINT `actor_prize_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade,
+  ADD CONSTRAINT `actor_prize_movie_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `actor_prize_series`
 --
 ALTER TABLE `actor_prize_series`
-  ADD CONSTRAINT `actor_prize_series_ibfk_1` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`),
-  ADD CONSTRAINT `actor_prize_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`),
-  ADD CONSTRAINT `actor_prize_series_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`);
+  ADD CONSTRAINT `actor_prize_series_ibfk_1` FOREIGN KEY (`ACTOR_ID`) REFERENCES `actor` (`ID`)on delete cascade,
+  ADD CONSTRAINT `actor_prize_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade,
+  ADD CONSTRAINT `actor_prize_series_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `add_to_fav_movie`
 --
 ALTER TABLE `add_to_fav_movie`
-  ADD CONSTRAINT `add_to_fav_movie_ibfk_1` FOREIGN KEY (`USER_NAME_OF_USER`) REFERENCES `user_of_notflix` (`USER_NAME`),
-  ADD CONSTRAINT `add_to_fav_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`);
+  ADD CONSTRAINT `add_to_fav_movie_ibfk_1` FOREIGN KEY (`USER_NAME_OF_USER`) REFERENCES `user_of_notflix` (`USER_NAME`)on delete cascade,
+  ADD CONSTRAINT `add_to_fav_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `add_to_fav_series`
 --
 ALTER TABLE `add_to_fav_series`
-  ADD CONSTRAINT `add_to_fav_series_ibfk_1` FOREIGN KEY (`USER_NAME_OF_USER`) REFERENCES `user_of_notflix` (`USER_NAME`),
-  ADD CONSTRAINT `add_to_fav_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`);
+  ADD CONSTRAINT `add_to_fav_series_ibfk_1` FOREIGN KEY (`USER_NAME_OF_USER`) REFERENCES `user_of_notflix` (`USER_NAME`)on delete cascade,
+  ADD CONSTRAINT `add_to_fav_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `advertisement`
 --
 ALTER TABLE `advertisement`
-  ADD CONSTRAINT `advertisement_ibfk_1` FOREIGN KEY (`ADMIN_ADDED`) REFERENCES `admin_website` (`ADMIN_NAME`);
+  ADD CONSTRAINT `advertisement_ibfk_1` FOREIGN KEY (`ADMIN_ADDED`) REFERENCES `admin_website` (`ADMIN_NAME`)on delete cascade;
 
 --
 -- Constraints for table `director_prize_movie`
 --
 ALTER TABLE `director_prize_movie`
-  ADD CONSTRAINT `director_prize_movie_ibfk_1` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`),
-  ADD CONSTRAINT `director_prize_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
-  ADD CONSTRAINT `director_prize_movie_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`);
+  ADD CONSTRAINT `director_prize_movie_ibfk_1` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`)on delete cascade,
+  ADD CONSTRAINT `director_prize_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade,
+  ADD CONSTRAINT `director_prize_movie_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `director_prize_series`
 --
 ALTER TABLE `director_prize_series`
-  ADD CONSTRAINT `director_prize_series_ibfk_1` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`),
-  ADD CONSTRAINT `director_prize_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`),
-  ADD CONSTRAINT `director_prize_series_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`);
+  ADD CONSTRAINT `director_prize_series_ibfk_1` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`)on delete cascade,
+  ADD CONSTRAINT `director_prize_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade,
+  ADD CONSTRAINT `director_prize_series_ibfk_3` FOREIGN KEY (`PRIZE_ID`) REFERENCES `prize` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `fantasy_character`
 --
 ALTER TABLE `fantasy_character`
-  ADD CONSTRAINT `fantasy_character_ibfk_1` FOREIGN KEY (`STORY_ID`) REFERENCES `story` (`STORY_ID`);
+  ADD CONSTRAINT `fantasy_character_ibfk_1` FOREIGN KEY (`STORY_ID`) REFERENCES `story` (`STORY_ID`)on delete cascade;
 
 --
 -- Constraints for table `funded_movie`
 --
 ALTER TABLE `funded_movie`
-  ADD CONSTRAINT `funded_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
-  ADD CONSTRAINT `funded_movie_ibfk_2` FOREIGN KEY (`PRODUCTION_COMPANY_ID`) REFERENCES `production_company` (`ID`);
+  ADD CONSTRAINT `funded_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade,
+  ADD CONSTRAINT `funded_movie_ibfk_2` FOREIGN KEY (`PRODUCTION_COMPANY_ID`) REFERENCES `production_company` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `funded_series`
 --
 ALTER TABLE `funded_series`
-  ADD CONSTRAINT `funded_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`),
-  ADD CONSTRAINT `funded_series_ibfk_2` FOREIGN KEY (`PRODUCTION_COMPANY_ID`) REFERENCES `production_company` (`ID`);
+  ADD CONSTRAINT `funded_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade,
+  ADD CONSTRAINT `funded_series_ibfk_2` FOREIGN KEY (`PRODUCTION_COMPANY_ID`) REFERENCES `production_company` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `genre_relation_movie`
 --
 ALTER TABLE `genre_relation_movie`
-  ADD CONSTRAINT `genre_relation_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`),
-  ADD CONSTRAINT `genre_relation_movie_ibfk_2` FOREIGN KEY (`GENRE_ID`) REFERENCES `genre` (`ID`);
+  ADD CONSTRAINT `genre_relation_movie_ibfk_1` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade,
+  ADD CONSTRAINT `genre_relation_movie_ibfk_2` FOREIGN KEY (`GENRE_ID`) REFERENCES `genre` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `genre_relation_series`
 --
 ALTER TABLE `genre_relation_series`
-  ADD CONSTRAINT `genre_relation_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`),
-  ADD CONSTRAINT `genre_relation_series_ibfk_2` FOREIGN KEY (`GENRE_ID`) REFERENCES `genre` (`ID`);
+  ADD CONSTRAINT `genre_relation_series_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade,
+  ADD CONSTRAINT `genre_relation_series_ibfk_2` FOREIGN KEY (`GENRE_ID`) REFERENCES `genre` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `movie`
 --
 ALTER TABLE `movie`
-  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`PRIZE_WON_ID`) REFERENCES `prize` (`ID`),
-  ADD CONSTRAINT `movie_ibfk_2` FOREIGN KEY (`ADMIN_INSETED_MOVIE`) REFERENCES `admin_website` (`ADMIN_NAME`),
-  ADD CONSTRAINT `movie_ibfk_3` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`),
-  ADD CONSTRAINT `movie_ibfk_4` FOREIGN KEY (`STORY_ID`) REFERENCES `story` (`STORY_ID`);
+  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`PRIZE_WON_ID`) REFERENCES `prize` (`ID`)on delete cascade,
+  ADD CONSTRAINT `movie_ibfk_2` FOREIGN KEY (`ADMIN_INSETED_MOVIE`) REFERENCES `admin_website` (`ADMIN_NAME`)on delete cascade,
+  ADD CONSTRAINT `movie_ibfk_3` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`)on delete cascade,
+  ADD CONSTRAINT `movie_ibfk_4` FOREIGN KEY (`STORY_ID`) REFERENCES `story` (`STORY_ID`)on delete cascade;
 
 --
 -- Constraints for table `rate_movie`
 --
 ALTER TABLE `rate_movie`
-  ADD CONSTRAINT `rate_movie_ibfk_1` FOREIGN KEY (`USER_NAME_WHO_RATED`) REFERENCES `user_of_notflix` (`USER_NAME`),
-  ADD CONSTRAINT `rate_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`);
+  ADD CONSTRAINT `rate_movie_ibfk_1` FOREIGN KEY (`USER_NAME_WHO_RATED`) REFERENCES `user_of_notflix` (`USER_NAME`)on delete cascade,
+  ADD CONSTRAINT `rate_movie_ibfk_2` FOREIGN KEY (`MOVIE_ID`) REFERENCES `movie` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `rate_series`
 --
 ALTER TABLE `rate_series`
-  ADD CONSTRAINT `rate_series_ibfk_1` FOREIGN KEY (`USER_NAME_WHO_RATED`) REFERENCES `user_of_notflix` (`USER_NAME`),
-  ADD CONSTRAINT `rate_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`);
+  ADD CONSTRAINT `rate_series_ibfk_1` FOREIGN KEY (`USER_NAME_WHO_RATED`) REFERENCES `user_of_notflix` (`USER_NAME`)on delete cascade,
+  ADD CONSTRAINT `rate_series_ibfk_2` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `season`
 --
 ALTER TABLE `season`
-  ADD CONSTRAINT `season_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`);
+  ADD CONSTRAINT `season_ibfk_1` FOREIGN KEY (`SERIES_ID`) REFERENCES `series` (`ID`)on delete cascade;
 
 --
 -- Constraints for table `series`
 --
 ALTER TABLE `series`
-  ADD CONSTRAINT `series_ibfk_1` FOREIGN KEY (`PRIZE_WON_ID`) REFERENCES `prize` (`ID`),
-  ADD CONSTRAINT `series_ibfk_2` FOREIGN KEY (`ADMIN_INSETED_SERIES`) REFERENCES `admin_website` (`ADMIN_NAME`),
-  ADD CONSTRAINT `series_ibfk_3` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`);
+  ADD CONSTRAINT `series_ibfk_1` FOREIGN KEY (`PRIZE_WON_ID`) REFERENCES `prize` (`ID`)on delete cascade,
+  ADD CONSTRAINT `series_ibfk_2` FOREIGN KEY (`ADMIN_INSETED_SERIES`) REFERENCES `admin_website` (`ADMIN_NAME`)on delete cascade,
+  ADD CONSTRAINT `series_ibfk_3` FOREIGN KEY (`DIRECTOR_ID`) REFERENCES `director` (`ID`)on delete cascade;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
