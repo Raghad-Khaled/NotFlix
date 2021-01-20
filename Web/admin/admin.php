@@ -73,6 +73,20 @@ if ($_SESSION['type'] == 'admin') {
                     <li class="nav-item" style="font-size: 16px;"><a class="nav-link" href="http://localhost/NotFlix/Web/Home_movies/Movies.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#footer" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="../log_out/log_out.php" style="color: rgba(255,255,255,0.9);font-family: Acme, sans-serif;font-size: 18px;">Log out</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="background: rgba(33,33,46,0);font-family: Acme, sans-serif;font-size: 18px;color: rgb(255,255,255);">Add&nbsp;</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<?= $addFilm ?>">Film</a>
+                            <a class="dropdown-item" href="<?= $addseries ?>">Series</a>
+                            <a class="dropdown-item" href="<?= $addnovel ?>">Novel</a>
+                            <a class="dropdown-item" href="<?= $addseason ?>">Season</a>
+                            <a class="dropdown-item" href="<?= $addactor ?>">Actor</a>
+                            <a class="dropdown-item" href="<?= $addchar ?>">Character</a>
+                            <a class="dropdown-item" href="<?= $addprize ?>">Prize</a>
+                            <a class="dropdown-item" href="<?= $adddirector ?>">Director</a>
+                            <a class="dropdown-item" href="<?= $addadvert ?>">Advertisement</a>
+                            <a class="dropdown-item" href="<?= $addcompany ?>">Company</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -166,7 +180,7 @@ if ($_SESSION['type'] == 'admin') {
             </div>
             </div>
 
-
+<!-- 
                 <div class="row">
                     <div class="col">
                         <div class="row">
@@ -466,7 +480,7 @@ if ($_SESSION['type'] == 'admin') {
                                     </svg></a></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
         </section>
 
     </main>
