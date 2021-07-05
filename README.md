@@ -1,9 +1,14 @@
+<H1 align="center">
+
+ 🎞 NOTflix 🎞
+ </H1>
 <div align="center">
   <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
-   <h4 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h4>
  </div>
  
 ![-----------------------------------------------------](https://i.ibb.co/KxX1cjt/upload-91aec5929c0f853dad72f5540ddb409e-1.png)
+
+<h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h4>
 
 
 
