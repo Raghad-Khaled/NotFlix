@@ -1,6 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
  </div>
+ 
 ![-----------------------------------------------------](https://i.ibb.co/3d8MgxY/upload-91aec5929c0f853dad72f5540ddb409e.png)
 
 <h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
