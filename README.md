@@ -4,7 +4,7 @@
 
 <h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/cloudy.png)
+![-----------------------------------------------------]
 
 <h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
 <div align="center">
