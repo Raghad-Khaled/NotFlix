@@ -23,7 +23,7 @@
  <H1>
 <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-bongo-gif.gif" alt="icons8-pacman-48" border="0" width=42px align="center"/> software used
  </H1>
-<table>
+<table align="center">
   <tr>
     <td align="center"><img src="https://img.icons8.com/color/144/000000/html-5--v1.png" width="100px;" alt=""/><br /><sub><b>HTML</b></sub><br />
     </td><td align="center"><img src="https://img.icons8.com/color/144/000000/css3.png" width="100px;" alt=""/><br /><sub><b>CSS</b></sub><br />
