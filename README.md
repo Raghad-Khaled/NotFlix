@@ -1,10 +1,12 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
  </div>
+ <h4 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h4>
+ 
  
 ![-----------------------------------------------------](https://i.ibb.co/3d8MgxY/upload-91aec5929c0f853dad72f5540ddb409e.png)
 
-<h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
+
 
 <h1 align="center"> Overview</h1>
 <h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
