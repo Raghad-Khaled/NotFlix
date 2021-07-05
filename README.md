@@ -1,6 +1,6 @@
 <H1 align="center">
 
- 🎞 NOTflix 🎞
+ 🎞 NOTflix Website🎞
  </H1>
 <div align="center">
   <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
