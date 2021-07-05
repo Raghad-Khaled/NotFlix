@@ -20,7 +20,10 @@
  "NOTflix" is a great source for movie, TV, celebrity and books content. Find ratings and reviews for the most popular movies and TV shows. Search for movies, series, or books, and learn about directors, actors and even books related to these shows. signup for a new account so that you can rate movies, Tv shows and add them to your favourite list 💛
  </p>
  
- 
+ <H1>
+<img src=" https://github.com/seanprashad/slackmoji/blob/master/emoji/blob/blob-bongo-gif.gif?raw=true" alt="icons8-pacman-48" border="0" width=42px align="center"/> software used
+ </H1>
+
 ![-----------------------------------------------------](https://i.ibb.co/KxX1cjt/upload-91aec5929c0f853dad72f5540ddb409e-1.png)
 
  <h1> <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-high-five.png" width=45px  alt="" align="center"/> contributers  
