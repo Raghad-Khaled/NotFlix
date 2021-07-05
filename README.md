@@ -5,8 +5,8 @@
 <h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
 
 ![-----------------------------------------------------](https://i.ibb.co/3d8MgxY/upload-91aec5929c0f853dad72f5540ddb409e.png)
-
-<h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
+<h2 align="center"> Overview</h1>
+<h2 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
 <div align="center">
 <table>
   <tr>
