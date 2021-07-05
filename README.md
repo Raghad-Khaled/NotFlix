@@ -25,7 +25,7 @@
  </H1>
 <table align="center">
   <tr>
-    <td align="center"><img src="https://img.icons8.com/color/144/000000/html-5--v1.png" width="100px;" alt=""/><br /><sub><b>HTML</b></sub><br />
+    <td align="center"><img src="https://img.icons8.com/color/144/000000/html-5--v1.png" width="100px;" alt="" /><br /><sub><b>HTML</b></sub><br />
     </td><td align="center"><img src="https://img.icons8.com/color/144/000000/css3.png" width="100px;" alt=""/><br /><sub><b>CSS</b></sub><br />
     </td><td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Bootstrap_Studio_Logo.png" width="100px;" alt=""/><br /><sub>
    <b>BS studio</b></sub><br />
@@ -40,20 +40,20 @@
  
  <table align="center">
   <tr>
-    <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(260).png" width="800px;"  alt=""/><br /><br />
+    <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(260).png" width="800px;" align="center" alt=""/><br /><br />
     </td>
     </tr>
 <tr>
   <tr>
-    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif" width="800px;"  alt=""/><br /><br />
+    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif" width="800px;" align="center" alt=""/><br /><br />
     </td>
     </tr>
 <tr>
-    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" width="800px;"  alt=""/><br /><br />
+    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" width="800px;" align="center" alt=""/><br /><br />
     </td>
  </tr>
  <tr>
-  <td align="center"><img src="https://i.ibb.co/pn1ZCM5/ezgif-com-gif-maker-2.gif" width="800px;"   alt=""/><br /><br />
+  <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(263).png" width="800px;" align="center"  alt=""/><br /><br />
     </td> 
  </tr>
 
