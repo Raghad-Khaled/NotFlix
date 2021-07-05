@@ -2,8 +2,10 @@
   <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
  </div>
 
-<h3 align="center"🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
+<h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
 <div align="center">
 <table>
