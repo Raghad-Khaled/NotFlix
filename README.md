@@ -19,7 +19,7 @@
  
 ![-----------------------------------------------------](https://i.ibb.co/KxX1cjt/upload-91aec5929c0f853dad72f5540ddb409e-1.png)
 
- <h1> <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-high-five.png" width=50px  alt="" align="center"/>   Contributers  
+ <h1> <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-high-five.png" width=45px  alt="" align="center"/>   Contributers  
  </h1>
 <div align="center">
 <table>
