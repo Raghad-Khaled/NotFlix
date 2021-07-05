@@ -39,15 +39,15 @@
  </H1>
  <table align="center">
   <tr>
-    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif"  alt=""/><br /><br />
+    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif" width="800px;"  alt=""/><br /><br />
     </td>
     </tr>
 <tr>
-    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" alt=""/><br /><br />
+    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" width="800px;"  alt=""/><br /><br />
     </td>
  </tr>
  <tr>
-  <td align="center"><img src="https://i.ibb.co/pn1ZCM5/ezgif-com-gif-maker-2.gif"  alt=""/><br /><br />
+  <td align="center"><img src="https://i.ibb.co/pn1ZCM5/ezgif-com-gif-maker-2.gif" width="800px;"   alt=""/><br /><br />
     </td> 
  </tr>
 
