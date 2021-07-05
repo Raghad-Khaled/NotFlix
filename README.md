@@ -17,7 +17,7 @@ A really cool website made by a bunch of nerdy,geeky but cool students
     </td>
     </tr>
    <tr>
-    <td align="center"><a href="(https://github.com/DoniaEsawi/"><img src="https://avatars.githubusercontent.com/u/56982963?v=4" width="100px;" alt=""/><br /><sub><b>Donia Esawy/b></sub></a><br />
+    <td align="center"><a href="(https://github.com/DoniaEsawi/"><img src="https://avatars.githubusercontent.com/u/56982963?v=4" width="100px;" alt=""/><br /><sub><b>Donia Esawy</b></sub></a><br />
     </td>
     </tr>
   </table>
