@@ -35,7 +35,7 @@
   </table>
   
   <H1>
-<img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/parrots/party-doge.gif" alt="icons8-pacman-48" border="0" width=42px align="center"/> Demo
+<img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/parrots/party-doge.gif" alt="icons8-pacman-48" border="0" width=52px align="center"/> Demo
  </H1>
  
  <table align="center">
