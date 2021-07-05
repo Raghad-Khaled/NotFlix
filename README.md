@@ -37,7 +37,13 @@
   <H1>
 <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/parrots/party-doge.gif" alt="icons8-pacman-48" border="0" width=42px align="center"/> Demo
  </H1>
+ 
  <table align="center">
+  <tr>
+    <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(260).png" width="800px;"  alt=""/><br /><br />
+    </td>
+    </tr>
+<tr>
   <tr>
     <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif" width="800px;"  alt=""/><br /><br />
     </td>
