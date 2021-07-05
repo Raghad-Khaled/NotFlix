@@ -23,7 +23,17 @@
  <H1>
 <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-bongo-gif.gif" alt="icons8-pacman-48" border="0" width=42px align="center"/> software used
  </H1>
-
+<table>
+  <tr>
+    <td align="center"><img src="https://img.icons8.com/color/48/000000/html-5--v1.png" width="100px;" alt=""/><br /><sub><b>HTML</b></sub><br />
+    </td><td align="center"><img src="https://img.icons8.com/color/48/000000/css3.png" width="100px;" alt=""/><br /><sub><b>CSS</b></sub><br />
+    </td><td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Bootstrap_Studio_Logo.png" width="100px;" alt=""/><br /><sub>
+   <b>BS studio</b></sub><br />
+    </td> <td align="center"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" width="100px;" alt=""/><br /><sub><b>MySQL</b></sub><br />
+    </td>
+    </tr>
+  </table>
+  
 ![-----------------------------------------------------](https://i.ibb.co/KxX1cjt/upload-91aec5929c0f853dad72f5540ddb409e-1.png)
 
  <h1> <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-high-five.png" width=45px  alt="" align="center"/> contributers  
