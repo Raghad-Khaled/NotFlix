@@ -1,4 +1,6 @@
-# NotFlix
+<div align="center">
+  <img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/logo.png" alt=""/>
+ </div>
 
 A really cool website made by a bunch of nerdy,geeky but cool students 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
