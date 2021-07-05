@@ -34,6 +34,26 @@
     </tr>
   </table>
   
+  <H1>
+<img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/parrots/party-doge.gif" alt="icons8-pacman-48" border="0" width=42px align="center"/> Demo
+ </H1>
+ <table align="center">
+  <tr>
+    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif"  alt=""/><br /><br />
+    </td>
+    </tr>
+<tr>
+    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" alt=""/><br /><br />
+    </td>
+ </tr>
+ <tr>
+  <td align="center"><img src="https://i.ibb.co/pn1ZCM5/ezgif-com-gif-maker-2.gif"  alt=""/><br /><br />
+    </td> 
+ </tr>
+
+  </table>
+  
+  
 ![-----------------------------------------------------](https://i.ibb.co/KxX1cjt/upload-91aec5929c0f853dad72f5540ddb409e-1.png)
 
  <h1> <img src="https://raw.githubusercontent.com/seanprashad/slackmoji/master/emoji/blob/blob-high-five.png" width=45px  alt="" align="center"/> contributers  
