@@ -1,6 +1,7 @@
 # NotFlix
 
 A really cool website made by a bunch of nerdy,geeky but cool students 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
 <div align="center">
 <table>
