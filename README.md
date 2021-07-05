@@ -45,7 +45,7 @@
     </tr>
 <tr>
   <tr>
-    <td align="center"><img src="https://i.ibb.co/2WrQqsG/ezgif-com-gif-maker.gif" width="800px;" align="center" alt=""/><br /><br />
+    <td align="center"><img src="https://github.com/DoniaEsawi/NotFlix/blob/main/ezgif-6-7e49ffef7dbd.gif" width="800px;" align="center" alt=""/><br /><br />
     </td>
     </tr>
 <tr>
