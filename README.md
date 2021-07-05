@@ -4,7 +4,6 @@
 
 <h3 align="center">🎬 A really cool website made by a bunch of nerdy,geeky but cool students 🎬</h3>
 
-![-----------------------------------------------------](https://th.bing.com/th/id/R.807af647198c38b2cd6edd8eaa6bb45d?rik=UNelPpm4IBbBzA&pid=ImgRaw)
 
 
 <h1 align="center"> 👨‍💻 Contributers 👩‍💻 </h1>
