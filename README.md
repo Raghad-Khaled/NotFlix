@@ -40,20 +40,20 @@
  
  <table align="center">
   <tr>
-    <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(260).png" align="center" alt=""/><br /><br />
+    <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(260).png"  width="600px;" align="center" alt=""/><br /><br />
     </td>
     </tr>
 <tr>
   <tr>
-    <td align="center"><img src="https://github.com/DoniaEsawi/NotFlix/blob/main/ezgif-6-7e49ffef7dbd.gif"  align="center" alt=""/><br /><br />
+    <td align="center"><img src="https://github.com/DoniaEsawi/NotFlix/blob/main/ezgif-6-7e49ffef7dbd.gif"  width="600px;" align="center" alt=""/><br /><br />
     </td>
     </tr>
 <tr>
-    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" align="center" alt=""/><br /><br />
+    <td align="center"><img src="https://i.ibb.co/HNxGhbN/ezgif-com-gif-maker-1.gif" align="center"  width="600px;" alt=""/><br /><br />
     </td>
  </tr>
  <tr>
-  <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(263).png" align="center"  alt=""/><br /><br />
+  <td align="center"><img src="https://raw.githubusercontent.com/DoniaEsawi/NotFlix/main/Screenshot%20(263).png"  width="600px;" align="center"  alt=""/><br /><br />
     </td> 
  </tr>
 
